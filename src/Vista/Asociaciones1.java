@@ -1,41 +1,35 @@
 package Vista;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.Color;
-import javax.swing.UIManager;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
-import javax.swing.SwingConstants;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JProgressBar;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+import ClasesTabla.Asociacion;
 import Controlador.Controlador;
 import Controlador.ControladorImpl;
 import Modelo.Modelo;
 import Modelo.ModeloImpl;
 
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Font;
-import java.awt.SystemColor;
-import javax.swing.ScrollPaneConstants;
-import javax.swing.JComboBox;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
-
 public class Asociaciones1 extends JFrame implements Vista {
 
 	private ControladorImpl controlador = new ControladorImpl();
-	private ModeloImpl modelo=new ModeloImpl();
+	private ModeloImpl modelo = new ModeloImpl();
 
 	private JPanel contentPane;
 	private JTable table;
@@ -49,6 +43,7 @@ public class Asociaciones1 extends JFrame implements Vista {
 	private JTextField textField_8;
 	private JTable table_1;
 	private JTextField textField_7;
+	private JScrollPane scrollPane;
 
 	/**
 	 * ctt Launch the application.
@@ -122,49 +117,23 @@ public class Asociaciones1 extends JFrame implements Vista {
 		button_4.setBackground(new Color(119, 136, 153));
 		button_4.setBounds(0, 111, 122, 23);
 		panel_1.add(button_4);
-		
-				JButton btnMenu = new JButton("Menu");
-				btnMenu.setBounds(0, 450, 122, 23);
-				panel_1.add(btnMenu);
-				btnMenu.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent arg0) {
-						controlador.pasarMenuInicio();
-						dispose();
-					}
-				});
-				btnMenu.setForeground(Color.WHITE);
-				btnMenu.setFont(new Font("Tahoma", Font.BOLD, 11));
-				btnMenu.setBackground(new Color(119, 136, 153));
 
-		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(134, 157, 358, 317);
-		contentPane.add(scrollPane_1);
-		
-		table_1 = new JTable();
-		table_1.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-			},
-			new String[] {
-				"Id", "Nombre", "Fecha", "Tipo"
+		JButton btnMenu = new JButton("Menu");
+		btnMenu.setBounds(0, 450, 122, 23);
+		panel_1.add(btnMenu);
+		btnMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controlador.pasarMenuInicio();
+				dispose();
 			}
-		));
-		scrollPane_1.setViewportView(table_1);
+		});
+		btnMenu.setForeground(Color.WHITE);
+		btnMenu.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnMenu.setBackground(new Color(119, 136, 153));
+
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(134, 157, 358, 317);
+		contentPane.add(scrollPane);
 
 		JLabel label_1 = new JLabel("Nombre");
 		label_1.setBounds(534, 166, 65, 14);
@@ -223,158 +192,156 @@ public class Asociaciones1 extends JFrame implements Vista {
 		comboBox.setToolTipText("");
 		comboBox.setBounds(606, 373, 105, 20);
 		contentPane.add(comboBox);
-		
-		table_1=controlador.datos();
-		scrollPane_1.setViewportView(table_1);
-		
-				JPanel panel = new JPanel();
-				panel.setBackground(new Color(100, 149, 237));
-				panel.setBounds(127, 0, 600, 150);
-				contentPane.add(panel);
-				
-				JLabel label = new JLabel("Busqueda:");
-				label.setFont(new Font("Tahoma", Font.BOLD, 12));
-				
-				JLabel label_3 = new JLabel("ID:");
-				
-				JLabel label_5 = new JLabel("Nombre:");
-				
-				textField = new JTextField();
-				textField.setColumns(10);
-				
-				textField_3 = new JTextField();
-				textField_3.setColumns(10);
-				
-				JLabel label_6 = new JLabel("Tipo:");
-				
-				JComboBox comboBox_1 = new JComboBox();
-				
-				JLabel lblCif = new JLabel("CIF:");
-				
-				textField_8 = new JTextField();
-				textField_8.setColumns(10);
-				
-				JButton button = new JButton("Buscar");
-				
-				JButton button_6 = new JButton("Modificar");
-				
-				JButton button_7 = new JButton("Eliminar");
-				
-						JLabel lblAsociaciones = new JLabel("Asociaciones");
-						lblAsociaciones.setFont(new Font("Times New Roman", Font.PLAIN, 32));
-						lblAsociaciones.setForeground(new Color(255, 255, 255));
-				GroupLayout gl_panel = new GroupLayout(panel);
-				gl_panel.setHorizontalGroup(
-					gl_panel.createParallelGroup(Alignment.LEADING)
-						.addGap(0, 600, Short.MAX_VALUE)
+
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(100, 149, 237));
+		panel.setBounds(127, 0, 600, 150);
+		contentPane.add(panel);
+
+		JLabel label = new JLabel("Busqueda:");
+		label.setFont(new Font("Tahoma", Font.BOLD, 12));
+
+		JLabel label_3 = new JLabel("ID:");
+
+		JLabel label_5 = new JLabel("Nombre:");
+
+		textField = new JTextField();
+		textField.setColumns(10);
+
+		textField_3 = new JTextField();
+		textField_3.setColumns(10);
+
+		JLabel label_6 = new JLabel("Tipo:");
+
+		JComboBox comboBox_1 = new JComboBox();
+
+		JLabel lblCif = new JLabel("CIF:");
+
+		textField_8 = new JTextField();
+		textField_8.setColumns(10);
+
+		JButton button = new JButton("Buscar");
+
+		JButton button_6 = new JButton("Modificar");
+
+		JButton button_7 = new JButton("Eliminar");
+
+		JLabel lblAsociaciones = new JLabel("Asociaciones");
+		lblAsociaciones.setFont(new Font("Times New Roman", Font.PLAIN, 32));
+		lblAsociaciones.setForeground(new Color(255, 255, 255));
+		GroupLayout gl_panel = new GroupLayout(panel);
+		gl_panel.setHorizontalGroup(gl_panel.createParallelGroup(Alignment.LEADING).addGap(0, 600, Short.MAX_VALUE)
+				.addGroup(gl_panel.createSequentialGroup().addContainerGap().addGroup(gl_panel
+						.createParallelGroup(Alignment.LEADING)
+						.addComponent(label, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_panel.createSequentialGroup()
-							.addContainerGap()
-							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-								.addComponent(label, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
-								.addGroup(gl_panel.createSequentialGroup()
-									.addComponent(label_3, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE)
-									.addGap(6)
-									.addComponent(textField, GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE)
-									.addGap(25)
-									.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-										.addGroup(gl_panel.createSequentialGroup()
-											.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-												.addGroup(gl_panel.createSequentialGroup()
-													.addGap(43)
-													.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE))
+								.addComponent(label_3, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE)
+								.addGap(6)
+								.addComponent(textField, GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE)
+								.addGap(25)
+								.addGroup(gl_panel.createParallelGroup(Alignment.LEADING).addGroup(gl_panel
+										.createSequentialGroup()
+										.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+												.addGroup(gl_panel.createSequentialGroup().addGap(43).addComponent(
+														comboBox_1, GroupLayout.PREFERRED_SIZE, 81,
+														GroupLayout.PREFERRED_SIZE))
 												.addComponent(label_6))
-											.addGap(155)
-											.addComponent(button_6))
-										.addComponent(lblAsociaciones, GroupLayout.PREFERRED_SIZE, 210, GroupLayout.PREFERRED_SIZE)))
-								.addGroup(gl_panel.createSequentialGroup()
-									.addComponent(label_5, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
-									.addGap(12)
-									.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE)
-									.addGap(25)
-									.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-										.addGroup(gl_panel.createSequentialGroup()
-											.addGap(43)
-											.addComponent(textField_8, GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE))
-										.addComponent(lblCif))
-									.addGap(40)
-									.addComponent(button)
-									.addGap(28)
-									.addComponent(button_7)))
-							.addContainerGap(67, Short.MAX_VALUE))
-				);
-				gl_panel.setVerticalGroup(
-					gl_panel.createParallelGroup(Alignment.LEADING)
+										.addGap(155).addComponent(button_6)).addComponent(lblAsociaciones,
+												GroupLayout.PREFERRED_SIZE, 210, GroupLayout.PREFERRED_SIZE)))
 						.addGroup(gl_panel.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(lblAsociaciones, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addComponent(label)
-							.addGap(11)
-							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_panel.createSequentialGroup()
-									.addGap(4)
-									.addComponent(label_3))
-								.addComponent(textField, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-								.addGroup(gl_panel.createSequentialGroup()
-									.addGap(1)
-									.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-										.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-										.addGroup(gl_panel.createSequentialGroup()
-											.addGap(3)
-											.addComponent(label_6))))
-								.addComponent(button_6))
-							.addGap(10)
-							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-								.addComponent(label_5)
+								.addComponent(label_5, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
+								.addGap(12)
+								.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE)
+								.addGap(25)
+								.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+										.addGroup(gl_panel.createSequentialGroup().addGap(43).addComponent(textField_8,
+												GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE))
+										.addComponent(lblCif))
+								.addGap(40).addComponent(button).addGap(28).addComponent(button_7)))
+						.addContainerGap(67, Short.MAX_VALUE)));
+		gl_panel.setVerticalGroup(gl_panel.createParallelGroup(Alignment.LEADING).addGroup(gl_panel
+				.createSequentialGroup().addContainerGap()
+				.addComponent(lblAsociaciones, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
+				.addPreferredGap(ComponentPlacement.RELATED)
+				.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+				.addComponent(label).addGap(11)
+				.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel.createSequentialGroup().addGap(4).addComponent(label_3))
+						.addComponent(textField, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_panel.createSequentialGroup().addGap(1)
+								.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+										.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)
+										.addGroup(gl_panel.createSequentialGroup().addGap(3).addComponent(label_6))))
+						.addComponent(button_6))
+				.addGap(10)
+				.addGroup(
+						gl_panel.createParallelGroup(Alignment.LEADING).addComponent(label_5)
 								.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
 								.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-									.addComponent(textField_8, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-									.addComponent(lblCif))
-								.addGroup(gl_panel.createSequentialGroup()
-									.addGap(1)
-									.addComponent(button))
-								.addGroup(gl_panel.createSequentialGroup()
-									.addGap(1)
-									.addComponent(button_7)))
-							.addContainerGap())
-				);
-				panel.setLayout(gl_panel);
-				
-				textField_7 = new JTextField();
-				textField_7.setColumns(10);
-				textField_7.setBounds(534, 345, 177, 20);
-				contentPane.add(textField_7);
-				
-				JButton button_5 = new JButton("A\u00F1adir/Modificar");
-				button_5.setBounds(534, 401, 177, 23);
-				contentPane.add(button_5);
-				
-				JButton button_8 = new JButton("Hist\u00F3rico");
-				button_8.setBounds(534, 435, 177, 23);
-				contentPane.add(button_8);
-				
-				JButton button_9 = new JButton("Eliminar");
-				button_9.setBounds(534, 469, 177, 23);
-				contentPane.add(button_9);
+										.addComponent(textField_8, GroupLayout.PREFERRED_SIZE, 23,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(lblCif))
+								.addGroup(gl_panel.createSequentialGroup().addGap(1).addComponent(button))
+								.addGroup(gl_panel.createSequentialGroup().addGap(1).addComponent(button_7)))
+				.addContainerGap()));
+		panel.setLayout(gl_panel);
+
+		textField_7 = new JTextField();
+		textField_7.setColumns(10);
+		textField_7.setBounds(534, 345, 177, 20);
+		contentPane.add(textField_7);
+
+		JButton button_5 = new JButton("A\u00F1adir/Modificar");
+		button_5.setBounds(534, 401, 177, 23);
+		contentPane.add(button_5);
+
+		JButton button_8 = new JButton("Hist\u00F3rico");
+		button_8.setBounds(534, 435, 177, 23);
+		contentPane.add(button_8);
+
+		JButton button_9 = new JButton("Eliminar");
+		button_9.setBounds(534, 469, 177, 23);
+		contentPane.add(button_9);
+
+		// tabla
+//		table_1 = controlador.datos();
+		//scrollPane.setViewportView(table_1);
+	}
+
+	public void actualizarTabla(){
+		ArrayList<Asociacion> a=modelo.getA();
+		DefaultTableModel model = new DefaultTableModel(){
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
+		};
+		System.out.println("hola Sergio!");
+		model.addColumn("ID");
+		model.addColumn("Nombre");
+		model.addColumn("CIF");
+		model.addColumn("Direccion");
+		model.addColumn("CP");
+		model.addColumn("email");
+		model.addColumn("telefono");
+		for (int i = 0; i < a.size(); i++) {
+			model.addRow(new Object[] { a.get(i).getId(), a.get(i).getNombre(), a.get(i).getCif(),
+					a.get(i).getDireccion(), a.get(i).getCp(), a.get(i).getEmail(), a.get(i).getTelefono() });
+		}
+
+		table_1 = new JTable(model);
+		scrollPane.setViewportView(table_1);
 	}
 
 	@Override
 	public void setControlador(Controlador controlador) {
-		this.controlador=(ControladorImpl)controlador;
+		this.controlador = (ControladorImpl) controlador;
 	}
-
 
 	@Override
 	public void setModelo(Modelo modelo) {
-		this.modelo=(ModeloImpl)modelo;
+		this.modelo = (ModeloImpl) modelo;
 	}
 
-	public JTable getTable() {
-		return table;
-	}
-
-	public void setTable(JTable table) {
-		this.table = table;
-	}
 }
