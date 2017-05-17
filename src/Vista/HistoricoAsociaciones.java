@@ -28,6 +28,7 @@ public class HistoricoAsociaciones extends JFrame implements Vista{
 	private JTable table_1;
 	private JTable table_2;
 
+	
 	/**
 	 * Launch the application.
 	 */
