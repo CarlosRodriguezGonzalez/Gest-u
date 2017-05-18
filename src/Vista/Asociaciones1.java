@@ -4,9 +4,13 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -14,11 +18,17 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
+import com.toedter.calendar.JDateChooser;
 
 import ClasesTabla.Asociacion;
 import Controlador.Controlador;
@@ -32,18 +42,16 @@ public class Asociaciones1 extends JFrame implements Vista {
 	private ModeloImpl modelo = new ModeloImpl();
 
 	private JPanel contentPane;
-	private JTable table;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField;
-	private JTextField textField_3;
-	private JTextField textField_8;
+	
 	private JTable table_1;
-	private JTextField textField_7;
+
 	private JScrollPane scrollPane;
+	private JTextField txtNombre;
+	private JTextField txtNifcif;
+	private JTextField txtAltaDesde;
+	private JTextField txtAltaHasta;
+	private JTextField txtCif;
+	private JTextField txtTipo;
 
 	/**
 	 * ctt Launch the application.
@@ -54,256 +62,389 @@ public class Asociaciones1 extends JFrame implements Vista {
 	 */
 	public Asociaciones1() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 743, 540);
+		setBounds(100, 100, 910, 572);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 910, 550);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
 		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(0, 18, 50));
+		panel_1.setBounds(0, 0, 83, 550);
+		panel.add(panel_1);
 		panel_1.setLayout(null);
-		panel_1.setBackground(new Color(100, 149, 237));
-		panel_1.setBounds(0, 0, 122, 502);
-		contentPane.add(panel_1);
-
-		JButton button_1 = new JButton("Asociaciones");
-		button_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		
+		JLabel label_1 = new JLabel("");
+		label_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 				controlador.pasarAsociaciones();
 				dispose();
 			}
 		});
-		button_1.setForeground(Color.WHITE);
-		button_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		button_1.setBackground(new Color(112, 128, 144));
-		button_1.setBounds(0, 77, 122, 23);
-		panel_1.add(button_1);
-
-		JButton button_2 = new JButton("Esp Municipales");
-		button_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlador.pasarEspacioMunicipal();
-				dispose();
-			}
-		});
-		button_2.setForeground(Color.WHITE);
-		button_2.setFont(new Font("Tahoma", Font.BOLD, 11));
-		button_2.setBackground(new Color(119, 136, 153));
-		button_2.setBounds(0, 145, 122, 23);
-		panel_1.add(button_2);
-
-		JButton button_3 = new JButton("Subvenciones");
-		button_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		label_1.setBounds(18, 83, 45, 55);
+		label_1.setIcon(new ImageIcon("/Users/sergio/Downloads/User Groups-40.png"));
+		panel_1.add(label_1);
+		
+		JLabel lblNewLabel_4 = new JLabel("");
+		lblNewLabel_4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 				controlador.pasarSubvenciones();
 				dispose();
 			}
 		});
-		button_3.setForeground(Color.WHITE);
-		button_3.setFont(new Font("Tahoma", Font.BOLD, 11));
-		button_3.setBackground(new Color(119, 136, 153));
-		button_3.setBounds(0, 179, 122, 23);
-		panel_1.add(button_3);
-
-		JButton button_4 = new JButton("Actividades");
-		button_4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		lblNewLabel_4.setIcon(new ImageIcon("/Users/sergio/Downloads/Coins-40.png"));
+		lblNewLabel_4.setBounds(18, 160, 45, 40);
+		panel_1.add(lblNewLabel_4);
+		
+		JLabel lblNewLabel_5 = new JLabel("");
+		lblNewLabel_5.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 				controlador.pasarActividad();
 				dispose();
 			}
 		});
-		button_4.setForeground(Color.WHITE);
-		button_4.setFont(new Font("Tahoma", Font.BOLD, 11));
-		button_4.setBackground(new Color(119, 136, 153));
-		button_4.setBounds(0, 111, 122, 23);
-		panel_1.add(button_4);
-
-		JButton btnMenu = new JButton("Menu");
-		btnMenu.setBounds(0, 450, 122, 23);
-		panel_1.add(btnMenu);
-		btnMenu.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+		lblNewLabel_5.setIcon(new ImageIcon("/Users/sergio/Downloads/Activity Feed Filled-40.png"));
+		lblNewLabel_5.setBounds(18, 231, 61, 40);
+		panel_1.add(lblNewLabel_5);
+		
+		JLabel lblNewLabel_6 = new JLabel("");
+		lblNewLabel_6.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				controlador.pasarEspacioMunicipal();
+				dispose();
+			}
+		});
+		lblNewLabel_6.setIcon(new ImageIcon("/Users/sergio/Downloads/Park Bench-40.png"));
+		lblNewLabel_6.setBounds(18, 301, 61, 40);
+		panel_1.add(lblNewLabel_6);
+		
+		JLabel label_4 = new JLabel("");
+		label_4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 				controlador.pasarMenuInicio();
 				dispose();
 			}
 		});
-		btnMenu.setForeground(Color.WHITE);
-		btnMenu.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnMenu.setBackground(new Color(119, 136, 153));
+		label_4.setIcon(new ImageIcon("/Users/sergio/Downloads/Top Menu-40.png"));
+		label_4.setBounds(18, 16, 45, 55);
+		panel_1.add(label_4);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBorder(null);
+		panel_2.setForeground(new Color(192, 192, 192));
+		panel_2.setBackground(new Color(32, 47, 90));
+		panel_2.setBounds(81, 254, 829, 296);
+		panel.add(panel_2);
+		panel_2.setLayout(null);
+		
+				scrollPane = new JScrollPane();
+				scrollPane.setBounds(22, 20, 771, 258);
+				panel_2.add(scrollPane);
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(new Color(240, 240, 240));
+		panel_3.setBounds(81, 59, 829, 196);
+		panel.add(panel_3);
+		panel_3.setLayout(null);
+		
+		JLabel lblTorri = new JLabel("Gest-U v0.2");
+		lblTorri.setBounds(627, 6, 181, 40);
+		lblTorri.setFont(new Font("Segoe UI", Font.PLAIN, 37));
+		panel_3.add(lblTorri);
+		
+		JLabel lblSloganTorrismart = new JLabel("Experts on management");
+		lblSloganTorrismart.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		lblSloganTorrismart.setBounds(633, 39, 175, 26);
+		panel_3.add(lblSloganTorrismart);
+		
+		txtNombre = new JTextField();
+		txtNombre.setForeground(new Color(128,128,128));
+		txtNombre.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtNombre.setText("");
+			}
+		});
+		txtNombre.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtNombre.setText("Asociación");
+		txtNombre.setBackground(new Color(240, 240, 240));
+		txtNombre.setBorder(null);
+		txtNombre.setBounds(28, 103, 56, 16);
+		panel_3.add(txtNombre);
+		txtNombre.setColumns(10);
+		
+		txtNifcif = new JTextField();
+		txtNifcif.setForeground(new Color(128,128,128));
+		txtNifcif.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtNifcif.setText("");
+			}
+		});
+		txtNifcif.setText("Identificador");
+		txtNifcif.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		txtNifcif.setColumns(10);
+		txtNifcif.setBorder(null);
+		txtNifcif.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
+		txtNifcif.setBounds(28, 75, 64, 16);
+		panel_3.add(txtNifcif);
+		
+		
+		
+		txtAltaDesde = new JTextField();
+		txtAltaDesde.setForeground(new Color(128,128,128));
+		txtAltaDesde.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtAltaDesde.setText("");
+			}
+		});
+		txtAltaDesde.setText("Alta desde");
+		txtAltaDesde.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		txtAltaDesde.setColumns(10);
+		txtAltaDesde.setBorder(null);
+		txtAltaDesde.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
+		txtAltaDesde.setBounds(250, 75, 100, 16);
+		panel_3.add(txtAltaDesde);
+		
+		txtAltaHasta = new JTextField();
+		txtAltaHasta.setForeground(new Color(128,128,128));
+		txtAltaHasta.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtAltaHasta.setText("");
+			}
+		});
+		txtAltaHasta.setText("Alta hasta");
+		txtAltaHasta.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		txtAltaHasta.setColumns(10);
+		txtAltaHasta.setBorder(null);
+		txtAltaHasta.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
+		txtAltaHasta.setBounds(250, 104, 100, 16);
+		panel_3.add(txtAltaHasta);
+		
 
-		scrollPane = new JScrollPane();
-		scrollPane.setBounds(134, 157, 358, 317);
-		contentPane.add(scrollPane);
 
-		JLabel label_1 = new JLabel("Nombre");
-		label_1.setBounds(534, 166, 65, 14);
-		contentPane.add(label_1);
-
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(606, 163, 105, 20);
-		contentPane.add(textField_1);
-
-		JLabel label_2 = new JLabel("CIF");
-		label_2.setBounds(534, 191, 73, 14);
-		contentPane.add(label_2);
-
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(606, 188, 105, 20);
-		contentPane.add(textField_2);
-
-		JLabel lblCpostal = new JLabel("CP");
-		lblCpostal.setBounds(534, 219, 86, 14);
-		contentPane.add(lblCpostal);
-
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(606, 216, 105, 20);
-		contentPane.add(textField_4);
-
-		JLabel label_4 = new JLabel("Direcci\u00F3n");
-		label_4.setBounds(534, 272, 92, 14);
-		contentPane.add(label_4);
-
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(534, 291, 177, 20);
-		contentPane.add(textField_5);
-
-		JLabel lblTelfono = new JLabel("Tel\u00E9fono");
-		lblTelfono.setBounds(534, 247, 92, 14);
-		contentPane.add(lblTelfono);
-
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-		textField_6.setBounds(606, 241, 105, 20);
-		contentPane.add(textField_6);
-
-		JLabel label_7 = new JLabel("E-mail");
-		label_7.setBounds(534, 322, 56, 14);
-		contentPane.add(label_7);
-
-		JLabel lblTipo = new JLabel("Tipo");
-		lblTipo.setBounds(534, 376, 65, 14);
-		contentPane.add(lblTipo);
-
+		
+		JPanel panel_7 = new JPanel();
+		panel_7.setLayout(null);
+		panel_7.setBackground(new Color(189,195,199));
+		panel_7.setBounds(683, 89, 125, 40);
+		panel_3.add(panel_7);
+		
+		JLabel lblPreimpresos = new JLabel("PREIMPRESOS");
+		lblPreimpresos.setIcon(new ImageIcon("/Users/sergio/Downloads/Paper-30.png"));
+		lblPreimpresos.setForeground(Color.WHITE);
+		lblPreimpresos.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		lblPreimpresos.setBounds(6, 6, 122, 28);
+		panel_7.add(lblPreimpresos);
+		
+		JPanel panel_6 = new JPanel();
+		panel_6.setLayout(null);
+		panel_6.setBackground(new Color(189, 195, 199));
+		panel_6.setBounds(546, 89, 125, 40);
+		panel_3.add(panel_6);
+		
+		JLabel lblConfiguracin = new JLabel("AÑADIR");
+		lblConfiguracin.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//TODO
+				dispose();
+			}
+		});
+		lblConfiguracin.setIcon(new ImageIcon("/Users/sergio/Downloads/Add Property-30.png"));
+		lblConfiguracin.setForeground(Color.WHITE);
+		lblConfiguracin.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		lblConfiguracin.setBounds(17, 0, 88, 40);
+		panel_6.add(lblConfiguracin);
+		
+		
+		JPanel panel_8 = new JPanel();
+		panel_8.setLayout(null);
+		panel_8.setBackground(new Color(189, 195, 199));
+		panel_8.setBounds(28, 139, 150, 40);
+		panel_3.add(panel_8);
+		
+		JLabel label_2 = new JLabel("    CONSULTAR");
+		label_2.setIcon(new ImageIcon("/Users/sergio/Downloads/Search Property-30.png"));
+		label_2.setForeground(Color.WHITE);
+		label_2.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		label_2.setBounds(13, 0, 131, 40);
+		panel_8.add(label_2);
+		
+		JDateChooser dateChooser = new JDateChooser();
+		dateChooser.setBounds(352, 75, 28, 26);
+		panel_3.add(dateChooser);
+		
+		JDateChooser dateChooser_1 = new JDateChooser();
+		dateChooser_1.setBounds(352, 103, 28, 26);
+		panel_3.add(dateChooser_1);
+		
+		JSeparator separator_5 = new JSeparator();
+		separator_5.setOrientation(SwingConstants.VERTICAL);
+		separator_5.setBounds(410, 28, 21, 150);
+		panel_3.add(separator_5);
+		
+		JSeparator separator_6 = new JSeparator();
+		separator_6.setForeground(new Color(128,128,128));
+		separator_6.setBounds(28, 90, 194, 16);
+		panel_3.add(separator_6);
+		
+		JSeparator separator_2 = new JSeparator();
+		separator_2.setForeground(Color.GRAY);
+		separator_2.setBounds(250, 89, 100, 16);
+		panel_3.add(separator_2);
+		
+		JSeparator separator_3 = new JSeparator();
+		separator_3.setForeground(Color.GRAY);
+		separator_3.setBounds(28, 117, 197, 16);
+		panel_3.add(separator_3);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setForeground(Color.GRAY);
+		separator_1.setBounds(250, 117, 100, 16);
+		panel_3.add(separator_1);
+		
+		JPanel panel_5 = new JPanel();
+		panel_5.setLayout(null);
+		panel_5.setBackground(new Color(189, 195, 199));
+		panel_5.setBounds(546, 141, 125, 40);
+		panel_3.add(panel_5);
+		
+		JLabel lblBajaAsociacin = new JLabel("BORRAR");
+		lblBajaAsociacin.setIcon(new ImageIcon("/Users/sergio/Downloads/Delete Property-30 (1).png"));
+		lblBajaAsociacin.setForeground(Color.WHITE);
+		lblBajaAsociacin.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		lblBajaAsociacin.setBounds(16, 0, 87, 40);
+		panel_5.add(lblBajaAsociacin);
+		
+		JPanel panel_9 = new JPanel();
+		panel_9.setLayout(null);
+		panel_9.setBackground(new Color(189, 195, 199));
+		panel_9.setBounds(683, 141, 125, 40);
+		panel_3.add(panel_9);
+		
+		JLabel lblHistrico = new JLabel("HISTÓRICO");
+		lblHistrico.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//TODO
+			}
+		});
+		lblHistrico.setIcon(new ImageIcon("/Users/sergio/Downloads/News-30.png"));
+		lblHistrico.setForeground(Color.WHITE);
+		lblHistrico.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		lblHistrico.setBounds(6, 0, 102, 40);
+		panel_9.add(lblHistrico);
+		
+		txtCif = new JTextField();
+		txtCif.setText("CIF");
+		txtCif.setForeground(Color.GRAY);
+		txtCif.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		txtCif.setColumns(10);
+		txtCif.setBorder(null);
+		txtCif.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
+		txtCif.setBounds(250, 46, 64, 16);
+		panel_3.add(txtCif);
+		
+		JSeparator separator_4 = new JSeparator();
+		separator_4.setForeground(Color.GRAY);
+		separator_4.setBounds(250, 61, 100, 16);
+		panel_3.add(separator_4);
+		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setToolTipText("");
-		comboBox.setBounds(606, 373, 105, 20);
-		contentPane.add(comboBox);
+		comboBox.setBounds(54, 41, 168, 27);
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"-- Seleccione --", "Deporte", "Cultural", "Social", "Juvenil"}));
+		panel_3.add(comboBox);
+		
+		txtTipo = new JTextField();
+		txtTipo.setText("Tipo");
+		txtTipo.setForeground(Color.GRAY);
+		txtTipo.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		txtTipo.setColumns(10);
+		txtTipo.setBorder(null);
+		txtTipo.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
+		txtTipo.setBounds(28, 39, 64, 26);
+		panel_3.add(txtTipo);
+		
+		JLabel label_3 = new JLabel("Filtros de búsqueda");
+		label_3.setForeground(new Color(105, 105, 105));
+		label_3.setFont(new Font("Segoe UI", Font.BOLD, 15));
+		label_3.setBounds(28, 6, 121, 32);
+		panel_3.add(label_3);
+		
+		JPanel panel_4 = new JPanel();
+		panel_4.setBackground(Color.WHITE);
+		panel_4.setBounds(81, 0, 829, 59);
+		panel.add(panel_4);
+		panel_4.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(16, 6, 40, 40);
+		lblNewLabel.setIcon(new ImageIcon("/Users/sergio/Downloads/User Groups-35.png"));
+		panel_4.add(lblNewLabel);
+		
+		JLabel lblBsqueda = new JLabel("Asociaciones");
+		lblBsqueda.setBounds(65, 6, 131, 36);
+		lblBsqueda.setForeground(new Color(128, 128, 128));
+		lblBsqueda.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+		panel_4.add(lblBsqueda);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(63, 34, 131, 12);
+		panel_4.add(separator);
+		
+		JLabel label = new JLabel("");
+		label.setBounds(633, 6, 40, 40);
+		label.setIcon(new ImageIcon("/Users/sergio/Downloads/User-40 (2).png"));
+		panel_4.add(label);
+		
+		JLabel lblUsuario = new JLabel("Usuario");
+		lblUsuario.setBounds(675, 6, 76, 40);
+		lblUsuario.setForeground(new Color(128, 128, 128));
+		lblUsuario.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+		panel_4.add(lblUsuario);
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				controlador.pasarLogin();
+				dispose();
+			}
+		});
+		lblNewLabel_2.setBounds(781, 6, 40, 40);
+		lblNewLabel_2.setIcon(new ImageIcon("/Users/sergio/Downloads/Exit-35.png"));
+		panel_4.add(lblNewLabel_2);
 
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(100, 149, 237));
-		panel.setBounds(127, 0, 600, 150);
-		contentPane.add(panel);
-
-		JLabel label = new JLabel("Busqueda:");
-		label.setFont(new Font("Tahoma", Font.BOLD, 12));
-
-		JLabel label_3 = new JLabel("ID:");
-
-		JLabel label_5 = new JLabel("Nombre:");
-
-		textField = new JTextField();
-		textField.setColumns(10);
-
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-
-		JLabel label_6 = new JLabel("Tipo:");
-
-		JComboBox comboBox_1 = new JComboBox();
-
-		JLabel lblCif = new JLabel("CIF:");
-
-		textField_8 = new JTextField();
-		textField_8.setColumns(10);
-
-		JButton button = new JButton("Buscar");
-
-		JButton button_6 = new JButton("Modificar");
-
-		JButton button_7 = new JButton("Eliminar");
-
-		JLabel lblAsociaciones = new JLabel("Asociaciones");
-		lblAsociaciones.setFont(new Font("Times New Roman", Font.PLAIN, 32));
-		lblAsociaciones.setForeground(new Color(255, 255, 255));
-		GroupLayout gl_panel = new GroupLayout(panel);
-		gl_panel.setHorizontalGroup(gl_panel.createParallelGroup(Alignment.LEADING).addGap(0, 600, Short.MAX_VALUE)
-				.addGroup(gl_panel.createSequentialGroup().addContainerGap().addGroup(gl_panel
-						.createParallelGroup(Alignment.LEADING)
-						.addComponent(label, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_panel.createSequentialGroup()
-								.addComponent(label_3, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE)
-								.addGap(6)
-								.addComponent(textField, GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE)
-								.addGap(25)
-								.addGroup(gl_panel.createParallelGroup(Alignment.LEADING).addGroup(gl_panel
-										.createSequentialGroup()
-										.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-												.addGroup(gl_panel.createSequentialGroup().addGap(43).addComponent(
-														comboBox_1, GroupLayout.PREFERRED_SIZE, 81,
-														GroupLayout.PREFERRED_SIZE))
-												.addComponent(label_6))
-										.addGap(155).addComponent(button_6)).addComponent(lblAsociaciones,
-												GroupLayout.PREFERRED_SIZE, 210, GroupLayout.PREFERRED_SIZE)))
-						.addGroup(gl_panel.createSequentialGroup()
-								.addComponent(label_5, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
-								.addGap(12)
-								.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE)
-								.addGap(25)
-								.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-										.addGroup(gl_panel.createSequentialGroup().addGap(43).addComponent(textField_8,
-												GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE))
-										.addComponent(lblCif))
-								.addGap(40).addComponent(button).addGap(28).addComponent(button_7)))
-						.addContainerGap(67, Short.MAX_VALUE)));
-		gl_panel.setVerticalGroup(gl_panel.createParallelGroup(Alignment.LEADING).addGroup(gl_panel
-				.createSequentialGroup().addContainerGap()
-				.addComponent(lblAsociaciones, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(ComponentPlacement.RELATED)
-				.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-				.addComponent(label).addGap(11)
-				.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel.createSequentialGroup().addGap(4).addComponent(label_3))
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_panel.createSequentialGroup().addGap(1)
-								.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-										.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-												GroupLayout.PREFERRED_SIZE)
-										.addGroup(gl_panel.createSequentialGroup().addGap(3).addComponent(label_6))))
-						.addComponent(button_6))
-				.addGap(10)
-				.addGroup(
-						gl_panel.createParallelGroup(Alignment.LEADING).addComponent(label_5)
-								.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-								.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-										.addComponent(textField_8, GroupLayout.PREFERRED_SIZE, 23,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(lblCif))
-								.addGroup(gl_panel.createSequentialGroup().addGap(1).addComponent(button))
-								.addGroup(gl_panel.createSequentialGroup().addGap(1).addComponent(button_7)))
-				.addContainerGap()));
-		panel.setLayout(gl_panel);
-
-		textField_7 = new JTextField();
-		textField_7.setColumns(10);
-		textField_7.setBounds(534, 345, 177, 20);
-		contentPane.add(textField_7);
-
-		JButton button_5 = new JButton("A\u00F1adir/Modificar");
-		button_5.setBounds(534, 401, 177, 23);
-		contentPane.add(button_5);
-
-		JButton button_8 = new JButton("Hist\u00F3rico");
-		button_8.setBounds(534, 435, 177, 23);
-		contentPane.add(button_8);
-
-		JButton button_9 = new JButton("Eliminar");
-		button_9.setBounds(534, 469, 177, 23);
-		contentPane.add(button_9);
-
+		
+		table_1 = new JTable();
+		table_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getClickCount()>=2){
+					System.out.println("MIAU:3");
+					table_1.getSelectedRow();
+					
+				}
+				
+			}
+			
+		});
+		
+		
+		scrollPane.setViewportView(table_1);
 		// tabla
 //		table_1 = controlador.datos();
 		//scrollPane.setViewportView(table_1);
@@ -330,7 +471,8 @@ public class Asociaciones1 extends JFrame implements Vista {
 					a.get(i).getDireccion(), a.get(i).getCp(), a.get(i).getEmail(), a.get(i).getTelefono() });
 		}
 
-		table_1 = new JTable(model);
+		table_1.setModel(model);
+		
 		scrollPane.setViewportView(table_1);
 	}
 
@@ -343,5 +485,4 @@ public class Asociaciones1 extends JFrame implements Vista {
 	public void setModelo(Modelo modelo) {
 		this.modelo = (ModeloImpl) modelo;
 	}
-
 }
