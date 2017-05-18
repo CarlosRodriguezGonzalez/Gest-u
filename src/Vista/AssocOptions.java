@@ -20,12 +20,21 @@ import javax.swing.JLayeredPane;
 import java.awt.CardLayout;
 import javax.swing.UIManager;
 import com.toedter.calendar.JDateChooser;
+
+import Controlador.Controlador;
+import Controlador.ControladorImpl;
+import Modelo.Modelo;
+import Modelo.ModeloImpl;
+
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 
-public class AssocOptions extends JFrame {
+public class AssocOptions extends JFrame implements Vista{
 
+	private ControladorImpl controlador;
+	private ModeloImpl modelo;
+	
 	private JPanel contentPane;
 	private JFrame frame;
 	private JTextField txtNombre;
@@ -75,18 +84,6 @@ public class AssocOptions extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AssocOptions frame = new AssocOptions();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
@@ -716,5 +713,15 @@ public class AssocOptions extends JFrame {
 		lblDeLaNueva.setFont(new Font("Segoe UI", Font.BOLD, 12));
 		lblDeLaNueva.setBounds(19, 82, 246, 22);
 		panel_1.add(lblDeLaNueva);
+	}
+	
+	@Override
+	public void setControlador(Controlador controlador) {
+		this.controlador = (ControladorImpl) controlador;
+	}
+
+	@Override
+	public void setModelo(Modelo modelo) {
+		this.modelo = (ModeloImpl) modelo;
 	}
 }
