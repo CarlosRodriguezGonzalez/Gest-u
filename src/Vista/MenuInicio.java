@@ -1,53 +1,31 @@
 package Vista;
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.Image;
-import java.awt.Label;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.Color;
-import java.awt.Container;
-
-import javax.swing.UIManager;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.SwingConstants;
-import javax.swing.JTable;
-import javax.swing.JProgressBar;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JScrollPane;
-import javax.swing.JSeparator;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.ActionEvent;
-import java.awt.Font;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JMenuItem;
-import java.awt.Choice;
-import javax.swing.JTree;
-import javax.swing.Box;
-import javax.swing.ScrollPaneConstants;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.UIManager;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
 import com.toedter.calendar.JDateChooser;
 
 import Controlador.Controlador;
 import Controlador.ControladorImpl;
 import Modelo.Modelo;
 import Modelo.ModeloImpl;
-
-import com.jgoodies.forms.layout.FormSpecs;
-import javax.swing.BoxLayout;
 public class MenuInicio extends JFrame implements Vista {
 
 	private ControladorImpl controlador=new ControladorImpl();
@@ -58,6 +36,7 @@ public class MenuInicio extends JFrame implements Vista {
 	private JTextField txtNifcif;
 	private JTextField txtAltaDesde;
 	private JTextField txtAltaHasta;
+	private JTable table_1;
 
 	/**c
 	 * Launch the application.
@@ -380,7 +359,7 @@ public class MenuInicio extends JFrame implements Vista {
 		lblNewLabel_2.setIcon(new ImageIcon("/Users/sergio/Downloads/Exit-35.png"));
 		panel_4.add(lblNewLabel_2);
 		
-<<<<<<< Upstream, based on origin/master
+
 		//headers for the table
         String[] columns = new String[] {
             "Identificador", "Asociación", "Fecha de alta", "Fecha de baja"
@@ -423,7 +402,7 @@ public class MenuInicio extends JFrame implements Vista {
         table.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         table.setBackground(new Color(106, 116, 145));
         table.setShowGrid(false);
-=======
+
 		JButton btnMiboton = new JButton("MiBoton:)");
 		btnMiboton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -437,7 +416,7 @@ public class MenuInicio extends JFrame implements Vista {
 		table_1 = new JTable();
 		table_1.setBounds(574, 89, 1, 1);
 		contentPane.add(table_1);
->>>>>>> 6500fb1 asdf
+
 	}
 
 	@Override
