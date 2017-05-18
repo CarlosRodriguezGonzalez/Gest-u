@@ -73,7 +73,7 @@ public class MenuInicio extends JFrame implements Vista {
 			}
 		});
 		label_1.setBounds(18, 83, 45, 55);
-		label_1.setIcon(new ImageIcon("/Users/sergio/Downloads/User Groups-40.png"));
+		label_1.setIcon(new ImageIcon("img/header-assoc.png"));
 		panel_1.add(label_1);
 		
 		JLabel lblNewLabel_4 = new JLabel("");
@@ -84,7 +84,7 @@ public class MenuInicio extends JFrame implements Vista {
 				dispose();
 			}
 		});
-		lblNewLabel_4.setIcon(new ImageIcon("/Users/sergio/Downloads/Coins-40.png"));
+		lblNewLabel_4.setIcon(new ImageIcon("img/Coins-40.png"));
 		lblNewLabel_4.setBounds(18, 160, 45, 40);
 		panel_1.add(lblNewLabel_4);
 		
@@ -96,7 +96,7 @@ public class MenuInicio extends JFrame implements Vista {
 				dispose();
 			}
 		});
-		lblNewLabel_5.setIcon(new ImageIcon("/Users/sergio/Downloads/Activity Feed Filled-40.png"));
+		lblNewLabel_5.setIcon(new ImageIcon("img/Activity Feed Filled-40.png"));
 		lblNewLabel_5.setBounds(18, 231, 61, 40);
 		panel_1.add(lblNewLabel_5);
 		
@@ -108,7 +108,7 @@ public class MenuInicio extends JFrame implements Vista {
 				dispose();
 			}
 		});
-		lblNewLabel_6.setIcon(new ImageIcon("/Users/sergio/Downloads/Park Bench-40.png"));
+		lblNewLabel_6.setIcon(new ImageIcon("img/Park Bench-40.png"));
 		lblNewLabel_6.setBounds(18, 301, 61, 40);
 		panel_1.add(lblNewLabel_6);
 		
@@ -120,7 +120,7 @@ public class MenuInicio extends JFrame implements Vista {
 				dispose();
 			}
 		});
-		label_3.setIcon(new ImageIcon("/Users/sergio/Downloads/Top Menu-40.png"));
+		label_3.setIcon(new ImageIcon("img/Top Menu-40.png"));
 		label_3.setBounds(18, 16, 45, 55);
 		panel_1.add(label_3);
 		
@@ -224,7 +224,7 @@ public class MenuInicio extends JFrame implements Vista {
 		panel_3.add(panel_7);
 		
 		JLabel lblPreimpresos = new JLabel("PREIMPRESOS");
-		lblPreimpresos.setIcon(new ImageIcon("/Users/sergio/Downloads/Paper-30.png"));
+		lblPreimpresos.setIcon(new ImageIcon("img/Paper-30.png"));
 		lblPreimpresos.setForeground(Color.WHITE);
 		lblPreimpresos.setFont(new Font("Century Gothic", Font.BOLD, 12));
 		lblPreimpresos.setBounds(6, 6, 169, 28);
@@ -237,7 +237,7 @@ public class MenuInicio extends JFrame implements Vista {
 		panel_3.add(panel_9);
 		
 		JLabel lblNoticias = new JLabel("HISTÓRICO");
-		lblNoticias.setIcon(new ImageIcon("/Users/sergio/Downloads/News-30.png"));
+		lblNoticias.setIcon(new ImageIcon("img/News-30.png"));
 		lblNoticias.setForeground(Color.WHITE);
 		lblNoticias.setFont(new Font("Century Gothic", Font.BOLD, 12));
 		lblNoticias.setBounds(12, 0, 101, 40);
@@ -256,7 +256,7 @@ public class MenuInicio extends JFrame implements Vista {
 				//TODO
 			}
 		});
-		lblConfiguracin.setIcon(new ImageIcon("/Users/sergio/Downloads/Database-30.png"));
+		lblConfiguracin.setIcon(new ImageIcon("img/Database-30.png"));
 		lblConfiguracin.setForeground(Color.WHITE);
 		lblConfiguracin.setFont(new Font("Century Gothic", Font.BOLD, 12));
 		lblConfiguracin.setBounds(12, 0, 141, 40);
@@ -270,7 +270,7 @@ public class MenuInicio extends JFrame implements Vista {
 		panel_3.add(panel_8);
 		
 		JLabel label_2 = new JLabel("    CONSULTAR");
-		label_2.setIcon(new ImageIcon("/Users/sergio/Downloads/Search Property-30.png"));
+		label_2.setIcon(new ImageIcon("img/Search Property-30.png"));
 		label_2.setForeground(Color.WHITE);
 		label_2.setFont(new Font("Century Gothic", Font.BOLD, 12));
 		label_2.setBounds(13, 0, 131, 40);
@@ -323,7 +323,7 @@ public class MenuInicio extends JFrame implements Vista {
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setBounds(16, 6, 40, 40);
-		lblNewLabel.setIcon(new ImageIcon("/Users/sergio/Downloads/User Menu Male Filled-35.png"));
+		lblNewLabel.setIcon(new ImageIcon("img/header-menu.png"));
 		panel_4.add(lblNewLabel);
 		
 		JLabel lblBsqueda = new JLabel("Menú Principal");
@@ -338,7 +338,7 @@ public class MenuInicio extends JFrame implements Vista {
 		
 		JLabel label = new JLabel("");
 		label.setBounds(633, 6, 40, 40);
-		label.setIcon(new ImageIcon("/Users/sergio/Downloads/User-40 (2).png"));
+		label.setIcon(new ImageIcon("img/User-40 (2).png"));
 		panel_4.add(label);
 		
 		JLabel lblUsuario = new JLabel("Usuario");
@@ -356,7 +356,7 @@ public class MenuInicio extends JFrame implements Vista {
 			}
 		});
 		lblNewLabel_2.setBounds(781, 6, 40, 40);
-		lblNewLabel_2.setIcon(new ImageIcon("/Users/sergio/Downloads/Exit-35.png"));
+		lblNewLabel_2.setIcon(new ImageIcon("img/Exit-35.png"));
 		panel_4.add(lblNewLabel_2);
 		
 
@@ -402,16 +402,6 @@ public class MenuInicio extends JFrame implements Vista {
         table.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         table.setBackground(new Color(106, 116, 145));
         table.setShowGrid(false);
-
-		JButton btnMiboton = new JButton("MiBoton:)");
-		btnMiboton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlador.pasarConfiguracion();
-				dispose();
-			}
-		});
-		btnMiboton.setBounds(5, 277, 117, 29);
-		panel_2.add(btnMiboton);
 		
 		table_1 = new JTable();
 		table_1.setBounds(574, 89, 1, 1);

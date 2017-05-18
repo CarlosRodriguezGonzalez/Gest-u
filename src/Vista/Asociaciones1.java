@@ -88,7 +88,7 @@ public class Asociaciones1 extends JFrame implements Vista {
 			}
 		});
 		label_1.setBounds(18, 83, 45, 55);
-		label_1.setIcon(new ImageIcon("/Users/sergio/Downloads/User Groups-40.png"));
+		label_1.setIcon(new ImageIcon("img/User Groups-40.png"));
 		panel_1.add(label_1);
 		
 		JLabel lblNewLabel_4 = new JLabel("");
@@ -99,7 +99,7 @@ public class Asociaciones1 extends JFrame implements Vista {
 				dispose();
 			}
 		});
-		lblNewLabel_4.setIcon(new ImageIcon("/Users/sergio/Downloads/Coins-40.png"));
+		lblNewLabel_4.setIcon(new ImageIcon("img/Coins-40.png"));
 		lblNewLabel_4.setBounds(18, 160, 45, 40);
 		panel_1.add(lblNewLabel_4);
 		
@@ -111,7 +111,7 @@ public class Asociaciones1 extends JFrame implements Vista {
 				dispose();
 			}
 		});
-		lblNewLabel_5.setIcon(new ImageIcon("/Users/sergio/Downloads/Activity Feed Filled-40.png"));
+		lblNewLabel_5.setIcon(new ImageIcon("img/Activity Feed Filled-40.png"));
 		lblNewLabel_5.setBounds(18, 231, 61, 40);
 		panel_1.add(lblNewLabel_5);
 		
@@ -123,7 +123,7 @@ public class Asociaciones1 extends JFrame implements Vista {
 				dispose();
 			}
 		});
-		lblNewLabel_6.setIcon(new ImageIcon("/Users/sergio/Downloads/Park Bench-40.png"));
+		lblNewLabel_6.setIcon(new ImageIcon("img/Park Bench-40.png"));
 		lblNewLabel_6.setBounds(18, 301, 61, 40);
 		panel_1.add(lblNewLabel_6);
 		
@@ -135,7 +135,7 @@ public class Asociaciones1 extends JFrame implements Vista {
 				dispose();
 			}
 		});
-		label_4.setIcon(new ImageIcon("/Users/sergio/Downloads/Top Menu-40.png"));
+		label_4.setIcon(new ImageIcon("img/Top Menu-40.png"));
 		label_4.setBounds(18, 16, 45, 55);
 		panel_1.add(label_4);
 		
@@ -243,7 +243,7 @@ public class Asociaciones1 extends JFrame implements Vista {
 		panel_3.add(panel_7);
 		
 		JLabel lblPreimpresos = new JLabel("PREIMPRESOS");
-		lblPreimpresos.setIcon(new ImageIcon("/Users/sergio/Downloads/Paper-30.png"));
+		lblPreimpresos.setIcon(new ImageIcon("img/Paper-30.png"));
 		lblPreimpresos.setForeground(Color.WHITE);
 		lblPreimpresos.setFont(new Font("Century Gothic", Font.BOLD, 12));
 		lblPreimpresos.setBounds(6, 6, 122, 28);
@@ -263,7 +263,7 @@ public class Asociaciones1 extends JFrame implements Vista {
 				dispose();
 			}
 		});
-		lblConfiguracin.setIcon(new ImageIcon("/Users/sergio/Downloads/Add Property-30.png"));
+		lblConfiguracin.setIcon(new ImageIcon("img/Add Property-30.png"));
 		lblConfiguracin.setForeground(Color.WHITE);
 		lblConfiguracin.setFont(new Font("Century Gothic", Font.BOLD, 12));
 		lblConfiguracin.setBounds(17, 0, 88, 40);
@@ -277,7 +277,7 @@ public class Asociaciones1 extends JFrame implements Vista {
 		panel_3.add(panel_8);
 		
 		JLabel label_2 = new JLabel("    CONSULTAR");
-		label_2.setIcon(new ImageIcon("/Users/sergio/Downloads/Search Property-30.png"));
+		label_2.setIcon(new ImageIcon("img/Search Property-30.png"));
 		label_2.setForeground(Color.WHITE);
 		label_2.setFont(new Font("Century Gothic", Font.BOLD, 12));
 		label_2.setBounds(13, 0, 131, 40);
@@ -323,7 +323,7 @@ public class Asociaciones1 extends JFrame implements Vista {
 		panel_3.add(panel_5);
 		
 		JLabel lblBajaAsociacin = new JLabel("BORRAR");
-		lblBajaAsociacin.setIcon(new ImageIcon("/Users/sergio/Downloads/Delete Property-30 (1).png"));
+		lblBajaAsociacin.setIcon(new ImageIcon("img/Delete Property-30 (1).png"));
 		lblBajaAsociacin.setForeground(Color.WHITE);
 		lblBajaAsociacin.setFont(new Font("Century Gothic", Font.BOLD, 12));
 		lblBajaAsociacin.setBounds(16, 0, 87, 40);
@@ -342,7 +342,7 @@ public class Asociaciones1 extends JFrame implements Vista {
 				//TODO
 			}
 		});
-		lblHistrico.setIcon(new ImageIcon("/Users/sergio/Downloads/News-30.png"));
+		lblHistrico.setIcon(new ImageIcon("img/News-30.png"));
 		lblHistrico.setForeground(Color.WHITE);
 		lblHistrico.setFont(new Font("Century Gothic", Font.BOLD, 12));
 		lblHistrico.setBounds(6, 0, 102, 40);
@@ -392,7 +392,7 @@ public class Asociaciones1 extends JFrame implements Vista {
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setBounds(16, 6, 40, 40);
-		lblNewLabel.setIcon(new ImageIcon("/Users/sergio/Downloads/User Groups-35.png"));
+		lblNewLabel.setIcon(new ImageIcon("img/User Groups-35.png"));
 		panel_4.add(lblNewLabel);
 		
 		JLabel lblBsqueda = new JLabel("Asociaciones");
@@ -407,7 +407,7 @@ public class Asociaciones1 extends JFrame implements Vista {
 		
 		JLabel label = new JLabel("");
 		label.setBounds(633, 6, 40, 40);
-		label.setIcon(new ImageIcon("/Users/sergio/Downloads/User-40 (2).png"));
+		label.setIcon(new ImageIcon("img/User-40 (2).png"));
 		panel_4.add(label);
 		
 		JLabel lblUsuario = new JLabel("Usuario");
@@ -425,7 +425,7 @@ public class Asociaciones1 extends JFrame implements Vista {
 			}
 		});
 		lblNewLabel_2.setBounds(781, 6, 40, 40);
-		lblNewLabel_2.setIcon(new ImageIcon("/Users/sergio/Downloads/Exit-35.png"));
+		lblNewLabel_2.setIcon(new ImageIcon("img/Exit-35.png"));
 		panel_4.add(lblNewLabel_2);
 
 		
