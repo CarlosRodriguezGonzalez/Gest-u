@@ -111,7 +111,7 @@ public class Asociaciones1 extends JFrame implements Vista {
 				dispose();
 			}
 		});
-		lblNewLabel_5.setIcon(new ImageIcon("/Users/sergio/Downloads/Activity Feed Filled-40.png"));
+		lblNewLabel_5.setIcon(new ImageIcon("img/Activity Feed Filled-40.png"));
 		lblNewLabel_5.setBounds(18, 231, 61, 40);
 		panel_1.add(lblNewLabel_5);
 		
