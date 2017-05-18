@@ -9,10 +9,11 @@ public class Asociacion {
 	private int telefono;
 	private String email;
 	private int tipo;
+	private String fecha;
 	
 	
 	public Asociacion(int id, String nombre, String cif, int cp, String direccion, int telefono, String email,
-			int tipo) {
+			int tipo,String fecha) {
 		this.id = id;
 		this.nombre = nombre;
 		this.cif = cif;
@@ -21,6 +22,7 @@ public class Asociacion {
 		this.telefono = telefono;
 		this.email = email;
 		this.tipo = tipo;
+		this.fecha=fecha;
 	}
 	public int getId() {
 		return id;
@@ -69,6 +71,12 @@ public class Asociacion {
 	}
 	public void setTipo(int tipo) {
 		this.tipo = tipo;
+	}
+	public String getFecha(){
+		return fecha;
+	}
+	public void setFecha(String fecha){
+		this.fecha=fecha;
 	}
 	@Override
 	public String toString() {

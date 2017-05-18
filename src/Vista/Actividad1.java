@@ -2,40 +2,34 @@ package Vista;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
+import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 
 import com.toedter.calendar.JDateChooser;
 
+import ClasesTabla.Actividad;
 import ClasesTabla.Asociacion;
 import Controlador.Controlador;
 import Controlador.ControladorImpl;
 import Modelo.Modelo;
 import Modelo.ModeloImpl;
-import javax.swing.JSpinner;
 
 public class Actividad1 extends JFrame implements Vista {
 
@@ -453,7 +447,7 @@ public class Actividad1 extends JFrame implements Vista {
 	}
 
 	public void actualizarTabla(){
-		ArrayList<Asociacion> a=modelo.getA();
+		ArrayList<Actividad> a=modelo.getC();
 		DefaultTableModel model = new DefaultTableModel(){
 			@Override
 			public boolean isCellEditable(int row, int column) {
@@ -462,14 +456,12 @@ public class Actividad1 extends JFrame implements Vista {
 		};
 		model.addColumn("ID");
 		model.addColumn("Nombre");
-		model.addColumn("CIF");
-		model.addColumn("Direccion");
-		model.addColumn("CP");
-		model.addColumn("email");
-		model.addColumn("telefono");
+		model.addColumn("Fecha");
+		model.addColumn("Lugar");
+		model.addColumn("Tipo");
+		model.addColumn("Descripcion");
 		for (int i = 0; i < a.size(); i++) {
-			model.addRow(new Object[] { a.get(i).getId(), a.get(i).getNombre(), a.get(i).getCif(),
-					a.get(i).getDireccion(), a.get(i).getCp(), a.get(i).getEmail(), a.get(i).getTelefono() });
+			model.addRow(new Object[] {a.get(i).getId(),a.get(i).getNombre(),a.get(i).getFecha(),a.get(i).getLugar(),a.get(i).getTipo(),a.get(i).getDescripcion()});
 		}
 
 		table_1.setModel(model);

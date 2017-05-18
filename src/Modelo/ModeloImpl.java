@@ -5,7 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import ClasesTabla.Actividad;
 import ClasesTabla.Asociacion;
+import ClasesTabla.Subvencion;
 import Vista.Actividad1;
 import Vista.Asociaciones1;
 import Vista.DBConfig;
@@ -19,7 +21,6 @@ import Vista.MenuInicio;
 import Vista.Subvenciones1;
 import Vista.Vista;
 import baseDeDatos.AsociacionBBDD;
-import baseDeDatos.Conexion;
 
 public class ModeloImpl implements Modelo {
 
@@ -37,6 +38,8 @@ public class ModeloImpl implements Modelo {
 	private DBConfig configuracion;
 	
 	private ArrayList<Asociacion> a;
+	private ArrayList<Subvencion> b;
+	private ArrayList<Actividad> c;
 	private String user;
 	private String pwd;
 	private String db;
@@ -45,7 +48,7 @@ public class ModeloImpl implements Modelo {
 	private String ruta;
 	private boolean test;
 
-	public void bajarDatosAsoci() {
+	public void bajarDatosAsoci(){
 		a=new ArrayList<>();
 		try{
 		a = as.getAsociaciones();
@@ -53,6 +56,34 @@ public class ModeloImpl implements Modelo {
 			// TODO: handle exception
 		}
 		asociaciones.actualizarTabla();
+	}
+	
+	public void ActualizarTablaMenuPrincipal(){
+		a=new ArrayList<>();
+		try{
+		a = as.getAsociaciones();
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		menuInicio.actualizarTabla();
+	}
+	public void actualizarSubvencionTabla(){
+		b=new ArrayList<>();
+		try{
+		b = as.getSubvenciones();
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		subvenciones.actualizarTabla();
+	}
+	public void actualizarActividadTabla(){
+		c=new ArrayList<>();
+		try{
+		c = as.getActividades();
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		actividad.actualizarTabla();
 	}
 	
 	public void cargarConfiguracion(String user,String pwd,String db,String host,String puerto,String ruta){
@@ -135,6 +166,12 @@ public class ModeloImpl implements Modelo {
 
 	public ArrayList<Asociacion> getA() {
 		return a;
+	}
+	public ArrayList<Subvencion> getB() {
+		return b;
+	}
+	public ArrayList<Actividad> getC() {
+		return c;
 	}
 
 	public String getUser() {

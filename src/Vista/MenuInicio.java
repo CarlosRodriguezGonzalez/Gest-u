@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -22,6 +23,7 @@ import javax.swing.table.DefaultTableModel;
 
 import com.toedter.calendar.JDateChooser;
 
+import ClasesTabla.Asociacion;
 import Controlador.Controlador;
 import Controlador.ControladorImpl;
 import Modelo.Modelo;
@@ -37,6 +39,7 @@ public class MenuInicio extends JFrame implements Vista {
 	private JTextField txtAltaDesde;
 	private JTextField txtAltaHasta;
 	private JTable table_1;
+	private JScrollPane scrollPane;
 
 	/**c
 	 * Launch the application.
@@ -362,43 +365,18 @@ public class MenuInicio extends JFrame implements Vista {
 		
 
 		//headers for the table
-        String[] columns = new String[] {
-            "Identificador", "Asociación", "Fecha de alta", "Fecha de baja"
-        };
-         
-        //actual data for the table in a 2d array
-        Object[][] data = new Object[][] {
-            {0, "Asociación", "Fecha de alta", "Fecha de baja" },
-            {1, "Asociación", "Fecha de alta", "Fecha de baja" },
-            {2, "Asociación", "Fecha de alta", "Fecha de baja" },
-            {3, "Asociación", "Fecha de alta", "Fecha de baja" },
-            {4, "Asociación", "Fecha de alta", "Fecha de baja" },
-            {5, "Asociación", "Fecha de alta", "Fecha de baja" },
-            {6, "Asociación", "Fecha de alta", "Fecha de baja" },
-            {7, "Asociación", "Fecha de alta", "Fecha de baja" },
-            {8, "Asociación", "Fecha de alta", "Fecha de baja" },
-            {9, "Asociación", "Fecha de alta", "Fecha de baja" },
-            {10, "Asociación", "Fecha de alta", "Fecha de baja" },
-        };
+      
          
         //create table model with data
-        DefaultTableModel model = new DefaultTableModel(data, columns) {
-            @Override
-            public boolean isCellEditable(int row, int column)
-            {
-                return false;
-            }
-            
-        };
+        
 		
-		JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
 		scrollPane.setBorder(null);
 		scrollPane.setFont(new Font("Century Gothic", Font.PLAIN, 13));
 		scrollPane.setBounds(16, 21, 795, 243);
 		panel_2.add(scrollPane);
 		
-        JTable table = new JTable(model);
-        scrollPane.setViewportView(table);
+        JTable table = new JTable();
         table.setForeground(new Color(255, 255, 255));
         table.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         table.setBackground(new Color(106, 116, 145));
@@ -409,7 +387,27 @@ public class MenuInicio extends JFrame implements Vista {
 		contentPane.add(table_1);
 
 	}
+	public void actualizarTabla(){
+		ArrayList<Asociacion> a=modelo.getA();
+		DefaultTableModel model = new DefaultTableModel(){
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
+		};
+		model.addColumn("ID");
+		model.addColumn("Nombre");
+		model.addColumn("CIF");
+		model.addColumn("Fecha");
+		for (int i = 0; i < a.size(); i++) {
+			model.addRow(new Object[] { a.get(i).getId(), a.get(i).getNombre(), a.get(i).getCif(),
+					a.get(i).getFecha()});
+		}
 
+		table_1.setModel(model);
+		
+		scrollPane.setViewportView(table_1);
+	}
 	@Override
 	public void setControlador(Controlador controlador) {
 		this.controlador=(ControladorImpl)controlador;

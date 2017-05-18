@@ -32,6 +32,9 @@ public class ControladorImpl implements Controlador{
 		menuInicio=new MenuInicio();
 		menuInicio.setControlador(this);
 		menuInicio.setModelo(modelo);
+		modelo.setMenuInicio(menuInicio);
+		this.setMenuInicio(menuInicio);
+		modelo.ActualizarTablaMenuPrincipal();
 		menuInicio.setVisible(true);
 	}
 	public void pasarLogin(){
@@ -53,6 +56,10 @@ public class ControladorImpl implements Controlador{
 		actividad=new Actividad1();
 		actividad.setModelo(modelo);
 		actividad.setControlador(this);
+		modelo.setActividad(actividad);
+		this.setActividad(actividad);
+		modelo.actualizarActividadTabla();
+		
 		actividad.setVisible(true);
 	}
 	public void pasarEspacioMunicipal(){
@@ -65,6 +72,11 @@ public class ControladorImpl implements Controlador{
 		subvenciones=new Subvenciones1();
 		subvenciones.setModelo(modelo);
 		subvenciones.setControlador(this);
+		modelo.setSubvenciones(subvenciones);
+		this.setSubvenciones(subvenciones);
+		
+		modelo.actualizarSubvencionTabla();
+		
 		subvenciones.setVisible(true);
 	}
 	public void pasarConfiguracion(){
