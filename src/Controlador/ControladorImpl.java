@@ -78,6 +78,9 @@ public class ControladorImpl implements Controlador{
 		
 		configuracion.setVisible(true);
 	}
+	public void testConexion(){
+		modelo.testConexion(configuracion.getTxtUsuario().getText(), configuracion.getPwdContrasea().getText(), configuracion.getTxtBaseDeDatos().getText(), configuracion.getTxtHost().getText(), configuracion.getTxtPuerto().getText());
+	}
 	
 	
 	

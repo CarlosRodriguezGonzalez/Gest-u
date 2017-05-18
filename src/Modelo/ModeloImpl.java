@@ -1,9 +1,9 @@
 package Modelo;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.ArrayList;
-
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
 
 import ClasesTabla.Asociacion;
 import Vista.Actividad1;
@@ -19,6 +19,7 @@ import Vista.MenuInicio;
 import Vista.Subvenciones1;
 import Vista.Vista;
 import baseDeDatos.AsociacionBBDD;
+import baseDeDatos.Conexion;
 
 public class ModeloImpl implements Modelo {
 
@@ -42,6 +43,7 @@ public class ModeloImpl implements Modelo {
 	private String host;
 	private String puerto;
 	private String ruta;
+	private boolean test;
 
 	public void bajarDatosAsoci() {
 		a = as.getAsociaciones();
@@ -60,6 +62,17 @@ public class ModeloImpl implements Modelo {
 	public void actualizarVistaConfiguracion(){
 		configuracion.actualizarConfiguracion();
 	}
+	
+	public void testConexion(String user,String pwd,String db,String host,String puerto){
+		test=false;
+		try{
+			Connection cone= DriverManager.getConnection("jdbc:mysql://"+host+":"+puerto+"/"+db, user,pwd);
+			test=true;
+		}catch(SQLException e){
+		}
+		configuracion.actualizarTest();
+	}
+	
 
 	@Override
 	public void setVista(Vista vista) {
@@ -141,5 +154,7 @@ public class ModeloImpl implements Modelo {
 	public String getRuta(){
 		return ruta;
 	}
-
+	public boolean getTest(){
+		return test;
+	}
 }

@@ -34,6 +34,8 @@ public class Conexion {
 		}
 	}
 	
+	
+	
 	public void cargar() {
 		FileInputStream fileIn = null;
 		try {

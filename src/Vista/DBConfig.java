@@ -155,12 +155,7 @@ public class DBConfig extends JFrame implements Vista{
 		panel_10.setLayout(null);
 		
 		txtHost = new JTextField();
-		txtHost.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				txtHost.setText("");
-			}
-		});
+		
 		txtHost.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		txtHost.setForeground(Color.GRAY);
 		txtHost.setText("Host / URL");
@@ -185,12 +180,7 @@ public class DBConfig extends JFrame implements Vista{
 		panel_10.add(lblTipo);
 		
 		txtPuerto = new JTextField();
-		txtPuerto.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				txtPuerto.setText("");
-			}
-		});
+		
 		txtPuerto.setForeground(Color.GRAY);
 		txtPuerto.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		txtPuerto.setText("Puerto");
@@ -203,12 +193,7 @@ public class DBConfig extends JFrame implements Vista{
 		
 		txtChooseINI = new JTextField();
 		
-		txtChooseINI.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				txtChooseINI.setText("");
-			}
-		});
+		
 		txtChooseINI.setForeground(Color.GRAY);
 		txtChooseINI.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		txtChooseINI.setText("Ruta archivo de configuración");
@@ -220,12 +205,7 @@ public class DBConfig extends JFrame implements Vista{
 		txtChooseINI.setColumns(10);
 		
 		pwdContrasea = new JPasswordField();
-		pwdContrasea.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				pwdContrasea.setText("");
-			}
-		});
+		
 		pwdContrasea.setForeground(Color.GRAY);
 		pwdContrasea.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		pwdContrasea.setText("Contraseña");
@@ -241,6 +221,11 @@ public class DBConfig extends JFrame implements Vista{
 		panel_10.add(btnNewButton);
 		
 		JButton btnProbarConexin = new JButton("Probar conexión");
+		btnProbarConexin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlador.testConexion();
+			}
+		});
 		btnProbarConexin.setForeground(new Color(128,128,128));
 		btnProbarConexin.setFont(new Font("Century Gothic", Font.BOLD, 12));
 		btnProbarConexin.setBounds(580, 215, 140, 43);
@@ -258,12 +243,7 @@ public class DBConfig extends JFrame implements Vista{
 		panel_10.add(label_2);
 		
 		txtBaseDeDatos = new JTextField();
-		txtBaseDeDatos.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				txtBaseDeDatos.setText("");
-			}
-		});
+		
 		txtBaseDeDatos.setForeground(Color.GRAY);
 		txtBaseDeDatos.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		txtBaseDeDatos.setText("Base de datos");
@@ -275,12 +255,7 @@ public class DBConfig extends JFrame implements Vista{
 		panel_10.add(txtBaseDeDatos);
 		
 		txtUsuario = new JTextField();
-		txtUsuario.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				txtUsuario.setText("");
-			}
-		});
+		
 		txtUsuario.setForeground(Color.GRAY);
 		txtUsuario.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		txtUsuario.setText("Usuario");
@@ -400,6 +375,15 @@ public class DBConfig extends JFrame implements Vista{
 		pwdContrasea.setText(modelo.getPwd());
 		txtChooseINI.setText(modelo.getRuta());
 	}
+	public void actualizarTest(){
+		if(modelo.getTest()){
+			txtTestConexion.setForeground(new Color(42, 239, 35));
+			txtTestConexion.setText("Exito");
+		}else{
+			txtTestConexion.setForeground(new Color(239, 35, 35));
+			txtTestConexion.setText("Derrota");
+		}
+	}
 
 	@Override
 	public void setControlador(Controlador controlador) {
@@ -409,5 +393,25 @@ public class DBConfig extends JFrame implements Vista{
 	@Override
 	public void setModelo(Modelo modelo) {
 		this.modelo = (ModeloImpl) modelo;
+	}
+
+	public JTextField getTxtHost() {
+		return txtHost;
+	}
+
+	public JTextField getTxtPuerto() {
+		return txtPuerto;
+	}
+
+	public JPasswordField getPwdContrasea() {
+		return pwdContrasea;
+	}
+
+	public JTextField getTxtBaseDeDatos() {
+		return txtBaseDeDatos;
+	}
+
+	public JTextField getTxtUsuario() {
+		return txtUsuario;
 	}
 }
