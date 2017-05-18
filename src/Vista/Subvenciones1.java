@@ -13,21 +13,30 @@ import javax.swing.JTable;
 import javax.swing.JProgressBar;
 import javax.swing.table.DefaultTableModel;
 
+import com.toedter.calendar.JDateChooser;
+
+import ClasesTabla.Asociacion;
 import Controlador.Controlador;
 import Controlador.ControladorImpl;
 import Modelo.Modelo;
 import Modelo.ModeloImpl;
 
 import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import java.awt.SystemColor;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JComboBox;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -38,16 +47,14 @@ public class Subvenciones1 extends JFrame implements Vista {
 	private ModeloImpl modelo=new ModeloImpl();
 
 	private JPanel contentPane;
-	private JTable table;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
-	private JTextField textField_9;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	
+	private JTable table_1;
+
+	private JScrollPane scrollPane;
+	private JTextField txtNombre;
+	private JTextField txtNifcif;
+	private JTextField txtAltaDesde;
+	private JTextField txtNombre_1;
 
 	/**ce
 	 * Launch the application.
@@ -59,312 +66,378 @@ public class Subvenciones1 extends JFrame implements Vista {
 	 */
 	public Subvenciones1() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 743, 540);
+		setBounds(100, 100, 910, 572);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(132, 161, 354, 311);
-		contentPane.add(scrollPane);
-		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-			},
-			new String[] {
-				"Id", "Nombre", "Fecha solicitud"
-			}
-		));
-		scrollPane.setViewportView(table);
-		
 		JPanel panel = new JPanel();
-		panel.setLayout(null);
-		panel.setBackground(new Color(100, 149, 237));
-		panel.setBounds(0, 0, 122, 502);
+		panel.setBounds(0, 0, 910, 550);
 		contentPane.add(panel);
+		panel.setLayout(null);
 		
-		JButton button = new JButton("Asociaciones");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				new Asociaciones1().setVisible(true);
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(0, 18, 50));
+		panel_1.setBounds(0, 0, 83, 550);
+		panel.add(panel_1);
+		panel_1.setLayout(null);
+		
+		JLabel label_1 = new JLabel("");
+		label_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				controlador.pasarAsociaciones();
 				dispose();
 			}
 		});
-		button.setForeground(Color.WHITE);
-		button.setFont(new Font("Tahoma", Font.BOLD, 11));
-		button.setBackground(new Color(112, 128, 144));
-		button.setBounds(0, 77, 122, 23);
-		panel.add(button);
+		label_1.setBounds(18, 83, 45, 55);
+		label_1.setIcon(new ImageIcon("/Users/sergio/Downloads/User Groups-40.png"));
+		panel_1.add(label_1);
 		
-		JButton button_1 = new JButton("Esp Municipales");
-		button_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlador.pasarEspacioMunicipal();
-				dispose();
-			}
-		});
-		button_1.setForeground(Color.WHITE);
-		button_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		button_1.setBackground(new Color(119, 136, 153));
-		button_1.setBounds(0, 145, 122, 23);
-		panel.add(button_1);
-		
-		JButton button_2 = new JButton("Subvenciones");
-		button_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		JLabel lblNewLabel_4 = new JLabel("");
+		lblNewLabel_4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 				controlador.pasarSubvenciones();
 				dispose();
 			}
 		});
-		button_2.setForeground(Color.WHITE);
-		button_2.setFont(new Font("Tahoma", Font.BOLD, 11));
-		button_2.setBackground(new Color(119, 136, 153));
-		button_2.setBounds(0, 179, 122, 23);
-		panel.add(button_2);
+		lblNewLabel_4.setIcon(new ImageIcon("/Users/sergio/Downloads/Coins-40.png"));
+		lblNewLabel_4.setBounds(18, 160, 45, 40);
+		panel_1.add(lblNewLabel_4);
 		
-		JButton button_3 = new JButton("Actividades");
-		button_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		JLabel lblNewLabel_5 = new JLabel("");
+		lblNewLabel_5.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 				controlador.pasarActividad();
 				dispose();
 			}
 		});
-		button_3.setForeground(Color.WHITE);
-		button_3.setFont(new Font("Tahoma", Font.BOLD, 11));
-		button_3.setBackground(new Color(119, 136, 153));
-		button_3.setBounds(0, 111, 122, 23);
-		panel.add(button_3);
+		lblNewLabel_5.setIcon(new ImageIcon("/Users/sergio/Downloads/Activity Feed Filled-40.png"));
+		lblNewLabel_5.setBounds(18, 231, 61, 40);
+		panel_1.add(lblNewLabel_5);
 		
-		JButton button_4 = new JButton("Menu");
-		button_4.setBounds(0, 450, 122, 23);
-		panel.add(button_4);
-		button_4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		JLabel lblNewLabel_6 = new JLabel("");
+		lblNewLabel_6.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				controlador.pasarEspacioMunicipal();
+				dispose();
+			}
+		});
+		lblNewLabel_6.setIcon(new ImageIcon("/Users/sergio/Downloads/Park Bench-40.png"));
+		lblNewLabel_6.setBounds(18, 301, 61, 40);
+		panel_1.add(lblNewLabel_6);
+		
+		JLabel label_4 = new JLabel("");
+		label_4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 				controlador.pasarMenuInicio();
 				dispose();
 			}
 		});
-		button_4.setForeground(Color.WHITE);
-		button_4.setFont(new Font("Tahoma", Font.BOLD, 11));
-		button_4.setBackground(new Color(119, 136, 153));
+		label_4.setIcon(new ImageIcon("/Users/sergio/Downloads/Top Menu-40.png"));
+		label_4.setBounds(18, 16, 45, 55);
+		panel_1.add(label_4);
 		
-		JLabel label_5 = new JLabel("Nombre");
-		label_5.setBounds(517, 164, 65, 14);
-		contentPane.add(label_5);
+		JPanel panel_2 = new JPanel();
+		panel_2.setBorder(null);
+		panel_2.setForeground(new Color(192, 192, 192));
+		panel_2.setBackground(new Color(32, 47, 90));
+		panel_2.setBounds(81, 254, 829, 296);
+		panel.add(panel_2);
+		panel_2.setLayout(null);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(605, 161, 112, 20);
-		contentPane.add(textField_4);
+				scrollPane = new JScrollPane();
+				scrollPane.setBounds(22, 20, 771, 258);
+				panel_2.add(scrollPane);
 		
-		JLabel label_6 = new JLabel("Tel\u00E9fono");
-		label_6.setBounds(517, 189, 92, 14);
-		contentPane.add(label_6);
+		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(new Color(240, 240, 240));
+		panel_3.setBounds(81, 59, 829, 196);
+		panel.add(panel_3);
+		panel_3.setLayout(null);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(605, 186, 112, 20);
-		contentPane.add(textField_5);
+		JLabel lblTorri = new JLabel("Gest-U v0.2");
+		lblTorri.setBounds(627, 6, 181, 40);
+		lblTorri.setFont(new Font("Segoe UI", Font.PLAIN, 37));
+		panel_3.add(lblTorri);
 		
-		JLabel label_7 = new JLabel("Fecha solicitud");
-		label_7.setBounds(517, 217, 86, 14);
-		contentPane.add(label_7);
+		JLabel lblSloganTorrismart = new JLabel("Experts on management");
+		lblSloganTorrismart.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		lblSloganTorrismart.setBounds(633, 39, 175, 26);
+		panel_3.add(lblSloganTorrismart);
 		
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-		textField_6.setBounds(605, 214, 112, 20);
-		contentPane.add(textField_6);
-		
-		JLabel lblImporteSolicitado = new JLabel("Importe solicitado");
-		lblImporteSolicitado.setBounds(517, 244, 90, 14);
-		contentPane.add(lblImporteSolicitado);
-		
-		textField_7 = new JTextField();
-		textField_7.setColumns(10);
-		textField_7.setBounds(605, 242, 112, 20);
-		contentPane.add(textField_7);
-		
-		JLabel label_9 = new JLabel("E-mail");
-		label_9.setBounds(517, 268, 56, 14);
-		contentPane.add(label_9);
-		
-		textField_8 = new JTextField();
-		textField_8.setColumns(10);
-		textField_8.setBounds(517, 284, 200, 20);
-		contentPane.add(textField_8);
-		
-		JLabel label_4 = new JLabel("Justificacion subvenci\u00F3n");
-		label_4.setBounds(516, 315, 153, 14);
-		contentPane.add(label_4);
-		
-		JButton button_8 = new JButton("Imprimir");
-		button_8.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+		txtNombre = new JTextField();
+		txtNombre.setForeground(new Color(128,128,128));
+		txtNombre.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtNombre.setText("");
 			}
 		});
-		button_8.setBounds(517, 463, 92, 23);
-		contentPane.add(button_8);
+		txtNombre.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtNombre.setText("Identificador");
+		txtNombre.setBackground(new Color(240, 240, 240));
+		txtNombre.setBorder(null);
+		txtNombre.setBounds(226, 61, 64, 16);
+		panel_3.add(txtNombre);
+		txtNombre.setColumns(10);
 		
-		JButton btnEnviarMail = new JButton("Enviar Mail");
-		btnEnviarMail.setBounds(625, 463, 92, 23);
-		contentPane.add(btnEnviarMail);
-		
-		textField_9 = new JTextField();
-		textField_9.setColumns(10);
-		textField_9.setBounds(517, 340, 200, 44);
-		contentPane.add(textField_9);
-		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(100, 149, 237));
-		panel_1.setBounds(127, 0, 600, 150);
-		contentPane.add(panel_1);
-		
-		JLabel label = new JLabel("Busqueda:");
-		label.setFont(new Font("Tahoma", Font.BOLD, 12));
-		
-		JLabel label_1 = new JLabel("ID:");
-		
-		JLabel label_2 = new JLabel("Nombre:");
-		
-		textField = new JTextField();
-		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		
-		JLabel label_3 = new JLabel("Tipo:");
-		
-		JComboBox comboBox = new JComboBox();
-		
-		JLabel label_8 = new JLabel("Fecha:");
-		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		
-		JButton button_5 = new JButton("Buscar");
-		
-		JButton button_6 = new JButton("Modificar");
-		
-		JButton button_10 = new JButton("Eliminar");
-		
-		JLabel lblSubvenciones = new JLabel("Subvenciones");
-		lblSubvenciones.setForeground(Color.WHITE);
-		lblSubvenciones.setFont(new Font("Times New Roman", Font.PLAIN, 32));
-		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
-		gl_panel_1.setHorizontalGroup(
-			gl_panel_1.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 600, Short.MAX_VALUE)
-				.addGroup(gl_panel_1.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
-						.addComponent(label, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_panel_1.createSequentialGroup()
-							.addComponent(label_1, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE)
-							.addGap(6)
-							.addComponent(textField, GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE)
-							.addGap(25)
-							.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_panel_1.createSequentialGroup()
-									.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
-										.addGroup(gl_panel_1.createSequentialGroup()
-											.addGap(43)
-											.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE))
-										.addComponent(label_3))
-									.addGap(155)
-									.addComponent(button_6))
-								.addComponent(lblSubvenciones, GroupLayout.PREFERRED_SIZE, 210, GroupLayout.PREFERRED_SIZE)))
-						.addGroup(gl_panel_1.createSequentialGroup()
-							.addComponent(label_2, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
-							.addGap(12)
-							.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE)
-							.addGap(25)
-							.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_panel_1.createSequentialGroup()
-									.addGap(43)
-									.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE))
-								.addComponent(label_8))
-							.addGap(40)
-							.addComponent(button_5)
-							.addGap(28)
-							.addComponent(button_10)))
-					.addContainerGap(67, Short.MAX_VALUE))
-		);
-		gl_panel_1.setVerticalGroup(
-			gl_panel_1.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel_1.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblSubvenciones, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-					.addComponent(label)
-					.addGap(11)
-					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel_1.createSequentialGroup()
-							.addGap(4)
-							.addComponent(label_1))
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_panel_1.createSequentialGroup()
-							.addGap(1)
-							.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
-								.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addGroup(gl_panel_1.createSequentialGroup()
-									.addGap(3)
-									.addComponent(label_3))))
-						.addComponent(button_6))
-					.addGap(10)
-					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
-						.addComponent(label_2)
-						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
-							.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-							.addComponent(label_8))
-						.addGroup(gl_panel_1.createSequentialGroup()
-							.addGap(1)
-							.addComponent(button_5))
-						.addGroup(gl_panel_1.createSequentialGroup()
-							.addGap(1)
-							.addComponent(button_10)))
-					.addContainerGap())
-		);
-		panel_1.setLayout(gl_panel_1);
-		
-		JButton button_11 = new JButton("A\u00F1adir/Modificar");
-		button_11.setBounds(517, 395, 200, 23);
-		contentPane.add(button_11);
-		
-		JButton button_12 = new JButton("Hist\u00F3rico");
-		button_12.setBounds(517, 429, 92, 23);
-		contentPane.add(button_12);
-		
-		JButton button_13 = new JButton("Eliminar");
-		button_13.setBounds(625, 429, 92, 23);
-		contentPane.add(button_13);
+		txtNifcif = new JTextField();
+		txtNifcif.setText("Importe");
+		txtNifcif.setForeground(new Color(128,128,128));
+		txtNifcif.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtNifcif.setText("");
+			}
+		});
+		txtNifcif.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		txtNifcif.setColumns(10);
+		txtNifcif.setBorder(null);
+		txtNifcif.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
+		txtNifcif.setBounds(28, 85, 64, 16);
+		panel_3.add(txtNifcif);
 		
 		
+		
+		txtAltaDesde = new JTextField();
+		txtAltaDesde.setForeground(new Color(128,128,128));
+		txtAltaDesde.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtAltaDesde.setText("");
+			}
+		});
+		txtAltaDesde.setText("Fecha solicitud");
+		txtAltaDesde.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		txtAltaDesde.setColumns(10);
+		txtAltaDesde.setBorder(null);
+		txtAltaDesde.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
+		txtAltaDesde.setBounds(226, 85, 76, 16);
+		panel_3.add(txtAltaDesde);
+		
+
+
+		
+		JPanel panel_7 = new JPanel();
+		panel_7.setLayout(null);
+		panel_7.setBackground(new Color(189,195,199));
+		panel_7.setBounds(683, 89, 125, 40);
+		panel_3.add(panel_7);
+		
+		JLabel lblPreimpresos = new JLabel("PREIMPRESOS");
+		lblPreimpresos.setIcon(new ImageIcon("/Users/sergio/Downloads/Paper-30.png"));
+		lblPreimpresos.setForeground(Color.WHITE);
+		lblPreimpresos.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		lblPreimpresos.setBounds(6, 6, 122, 28);
+		panel_7.add(lblPreimpresos);
+		
+		JPanel panel_6 = new JPanel();
+		panel_6.setLayout(null);
+		panel_6.setBackground(new Color(189, 195, 199));
+		panel_6.setBounds(546, 89, 125, 40);
+		panel_3.add(panel_6);
+		
+		JLabel lblConfiguracin = new JLabel("AÑADIR");
+		lblConfiguracin.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//TODO
+				dispose();
+			}
+		});
+		lblConfiguracin.setIcon(new ImageIcon("/Users/sergio/Downloads/Add Property-30.png"));
+		lblConfiguracin.setForeground(Color.WHITE);
+		lblConfiguracin.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		lblConfiguracin.setBounds(17, 0, 88, 40);
+		panel_6.add(lblConfiguracin);
+		
+		
+		JPanel panel_8 = new JPanel();
+		panel_8.setLayout(null);
+		panel_8.setBackground(new Color(189, 195, 199));
+		panel_8.setBounds(28, 127, 150, 40);
+		panel_3.add(panel_8);
+		
+		JLabel label_2 = new JLabel("    CONSULTAR");
+		label_2.setIcon(new ImageIcon("/Users/sergio/Downloads/Search Property-30.png"));
+		label_2.setForeground(Color.WHITE);
+		label_2.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		label_2.setBounds(13, 0, 131, 40);
+		panel_8.add(label_2);
+		
+		JSeparator separator_5 = new JSeparator();
+		separator_5.setOrientation(SwingConstants.VERTICAL);
+		separator_5.setBounds(410, 28, 21, 150);
+		panel_3.add(separator_5);
+		
+		JSeparator separator_6 = new JSeparator();
+		separator_6.setForeground(new Color(128,128,128));
+		separator_6.setBounds(28, 99, 93, 16);
+		panel_3.add(separator_6);
+		
+		JSeparator separator_2 = new JSeparator();
+		separator_2.setForeground(Color.GRAY);
+		separator_2.setBounds(226, 99, 76, 16);
+		panel_3.add(separator_2);
+		
+		JSeparator separator_3 = new JSeparator();
+		separator_3.setForeground(Color.GRAY);
+		separator_3.setBounds(226, 75, 76, 16);
+		panel_3.add(separator_3);
+		
+		JPanel panel_5 = new JPanel();
+		panel_5.setLayout(null);
+		panel_5.setBackground(new Color(189, 195, 199));
+		panel_5.setBounds(546, 141, 125, 40);
+		panel_3.add(panel_5);
+		
+		JLabel lblBajaAsociacin = new JLabel("BORRAR");
+		lblBajaAsociacin.setIcon(new ImageIcon("/Users/sergio/Downloads/Delete Property-30 (1).png"));
+		lblBajaAsociacin.setForeground(Color.WHITE);
+		lblBajaAsociacin.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		lblBajaAsociacin.setBounds(16, 0, 87, 40);
+		panel_5.add(lblBajaAsociacin);
+		
+		JPanel panel_9 = new JPanel();
+		panel_9.setLayout(null);
+		panel_9.setBackground(new Color(189, 195, 199));
+		panel_9.setBounds(683, 141, 125, 40);
+		panel_3.add(panel_9);
+		
+		JLabel lblHistrico = new JLabel("HISTÓRICO");
+		lblHistrico.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//TODO
+			}
+		});
+		lblHistrico.setIcon(new ImageIcon("/Users/sergio/Downloads/News-30.png"));
+		lblHistrico.setForeground(Color.WHITE);
+		lblHistrico.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		lblHistrico.setBounds(6, 0, 102, 40);
+		panel_9.add(lblHistrico);
+		
+		JLabel label_3 = new JLabel("Filtros de búsqueda");
+		label_3.setForeground(new Color(105, 105, 105));
+		label_3.setFont(new Font("Segoe UI", Font.BOLD, 15));
+		label_3.setBounds(28, 18, 121, 32);
+		panel_3.add(label_3);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setForeground(Color.GRAY);
+		separator_1.setBounds(28, 75, 186, 16);
+		panel_3.add(separator_1);
+		
+		txtNombre_1 = new JTextField();
+		txtNombre_1.setText("Nombre");
+		txtNombre_1.setForeground(Color.GRAY);
+		txtNombre_1.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		txtNombre_1.setColumns(10);
+		txtNombre_1.setBorder(null);
+		txtNombre_1.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
+		txtNombre_1.setBounds(28, 61, 64, 16);
+		panel_3.add(txtNombre_1);
+		
+		JDateChooser dateChooser = new JDateChooser();
+		dateChooser.setBounds(303, 79, 28, 26);
+		panel_3.add(dateChooser);
+		
+		JPanel panel_4 = new JPanel();
+		panel_4.setBackground(Color.WHITE);
+		panel_4.setBounds(81, 0, 829, 59);
+		panel.add(panel_4);
+		panel_4.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(16, 6, 40, 40);
+		lblNewLabel.setIcon(new ImageIcon("/Users/sergio/Downloads/Coins-35.png"));
+		panel_4.add(lblNewLabel);
+		
+		JLabel lblBsqueda = new JLabel("Subvenciones");
+		lblBsqueda.setBounds(65, 6, 146, 36);
+		lblBsqueda.setForeground(new Color(128, 128, 128));
+		lblBsqueda.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+		panel_4.add(lblBsqueda);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(63, 34, 131, 12);
+		panel_4.add(separator);
+		
+		JLabel label = new JLabel("");
+		label.setBounds(633, 6, 40, 40);
+		label.setIcon(new ImageIcon("/Users/sergio/Downloads/User-40 (2).png"));
+		panel_4.add(label);
+		
+		JLabel lblUsuario = new JLabel("Usuario");
+		lblUsuario.setBounds(675, 6, 76, 40);
+		lblUsuario.setForeground(new Color(128, 128, 128));
+		lblUsuario.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+		panel_4.add(lblUsuario);
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				controlador.pasarLogin();
+				dispose();
+			}
+		});
+		lblNewLabel_2.setBounds(781, 6, 40, 40);
+		lblNewLabel_2.setIcon(new ImageIcon("/Users/sergio/Downloads/Exit-35.png"));
+		panel_4.add(lblNewLabel_2);
+
+		
+		table_1 = new JTable();
+		table_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getClickCount()>=2){
+					System.out.println("MIAU:3");
+					table_1.getSelectedRow();
+					
+				}
+				
+			}
+			
+		});
+		
+		
+		scrollPane.setViewportView(table_1);
+		// tabla
+//		table_1 = controlador.datos();
+		//scrollPane.setViewportView(table_1);
+	}
+
+	public void actualizarTabla(){
+		ArrayList<Asociacion> a=modelo.getA();
+		DefaultTableModel model = new DefaultTableModel(){
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
+		};
+		System.out.println("hola Sergio!");
+		model.addColumn("ID");
+		model.addColumn("Nombre");
+		model.addColumn("CIF");
+		model.addColumn("Direccion");
+		model.addColumn("CP");
+		model.addColumn("email");
+		model.addColumn("telefono");
+		for (int i = 0; i < a.size(); i++) {
+			model.addRow(new Object[] { a.get(i).getId(), a.get(i).getNombre(), a.get(i).getCif(),
+					a.get(i).getDireccion(), a.get(i).getCp(), a.get(i).getEmail(), a.get(i).getTelefono() });
+		}
+
+		table_1.setModel(model);
+		
+		scrollPane.setViewportView(table_1);
 	}
 
 	@Override
