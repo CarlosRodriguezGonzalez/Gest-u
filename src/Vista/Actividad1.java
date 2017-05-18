@@ -369,6 +369,7 @@ public class Actividad1 extends JFrame implements Vista {
 		panel_3.add(spinner);
 		
 		JLabel lblN = new JLabel("Nº destinatarios");
+		lblN.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		lblN.setBounds(250, 45, 130, 16);
 		lblN.setForeground(new Color(128,  128,  128));
 		panel_3.add(lblN);

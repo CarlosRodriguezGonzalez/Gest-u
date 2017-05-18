@@ -18,7 +18,7 @@ public class ControladorImpl implements Controlador{
 	private ModeloImpl modelo=new ModeloImpl();
 	private Asociaciones1 asociaciones;
 	private Actividad1 actividad;
-	private EspacioMunicipal1 espacioMunicipal;
+	private EspacioMunicipal1 espacio;
 	private HistoricoActividades historicoActividades;
 	private HistoricoAsociaciones historicoAsociaciones;
 	private HistoricoEspaciosM historicoEspacios;
@@ -63,10 +63,15 @@ public class ControladorImpl implements Controlador{
 		actividad.setVisible(true);
 	}
 	public void pasarEspacioMunicipal(){
-		espacioMunicipal=new EspacioMunicipal1();
-		espacioMunicipal.setControlador(this);
-		espacioMunicipal.setModelo(modelo);
-		espacioMunicipal.setVisible(true);
+		espacio=new EspacioMunicipal1();
+		espacio.setControlador(this);
+		espacio.setModelo(modelo);
+		modelo.setEspacioMunicipal(espacio);
+		this.setEspacioMunicipal(espacio);
+		
+		modelo.actualizarEspacioTabla();
+		
+		espacio.setVisible(true);
 	}
 	public void pasarSubvenciones(){
 		subvenciones=new Subvenciones1();
@@ -118,8 +123,8 @@ public class ControladorImpl implements Controlador{
 	public void setActividad(Actividad1 actividad) {
 		this.actividad = actividad;
 	}
-	public void setEspacioMunicipal(EspacioMunicipal1 espacioMunicipal) {
-		this.espacioMunicipal = espacioMunicipal;
+	public void setEspacioMunicipal(EspacioMunicipal1 espacio) {
+		this.espacio = espacio;
 	}
 	public void setHistoricoActividades(HistoricoActividades historicoActividades) {
 		this.historicoActividades = historicoActividades;

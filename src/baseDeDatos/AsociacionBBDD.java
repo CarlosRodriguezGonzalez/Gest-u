@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import ClasesTabla.Actividad;
 import ClasesTabla.Asociacion;
+import ClasesTabla.Espacio;
 import ClasesTabla.Subvencion;
 
 public class AsociacionBBDD {
@@ -56,6 +57,21 @@ public class AsociacionBBDD {
 			e.printStackTrace();
 		}
 		return act;
+	}
+	
+	public ArrayList<Espacio> getEspacios(){
+		ArrayList<Espacio> esp=new ArrayList<Espacio>();
+		try{
+			Statement st= conexion.createStatement();
+			ResultSet rs=st.executeQuery("Select * from sede");
+			while(rs.next()){
+				Espacio p=new Espacio(rs.getInt("id_sede"), rs.getString("direccion"), rs.getString("caracteristicas"), rs.getString("fecha_solicitud"), rs.getString("fecha_concesion"));
+				esp.add(p);
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		return esp;
 	}
 	
 	

@@ -171,7 +171,7 @@ public class DBConfig extends JFrame implements Vista{
 		comboBox_1.setBounds(284, 105, 237, 27);
 		panel_10.add(comboBox_1);
 		comboBox_1.setFont(new Font("Century Gothic", Font.PLAIN, 12));
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"MySQL", "Asociación", "Subvención", "Actividades", "Espacio Municipal"}));
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"MySQL", "MongoDB", "Oracle Database", "PostgreSQL"}));
 		
 		JLabel lblTipo = new JLabel("Tipo");
 		lblTipo.setFont(new Font("Segoe UI", Font.PLAIN, 13));
@@ -273,7 +273,8 @@ public class DBConfig extends JFrame implements Vista{
 		panel_10.add(lblNewLabel_9);
 		
 		txtTestConexion = new JTextField();
-		txtTestConexion.setBounds(391, 222, 130, 26);
+		txtTestConexion.setBorder(null);
+		txtTestConexion.setBounds(409, 222, 163, 26);
 		panel_10.add(txtTestConexion);
 		txtTestConexion.setColumns(10);
 		
@@ -326,44 +327,18 @@ public class DBConfig extends JFrame implements Vista{
 		panel_4.add(lblUsuario);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				controlador.pasarLogin();
+				dispose();
+			}
+		});
 		lblNewLabel_2.setBounds(781, 6, 40, 40);
 		lblNewLabel_2.setIcon(new ImageIcon("img/Exit-35.png"));
 		panel_4.add(lblNewLabel_2);
 		
-		//headers for the table
-        String[] columns = new String[] {
-            "Identificador", "Nombre", "CIF", "E-Mail", "Dirección", "Teléfono"
-        };
-         
-        //actual data for the table in a 2d array
-        Object[][] data = new Object[][] {
-            {1, "Tiro al plato", "B37948858", "tiroplato-benavente@gmail.com", "C/Jacinto Benavente 33", "916345645" },
-            {2, "Cacería Torrijos", "B3347885G", "caceria-torrijos@hotmail.es", "C/ Playa de Liencres 6 BIS", "916338765" },
-            {3, "Cacería Torrijos", "B3347885G", "caceria-torrijos@hotmail.es", "C/ Playa de Liencres 6 BIS", "916338765" },
-            {4, "Cacería Torrijos", "B3347885G", "caceria-torrijos@hotmail.es", "C/ Playa de Liencres 6 BIS", "916338765" },
-            {5, "Cacería Torrijos", "B3347885G", "caceria-torrijos@hotmail.es", "C/ Playa de Liencres 6 BIS", "916338765" },
-            {6, "Cacería Torrijos", "B3347885G", "caceria-torrijos@hotmail.es", "C/ Playa de Liencres 6 BIS", "916338765" },
-            {2, "Cacería Torrijos", "B3347885G", "caceria-torrijos@hotmail.es", "C/ Playa de Liencres 6 BIS", "916338765" },
-            {2, "Cacería Torrijos", "B3347885G", "caceria-torrijos@hotmail.es", "C/ Playa de Liencres 6 BIS", "916338765" },
-            {2, "Cacería Torrijos", "B3347885G", "caceria-torrijos@hotmail.es", "C/ Playa de Liencres 6 BIS", "916338765" },
-            {2, "Cacería Torrijos", "B3347885G", "caceria-torrijos@hotmail.es", "C/ Playa de Liencres 6 BIS", "916338765" },
-            {2, "Cacería Torrijos", "B3347885G", "caceria-torrijos@hotmail.es", "C/ Playa de Liencres 6 BIS", "916338765" },
-            {2, "Cacería Torrijos", "B3347885G", "caceria-torrijos@hotmail.es", "C/ Playa de Liencres 6 BIS", "916338765" },
-            {2, "Cacería Torrijos", "B3347885G", "caceria-torrijos@hotmail.es", "C/ Playa de Liencres 6 BIS", "916338765" },
-            {2, "Cacería Torrijos", "B3347885G", "caceria-torrijos@hotmail.es", "C/ Playa de Liencres 6 BIS", "916338765" },
-            {2, "Cacería Torrijos", "B3347885G", "caceria-torrijos@hotmail.es", "C/ Playa de Liencres 6 BIS", "916338765" },
-            {2, "Cacería Torrijos", "B3347885G", "caceria-torrijos@hotmail.es", "C/ Playa de Liencres 6 BIS", "916338765" },
-        };
-         
-        //create table model with data
-        DefaultTableModel model = new DefaultTableModel(data, columns) {
-            @Override
-            public boolean isCellEditable(int row, int column)
-            {
-                return false;
-            }
-            
-        };
+		
         
 	}
 	
@@ -378,10 +353,10 @@ public class DBConfig extends JFrame implements Vista{
 	public void actualizarTest(){
 		if(modelo.getTest()){
 			txtTestConexion.setForeground(new Color(42, 239, 35));
-			txtTestConexion.setText("Exito");
+			txtTestConexion.setText("¡¡Conexión satisfactoria!!");
 		}else{
 			txtTestConexion.setForeground(new Color(239, 35, 35));
-			txtTestConexion.setText("Derrota");
+			txtTestConexion.setText("¡¡Conexión fallida!!");
 		}
 	}
 

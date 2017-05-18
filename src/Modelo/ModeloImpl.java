@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import ClasesTabla.Actividad;
 import ClasesTabla.Asociacion;
+import ClasesTabla.Espacio;
 import ClasesTabla.Subvencion;
 import Vista.Actividad1;
 import Vista.Asociaciones1;
@@ -27,7 +28,6 @@ public class ModeloImpl implements Modelo {
 	private AsociacionBBDD as = new AsociacionBBDD();
 	private Asociaciones1 asociaciones;
 	private Actividad1 actividad;
-	private EspacioMunicipal1 espacioMunicipal;
 	private HistoricoActividades historicoActividades;
 	private HistoricoAsociaciones historicoAsociaciones;
 	private HistoricoEspaciosM historicoEspacios;
@@ -35,11 +35,13 @@ public class ModeloImpl implements Modelo {
 	private Login login;
 	private MenuInicio menuInicio;
 	private Subvenciones1 subvenciones;
+	private EspacioMunicipal1 espacio;
 	private DBConfig configuracion;
 	
 	private ArrayList<Asociacion> a;
 	private ArrayList<Subvencion> b;
 	private ArrayList<Actividad> c;
+	private ArrayList<Espacio> d;
 	private String user;
 	private String pwd;
 	private String db;
@@ -86,6 +88,16 @@ public class ModeloImpl implements Modelo {
 		actividad.actualizarTabla();
 	}
 	
+	public void actualizarEspacioTabla(){
+		d=new ArrayList<>();
+		try{
+		d = as.getEspacios();
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		espacio.actualizarTabla();
+	}
+	
 	public void cargarConfiguracion(String user,String pwd,String db,String host,String puerto,String ruta){
 		this.user=user;
 		this.pwd=pwd;
@@ -128,8 +140,8 @@ public class ModeloImpl implements Modelo {
 		this.actividad = actividad;
 	}
 
-	public void setEspacioMunicipal(EspacioMunicipal1 espacioMunicipal) {
-		this.espacioMunicipal = espacioMunicipal;
+	public void setEspacioMunicipal(EspacioMunicipal1 espacio) {
+		this.espacio = espacio;
 	}
 
 	public void setHistoricoActividades(HistoricoActividades historicoActividades) {
@@ -172,6 +184,9 @@ public class ModeloImpl implements Modelo {
 	}
 	public ArrayList<Actividad> getC() {
 		return c;
+	}
+	public ArrayList<Espacio> getD() {
+		return d;
 	}
 
 	public String getUser() {

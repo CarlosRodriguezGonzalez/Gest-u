@@ -16,6 +16,7 @@ import javax.swing.table.DefaultTableModel;
 import com.toedter.calendar.JDateChooser;
 
 import ClasesTabla.Asociacion;
+import ClasesTabla.Espacio;
 import Controlador.Controlador;
 import Controlador.ControladorImpl;
 import Modelo.Modelo;
@@ -431,7 +432,7 @@ public class EspacioMunicipal1 extends JFrame implements Vista {
 	}
 
 	public void actualizarTabla(){
-		ArrayList<Asociacion> a=modelo.getA();
+		ArrayList<Espacio> a=modelo.getD();
 		DefaultTableModel model = new DefaultTableModel(){
 			@Override
 			public boolean isCellEditable(int row, int column) {
@@ -444,8 +445,8 @@ public class EspacioMunicipal1 extends JFrame implements Vista {
 		model.addColumn("Fecha solicitud");
 		model.addColumn("Fecha concesión");
 		for (int i = 0; i < a.size(); i++) {
-			model.addRow(new Object[] { a.get(i).getId(), a.get(i).getNombre(), a.get(i).getCif(),
-					a.get(i).getDireccion(), a.get(i).getCp(), a.get(i).getEmail(), a.get(i).getTelefono() });
+			model.addRow(new Object[] { a.get(i).getSede(), a.get(i).getDireccion(), a.get(i).getCaracteristicas(),
+					a.get(i).getFechasolicitud(), a.get(i).getFechaconcesion() });
 		}
 
 		table_1.setModel(model);
