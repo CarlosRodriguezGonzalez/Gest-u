@@ -102,9 +102,9 @@ public class AssocOptions extends JFrame implements Vista{
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		JLabel lbl_documentacion = new JLabel("Histórico");
+		JLabel lbl_documentacion = new JLabel("Añadir");
 		JLabel lbl_modify = new JLabel("Modificar");
-		JLabel lbl_data = new JLabel("Nueva");
+		JLabel lbl_data = new JLabel("Histórico");
 		lbl_modify.setForeground(java.awt.Color.lightGray);
 		lbl_documentacion.setForeground(java.awt.Color.lightGray);
 		
@@ -118,6 +118,16 @@ public class AssocOptions extends JFrame implements Vista{
 		layeredPane.add(edit_panel1, "name_23340656493830");
 		edit_panel1.setLayout(null);
 		
+		
+		
+		JPanel edit_panel2 = new JPanel();
+		edit_panel2.setBackground(new Color(100, 149, 237));
+		layeredPane.add(edit_panel2, "name_23357301890851");
+		
+		JPanel edit_panel3 = new JPanel();
+		edit_panel3.setBackground(Color.WHITE);
+		layeredPane.add(edit_panel3, "name_23382852103736");
+		edit_panel3.setLayout(null);
 		txtNombre = new JTextField();
 		txtNombre.addMouseListener(new MouseAdapter() {
 			@Override
@@ -131,7 +141,7 @@ public class AssocOptions extends JFrame implements Vista{
 		txtNombre.setText("  *Nombre");
 		txtNombre.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
 		txtNombre.setBounds(20, 62, 182, 33);
-		edit_panel1.add(txtNombre);
+		edit_panel3.add(txtNombre);
 		txtNombre.setColumns(10);
 		txtNombre.setBorder(BorderFactory.createCompoundBorder(txtNombre.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
 		
@@ -149,7 +159,7 @@ public class AssocOptions extends JFrame implements Vista{
 		txtApellidos.setColumns(10);
 		txtApellidos.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
 		txtApellidos.setBounds(224, 62, 237, 33);
-		edit_panel1.add(txtApellidos);
+		edit_panel3.add(txtApellidos);
 		txtApellidos.setBorder(BorderFactory.createCompoundBorder(txtApellidos.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
 		
 		txtDniniepasaporte = new JTextField();
@@ -166,14 +176,14 @@ public class AssocOptions extends JFrame implements Vista{
 		txtDniniepasaporte.setColumns(10);
 		txtDniniepasaporte.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
 		txtDniniepasaporte.setBounds(483, 62, 130, 33);
-		edit_panel1.add(txtDniniepasaporte);
+		edit_panel3.add(txtDniniepasaporte);
 		txtDniniepasaporte.setBorder(BorderFactory.createCompoundBorder(txtDniniepasaporte.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
 		
 		JLabel lblDatosDelRepresentante = new JLabel("Datos representante");
 		lblDatosDelRepresentante.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		lblDatosDelRepresentante.setForeground(new Color(128, 128, 128));
 		lblDatosDelRepresentante.setBounds(20, 20, 170, 30);
-		edit_panel1.add(lblDatosDelRepresentante);
+		edit_panel3.add(lblDatosDelRepresentante);
 		
 		txtCorreoElectrnico = new JTextField();
 		txtCorreoElectrnico.addMouseListener(new MouseAdapter() {
@@ -189,7 +199,7 @@ public class AssocOptions extends JFrame implements Vista{
 		txtCorreoElectrnico.setColumns(10);
 		txtCorreoElectrnico.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
 		txtCorreoElectrnico.setBounds(20, 108, 274, 33);
-		edit_panel1.add(txtCorreoElectrnico);
+		edit_panel3.add(txtCorreoElectrnico);
 		txtCorreoElectrnico.setBorder(BorderFactory.createCompoundBorder(txtCorreoElectrnico.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
 		
 		txtDireccin = new JTextField();
@@ -206,19 +216,19 @@ public class AssocOptions extends JFrame implements Vista{
 		txtDireccin.setColumns(10);
 		txtDireccin.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
 		txtDireccin.setBounds(318, 107, 295, 33);
-		edit_panel1.add(txtDireccin);
+		edit_panel3.add(txtDireccin);
 		txtDireccin.setBorder(BorderFactory.createCompoundBorder(txtDireccin.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
 		
 		JSeparator separator_2 = new JSeparator();
 		separator_2.setForeground(UIManager.getColor("ComboBox.background"));
 		separator_2.setBounds(6, 198, 637, 12);
-		edit_panel1.add(separator_2);
+		edit_panel3.add(separator_2);
 		
 		JLabel lblDatosAsociacin = new JLabel("Datos Asociación");
 		lblDatosAsociacin.setForeground(Color.GRAY);
 		lblDatosAsociacin.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		lblDatosAsociacin.setBounds(20, 203, 170, 30);
-		edit_panel1.add(lblDatosAsociacin);
+		edit_panel3.add(lblDatosAsociacin);
 		
 		txtnombre = new JTextField();
 		txtnombre.addMouseListener(new MouseAdapter() {
@@ -234,7 +244,7 @@ public class AssocOptions extends JFrame implements Vista{
 		txtnombre.setColumns(10);
 		txtnombre.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
 		txtnombre.setBounds(20, 240, 182, 33);
-		edit_panel1.add(txtnombre);
+		edit_panel3.add(txtnombre);
 		
 		txtSede = new JTextField();
 		txtSede.addMouseListener(new MouseAdapter() {
@@ -250,7 +260,7 @@ public class AssocOptions extends JFrame implements Vista{
 		txtSede.setColumns(10);
 		txtSede.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
 		txtSede.setBounds(224, 240, 237, 33);
-		edit_panel1.add(txtSede);
+		edit_panel3.add(txtSede);
 		
 		txtFax_1 = new JTextField();
 		txtFax_1.addMouseListener(new MouseAdapter() {
@@ -266,7 +276,7 @@ public class AssocOptions extends JFrame implements Vista{
 		txtFax_1.setColumns(10);
 		txtFax_1.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
 		txtFax_1.setBounds(393, 337, 68, 33);
-		edit_panel1.add(txtFax_1);
+		edit_panel3.add(txtFax_1);
 		
 		txtEmail = new JTextField();
 		txtEmail.addMouseListener(new MouseAdapter() {
@@ -282,7 +292,7 @@ public class AssocOptions extends JFrame implements Vista{
 		txtEmail.setColumns(10);
 		txtEmail.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
 		txtEmail.setBounds(339, 288, 274, 33);
-		edit_panel1.add(txtEmail);
+		edit_panel3.add(txtEmail);
 		
 		txtMunicipio = new JTextField();
 		txtMunicipio.addMouseListener(new MouseAdapter() {
@@ -298,7 +308,7 @@ public class AssocOptions extends JFrame implements Vista{
 		txtMunicipio.setColumns(10);
 		txtMunicipio.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
 		txtMunicipio.setBounds(20, 153, 156, 33);
-		edit_panel1.add(txtMunicipio);
+		edit_panel3.add(txtMunicipio);
 		
 		txtCdigoPostal = new JTextField();
 		txtCdigoPostal.addMouseListener(new MouseAdapter() {
@@ -314,7 +324,7 @@ public class AssocOptions extends JFrame implements Vista{
 		txtCdigoPostal.setColumns(10);
 		txtCdigoPostal.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
 		txtCdigoPostal.setBounds(195, 153, 99, 33);
-		edit_panel1.add(txtCdigoPostal);
+		edit_panel3.add(txtCdigoPostal);
 		
 		txtTelfono = new JTextField();
 		txtTelfono.addMouseListener(new MouseAdapter() {
@@ -330,7 +340,7 @@ public class AssocOptions extends JFrame implements Vista{
 		txtTelfono.setColumns(10);
 		txtTelfono.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
 		txtTelfono.setBounds(321, 153, 126, 33);
-		edit_panel1.add(txtTelfono);
+		edit_panel3.add(txtTelfono);
 		
 		txtTelfonoMovil = new JTextField();
 		txtTelfonoMovil.addMouseListener(new MouseAdapter() {
@@ -346,7 +356,7 @@ public class AssocOptions extends JFrame implements Vista{
 		txtTelfonoMovil.setColumns(10);
 		txtTelfonoMovil.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
 		txtTelfonoMovil.setBounds(473, 152, 140, 34);
-		edit_panel1.add(txtTelfonoMovil);
+		edit_panel3.add(txtTelfonoMovil);
 		
 		txtCif = new JTextField();
 		txtCif.addMouseListener(new MouseAdapter() {
@@ -362,7 +372,7 @@ public class AssocOptions extends JFrame implements Vista{
 		txtCif.setColumns(10);
 		txtCif.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
 		txtCif.setBounds(483, 240, 130, 33);
-		edit_panel1.add(txtCif);
+		edit_panel3.add(txtCif);
 		
 		txtmunicipio = new JTextField();
 		txtmunicipio.addMouseListener(new MouseAdapter() {
@@ -378,7 +388,7 @@ public class AssocOptions extends JFrame implements Vista{
 		txtmunicipio.setColumns(10);
 		txtmunicipio.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
 		txtmunicipio.setBounds(20, 337, 156, 33);
-		edit_panel1.add(txtmunicipio);
+		edit_panel3.add(txtmunicipio);
 		
 		txtcdigoPostal = new JTextField();
 		txtcdigoPostal.addMouseListener(new MouseAdapter() {
@@ -394,7 +404,7 @@ public class AssocOptions extends JFrame implements Vista{
 		txtcdigoPostal.setColumns(10);
 		txtcdigoPostal.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
 		txtcdigoPostal.setBounds(188, 337, 59, 33);
-		edit_panel1.add(txtcdigoPostal);
+		edit_panel3.add(txtcdigoPostal);
 		
 		textField_5 = new JTextField();
 		textField_5.addMouseListener(new MouseAdapter() {
@@ -410,7 +420,7 @@ public class AssocOptions extends JFrame implements Vista{
 		textField_5.setColumns(10);
 		textField_5.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
 		textField_5.setBounds(259, 337, 126, 33);
-		edit_panel1.add(textField_5);
+		edit_panel3.add(textField_5);
 		
 		txttelfonoMovil = new JTextField();
 		txttelfonoMovil.addMouseListener(new MouseAdapter() {
@@ -426,11 +436,11 @@ public class AssocOptions extends JFrame implements Vista{
 		txttelfonoMovil.setColumns(10);
 		txttelfonoMovil.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
 		txttelfonoMovil.setBounds(473, 336, 140, 34);
-		edit_panel1.add(txttelfonoMovil);
+		edit_panel3.add(txttelfonoMovil);
 		
 		JDateChooser dateChooser = new JDateChooser();
 		dateChooser.setBounds(295, 288, 33, 33);
-		edit_panel1.add(dateChooser);
+		edit_panel3.add(dateChooser);
 		
 		txtFax = new JTextField();
 		txtFax.addMouseListener(new MouseAdapter() {
@@ -446,31 +456,31 @@ public class AssocOptions extends JFrame implements Vista{
 		txtFax.setColumns(10);
 		txtFax.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
 		txtFax.setBounds(164, 288, 130, 33);
-		edit_panel1.add(txtFax);
+		edit_panel3.add(txtFax);
 		
 		JCheckBox chckbxNewCheckBox = new JCheckBox("El cliente aporta la documentación necesaria para el registro de la nueva asociación");
 		chckbxNewCheckBox.setForeground(new Color(128, 128, 128));
 		chckbxNewCheckBox.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		chckbxNewCheckBox.setBounds(22, 390, 443, 23);
-		edit_panel1.add(chckbxNewCheckBox);
+		edit_panel3.add(chckbxNewCheckBox);
 		
 		JButton btnRegistrar = new JButton("Registrar");
 		btnRegistrar.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 		btnRegistrar.setForeground(new Color(128, 128, 128));
 		btnRegistrar.setBounds(20, 425, 140, 39);
-		edit_panel1.add(btnRegistrar);
+		edit_panel3.add(btnRegistrar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.setForeground(new Color(128, 128, 128));
 		btnCancelar.setFont(new Font("Century Gothic", Font.BOLD, 13));
 		btnCancelar.setBounds(172, 425, 140, 39);
-		edit_panel1.add(btnCancelar);
+		edit_panel3.add(btnCancelar);
 		
 		lblLosCamposMarcados = new JLabel("Los campos marcados con * son obligatorios");
 		lblLosCamposMarcados.setForeground(new Color(128, 128, 128));
 		lblLosCamposMarcados.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		lblLosCamposMarcados.setBounds(387, 26, 226, 16);
-		edit_panel1.add(lblLosCamposMarcados);
+		edit_panel3.add(lblLosCamposMarcados);
 		
 		comboBox = new JComboBox();
 		comboBox.setForeground(Color.GRAY);
@@ -478,17 +488,7 @@ public class AssocOptions extends JFrame implements Vista{
 		comboBox.setBorder(null);
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"*Tipo", "Deporte", "Cultural", "Social", "Juvenil"}));
 		comboBox.setBounds(20, 288, 140, 33);
-		edit_panel1.add(comboBox);
-		
-		
-		
-		JPanel edit_panel2 = new JPanel();
-		edit_panel2.setBackground(new Color(100, 149, 237));
-		layeredPane.add(edit_panel2, "name_23357301890851");
-		
-		JPanel edit_panel3 = new JPanel();
-		edit_panel3.setBackground(new Color(160, 82, 45));
-		layeredPane.add(edit_panel3, "name_23382852103736");
+		edit_panel3.add(comboBox);
 		
 		lbl_data.addMouseListener(new MouseAdapter() {
 			@Override
@@ -533,7 +533,7 @@ public class AssocOptions extends JFrame implements Vista{
 				edit_panel3.setVisible(true);
 			}
 		});
-		lbl_documentacion.setBounds(323, 30, 108, 16);
+		lbl_documentacion.setBounds(310, 30, 108, 16);
 		lbl_documentacion.setFont(new Font("Segoe UI", Font.BOLD, 16));
 		panel.add(lbl_documentacion);
 		
