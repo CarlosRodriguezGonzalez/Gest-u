@@ -50,6 +50,7 @@ public class DBConfig extends JFrame implements Vista{
 	private JTextField txtBaseDeDatos;
 	private JTextField txtUsuario;
 	private JTextField txtTestConexion;
+	private JTextField textField_5;
 	
 	
 	
@@ -150,7 +151,7 @@ public class DBConfig extends JFrame implements Vista{
 		JPanel panel_10 = new JPanel();
 		panel_10.setBackground(Color.WHITE);
 		panel_10.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Detalles de conexi\u00F3n", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(128, 128,128)));
-		panel_10.setBounds(20, 6, 786, 284);
+		panel_10.setBounds(19, 19, 786, 271);
 		panel_2.add(panel_10);
 		panel_10.setLayout(null);
 		
@@ -159,7 +160,7 @@ public class DBConfig extends JFrame implements Vista{
 		txtHost.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		txtHost.setForeground(Color.GRAY);
 		txtHost.setText("Host / URL");
-		txtHost.setBounds(21, 62, 205, 29);
+		txtHost.setBounds(21, 107, 205, 29);
 		panel_10.add(txtHost);
 		txtHost.setColumns(10);
 		txtHost.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
@@ -168,7 +169,7 @@ public class DBConfig extends JFrame implements Vista{
 		
 		JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setForeground(new Color(128,128,128));
-		comboBox_1.setBounds(284, 105, 237, 27);
+		comboBox_1.setBounds(284, 150, 237, 27);
 		panel_10.add(comboBox_1);
 		comboBox_1.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"MySQL", "MongoDB", "Oracle Database", "PostgreSQL"}));
@@ -176,7 +177,7 @@ public class DBConfig extends JFrame implements Vista{
 		JLabel lblTipo = new JLabel("Tipo");
 		lblTipo.setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		lblTipo.setForeground(new Color(128,128,128));
-		lblTipo.setBounds(238, 109, 276, 16);
+		lblTipo.setBounds(238, 154, 276, 16);
 		panel_10.add(lblTipo);
 		
 		txtPuerto = new JTextField();
@@ -188,21 +189,8 @@ public class DBConfig extends JFrame implements Vista{
 		txtPuerto.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
 		txtPuerto.setBorder(BorderFactory.createCompoundBorder(txtPuerto.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
 		txtPuerto.setBackground(Color.WHITE);
-		txtPuerto.setBounds(21, 103, 205, 29);
+		txtPuerto.setBounds(21, 148, 205, 29);
 		panel_10.add(txtPuerto);
-		
-		txtChooseINI = new JTextField();
-		
-		
-		txtChooseINI.setForeground(Color.GRAY);
-		txtChooseINI.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		txtChooseINI.setText("Ruta archivo de configuración");
-		txtChooseINI.setBounds(21, 145, 699, 29);
-		panel_10.add(txtChooseINI);
-		txtChooseINI.setBackground(Color.WHITE);
-		txtChooseINI.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
-		txtChooseINI.setBorder(BorderFactory.createCompoundBorder(txtChooseINI.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-		txtChooseINI.setColumns(10);
 		
 		pwdContrasea = new JPasswordField();
 		
@@ -211,7 +199,7 @@ public class DBConfig extends JFrame implements Vista{
 		pwdContrasea.setText("Contraseña");
 		pwdContrasea.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
 		pwdContrasea.setBorder(BorderFactory.createCompoundBorder(pwdContrasea.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-		pwdContrasea.setBounds(526, 104, 194, 26);
+		pwdContrasea.setBounds(526, 149, 194, 26);
 		panel_10.add(pwdContrasea);
 		
 		JButton btnNewButton = new JButton("Guardar cambios");
@@ -251,7 +239,7 @@ public class DBConfig extends JFrame implements Vista{
 		txtBaseDeDatos.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
 		txtBaseDeDatos.setBorder(BorderFactory.createCompoundBorder(txtBaseDeDatos.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
 		txtBaseDeDatos.setBackground(Color.WHITE);
-		txtBaseDeDatos.setBounds(238, 62, 276, 29);
+		txtBaseDeDatos.setBounds(238, 107, 276, 29);
 		panel_10.add(txtBaseDeDatos);
 		
 		txtUsuario = new JTextField();
@@ -263,13 +251,13 @@ public class DBConfig extends JFrame implements Vista{
 		txtUsuario.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
 		txtUsuario.setBorder(BorderFactory.createCompoundBorder(txtUsuario.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
 		txtUsuario.setBackground(Color.WHITE);
-		txtUsuario.setBounds(526, 62, 194, 29);
+		txtUsuario.setBounds(526, 107, 194, 29);
 		panel_10.add(txtUsuario);
 		
-		JLabel lblNewLabel_9 = new JLabel("En este apartado podrá configurar los parámetros de conexión a BBDD, además de probar la conexión instantaneamente.");
+		JLabel lblNewLabel_9 = new JLabel("En este apartado podrá configurar los parámetros de conexión a BBDD de forma avanzada, además de tener la opción de probar una");
 		lblNewLabel_9.setForeground(new Color(128,128,128));
 		lblNewLabel_9.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		lblNewLabel_9.setBounds(22, 29, 751, 16);
+		lblNewLabel_9.setBounds(22, 34, 751, 16);
 		panel_10.add(lblNewLabel_9);
 		
 		txtTestConexion = new JTextField();
@@ -277,6 +265,12 @@ public class DBConfig extends JFrame implements Vista{
 		txtTestConexion.setBounds(409, 222, 163, 26);
 		panel_10.add(txtTestConexion);
 		txtTestConexion.setColumns(10);
+		
+		JLabel lblNuevaConexinEn = new JLabel("nueva conexión en vivo con otros parámetros.");
+		lblNuevaConexinEn.setForeground(Color.GRAY);
+		lblNuevaConexinEn.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		lblNuevaConexinEn.setBounds(21, 57, 751, 16);
+		panel_10.add(lblNuevaConexinEn);
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBackground(new Color(240, 240, 240));
@@ -293,6 +287,38 @@ public class DBConfig extends JFrame implements Vista{
 		lblSloganTorrismart.setFont(new Font("Segoe UI", Font.PLAIN, 14));
 		lblSloganTorrismart.setBounds(627, 28, 145, 50);
 		panel_3.add(lblSloganTorrismart);
+		
+		JPanel panel_5 = new JPanel();
+		panel_5.setLayout(null);
+		panel_5.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Ruta archivo Config.INI", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(128, 128,128)));
+		panel_5.setBackground(new Color(240,240,240));
+		panel_5.setBounds(22, 73, 782, 107);
+		panel_3.add(panel_5);
+		
+		JLabel lblEnLaSiguiente = new JLabel("En la siguiente ruta relativa se encuentra su archivo principal de configuración:");
+		lblEnLaSiguiente.setForeground(Color.GRAY);
+		lblEnLaSiguiente.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		lblEnLaSiguiente.setBounds(22, 29, 717, 16);
+		panel_5.add(lblEnLaSiguiente);
+		
+		textField_5 = new JTextField();
+		textField_5.setColumns(10);
+		textField_5.setBorder(null);
+		textField_5.setBounds(409, 222, 163, 26);
+		panel_5.add(textField_5);
+		
+		txtChooseINI = new JTextField();
+		txtChooseINI.setBounds(22, 57, 699, 29);
+		panel_5.add(txtChooseINI);
+		
+		
+		txtChooseINI.setForeground(Color.GRAY);
+		txtChooseINI.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtChooseINI.setText("Ruta archivo de configuración");
+		txtChooseINI.setBackground(Color.WHITE);
+		txtChooseINI.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
+		txtChooseINI.setBorder(BorderFactory.createCompoundBorder(txtChooseINI.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+		txtChooseINI.setColumns(10);
 		
 		JPanel panel_4 = new JPanel();
 		panel_4.setBackground(Color.WHITE);

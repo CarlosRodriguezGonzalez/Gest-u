@@ -29,6 +29,10 @@ import Modelo.ModeloImpl;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.border.TitledBorder;
+import javax.swing.JPasswordField;
+import javax.swing.JTable;
+import javax.swing.JScrollPane;
 
 public class AssocOptions extends JFrame implements Vista{
 
@@ -80,6 +84,12 @@ public class AssocOptions extends JFrame implements Vista{
 	private JLabel lblAContinuacinSe;
 	private JLabel lblDeLaNueva;
 	private JComboBox comboBox;
+	private JScrollPane scrollPane;
+	private JPanel panel_3;
+	private JScrollPane scrollPane_1;
+	private JPanel panel_4;
+	private JScrollPane scrollPane_2;
+	private JLabel lblAsociacion;
 
 	/**
 	 * Launch the application.
@@ -117,6 +127,39 @@ public class AssocOptions extends JFrame implements Vista{
 		edit_panel1.setBackground(new Color(255, 255, 255));
 		layeredPane.add(edit_panel1, "name_23340656493830");
 		edit_panel1.setLayout(null);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setLayout(null);
+		panel_2.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Subvenciones asociadas", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(128, 128,128)));
+		panel_2.setBackground(Color.WHITE);
+		panel_2.setBounds(17, 17, 602, 152);
+		edit_panel1.add(panel_2);
+		
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(17, 25, 566, 104);
+		panel_2.add(scrollPane);
+		
+		panel_3 = new JPanel();
+		panel_3.setLayout(null);
+		panel_3.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Actividades asociadas", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(128, 128,128)));
+		panel_3.setBackground(Color.WHITE);
+		panel_3.setBounds(17, 181, 602, 152);
+		edit_panel1.add(panel_3);
+		
+		scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(17, 25, 566, 104);
+		panel_3.add(scrollPane_1);
+		
+		panel_4 = new JPanel();
+		panel_4.setLayout(null);
+		panel_4.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Espacios asociados", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(128, 128,128)));
+		panel_4.setBackground(Color.WHITE);
+		panel_4.setBounds(17, 334, 602, 152);
+		edit_panel1.add(panel_4);
+		
+		scrollPane_2 = new JScrollPane();
+		scrollPane_2.setBounds(17, 25, 566, 104);
+		panel_4.add(scrollPane_2);
 		
 		
 		
@@ -533,7 +576,7 @@ public class AssocOptions extends JFrame implements Vista{
 				edit_panel3.setVisible(true);
 			}
 		});
-		lbl_documentacion.setBounds(310, 30, 108, 16);
+		lbl_documentacion.setBounds(310, 30, 73, 16);
 		lbl_documentacion.setFont(new Font("Segoe UI", Font.BOLD, 16));
 		panel.add(lbl_documentacion);
 		
@@ -541,6 +584,11 @@ public class AssocOptions extends JFrame implements Vista{
 		separator.setBounds(0, 53, 637, 12);
 		panel.add(separator);
 		separator.setForeground(new Color(128, 128, 128));
+		
+		lblAsociacion = new JLabel("Asociacion #001");
+		lblAsociacion.setFont(new Font("Century Gothic", Font.BOLD, 16));
+		lblAsociacion.setBounds(478, 24, 137, 22);
+		panel.add(lblAsociacion);
 		
 		
 		
