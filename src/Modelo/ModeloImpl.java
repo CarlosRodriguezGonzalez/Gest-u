@@ -46,7 +46,12 @@ public class ModeloImpl implements Modelo {
 	private boolean test;
 
 	public void bajarDatosAsoci() {
+		a=new ArrayList<>();
+		try{
 		a = as.getAsociaciones();
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
 		asociaciones.actualizarTabla();
 	}
 	
