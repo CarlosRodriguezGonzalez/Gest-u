@@ -8,6 +8,7 @@ import javax.swing.table.DefaultTableModel;
 import ClasesTabla.Asociacion;
 import Vista.Actividad1;
 import Vista.Asociaciones1;
+import Vista.DBConfig;
 import Vista.EspacioMunicipal1;
 import Vista.HistoricoActividades;
 import Vista.HistoricoAsociaciones;
@@ -32,11 +33,30 @@ public class ModeloImpl implements Modelo {
 	private Login login;
 	private MenuInicio menuInicio;
 	private Subvenciones1 subvenciones;
+	private DBConfig configuracion;
+	
 	private ArrayList<Asociacion> a;
+	private String user;
+	private String pwd;
+	private String db;
+	private String host;
+	private String puerto;
 
 	public void bajarDatosAsoci() {
 		a = as.getAsociaciones();
 		asociaciones.actualizarTabla();
+	}
+	
+	public void cargarConfiguracion(String user,String pwd,String db,String host,String puerto){
+		this.user=user;
+		this.pwd=pwd;
+		this.db=db;
+		this.host=host;
+		this.puerto=puerto;
+	}
+	
+	public void actualizarVistaConfiguracion(){
+		configuracion.actualizarConfiguracion();
 	}
 
 	@Override
@@ -88,9 +108,33 @@ public class ModeloImpl implements Modelo {
 	public void setSubvenciones(Subvenciones1 subvenciones) {
 		this.subvenciones = subvenciones;
 	}
+	
+	public void setConfiguracion(DBConfig configuracion){
+		this.configuracion=configuracion;
+	}
 
 	public ArrayList<Asociacion> getA() {
 		return a;
+	}
+
+	public String getUser() {
+		return user;
+	}
+
+	public String getPwd() {
+		return pwd;
+	}
+
+	public String getDb() {
+		return db;
+	}
+
+	public String getHost() {
+		return host;
+	}
+
+	public String getPuerto() {
+		return puerto;
 	}
 
 }

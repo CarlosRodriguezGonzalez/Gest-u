@@ -1,10 +1,9 @@
 package Controlador;
-import javax.swing.JTable;
-
 import Modelo.Modelo;
 import Modelo.ModeloImpl;
 import Vista.Actividad1;
 import Vista.Asociaciones1;
+import Vista.DBConfig;
 import Vista.EspacioMunicipal1;
 import Vista.HistoricoActividades;
 import Vista.HistoricoAsociaciones;
@@ -27,6 +26,7 @@ public class ControladorImpl implements Controlador{
 	private Login login;
 	private MenuInicio menuInicio;
 	private Subvenciones1 subvenciones;
+	private DBConfig configuracion;
 	
 	public void pasarMenuInicio(){
 		menuInicio=new MenuInicio();
@@ -67,7 +67,17 @@ public class ControladorImpl implements Controlador{
 		subvenciones.setControlador(this);
 		subvenciones.setVisible(true);
 	}
-	
+	public void pasarConfiguracion(){
+		configuracion=new DBConfig();
+		configuracion.setModelo(modelo);
+		configuracion.setControlador(this);
+		modelo.setConfiguracion(configuracion);
+		this.setConfiguracion(configuracion);
+		
+		modelo.actualizarVistaConfiguracion();
+		
+		configuracion.setVisible(true);
+	}
 	
 	
 	
@@ -116,6 +126,9 @@ public class ControladorImpl implements Controlador{
 	}
 	public void setSubvenciones(Subvenciones1 subvenciones) {
 		this.subvenciones = subvenciones;
+	}
+	public void setConfiguracion(DBConfig configuracion){
+		this.configuracion=configuracion;
 	}
 	
 }

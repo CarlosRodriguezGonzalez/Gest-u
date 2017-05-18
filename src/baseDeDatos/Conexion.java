@@ -12,6 +12,8 @@ public class Conexion {
 	private String user;
 	private String pwd;
 	private String db;
+	private String host;
+	private String puerto;
 	
 	public Conexion(){
 		this.cargar();
@@ -22,7 +24,7 @@ public class Conexion {
 			e.printStackTrace();
 		}
 		try{
-			conexion=DriverManager.getConnection("jdbc:mysql://"+db, user,pwd);
+			conexion=DriverManager.getConnection("jdbc:mysql://"+host+":"+puerto+"/"+db, user,pwd);
 			System.out.println("conexion realizada con exito");
 		}catch(SQLException e){
 			System.out.println("error en la conexion");
@@ -42,6 +44,9 @@ public class Conexion {
 			user=configProperty.getProperty("user");
 			pwd=configProperty.getProperty("pwd");
 			db=configProperty.getProperty("db");
+			host=configProperty.getProperty("host");
+			puerto=configProperty.getProperty("puerto");
+			
 			System.out.println(""+user+pwd+db);
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -54,6 +59,26 @@ public class Conexion {
 
 	public static void setConexion(Connection conexion) {
 		Conexion.conexion = conexion;
+	}
+
+	public String getUser() {
+		return user;
+	}
+
+	public String getPwd() {
+		return pwd;
+	}
+
+	public String getDb() {
+		return db;
+	}
+
+	public String getHost() {
+		return host;
+	}
+
+	public String getPuerto() {
+		return puerto;
 	}
 	
 

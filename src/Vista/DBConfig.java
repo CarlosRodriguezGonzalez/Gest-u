@@ -22,6 +22,12 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
+
+import Controlador.Controlador;
+import Controlador.ControladorImpl;
+import Modelo.Modelo;
+import Modelo.ModeloImpl;
+
 import javax.swing.JFileChooser;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -30,7 +36,10 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.JPasswordField;
 
-public class DBConfig extends JFrame {
+public class DBConfig extends JFrame implements Vista{
+	
+	private ControladorImpl controlador;
+	private ModeloImpl modelo;
 
 	private JPanel contentPane;
 	private JTextField txtNombre;
@@ -39,11 +48,14 @@ public class DBConfig extends JFrame {
 	private JTextField txtAltaDesde;
 	private JTextField txtAltaHasta;
 	private JTextField txtChooseINI;
+	//
 	private JTextField txtHost;
 	private JTextField txtPuerto;
 	private JPasswordField pwdContrasea;
 	private JTextField txtBaseDeDatos;
 	private JTextField txtUsuario;
+	
+	
 	public static String getRelativePath(File file, File folder) {
 	    String filePath = file.getAbsolutePath();
 	    String folderPath = folder.getAbsolutePath();
@@ -545,5 +557,23 @@ public class DBConfig extends JFrame {
             
         };
         
+	}
+	
+	public void actualizarConfiguracion(){
+		txtHost.setText(modelo.getHost());
+		txtUsuario.setText(modelo.getUser());
+		txtBaseDeDatos.setText(modelo.getDb());
+		txtPuerto.setText(modelo.getPuerto());
+		pwdContrasea.setText(modelo.getPwd());
+	}
+
+	@Override
+	public void setControlador(Controlador controlador) {
+		this.controlador = (ControladorImpl) controlador;
+	}
+
+	@Override
+	public void setModelo(Modelo modelo) {
+		this.modelo = (ModeloImpl) modelo;
 	}
 }

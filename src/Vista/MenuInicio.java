@@ -380,6 +380,7 @@ public class MenuInicio extends JFrame implements Vista {
 		lblNewLabel_2.setIcon(new ImageIcon("/Users/sergio/Downloads/Exit-35.png"));
 		panel_4.add(lblNewLabel_2);
 		
+<<<<<<< Upstream, based on origin/master
 		//headers for the table
         String[] columns = new String[] {
             "Identificador", "Asociación", "Fecha de alta", "Fecha de baja"
@@ -422,6 +423,21 @@ public class MenuInicio extends JFrame implements Vista {
         table.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         table.setBackground(new Color(106, 116, 145));
         table.setShowGrid(false);
+=======
+		JButton btnMiboton = new JButton("MiBoton:)");
+		btnMiboton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlador.pasarConfiguracion();
+				dispose();
+			}
+		});
+		btnMiboton.setBounds(5, 277, 117, 29);
+		panel_2.add(btnMiboton);
+		
+		table_1 = new JTable();
+		table_1.setBounds(574, 89, 1, 1);
+		contentPane.add(table_1);
+>>>>>>> 6500fb1 asdf
 	}
 
 	@Override

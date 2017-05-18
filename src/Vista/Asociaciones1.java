@@ -38,8 +38,8 @@ import Modelo.ModeloImpl;
 
 public class Asociaciones1 extends JFrame implements Vista {
 
-	private ControladorImpl controlador = new ControladorImpl();
-	private ModeloImpl modelo = new ModeloImpl();
+	private ControladorImpl controlador;
+	private ModeloImpl modelo;
 
 	private JPanel contentPane;
 	
@@ -458,7 +458,6 @@ public class Asociaciones1 extends JFrame implements Vista {
 				return false;
 			}
 		};
-		System.out.println("hola Sergio!");
 		model.addColumn("ID");
 		model.addColumn("Nombre");
 		model.addColumn("CIF");
