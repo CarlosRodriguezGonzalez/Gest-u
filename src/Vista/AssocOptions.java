@@ -102,9 +102,9 @@ public class AssocOptions extends JFrame implements Vista{
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		JLabel lbl_documentacion = new JLabel("Eliminar");
-		JLabel lbl_modify = new JLabel("Histórico");
-		JLabel lbl_data = new JLabel("Datos");
+		JLabel lbl_documentacion = new JLabel("Histórico");
+		JLabel lbl_modify = new JLabel("Modificar");
+		JLabel lbl_data = new JLabel("Nueva");
 		lbl_modify.setForeground(java.awt.Color.lightGray);
 		lbl_documentacion.setForeground(java.awt.Color.lightGray);
 		
@@ -517,7 +517,7 @@ public class AssocOptions extends JFrame implements Vista{
 			}
 		});
 		
-		lbl_modify.setBounds(179, 30, 69, 16);
+		lbl_modify.setBounds(179, 30, 85, 16);
 		lbl_modify.setFont(new Font("Segoe UI", Font.BOLD, 16));
 		panel.add(lbl_modify);
 		

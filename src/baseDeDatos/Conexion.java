@@ -14,6 +14,7 @@ public class Conexion {
 	private String db;
 	private String host;
 	private String puerto;
+	private String ruta;
 	
 	public Conexion(){
 		this.cargar();
@@ -37,7 +38,7 @@ public class Conexion {
 		FileInputStream fileIn = null;
 		try {
 			Properties configProperty = new Properties();
-			File file = new File("config.ini");
+			File file = new File("conf/config.ini");
 			fileIn = new FileInputStream(file);
 			configProperty.load(fileIn);
 			
@@ -46,7 +47,12 @@ public class Conexion {
 			db=configProperty.getProperty("db");
 			host=configProperty.getProperty("host");
 			puerto=configProperty.getProperty("puerto");
-			
+			//Sacar ruta
+			String path = file.getAbsolutePath();
+			String base = System.getProperty("user.dir");
+			System.err.println(base);
+			ruta = new File(base).toURI().relativize(new File(path).toURI()).getPath();
+			ruta="./"+ruta;
 			System.out.println(""+user+pwd+db);
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -79,6 +85,9 @@ public class Conexion {
 
 	public String getPuerto() {
 		return puerto;
+	}
+	public String getRuta(){
+		return ruta;
 	}
 	
 

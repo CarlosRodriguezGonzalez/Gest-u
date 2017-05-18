@@ -253,7 +253,8 @@ public class MenuInicio extends JFrame implements Vista {
 		lblConfiguracin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				//TODO
+				controlador.pasarConfiguracion();
+				dispose();
 			}
 		});
 		lblConfiguracin.setIcon(new ImageIcon("img/Database-30.png"));

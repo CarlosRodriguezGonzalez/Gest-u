@@ -92,7 +92,7 @@ public class Subvenciones1 extends JFrame implements Vista {
 			}
 		});
 		label_1.setBounds(18, 83, 45, 55);
-		label_1.setIcon(new ImageIcon("img/User Groups-40.png"));
+		label_1.setIcon(new ImageIcon("img/header-assoc.png"));
 		panel_1.add(label_1);
 		
 		JLabel lblNewLabel_4 = new JLabel("");

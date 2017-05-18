@@ -42,11 +42,6 @@ public class DBConfig extends JFrame implements Vista{
 	private ModeloImpl modelo;
 
 	private JPanel contentPane;
-	private JTextField txtNombre;
-	private JTextField txtTipo;
-	private JTextField txtNifcif;
-	private JTextField txtAltaDesde;
-	private JTextField txtAltaHasta;
 	private JTextField txtChooseINI;
 	//
 	private JTextField txtHost;
@@ -54,33 +49,13 @@ public class DBConfig extends JFrame implements Vista{
 	private JPasswordField pwdContrasea;
 	private JTextField txtBaseDeDatos;
 	private JTextField txtUsuario;
+	private JTextField txtTestConexion;
 	
 	
-	public static String getRelativePath(File file, File folder) {
-	    String filePath = file.getAbsolutePath();
-	    String folderPath = folder.getAbsolutePath();
-	    if (filePath.startsWith(folderPath)) {
-	        return filePath.substring(folderPath.length() + 1);
-	    } else {
-	        return null;
-	    }
-	}
-
+	
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					DBConfig frame = new DBConfig();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
@@ -105,34 +80,64 @@ public class DBConfig extends JFrame implements Vista{
 		panel_1.setLayout(null);
 		
 		JLabel label_1 = new JLabel("");
-		label_1.setBounds(18, 72, 45, 55);
-		label_1.setIcon(new ImageIcon("/Users/sergio/Downloads/User Groups-40.png"));
+		label_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				controlador.pasarAsociaciones();
+				dispose();
+			}
+		});
+		label_1.setBounds(18, 83, 45, 55);
+		label_1.setIcon(new ImageIcon("img/header-assoc.png"));
 		panel_1.add(label_1);
 		
-		JLabel lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setIcon(new ImageIcon("/Users/sergio/Downloads/Plus Math-40.png"));
-		lblNewLabel_3.setBounds(18, 151, 45, 45);
-		panel_1.add(lblNewLabel_3);
-		
 		JLabel lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4.setIcon(new ImageIcon("/Users/sergio/Downloads/Coins-40.png"));
-		lblNewLabel_4.setBounds(18, 233, 61, 40);
+		lblNewLabel_4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				controlador.pasarSubvenciones();
+				dispose();
+			}
+		});
+		lblNewLabel_4.setIcon(new ImageIcon("img/Coins-40.png"));
+		lblNewLabel_4.setBounds(18, 160, 45, 40);
 		panel_1.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("");
-		lblNewLabel_5.setIcon(new ImageIcon("/Users/sergio/Downloads/Activity Feed Filled-40.png"));
-		lblNewLabel_5.setBounds(18, 308, 61, 40);
+		lblNewLabel_5.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				controlador.pasarActividad();
+				dispose();
+			}
+		});
+		lblNewLabel_5.setIcon(new ImageIcon("img/Activity Feed Filled-40.png"));
+		lblNewLabel_5.setBounds(18, 231, 61, 40);
 		panel_1.add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_6 = new JLabel("");
-		lblNewLabel_6.setIcon(new ImageIcon("/Users/sergio/Downloads/Park Bench-40.png"));
-		lblNewLabel_6.setBounds(18, 386, 61, 40);
+		lblNewLabel_6.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				controlador.pasarEspacioMunicipal();
+				dispose();
+			}
+		});
+		lblNewLabel_6.setIcon(new ImageIcon("img/Park Bench-40.png"));
+		lblNewLabel_6.setBounds(18, 301, 61, 40);
 		panel_1.add(lblNewLabel_6);
 		
-		JLabel lblNewLabel_7 = new JLabel("");
-		lblNewLabel_7.setIcon(new ImageIcon("/Users/sergio/Downloads/Services-40.png"));
-		lblNewLabel_7.setBounds(18, 461, 61, 40);
-		panel_1.add(lblNewLabel_7);
+		JLabel label_3 = new JLabel("");
+		label_3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				controlador.pasarMenuInicio();
+				dispose();
+			}
+		});
+		label_3.setIcon(new ImageIcon("img/Top Menu-40.png"));
+		label_3.setBounds(18, 16, 45, 55);
+		panel_1.add(label_3);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(null);
@@ -214,21 +219,6 @@ public class DBConfig extends JFrame implements Vista{
 		txtChooseINI.setBorder(BorderFactory.createCompoundBorder(txtChooseINI.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
 		txtChooseINI.setColumns(10);
 		
-		JLabel lblNewLabel_8 = new JLabel("");
-		lblNewLabel_8.setBounds(732, 145, 41, 35);
-		panel_10.add(lblNewLabel_8);
-		lblNewLabel_8.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				JFileChooser chooser = new JFileChooser();
-				chooser.showOpenDialog(null);
-				File f = chooser.getSelectedFile();
-				String filename = f.getAbsolutePath();
-				txtChooseINI.setText(filename);
-			}
-		});
-		lblNewLabel_8.setIcon(new ImageIcon("/Users/sergio/Downloads/Search Property Filled-35.png"));
-		
 		pwdContrasea = new JPasswordField();
 		pwdContrasea.addMouseListener(new MouseAdapter() {
 			@Override
@@ -263,7 +253,7 @@ public class DBConfig extends JFrame implements Vista{
 		panel_10.add(btnCargarDatos);
 		
 		JLabel label_2 = new JLabel("");
-		label_2.setIcon(new ImageIcon("/Users/sergio/Downloads/Accept Database Filled-35.png"));
+		label_2.setIcon(new ImageIcon("img/Accept Database Filled-35.png"));
 		label_2.setBounds(733, 215, 40, 40);
 		panel_10.add(label_2);
 		
@@ -307,6 +297,11 @@ public class DBConfig extends JFrame implements Vista{
 		lblNewLabel_9.setBounds(22, 29, 751, 16);
 		panel_10.add(lblNewLabel_9);
 		
+		txtTestConexion = new JTextField();
+		txtTestConexion.setBounds(391, 222, 130, 26);
+		panel_10.add(txtTestConexion);
+		txtTestConexion.setColumns(10);
+		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBackground(new Color(240, 240, 240));
 		panel_3.setBounds(81, 59, 829, 196);
@@ -323,168 +318,6 @@ public class DBConfig extends JFrame implements Vista{
 		lblSloganTorrismart.setBounds(627, 28, 145, 50);
 		panel_3.add(lblSloganTorrismart);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setFont(new Font("Century Gothic", Font.PLAIN, 12));
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"-- Seleccione una --", "Asociación", "Subvención", "Actividades", "Espacio Municipal"}));
-		comboBox.setBounds(28, 34, 194, 27);
-		panel_3.add(comboBox);
-		
-		txtNombre = new JTextField();
-		txtNombre.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				txtNombre.setText("");
-			}
-		});
-		txtNombre.setFont(new Font("Century Gothic", Font.BOLD, 12));
-		txtNombre.setText("Nombre");
-		txtNombre.setBackground(new Color(240, 240, 240));
-		txtNombre.setBorder(null);
-		txtNombre.setBounds(28, 62, 130, 16);
-		panel_3.add(txtNombre);
-		txtNombre.setColumns(10);
-		
-		JSeparator separator_1 = new JSeparator();
-		separator_1.setForeground(new Color(32, 47, 90));
-		separator_1.setBounds(28, 76, 194, 12);
-		panel_3.add(separator_1);
-		
-		txtTipo = new JTextField();
-		txtTipo.setText("Categoría");
-		txtTipo.setFont(new Font("Century Gothic", Font.BOLD, 12));
-		txtTipo.setColumns(10);
-		txtTipo.setBorder(null);
-		txtTipo.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
-		txtTipo.setBounds(28, 17, 130, 16);
-		panel_3.add(txtTipo);
-		
-		txtNifcif = new JTextField();
-		txtNifcif.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				txtNifcif.setText("");
-			}
-		});
-		txtNifcif.setText("NIF/CIF");
-		txtNifcif.setFont(new Font("Century Gothic", Font.BOLD, 12));
-		txtNifcif.setColumns(10);
-		txtNifcif.setBorder(null);
-		txtNifcif.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
-		txtNifcif.setBounds(28, 90, 130, 16);
-		panel_3.add(txtNifcif);
-		
-		JSeparator separator_2 = new JSeparator();
-		separator_2.setForeground(new Color(32, 47, 90));
-		separator_2.setBounds(28, 105, 194, 12);
-		panel_3.add(separator_2);
-		
-		JPanel panel_5 = new JPanel();
-		panel_5.setBackground(new Color(189,195,199));
-		panel_5.setBounds(28, 129, 194, 50);
-		panel_3.add(panel_5);
-		panel_5.setLayout(null);
-		
-		JLabel lblNewLabel_1 = new JLabel("    CONSULTAR");
-		lblNewLabel_1.setIcon(new ImageIcon("/Users/sergio/Downloads/Search Property-40.png"));
-		lblNewLabel_1.setFont(new Font("Century Gothic", Font.BOLD, 12));
-		lblNewLabel_1.setBounds(21, 6, 131, 40);
-		panel_5.add(lblNewLabel_1);
-		lblNewLabel_1.setForeground(new Color(255, 255, 255));
-		
-		
-		txtAltaDesde = new JTextField();
-		txtAltaDesde.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				txtAltaDesde.setText("");
-			}
-		});
-		txtAltaDesde.setText("Alta desde");
-		txtAltaDesde.setFont(new Font("Century Gothic", Font.BOLD, 12));
-		txtAltaDesde.setColumns(10);
-		txtAltaDesde.setBorder(null);
-		txtAltaDesde.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
-		txtAltaDesde.setBounds(245, 34, 100, 16);
-		panel_3.add(txtAltaDesde);
-		
-		JSeparator separator_3 = new JSeparator();
-		separator_3.setForeground(new Color(32, 47, 90));
-		separator_3.setBounds(245, 49, 100, 12);
-		panel_3.add(separator_3);
-		
-		txtAltaHasta = new JTextField();
-		txtAltaHasta.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				txtAltaHasta.setText("");
-			}
-		});
-		txtAltaHasta.setText("Alta hasta");
-		txtAltaHasta.setFont(new Font("Century Gothic", Font.BOLD, 12));
-		txtAltaHasta.setColumns(10);
-		txtAltaHasta.setBorder(null);
-		txtAltaHasta.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
-		txtAltaHasta.setBounds(245, 63, 100, 16);
-		panel_3.add(txtAltaHasta);
-		
-		JSeparator separator_4 = new JSeparator();
-		separator_4.setForeground(new Color(32, 47, 90));
-		separator_4.setBounds(245, 76, 100, 12);
-		panel_3.add(separator_4);
-		
-		
-		JPanel panel_6 = new JPanel();
-		panel_6.setBackground(new Color(189,195,199));
-		panel_6.setBounds(429, 89, 181, 40);
-		panel_3.add(panel_6);
-		panel_6.setLayout(null);
-		
-		JLabel lblInscribirAsoc = new JLabel("ALTA ASOCIACIÓN");
-		lblInscribirAsoc.setIcon(new ImageIcon("/Users/sergio/Downloads/Form-30 (2).png"));
-		lblInscribirAsoc.setForeground(Color.WHITE);
-		lblInscribirAsoc.setFont(new Font("Century Gothic", Font.BOLD, 12));
-		lblInscribirAsoc.setBounds(12, 6, 169, 28);
-		panel_6.add(lblInscribirAsoc);
-		
-		JPanel panel_7 = new JPanel();
-		panel_7.setLayout(null);
-		panel_7.setBackground(new Color(189,195,199));
-		panel_7.setBounds(640, 89, 181, 40);
-		panel_3.add(panel_7);
-		
-		JLabel lblPreimpresos = new JLabel("PREIMPRESOS");
-		lblPreimpresos.setIcon(new ImageIcon("/Users/sergio/Downloads/Paper-30.png"));
-		lblPreimpresos.setForeground(Color.WHITE);
-		lblPreimpresos.setFont(new Font("Century Gothic", Font.BOLD, 12));
-		lblPreimpresos.setBounds(12, 6, 169, 28);
-		panel_7.add(lblPreimpresos);
-		
-		JPanel panel_8 = new JPanel();
-		panel_8.setLayout(null);
-		panel_8.setBackground(new Color(189,195,199));
-		panel_8.setBounds(429, 141, 181, 40);
-		panel_3.add(panel_8);
-		
-		JLabel lblBajaAsociacin = new JLabel("BAJA ASOCIACIÓN");
-		lblBajaAsociacin.setIcon(new ImageIcon("/Users/sergio/Downloads/Cancel Filled-30 (1).png"));
-		lblBajaAsociacin.setForeground(Color.WHITE);
-		lblBajaAsociacin.setFont(new Font("Century Gothic", Font.BOLD, 12));
-		lblBajaAsociacin.setBounds(16, 6, 145, 28);
-		panel_8.add(lblBajaAsociacin);
-		
-		JPanel panel_9 = new JPanel();
-		panel_9.setLayout(null);
-		panel_9.setBackground(new Color(189,195,199));
-		panel_9.setBounds(640, 139, 181, 40);
-		panel_3.add(panel_9);
-		
-		JLabel lblNoticias = new JLabel("NOTICIAS");
-		lblNoticias.setIcon(new ImageIcon("/Users/sergio/Downloads/News-30.png"));
-		lblNoticias.setForeground(Color.WHITE);
-		lblNoticias.setFont(new Font("Century Gothic", Font.BOLD, 12));
-		lblNoticias.setBounds(12, 6, 169, 34);
-		panel_9.add(lblNoticias);
-		
 		JPanel panel_4 = new JPanel();
 		panel_4.setBackground(Color.WHITE);
 		panel_4.setBounds(81, 0, 829, 59);
@@ -493,7 +326,7 @@ public class DBConfig extends JFrame implements Vista{
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setBounds(16, 6, 40, 40);
-		lblNewLabel.setIcon(new ImageIcon("/Users/sergio/Downloads/Database Filled-35.png"));
+		lblNewLabel.setIcon(new ImageIcon("img/Database Filled-35.png"));
 		panel_4.add(lblNewLabel);
 		
 		JLabel lblBsqueda = new JLabel("Configuración Base de datos");
@@ -508,7 +341,7 @@ public class DBConfig extends JFrame implements Vista{
 		
 		JLabel label = new JLabel("");
 		label.setBounds(633, 6, 40, 40);
-		label.setIcon(new ImageIcon("/Users/sergio/Downloads/User-40 (2).png"));
+		label.setIcon(new ImageIcon("img/User-40 (2).png"));
 		panel_4.add(label);
 		
 		JLabel lblUsuario = new JLabel("Usuario");
@@ -519,7 +352,7 @@ public class DBConfig extends JFrame implements Vista{
 		
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setBounds(781, 6, 40, 40);
-		lblNewLabel_2.setIcon(new ImageIcon("/Users/sergio/Downloads/Exit-35.png"));
+		lblNewLabel_2.setIcon(new ImageIcon("img/Exit-35.png"));
 		panel_4.add(lblNewLabel_2);
 		
 		//headers for the table
@@ -565,6 +398,7 @@ public class DBConfig extends JFrame implements Vista{
 		txtBaseDeDatos.setText(modelo.getDb());
 		txtPuerto.setText(modelo.getPuerto());
 		pwdContrasea.setText(modelo.getPwd());
+		txtChooseINI.setText(modelo.getRuta());
 	}
 
 	@Override

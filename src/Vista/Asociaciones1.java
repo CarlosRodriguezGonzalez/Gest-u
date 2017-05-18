@@ -88,7 +88,7 @@ public class Asociaciones1 extends JFrame implements Vista {
 			}
 		});
 		label_1.setBounds(18, 83, 45, 55);
-		label_1.setIcon(new ImageIcon("img/User Groups-40.png"));
+		label_1.setIcon(new ImageIcon("img/header-assoc.png"));
 		panel_1.add(label_1);
 		
 		JLabel lblNewLabel_4 = new JLabel("");
@@ -179,7 +179,7 @@ public class Asociaciones1 extends JFrame implements Vista {
 		txtNombre.setText("Asociación");
 		txtNombre.setBackground(new Color(240, 240, 240));
 		txtNombre.setBorder(null);
-		txtNombre.setBounds(28, 103, 56, 16);
+		txtNombre.setBounds(28, 103, 80, 16);
 		panel_3.add(txtNombre);
 		txtNombre.setColumns(10);
 		
@@ -196,7 +196,7 @@ public class Asociaciones1 extends JFrame implements Vista {
 		txtNifcif.setColumns(10);
 		txtNifcif.setBorder(null);
 		txtNifcif.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
-		txtNifcif.setBounds(28, 75, 64, 16);
+		txtNifcif.setBounds(28, 75, 80, 16);
 		panel_3.add(txtNifcif);
 		
 		
@@ -369,6 +369,7 @@ public class Asociaciones1 extends JFrame implements Vista {
 		panel_3.add(comboBox);
 		
 		txtTipo = new JTextField();
+		txtTipo.setEditable(false);
 		txtTipo.setText("Tipo");
 		txtTipo.setForeground(Color.GRAY);
 		txtTipo.setFont(new Font("Segoe UI", Font.BOLD, 12));
@@ -435,7 +436,6 @@ public class Asociaciones1 extends JFrame implements Vista {
 			public void mouseClicked(MouseEvent e) {
 				if(e.getClickCount()>=2){
 					System.out.println("MIAU:3");
-					table_1.getSelectedRow();
 					
 					int x=(int)(table_1.getModel().getValueAt(table_1.getSelectedRow(), 0));
 					ArrayList<Asociacion> a=modelo.getA();

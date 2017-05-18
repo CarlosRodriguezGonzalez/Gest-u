@@ -13,7 +13,7 @@ public class Launch {
 		AsociacionBBDD.setConexion(conexion.getConexion());
 		ModeloImpl modelo=new ModeloImpl();
 		
-		modelo.cargarConfiguracion(conexion.getUser(), conexion.getPwd(), conexion.getDb(), conexion.getHost(), conexion.getPuerto());
+		modelo.cargarConfiguracion(conexion.getUser(), conexion.getPwd(), conexion.getDb(), conexion.getHost(), conexion.getPuerto(),conexion.getRuta());
 		
 		ControladorImpl controlador=new ControladorImpl();
 		Login frame = new Login();

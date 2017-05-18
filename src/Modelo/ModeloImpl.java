@@ -41,18 +41,20 @@ public class ModeloImpl implements Modelo {
 	private String db;
 	private String host;
 	private String puerto;
+	private String ruta;
 
 	public void bajarDatosAsoci() {
 		a = as.getAsociaciones();
 		asociaciones.actualizarTabla();
 	}
 	
-	public void cargarConfiguracion(String user,String pwd,String db,String host,String puerto){
+	public void cargarConfiguracion(String user,String pwd,String db,String host,String puerto,String ruta){
 		this.user=user;
 		this.pwd=pwd;
 		this.db=db;
 		this.host=host;
 		this.puerto=puerto;
+		this.ruta=ruta;
 	}
 	
 	public void actualizarVistaConfiguracion(){
@@ -135,6 +137,9 @@ public class ModeloImpl implements Modelo {
 
 	public String getPuerto() {
 		return puerto;
+	}
+	public String getRuta(){
+		return ruta;
 	}
 
 }
