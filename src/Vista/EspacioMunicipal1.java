@@ -439,17 +439,19 @@ public class EspacioMunicipal1 extends JFrame implements Vista {
 				return false;
 			}
 		};
-		model.addColumn("ID");
-		model.addColumn("Direccion");
-		model.addColumn("Características");
-		model.addColumn("Fecha solicitud");
-		model.addColumn("Fecha concesión");
+		model.addColumn("IDENTIFICADOR");
+		model.addColumn("DIRECCION");
+		model.addColumn("CARACTERISTICAS");
+		model.addColumn("FECHA SOLICITUD");
+		model.addColumn("FECHA CONCESION");
 		for (int i = 0; i < a.size(); i++) {
 			model.addRow(new Object[] { a.get(i).getSede(), a.get(i).getDireccion(), a.get(i).getCaracteristicas(),
 					a.get(i).getFechasolicitud(), a.get(i).getFechaconcesion() });
 		}
 
 		table_1.setModel(model);
+		table_1.setBackground(new Color(106, 116, 145));
+		table_1.setShowGrid(false);
 		
 		scrollPane.setViewportView(table_1);
 		

@@ -455,17 +455,19 @@ public class Actividad1 extends JFrame implements Vista {
 				return false;
 			}
 		};
-		model.addColumn("ID");
-		model.addColumn("Nombre");
-		model.addColumn("Fecha");
-		model.addColumn("Lugar");
-		model.addColumn("Tipo");
-		model.addColumn("Descripcion");
+		model.addColumn("IDENTIFICADOR");
+		model.addColumn("NOMBRE");
+		model.addColumn("FECHA");
+		model.addColumn("LUGAR");
+		model.addColumn("TIPO");
+		model.addColumn("DESCRIPCION");
 		for (int i = 0; i < a.size(); i++) {
 			model.addRow(new Object[] {a.get(i).getId(),a.get(i).getNombre(),a.get(i).getFecha(),a.get(i).getLugar(),a.get(i).getTipo(),a.get(i).getDescripcion()});
 		}
 
 		table_1.setModel(model);
+		table_1.setBackground(new Color(106, 116, 145));
+		table_1.setShowGrid(false);
 		
 		scrollPane.setViewportView(table_1);
 	}
