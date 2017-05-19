@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 19-05-2017 a las 00:34:22
+-- Tiempo de generación: 19-05-2017 a las 02:26:16
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 7.1.1
 
@@ -41,7 +41,7 @@ CREATE TABLE `actividad` (
 --
 
 INSERT INTO `actividad` (`id_actividad`, `fecha`, `tipo`, `nombre_actividad`, `lugar`, `destinatario`, `descripcion`) VALUES
-(1, '10-10-2001', 'Futbol', 'Futbito con Macarrones', 'Polideportivo', 1, 'asdf');
+(1, '22-04-2017', 'Ocio', 'Gymkana', 'IES Carmen Martin Gaite', NULL, 'Gymkana con distintos circuitos orientada a niños.');
 
 -- --------------------------------------------------------
 
@@ -85,8 +85,21 @@ CREATE TABLE `asociacion` (
 --
 
 INSERT INTO `asociacion` (`id_asociacion`, `nombre`, `cif`, `direccion`, `municipio`, `cp`, `telef_fijo`, `telef_movil`, `fax`, `email`, `baja`, `estatutos`, `num_registro`, `acta_junta`, `cert_domicilio`, `fecha_solicitud`, `id_representante`) VALUES
-(3, 'nombre', 'cif', 'direccion', 'municipio', 43, 34, 34, 34, 'ddfdfdfg', 3, 3, 3, 3, 3, '2017-05-08', 0),
-(4, 'Quirosesporelmundo', 'B62332237', 'sdsddsf', 'Quirosworld', 272, 13232, 32323, 323232, 'quiroswii@dsd.com', 32, 3, 23, 3, 3, '2017-05-17', 0);
+(1, 'Tiro al plato Faisan', 'B876234G', 'C/Jacinto Benavente P2 N4', 'Las Rozas', 28232, 918543234, 681019232, NULL, 'tiroplatofaisan@faisanworld.com', 1, 1, 1, 1, 1, '15-04-2015', 0),
+(2, 'We\'re Quiros', 'B432243C', 'C/ Poniente 28', 'Moralzarzal', 28411, 918432345, 681012343, NULL, 'werequiros@gmail.com', 1, 1, 1, 1, 1, '04-09-2016', 0),
+(3, 'Fundacion UCA', 'B33423234V', 'C/ Daniel de la Uca 23', 'Mahadaonda', 28413, 918432121, 671221212, NULL, 'daniglesiauca@hotmail.es', 1, 1, 1, 1, 1, '25-02-2017', 0),
+(4, 'Fundacion Ochentera', 'B334232V', 'C/ Elfo P1 4', 'Madrid', 28022, 917645321, 3434, NULL, 'fundacionochentera@gmail.com', 1, 1, 1, 1, 1, '28-02-2017', 0),
+(5, 'Loleros Anónimos', 'B456723C', 'Avda. Grieta del invocador', 'Runaterra', 28023, 98789213, 3434, NULL, 'lolerosanonimos@hotmail.com', 1, 1, 1, 1, 1, '01-03-2017', 0),
+(6, 'Autobuses Paul', '', 'C/ Nunca jamas 6', 'Las Rozas', 28232, 918576432, 3434, NULL, 'paulvilla@gmail.com', 1, 1, 1, 1, 1, '03-03-2017', 0),
+(7, 'Malsu was here', 'Z635433B', 'C/ Playa de Liencres', 'Las Matas', 28290, 918564323, 3434, NULL, 'malsujeto@gmail.com', 1, 1, 1, 1, 1, '04-03-2017', 0),
+(8, 'NullPointerException', 'B3432438', 'C/ De los Bugs', 'Java', 28232, 918576532, 3434, NULL, 'nullpointer@gmail.com', 1, 1, 1, 1, 1, '07-03-2017', 0),
+(9, 'Quiros a la cazuela', 'B433343G', 'C/ Del Y si 23', 'Las Rozas', 28232, 918574632, 3434, NULL, 'quiroscope@gmail.com', 1, 1, 1, 1, 1, '15-03-2017', 0),
+(10, 'In Charly We Trust', 'F33434G', 'C/ Playa de las Americas', 'Las Rozas', 28232, 918432123, 23223, NULL, 'incharlywetrust@gmail.com', 1, 1, 1, 1, 1, '19-03-2017', 0),
+(11, 'Alcoholicos Anonimos', 'B873344F', 'Paseo de Moret 2', 'Madrid', 28022, 910664532, 3434, NULL, 'alcoholicos@hotmail.es', 1, 1, 1, 1, 1, '22-03-2017', 0),
+(12, 'Not Giving In', 'B323433Y', 'C/ Junio 22', 'Madrid', 28023, 918234321, 3434, NULL, 'notgivingin@gmail.com', 1, 1, 1, 1, 1, '26-03-2017', 0),
+(13, 'Fundacion Adahi', 'B343342C', 'Plaza de España', 'Madrid', 28022, 918765432, 3434, NULL, 'fundacionadahi@madrid.org', 1, 1, 1, 1, 1, '02-04-2017', 0),
+(14, 'E-Sports Las Rozas', 'B33423C', 'C/ Jacinto Benavente 32', 'Las Rozas', 28231, 918674323, 3434, NULL, 'esportslasrozas@gmail.com', 1, 1, 1, 1, 1, '05-04-2017', 0),
+(15, 'Libros ThePaper', 'B34432CR', 'C/ Real 23', 'Madrid', 28022, 918232234, 3434, NULL, 'librospaper@paperux.com', 1, 1, 1, 1, 1, '17-04-2017', 0);
 
 -- --------------------------------------------------------
 
@@ -145,7 +158,7 @@ CREATE TABLE `representante` (
 --
 
 INSERT INTO `representante` (`id_representante`, `nombre`, `NIF_NIE`, `direccion`, `municipio`, `codigo_postal`, `tfn_fijo`, `tfn_movil`, `fax`, `email`) VALUES
-(0, 'adsasd', 'ffdssfd', 'sdfsdfsd', 'sdffsd', 43, 34, 34, 34, 'dsffds');
+(0, 'Sergio Arranz', '02576543F', 'C/Federico Garcia Lorca 9', 'Moralzarzal', 28411, 918576543, 681723421, NULL, 'sergioas1996@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -166,7 +179,7 @@ CREATE TABLE `sede` (
 --
 
 INSERT INTO `sede` (`id_sede`, `direccion`, `caracteristicas`, `fecha_solicitud`, `fecha_concesion`) VALUES
-(1, 'Piruletalandia', 'Amplio', '10-10-2015', '10-10-2016');
+(1, 'C/ De la Piruleta', 'Duplex amplio', '05-04-2017', '07-04-2017');
 
 -- --------------------------------------------------------
 
@@ -197,7 +210,7 @@ CREATE TABLE `subvencion` (
 --
 
 INSERT INTO `subvencion` (`id_solicitud`, `fecha_solicitud`, `importe`, `id_actividad`) VALUES
-(1, '10-12-2001', 10000, 1);
+(1, '02-05-2017', 567, 1);
 
 -- --------------------------------------------------------
 
@@ -300,7 +313,7 @@ ALTER TABLE `actividad`
 -- AUTO_INCREMENT de la tabla `asociacion`
 --
 ALTER TABLE `asociacion`
-  MODIFY `id_asociacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_asociacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT de la tabla `sede`
 --

@@ -466,19 +466,21 @@ public class Asociaciones1 extends JFrame implements Vista {
 				return false;
 			}
 		};
-		model.addColumn("ID");
-		model.addColumn("Nombre");
+		model.addColumn("IDENTIFICADOR");
+		model.addColumn("NOMBRE");
 		model.addColumn("CIF");
-		model.addColumn("Direccion");
-		model.addColumn("CP");
-		model.addColumn("email");
-		model.addColumn("telefono");
+		model.addColumn("DIRECCIÓN");
+		model.addColumn("CÓDIGO POSTAL");
+		model.addColumn("EMAIL");
+		model.addColumn("TELEFONO");
 		for (int i = 0; i < a.size(); i++) {
 			model.addRow(new Object[] { a.get(i).getId(), a.get(i).getNombre(), a.get(i).getCif(),
 					a.get(i).getDireccion(), a.get(i).getCp(), a.get(i).getEmail(), a.get(i).getTelefono() });
 		}
 
 		table_1.setModel(model);
+		table_1.setBackground(new Color(106, 116, 145));
+		table_1.setShowGrid(false);
 		
 		scrollPane.setViewportView(table_1);
 	}

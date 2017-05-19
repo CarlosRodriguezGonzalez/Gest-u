@@ -407,16 +407,17 @@ public class Subvenciones1 extends JFrame implements Vista {
 				return false;
 			}
 		};
-		System.out.println("hola Sergio!");
-		model.addColumn("ID");
-		model.addColumn("Fecha");
-		model.addColumn("Importe");
+		model.addColumn("IDENTIFICADOR");
+		model.addColumn("FECHA SOLICITUD");
+		model.addColumn("IMPORTE");
 		
 		for (int i = 0; i < a.size(); i++) {
 			model.addRow(new Object[] {a.get(i).getId(),a.get(i).getFecha(),a.get(i).getImporte()});
 		}
 
 		table_1.setModel(model);
+		table_1.setBackground(new Color(106, 116, 145));
+		table_1.setShowGrid(false);
 		
 		scrollPane.setViewportView(table_1);
 	}

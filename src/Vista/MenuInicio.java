@@ -385,6 +385,8 @@ public class MenuInicio extends JFrame implements Vista {
 		table_1 = new JTable();
 		table_1.setBounds(574, 89, 1, 1);
 		contentPane.add(table_1);
+		table_1.setBackground(new Color(106, 116, 145));
+		table_1.setShowGrid(false);
 
 	}
 	public void actualizarTabla(){
@@ -395,10 +397,10 @@ public class MenuInicio extends JFrame implements Vista {
 				return false;
 			}
 		};
-		model.addColumn("ID");
-		model.addColumn("Nombre");
+		model.addColumn("IDENTIFICADOR");
+		model.addColumn("NOMBRE");
 		model.addColumn("CIF");
-		model.addColumn("Fecha");
+		model.addColumn("FECHA ALTA");
 		for (int i = 0; i < a.size(); i++) {
 			model.addRow(new Object[] { a.get(i).getId(), a.get(i).getNombre(), a.get(i).getCif(),
 					a.get(i).getFecha()});
