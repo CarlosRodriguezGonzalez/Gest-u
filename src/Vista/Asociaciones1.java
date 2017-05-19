@@ -259,8 +259,8 @@ public class Asociaciones1 extends JFrame implements Vista {
 		lblConfiguracin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				//TODO
-				dispose();
+				
+				controlador.pasarAssocOptions();
 			}
 		});
 		lblConfiguracin.setIcon(new ImageIcon("img/Add Property-30.png"));
@@ -339,7 +339,7 @@ public class Asociaciones1 extends JFrame implements Vista {
 		lblHistrico.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				//TODO
+				controlador.pasarAssocOptions();
 			}
 		});
 		lblHistrico.setIcon(new ImageIcon("img/News-30.png"));
