@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.5.2
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: May 19, 2017 at 09:45 AM
--- Server version: 10.1.19-MariaDB
--- PHP Version: 7.0.9
+-- Servidor: localhost
+-- Tiempo de generación: 19-05-2017 a las 09:58:26
+-- Versión del servidor: 10.1.19-MariaDB
+-- Versión de PHP: 7.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -16,18 +16,14 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
-DROP DATABASE IF EXISTS FaisanPI;
-CREATE DATABASE FaisanPI;
-USE FaisanPI;
-
 --
--- Database: `faisanpi`
+-- Base de datos: `faisanPI`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `actividad`
+-- Estructura de tabla para la tabla `actividad`
 --
 
 CREATE TABLE `actividad` (
@@ -41,7 +37,7 @@ CREATE TABLE `actividad` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `actividad`
+-- Volcado de datos para la tabla `actividad`
 --
 
 INSERT INTO `actividad` (`id_actividad`, `fecha`, `tipo`, `nombre_actividad`, `lugar`, `destinatario`, `descripcion`) VALUES
@@ -58,7 +54,7 @@ INSERT INTO `actividad` (`id_actividad`, `fecha`, `tipo`, `nombre_actividad`, `l
 -- --------------------------------------------------------
 
 --
--- Table structure for table `actividad_tipo`
+-- Estructura de tabla para la tabla `actividad_tipo`
 --
 
 CREATE TABLE `actividad_tipo` (
@@ -69,7 +65,7 @@ CREATE TABLE `actividad_tipo` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `asociacion`
+-- Estructura de tabla para la tabla `asociacion`
 --
 
 CREATE TABLE `asociacion` (
@@ -93,7 +89,7 @@ CREATE TABLE `asociacion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `asociacion`
+-- Volcado de datos para la tabla `asociacion`
 --
 
 INSERT INTO `asociacion` (`id_asociacion`, `nombre`, `cif`, `direccion`, `municipio`, `cp`, `telef_fijo`, `telef_movil`, `fax`, `email`, `baja`, `estatutos`, `num_registro`, `acta_junta`, `cert_domicilio`, `fecha_solicitud`, `id_representante`) VALUES
@@ -116,7 +112,7 @@ INSERT INTO `asociacion` (`id_asociacion`, `nombre`, `cif`, `direccion`, `munici
 -- --------------------------------------------------------
 
 --
--- Table structure for table `asociacion_actividad_organiza`
+-- Estructura de tabla para la tabla `asociacion_actividad_organiza`
 --
 
 CREATE TABLE `asociacion_actividad_organiza` (
@@ -124,10 +120,24 @@ CREATE TABLE `asociacion_actividad_organiza` (
   `id_actividad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `asociacion_actividad_organiza`
+--
+
+INSERT INTO `asociacion_actividad_organiza` (`id_asociacion`, `id_actividad`) VALUES
+(1, 1),
+(1, 3),
+(1, 6),
+(1, 8),
+(2, 1),
+(2, 5),
+(2, 9),
+(3, 2);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `asociacion_actividad_participa`
+-- Estructura de tabla para la tabla `asociacion_actividad_participa`
 --
 
 CREATE TABLE `asociacion_actividad_participa` (
@@ -138,7 +148,7 @@ CREATE TABLE `asociacion_actividad_participa` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `asociacion_tipo`
+-- Estructura de tabla para la tabla `asociacion_tipo`
 --
 
 CREATE TABLE `asociacion_tipo` (
@@ -149,7 +159,7 @@ CREATE TABLE `asociacion_tipo` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `representante`
+-- Estructura de tabla para la tabla `representante`
 --
 
 CREATE TABLE `representante` (
@@ -166,7 +176,7 @@ CREATE TABLE `representante` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `representante`
+-- Volcado de datos para la tabla `representante`
 --
 
 INSERT INTO `representante` (`id_representante`, `nombre`, `NIF_NIE`, `direccion`, `municipio`, `codigo_postal`, `tfn_fijo`, `tfn_movil`, `fax`, `email`) VALUES
@@ -175,7 +185,7 @@ INSERT INTO `representante` (`id_representante`, `nombre`, `NIF_NIE`, `direccion
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sede`
+-- Estructura de tabla para la tabla `sede`
 --
 
 CREATE TABLE `sede` (
@@ -187,7 +197,7 @@ CREATE TABLE `sede` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `sede`
+-- Volcado de datos para la tabla `sede`
 --
 
 INSERT INTO `sede` (`id_sede`, `direccion`, `caracteristicas`, `fecha_solicitud`, `fecha_concesion`) VALUES
@@ -201,7 +211,7 @@ INSERT INTO `sede` (`id_sede`, `direccion`, `caracteristicas`, `fecha_solicitud`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sede_asociacion`
+-- Estructura de tabla para la tabla `sede_asociacion`
 --
 
 CREATE TABLE `sede_asociacion` (
@@ -209,10 +219,23 @@ CREATE TABLE `sede_asociacion` (
   `id_sede` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `sede_asociacion`
+--
+
+INSERT INTO `sede_asociacion` (`id_asociacion`, `id_sede`) VALUES
+(1, 1),
+(1, 2),
+(1, 4),
+(1, 5),
+(2, 1),
+(2, 3),
+(2, 4);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `subvencion`
+-- Estructura de tabla para la tabla `subvencion`
 --
 
 CREATE TABLE `subvencion` (
@@ -223,7 +246,7 @@ CREATE TABLE `subvencion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `subvencion`
+-- Volcado de datos para la tabla `subvencion`
 --
 
 INSERT INTO `subvencion` (`id_solicitud`, `fecha_solicitud`, `importe`, `id_actividad`) VALUES
@@ -240,7 +263,7 @@ INSERT INTO `subvencion` (`id_solicitud`, `fecha_solicitud`, `importe`, `id_acti
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tipo`
+-- Estructura de tabla para la tabla `tipo`
 --
 
 CREATE TABLE `tipo` (
@@ -249,153 +272,153 @@ CREATE TABLE `tipo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `actividad`
+-- Indices de la tabla `actividad`
 --
 ALTER TABLE `actividad`
   ADD PRIMARY KEY (`id_actividad`);
 
 --
--- Indexes for table `actividad_tipo`
+-- Indices de la tabla `actividad_tipo`
 --
 ALTER TABLE `actividad_tipo`
   ADD PRIMARY KEY (`id_actividad`,`id_tipo`),
   ADD KEY `fk_tipo_actividad` (`id_tipo`);
 
 --
--- Indexes for table `asociacion`
+-- Indices de la tabla `asociacion`
 --
 ALTER TABLE `asociacion`
   ADD PRIMARY KEY (`id_asociacion`),
   ADD KEY `fk_aso_repre` (`id_representante`);
 
 --
--- Indexes for table `asociacion_actividad_organiza`
+-- Indices de la tabla `asociacion_actividad_organiza`
 --
 ALTER TABLE `asociacion_actividad_organiza`
   ADD PRIMARY KEY (`id_asociacion`,`id_actividad`),
   ADD KEY `fk_actividad_asociacion_organiza` (`id_actividad`);
 
 --
--- Indexes for table `asociacion_actividad_participa`
+-- Indices de la tabla `asociacion_actividad_participa`
 --
 ALTER TABLE `asociacion_actividad_participa`
   ADD PRIMARY KEY (`id_asociacion`,`id_actividad`),
   ADD KEY `fk_actividad_asociacion_participa` (`id_actividad`);
 
 --
--- Indexes for table `asociacion_tipo`
+-- Indices de la tabla `asociacion_tipo`
 --
 ALTER TABLE `asociacion_tipo`
   ADD PRIMARY KEY (`id_asociacion`,`id_tipo`),
   ADD KEY `fk_tipo_asociacion` (`id_tipo`);
 
 --
--- Indexes for table `representante`
+-- Indices de la tabla `representante`
 --
 ALTER TABLE `representante`
   ADD PRIMARY KEY (`id_representante`);
 
 --
--- Indexes for table `sede`
+-- Indices de la tabla `sede`
 --
 ALTER TABLE `sede`
   ADD PRIMARY KEY (`id_sede`);
 
 --
--- Indexes for table `sede_asociacion`
+-- Indices de la tabla `sede_asociacion`
 --
 ALTER TABLE `sede_asociacion`
   ADD PRIMARY KEY (`id_asociacion`,`id_sede`),
   ADD KEY `fk_sede_aso` (`id_sede`);
 
 --
--- Indexes for table `subvencion`
+-- Indices de la tabla `subvencion`
 --
 ALTER TABLE `subvencion`
   ADD PRIMARY KEY (`id_solicitud`),
   ADD KEY `fk_solicitud_actividad` (`id_actividad`);
 
 --
--- Indexes for table `tipo`
+-- Indices de la tabla `tipo`
 --
 ALTER TABLE `tipo`
   ADD PRIMARY KEY (`id_tipo`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `actividad`
+-- AUTO_INCREMENT de la tabla `actividad`
 --
 ALTER TABLE `actividad`
   MODIFY `id_actividad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
--- AUTO_INCREMENT for table `asociacion`
+-- AUTO_INCREMENT de la tabla `asociacion`
 --
 ALTER TABLE `asociacion`
   MODIFY `id_asociacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
--- AUTO_INCREMENT for table `sede`
+-- AUTO_INCREMENT de la tabla `sede`
 --
 ALTER TABLE `sede`
   MODIFY `id_sede` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT for table `subvencion`
+-- AUTO_INCREMENT de la tabla `subvencion`
 --
 ALTER TABLE `subvencion`
   MODIFY `id_solicitud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `actividad_tipo`
+-- Filtros para la tabla `actividad_tipo`
 --
 ALTER TABLE `actividad_tipo`
   ADD CONSTRAINT `fk_actividad_tipo` FOREIGN KEY (`id_actividad`) REFERENCES `actividad` (`id_actividad`),
   ADD CONSTRAINT `fk_tipo_actividad` FOREIGN KEY (`id_tipo`) REFERENCES `tipo` (`id_tipo`);
 
 --
--- Constraints for table `asociacion`
+-- Filtros para la tabla `asociacion`
 --
 ALTER TABLE `asociacion`
   ADD CONSTRAINT `fk_aso_repre` FOREIGN KEY (`id_representante`) REFERENCES `representante` (`id_representante`);
 
 --
--- Constraints for table `asociacion_actividad_organiza`
+-- Filtros para la tabla `asociacion_actividad_organiza`
 --
 ALTER TABLE `asociacion_actividad_organiza`
   ADD CONSTRAINT `fk_actividad_asociacion_organiza` FOREIGN KEY (`id_actividad`) REFERENCES `actividad` (`id_actividad`),
   ADD CONSTRAINT `fk_asociacion_actividad_organiza` FOREIGN KEY (`id_asociacion`) REFERENCES `asociacion` (`id_asociacion`);
 
 --
--- Constraints for table `asociacion_actividad_participa`
+-- Filtros para la tabla `asociacion_actividad_participa`
 --
 ALTER TABLE `asociacion_actividad_participa`
   ADD CONSTRAINT `fk_actividad_asociacion_participa` FOREIGN KEY (`id_actividad`) REFERENCES `actividad` (`id_actividad`),
   ADD CONSTRAINT `fk_asociacion_actividad_participa` FOREIGN KEY (`id_asociacion`) REFERENCES `asociacion` (`id_asociacion`);
 
 --
--- Constraints for table `asociacion_tipo`
+-- Filtros para la tabla `asociacion_tipo`
 --
 ALTER TABLE `asociacion_tipo`
   ADD CONSTRAINT `fk_asociacion_tipo` FOREIGN KEY (`id_asociacion`) REFERENCES `asociacion` (`id_asociacion`),
   ADD CONSTRAINT `fk_tipo_asociacion` FOREIGN KEY (`id_tipo`) REFERENCES `tipo` (`id_tipo`);
 
 --
--- Constraints for table `sede_asociacion`
+-- Filtros para la tabla `sede_asociacion`
 --
 ALTER TABLE `sede_asociacion`
   ADD CONSTRAINT `fk_aso_sede` FOREIGN KEY (`id_asociacion`) REFERENCES `asociacion` (`id_asociacion`),
   ADD CONSTRAINT `fk_sede_aso` FOREIGN KEY (`id_sede`) REFERENCES `sede` (`id_sede`);
 
 --
--- Constraints for table `subvencion`
+-- Filtros para la tabla `subvencion`
 --
 ALTER TABLE `subvencion`
   ADD CONSTRAINT `fk_solicitud_actividad` FOREIGN KEY (`id_actividad`) REFERENCES `actividad` (`id_actividad`);
