@@ -11,6 +11,7 @@ import ClasesTabla.Espacio;
 import ClasesTabla.Subvencion;
 import Vista.Actividad1;
 import Vista.Asociaciones1;
+import Vista.AssocOptions;
 import Vista.DBConfig;
 import Vista.EspacioMunicipal1;
 import Vista.HistoricoActividades;
@@ -37,6 +38,7 @@ public class ModeloImpl implements Modelo {
 	private Subvenciones1 subvenciones;
 	private EspacioMunicipal1 espacio;
 	private DBConfig configuracion;
+	private AssocOptions asociacionesExtra;
 	
 	private ArrayList<Asociacion> a;
 	private ArrayList<Subvencion> b;
@@ -98,6 +100,7 @@ public class ModeloImpl implements Modelo {
 		espacio.actualizarTabla();
 	}
 	
+	
 	public void cargarConfiguracion(String user,String pwd,String db,String host,String puerto,String ruta){
 		this.user=user;
 		this.pwd=pwd;
@@ -119,6 +122,34 @@ public class ModeloImpl implements Modelo {
 		}catch(SQLException e){
 		}
 		configuracion.actualizarTest();
+	}
+	public void cargarVistaAsociacionesExtra(int x) {
+		b = new ArrayList<>();
+		try {
+			b = as.getSubvencionesPorId(x);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		asociacionesExtra.actualizarTabla();
+	}
+	
+	public void cargarActividadesAsociacionesExtra(int x){
+		c=new ArrayList<>();
+		try{
+			c=as.getActividadesPorId(x);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		asociacionesExtra.actualizarTablaActividades();
+	}
+	public void cargarEspaciosAsociacionesExtra(int x){
+		d=new ArrayList<>();
+		try{
+			d=as.getEspacioPorId(x);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		asociacionesExtra.actualizarTablaEspacios();
 	}
 	
 
@@ -213,5 +244,8 @@ public class ModeloImpl implements Modelo {
 	}
 	public boolean getTest(){
 		return test;
+	}
+	public void setasociacionesExtra(AssocOptions asociacionesExtra){
+		this.asociacionesExtra=asociacionesExtra;
 	}
 }

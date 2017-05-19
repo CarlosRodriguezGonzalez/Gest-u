@@ -437,14 +437,7 @@ public class Asociaciones1 extends JFrame implements Vista {
 				if(e.getClickCount()>=2){
 					System.out.println("MIAU:3");
 					
-					int x=(int)(table_1.getModel().getValueAt(table_1.getSelectedRow(), 0));
-					ArrayList<Asociacion> a=modelo.getA();
-					Asociacion u=null;
-					for(int i=0;i<a.size();i++){
-						if(a.get(i).getId()==x)
-							u=a.get(i);
-					}
-					System.out.println(u);
+					controlador.pasarAssocOptions();
 				}
 				
 			}
@@ -483,6 +476,9 @@ public class Asociaciones1 extends JFrame implements Vista {
 		table_1.setShowGrid(false);
 		
 		scrollPane.setViewportView(table_1);
+	}
+	public int getRowSelectedID(){
+		return (int)(table_1.getModel().getValueAt(table_1.getSelectedRow(), 0));
 	}
 
 	@Override

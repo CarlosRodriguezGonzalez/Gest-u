@@ -3,6 +3,7 @@ import Modelo.Modelo;
 import Modelo.ModeloImpl;
 import Vista.Actividad1;
 import Vista.Asociaciones1;
+import Vista.AssocOptions;
 import Vista.DBConfig;
 import Vista.EspacioMunicipal1;
 import Vista.HistoricoActividades;
@@ -27,6 +28,7 @@ public class ControladorImpl implements Controlador{
 	private MenuInicio menuInicio;
 	private Subvenciones1 subvenciones;
 	private DBConfig configuracion;
+	private AssocOptions asociacionesExtra;
 	
 	public void pasarMenuInicio(){
 		menuInicio=new MenuInicio();
@@ -95,6 +97,18 @@ public class ControladorImpl implements Controlador{
 		
 		configuracion.setVisible(true);
 	}
+	
+	public void pasarAssocOptions(){
+		asociacionesExtra=new AssocOptions();
+		asociacionesExtra.setModelo(modelo);
+		asociacionesExtra.setControlador(this);
+		modelo.setasociacionesExtra(asociacionesExtra);
+		this.setasociacionesExtra(asociacionesExtra);
+		modelo.cargarVistaAsociacionesExtra(asociaciones.getRowSelectedID());
+		modelo.cargarActividadesAsociacionesExtra(asociaciones.getRowSelectedID());
+		modelo.cargarEspaciosAsociacionesExtra(asociaciones.getRowSelectedID());
+		asociacionesExtra.setVisible(true);
+	}
 	public void testConexion(){
 		modelo.testConexion(configuracion.getTxtUsuario().getText(), configuracion.getPwdContrasea().getText(), configuracion.getTxtBaseDeDatos().getText(), configuracion.getTxtHost().getText(), configuracion.getTxtPuerto().getText());
 	}
@@ -149,6 +163,9 @@ public class ControladorImpl implements Controlador{
 	}
 	public void setConfiguracion(DBConfig configuracion){
 		this.configuracion=configuracion;
+	}
+	public void setasociacionesExtra(AssocOptions asociacionesExtra){
+		this.asociacionesExtra=asociacionesExtra;
 	}
 	
 }

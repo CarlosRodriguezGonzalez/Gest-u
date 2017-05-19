@@ -1,38 +1,39 @@
 package Vista;
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import java.awt.Color;
 import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.border.EtchedBorder;
-import javax.swing.JSeparator;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import javax.swing.JTabbedPane;
 import javax.swing.JLayeredPane;
-import java.awt.CardLayout;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.UIManager;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
+import javax.swing.table.DefaultTableModel;
+
 import com.toedter.calendar.JDateChooser;
 
+import ClasesTabla.Actividad;
+import ClasesTabla.Espacio;
+import ClasesTabla.Subvencion;
 import Controlador.Controlador;
 import Controlador.ControladorImpl;
 import Modelo.Modelo;
 import Modelo.ModeloImpl;
-
-import javax.swing.JCheckBox;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.border.TitledBorder;
-import javax.swing.JPasswordField;
-import javax.swing.JTable;
-import javax.swing.JScrollPane;
 
 public class AssocOptions extends JFrame implements Vista{
 
@@ -90,6 +91,9 @@ public class AssocOptions extends JFrame implements Vista{
 	private JPanel panel_4;
 	private JScrollPane scrollPane_2;
 	private JLabel lblAsociacion;
+	private JTable table;
+	private JTable table_1;
+	private JTable table_2;
 
 	/**
 	 * Launch the application.
@@ -99,7 +103,7 @@ public class AssocOptions extends JFrame implements Vista{
 	 * Create the frame.
 	 */
 	public AssocOptions() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 910, 572);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -139,6 +143,9 @@ public class AssocOptions extends JFrame implements Vista{
 		scrollPane.setBounds(17, 25, 566, 104);
 		panel_2.add(scrollPane);
 		
+		table = new JTable();
+		scrollPane.setViewportView(table);
+		
 		panel_3 = new JPanel();
 		panel_3.setLayout(null);
 		panel_3.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Actividades asociadas", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(128, 128,128)));
@@ -150,6 +157,9 @@ public class AssocOptions extends JFrame implements Vista{
 		scrollPane_1.setBounds(17, 25, 566, 104);
 		panel_3.add(scrollPane_1);
 		
+		table_1 = new JTable();
+		scrollPane_1.setViewportView(table_1);
+		
 		panel_4 = new JPanel();
 		panel_4.setLayout(null);
 		panel_4.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Espacios asociados", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(128, 128,128)));
@@ -160,6 +170,9 @@ public class AssocOptions extends JFrame implements Vista{
 		scrollPane_2 = new JScrollPane();
 		scrollPane_2.setBounds(17, 25, 566, 104);
 		panel_4.add(scrollPane_2);
+		
+		table_2 = new JTable();
+		scrollPane_2.setViewportView(table_2);
 		
 		
 		
@@ -761,6 +774,76 @@ public class AssocOptions extends JFrame implements Vista{
 		lblDeLaNueva.setFont(new Font("Segoe UI", Font.BOLD, 12));
 		lblDeLaNueva.setBounds(19, 82, 246, 22);
 		panel_1.add(lblDeLaNueva);
+	}
+	
+	public void actualizarTabla(){
+		ArrayList<Subvencion> a=modelo.getB();
+		DefaultTableModel model = new DefaultTableModel(){
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
+		};
+		System.out.println("hola Sergio!");
+		model.addColumn("ID");
+		model.addColumn("Fecha");
+		model.addColumn("Importe");
+		
+		for (int i = 0; i < a.size(); i++) {
+			model.addRow(new Object[] {a.get(i).getId(),a.get(i).getFecha(),a.get(i).getImporte()});
+		}
+
+		table.setModel(model);
+		
+		scrollPane.setViewportView(table);
+	}
+	
+	public void actualizarTablaActividades(){
+		ArrayList<Actividad> a=modelo.getC();
+		DefaultTableModel model = new DefaultTableModel(){
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
+		};
+		System.out.println("hola Sergio!");
+		model.addColumn("ID");
+		model.addColumn("Fecha");
+		model.addColumn("Tipo");
+		model.addColumn("Nombre");
+		model.addColumn("Lugar");
+		model.addColumn("Descripcion");
+		
+		for (int i = 0; i < a.size(); i++) {
+			model.addRow(new Object[] {a.get(i).getId(),a.get(i).getFecha(),a.get(i).getTipo(),a.get(i).getNombre(),a.get(i).getLugar(),a.get(i).getDescripcion()});
+		}
+
+		table_1.setModel(model);
+		
+		scrollPane_1.setViewportView(table_1);
+	}
+	public void actualizarTablaEspacios(){
+		ArrayList<Espacio> a=modelo.getD();
+		DefaultTableModel model = new DefaultTableModel(){
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
+		};
+		System.out.println("hola Sergio!");
+		model.addColumn("ID");
+		model.addColumn("Direccion");
+		model.addColumn("Caracteristicas");
+		model.addColumn("Fecha Solicitud");
+		model.addColumn("Fecha Concesion");
+		
+		for (int i = 0; i < a.size(); i++) {
+			model.addRow(new Object[] {a.get(i).getSede(),a.get(i).getDireccion(),a.get(i).getCaracteristicas(),a.get(i).getFechasolicitud(),a.get(i).getFechaconcesion()});
+		}
+
+		table_2.setModel(model);
+		
+		scrollPane_2.setViewportView(table_2);
 	}
 	
 	@Override
