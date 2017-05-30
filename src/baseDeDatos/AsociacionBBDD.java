@@ -125,12 +125,6 @@ public class AsociacionBBDD {
 		}
 		return sub;
 	}
-	
-	//select subvencion.id_solicitud,subvencion.fecha_solicitud,subvencion.importe from subvencion inner JOIN asociacion_actividad_organiza on asociacion_actividad_organiza.id_actividad=subvencion.id_actividad INNER JOIN asociacion on asociacion.id_asociacion=asociacion_actividad_organiza.id_asociacion WHERE asociacion.id_asociacion=?
-	
-	
-	
-	
 
 	public static Connection getConexion() {
 		return conexion;

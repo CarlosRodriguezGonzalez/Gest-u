@@ -33,16 +33,9 @@ public class Login extends JFrame implements Vista {
 	private ModeloImpl modelo=new ModeloImpl();
 	
 	private JPanel contentPane;
-	private JPasswordField pwdJpassword;
-	private JTextField txtEnterYourFull;
-	/**ct
-	 * Launch the application.
-	 */
+	private JPasswordField JPwd;
+	private JTextField txtEmail;
 	
-
-	/**
-	 * Create the frame.r
-	 */
 	public Login() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 910, 572);
@@ -61,149 +54,149 @@ public class Login extends JFrame implements Vista {
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		JSeparator separator = new JSeparator();
-		separator.setForeground(new Color(255, 255, 255));
-		separator.setBounds(70, 374, 246, 12);
-		panel.add(separator);
+		JSeparator sep1_left = new JSeparator();
+		sep1_left.setForeground(new Color(255, 255, 255));
+		sep1_left.setBounds(70, 374, 246, 12);
+		panel.add(sep1_left);
 		
-		JSeparator separator_1 = new JSeparator();
-		separator_1.setForeground(Color.WHITE);
-		separator_1.setBounds(83, 398, 207, 12);
-		panel.add(separator_1);
+		JSeparator sep2_left = new JSeparator();
+		sep2_left.setForeground(Color.WHITE);
+		sep2_left.setBounds(83, 398, 207, 12);
+		panel.add(sep2_left);
 		
-		JLabel lblPlan = new JLabel("Gest-U");
-		lblPlan.setForeground(Color.WHITE);
-		lblPlan.setFont(new Font("Century Gothic", Font.PLAIN, 40));
-		lblPlan.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
-		lblPlan.setBounds(124, 39, 167, 46);
-		panel.add(lblPlan);
+		JLabel lblLogo = new JLabel("Gest-U");
+		lblLogo.setForeground(Color.WHITE);
+		lblLogo.setFont(new Font("Century Gothic", Font.PLAIN, 40));
+		lblLogo.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
+		lblLogo.setBounds(124, 39, 167, 46);
+		panel.add(lblLogo);
 		
-		JLabel lblSignUpOr = new JLabel("Identificate");
-		lblSignUpOr.setForeground(new Color(204, 204, 204));
-		lblSignUpOr.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		lblSignUpOr.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
-		lblSignUpOr.setBounds(626, 190, 134, 19);
-		getContentPane().add(lblSignUpOr);
+		JLabel lblTitle = new JLabel("Identificate");
+		lblTitle.setForeground(new Color(204, 204, 204));
+		lblTitle.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+		lblTitle.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
+		lblTitle.setBounds(626, 190, 84, 19);
+		getContentPane().add(lblTitle);
 		
-		JLabel lblFullName = new JLabel("USUARIO/E-MAIL");
-		lblFullName.setForeground(new Color(204, 204, 204));
-		lblFullName.setFont(new Font("Century Gothic", Font.BOLD, 14));
-		lblFullName.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
-		lblFullName.setBounds(540, 231, 134, 19);
-		getContentPane().add(lblFullName);
+		JLabel lblEmail = new JLabel("USUARIO/E-MAIL");
+		lblEmail.setForeground(new Color(204, 204, 204));
+		lblEmail.setFont(new Font("Century Gothic", Font.BOLD, 14));
+		lblEmail.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
+		lblEmail.setBounds(540, 231, 117, 19);
+		getContentPane().add(lblEmail);
 		
-		JLabel lblPassword = new JLabel("CLAVE DE ACCESO");
-		lblPassword.setForeground(new Color(204, 204, 204));
-		lblPassword.setFont(new Font("Century Gothic", Font.BOLD, 14));
-		lblPassword.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
-		lblPassword.setBounds(540, 302, 134, 19);
-		getContentPane().add(lblPassword);
+		JLabel lblPwd = new JLabel("CLAVE DE ACCESO");
+		lblPwd.setForeground(new Color(204, 204, 204));
+		lblPwd.setFont(new Font("Century Gothic", Font.BOLD, 14));
+		lblPwd.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
+		lblPwd.setBounds(540, 302, 134, 19);
+		getContentPane().add(lblPwd);
 		
-		JSeparator separator_2 = new JSeparator();
-		separator_2.setForeground(Color.WHITE);
-		separator_2.setBounds(540, 274, 246, 12);
-		getContentPane().add(separator_2);
+		JSeparator sep1_right = new JSeparator();
+		sep1_right.setForeground(Color.WHITE);
+		sep1_right.setBounds(540, 274, 246, 12);
+		getContentPane().add(sep1_right);
 		
-		JSeparator separator_3 = new JSeparator();
-		separator_3.setForeground(Color.WHITE);
-		separator_3.setBounds(540, 346, 246, 12);
-		getContentPane().add(separator_3);
+		JSeparator sep2_right = new JSeparator();
+		sep2_right.setForeground(Color.WHITE);
+		sep2_right.setBounds(540, 346, 246, 12);
+		getContentPane().add(sep2_right);
 		
-		pwdJpassword = new JPasswordField();
-		pwdJpassword.addMouseListener(new MouseAdapter() {
+		JPwd = new JPasswordField();
+		JPwd.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				pwdJpassword.setText("");
+				JPwd.setText("");
 			}
 		});
-		pwdJpassword.setFont(new Font("Century Gothic", Font.PLAIN, 12));
-		pwdJpassword.setText("JPasswordField");
-		pwdJpassword.setBorder(null);
-		pwdJpassword.setToolTipText("");
-		pwdJpassword.setBackground(new Color(0,18,50));
-		pwdJpassword.setForeground(new Color(255, 255, 255));
-		pwdJpassword.setBounds(540, 321, 246, 26);
-		getContentPane().add(pwdJpassword);
+		JPwd.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		JPwd.setText("JPasswordField");
+		JPwd.setBorder(null);
+		JPwd.setToolTipText("");
+		JPwd.setBackground(new Color(0,18,50));
+		JPwd.setForeground(new Color(255, 255, 255));
+		JPwd.setBounds(540, 321, 246, 26);
+		getContentPane().add(JPwd);
 		
-		txtEnterYourFull = new JTextField();
-		txtEnterYourFull.addMouseListener(new MouseAdapter() {
+		txtEmail = new JTextField();
+		txtEmail.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				txtEnterYourFull.setText("");
+				txtEmail.setText("");
 			}
 		});
-		txtEnterYourFull.setFont(new Font("Century Gothic", Font.PLAIN, 12));
-		txtEnterYourFull.setText("Escribe tu correo");
-		txtEnterYourFull.setBorder(null);
-		txtEnterYourFull.setBackground(new Color(0,18,50));
-		txtEnterYourFull.setForeground(new Color(255, 255, 255));
-		txtEnterYourFull.setDisabledTextColor(new Color(204, 204, 204));
-		txtEnterYourFull.setBounds(540, 249, 246, 26);
-		getContentPane().add(txtEnterYourFull);
-		txtEnterYourFull.setColumns(10);
+		txtEmail.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		txtEmail.setText("Escribe tu correo");
+		txtEmail.setBorder(null);
+		txtEmail.setBackground(new Color(0,18,50));
+		txtEmail.setForeground(new Color(255, 255, 255));
+		txtEmail.setDisabledTextColor(new Color(204, 204, 204));
+		txtEmail.setBounds(540, 249, 246, 26);
+		getContentPane().add(txtEmail);
+		txtEmail.setColumns(10);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				controlador.pasarMenuInicio();
-				dispose();
-			}
-		});
-		panel_1.setBackground(new Color(32,47,90));
-		panel_1.setBounds(540, 368, 139, 43);
-		getContentPane().add(panel_1);
-		panel_1.setLayout(null);
-		
-		JLabel lblNewLabel_1 = new JLabel("INICIAR SESION");
-		lblNewLabel_1.addMouseListener(new MouseAdapter() {
+		JPanel btnSubmit = new JPanel();
+		btnSubmit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				controlador.pasarMenuInicio();
 				dispose();
 			}
 		});
-		lblNewLabel_1.setBounds(25, 6, 86, 31);
-		panel_1.add(lblNewLabel_1);
-		lblNewLabel_1.setForeground(new Color(204, 204, 204));
-		lblNewLabel_1.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		btnSubmit.setBackground(new Color(32,47,90));
+		btnSubmit.setBounds(540, 368, 139, 43);
+		getContentPane().add(btnSubmit);
+		btnSubmit.setLayout(null);
 		
-		JLabel lblAlreadyAMember = new JLabel("No puedo acceder");
-		lblAlreadyAMember.setForeground(new Color(204, 204, 204));
-		lblAlreadyAMember.setFont(new Font("Century Gothic", Font.PLAIN, 12));
-		lblAlreadyAMember.setBounds(691, 383, 131, 16);
-		getContentPane().add(lblAlreadyAMember);
+		JLabel lblSubmit = new JLabel("INICIAR SESION");
+		lblSubmit.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				controlador.pasarMenuInicio();
+				dispose();
+			}
+		});
+		lblSubmit.setBounds(25, 6, 86, 31);
+		btnSubmit.add(lblSubmit);
+		lblSubmit.setForeground(new Color(204, 204, 204));
+		lblSubmit.setFont(new Font("Century Gothic", Font.BOLD, 12));
 		
-		JSeparator separator_5 = new JSeparator();
-		separator_5.setForeground(Color.WHITE);
-		separator_5.setBounds(691, 399, 117, 12);
-		getContentPane().add(separator_5);
+		JLabel lblForgotPwd = new JLabel("No puedo acceder");
+		lblForgotPwd.setForeground(new Color(204, 204, 204));
+		lblForgotPwd.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		lblForgotPwd.setBounds(691, 383, 131, 16);
+		getContentPane().add(lblForgotPwd);
+		
+		JSeparator sep3_right = new JSeparator();
+		sep3_right.setForeground(Color.WHITE);
+		sep3_right.setBounds(691, 399, 117, 12);
+		getContentPane().add(sep3_right);
 		contentPane.add(panel);
 		
-		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon("img/council.png"));
-		lblNewLabel_2.setBounds(124, 243, 136, 128);
-		panel.add(lblNewLabel_2);
+		JLabel lblCouncilIMG = new JLabel("");
+		lblCouncilIMG.setIcon(new ImageIcon("img/council.png"));
+		lblCouncilIMG.setBounds(124, 243, 136, 128);
+		panel.add(lblCouncilIMG);
 		
-		JLabel lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setIcon(new ImageIcon("img/lightbulb.png"));
-		lblNewLabel_3.setBounds(156, 148, 72, 106);
-		panel.add(lblNewLabel_3);
+		JLabel lblLightBulbIMG = new JLabel("");
+		lblLightBulbIMG.setIcon(new ImageIcon("img/lightbulb.png"));
+		lblLightBulbIMG.setBounds(156, 148, 72, 106);
+		panel.add(lblLightBulbIMG);
 		
-		JLabel lblExpertsOnManagement = new JLabel("Experts on management");
-		lblExpertsOnManagement.setForeground(Color.WHITE);
-		lblExpertsOnManagement.setFont(new Font("Century Gothic", Font.PLAIN, 12));
-		lblExpertsOnManagement.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
-		lblExpertsOnManagement.setBounds(112, 79, 154, 46);
-		panel.add(lblExpertsOnManagement);
+		JLabel lblSlogan = new JLabel("Experts on management");
+		lblSlogan.setForeground(Color.WHITE);
+		lblSlogan.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		lblSlogan.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
+		lblSlogan.setBounds(112, 79, 154, 46);
+		panel.add(lblSlogan);
 		
-		JLabel label = new JLabel("");
-		label.setBounds(603, 50, 131, 128);
-		contentPane.add(label);
-		label.setIcon(new ImageIcon("img/login.png"));
-		label.setForeground(new Color(204, 204, 204));
-		label.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		label.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
+		JLabel lblUserIMG = new JLabel("");
+		lblUserIMG.setBounds(603, 50, 131, 128);
+		contentPane.add(lblUserIMG);
+		lblUserIMG.setIcon(new ImageIcon("img/login.png"));
+		lblUserIMG.setForeground(new Color(204, 204, 204));
+		lblUserIMG.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+		lblUserIMG.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
 	}
 	@Override
 	public void setControlador(Controlador controlador) {

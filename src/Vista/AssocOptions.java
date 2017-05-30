@@ -62,28 +62,6 @@ public class AssocOptions extends JFrame implements Vista{
 	private JTextField txttelfonoMovil;
 	private JTextField txtFax;
 	private JLabel lblLosCamposMarcados;
-	private JLabel lblDetalles;
-	private JLabel lblRepresentante;
-	private JTextField txtNombre_1;
-	private JSeparator separator_1;
-	private JTextField txtDniniepasaporte_1;
-	private JSeparator separator_3;
-	private JTextField txtEmail_1;
-	private JSeparator separator_4;
-	private JTextField txtTelfonoMvil;
-	private JSeparator separator_5;
-	private JLabel lblAsociacin;
-	private JTextField txtNombre_2;
-	private JSeparator separator_6;
-	private JTextField txtDireccinSede;
-	private JSeparator separator_7;
-	private JTextField txtCif_1;
-	private JSeparator separator_8;
-	private JTextField txtFechaSolicitud;
-	private JSeparator separator_9;
-	private JButton btnConfirmar;
-	private JLabel lblAContinuacinSe;
-	private JLabel lblDeLaNueva;
 	private JComboBox comboBox;
 	private JScrollPane scrollPane;
 	private JPanel panel_3;
@@ -94,6 +72,9 @@ public class AssocOptions extends JFrame implements Vista{
 	private JTable table;
 	private JTable table_1;
 	private JTable table_2;
+	private JPanel panel_5;
+	private JPanel panel_6;
+	private JPanel panel_7;
 
 	/**
 	 * Launch the application.
@@ -555,6 +536,9 @@ public class AssocOptions extends JFrame implements Vista{
 				edit_panel1.setVisible(true);
 				edit_panel2.setVisible(false);
 				edit_panel3.setVisible(false);
+				panel_5.setVisible(true);
+				panel_6.setVisible(false);
+				panel_7.setVisible(false);
 			}
 		});
 		lbl_data.setBounds(69, 27, 61, 22);
@@ -587,6 +571,9 @@ public class AssocOptions extends JFrame implements Vista{
 				edit_panel1.setVisible(false);
 				edit_panel2.setVisible(false);
 				edit_panel3.setVisible(true);
+				panel_5.setVisible(false);
+				panel_6.setVisible(false);
+				panel_7.setVisible(true);
 			}
 		});
 		lbl_documentacion.setBounds(310, 30, 73, 16);
@@ -603,177 +590,39 @@ public class AssocOptions extends JFrame implements Vista{
 		lblAsociacion.setBounds(478, 24, 137, 22);
 		panel.add(lblAsociacion);
 		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(637, 0, 273, 550);
+		contentPane.add(panel_1);
+		panel_1.setLayout(null);
+		
+		JLayeredPane layeredPane_1 = new JLayeredPane();
+		layeredPane_1.setBounds(0, 0, 273, 550);
+		panel_1.add(layeredPane_1);
+		layeredPane_1.setLayout(new CardLayout(0, 0));
+		
+		panel_5 = new JPanel();
+		panel_5.setBackground(new Color(32,47,90));
+		layeredPane_1.add(panel_5, "name_40223813435417");
+		panel_5.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Detalles completos");
+		lblNewLabel.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		lblNewLabel.setBounds(17, 28, 111, 16);
+		panel_5.add(lblNewLabel);
+		
+		panel_6 = new JPanel();
+		panel_6.setBackground(Color.PINK);
+		layeredPane_1.add(panel_6, "name_40282482298038");
+		
+		panel_7 = new JPanel();
+		panel_7.setBackground(Color.MAGENTA);
+		layeredPane_1.add(panel_7, "name_40289285423663");
+		
 		
 		
 		edit_panel1.setVisible(true);
 		edit_panel2.setVisible(false);
 		edit_panel3.setVisible(false);
-		
-		
-		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(32, 47, 90));
-		panel_1.setBounds(636, 0, 274, 550);
-		contentPane.add(panel_1);
-		panel_1.setLayout(null);
-		
-		lblDetalles = new JLabel("Detalles");
-		lblDetalles.setForeground(new Color(204, 204, 204));
-		lblDetalles.setFont(new Font("Segoe UI", Font.BOLD, 22));
-		lblDetalles.setBounds(19, 26, 105, 22);
-		panel_1.add(lblDetalles);
-		
-		lblRepresentante = new JLabel("REPRESENTANTE");
-		lblRepresentante.setForeground(new Color(204, 204, 204));
-		lblRepresentante.setFont(new Font("Century Gothic", Font.BOLD, 14));
-		lblRepresentante.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
-		lblRepresentante.setBounds(19, 123, 134, 19);
-		panel_1.add(lblRepresentante);
-		
-		txtNombre_1 = new JTextField();
-		txtNombre_1.setForeground(Color.WHITE);
-		txtNombre_1.setFont(new Font("Century Gothic", Font.PLAIN, 12));
-		txtNombre_1.setDisabledTextColor(new Color(204, 204, 204));
-		txtNombre_1.setColumns(10);
-		txtNombre_1.setBorder(null);
-		txtNombre_1.setBackground(new Color(32, 47, 90));
-		txtNombre_1.setBounds(19, 141, 246, 26);
-		panel_1.add(txtNombre_1);
-		
-		separator_1 = new JSeparator();
-		separator_1.setForeground(Color.WHITE);
-		separator_1.setBounds(19, 166, 246, 12);
-		panel_1.add(separator_1);
-		
-		txtDniniepasaporte_1 = new JTextField();
-		txtDniniepasaporte_1.setForeground(Color.WHITE);
-		txtDniniepasaporte_1.setFont(new Font("Century Gothic", Font.PLAIN, 12));
-		txtDniniepasaporte_1.setDisabledTextColor(new Color(204, 204, 204));
-		txtDniniepasaporte_1.setColumns(10);
-		txtDniniepasaporte_1.setBorder(null);
-		txtDniniepasaporte_1.setBackground(new Color(32, 47, 90));
-		txtDniniepasaporte_1.setBounds(19, 179, 246, 26);
-		panel_1.add(txtDniniepasaporte_1);
-		
-		separator_3 = new JSeparator();
-		separator_3.setForeground(Color.WHITE);
-		separator_3.setBounds(19, 204, 246, 12);
-		panel_1.add(separator_3);
-		
-		txtEmail_1 = new JTextField();
-		txtEmail_1.setForeground(Color.WHITE);
-		txtEmail_1.setFont(new Font("Century Gothic", Font.PLAIN, 12));
-		txtEmail_1.setDisabledTextColor(new Color(204, 204, 204));
-		txtEmail_1.setColumns(10);
-		txtEmail_1.setBorder(null);
-		txtEmail_1.setBackground(new Color(32, 47, 90));
-		txtEmail_1.setBounds(19, 217, 246, 26);
-		panel_1.add(txtEmail_1);
-		
-		separator_4 = new JSeparator();
-		separator_4.setForeground(Color.WHITE);
-		separator_4.setBounds(19, 242, 246, 12);
-		panel_1.add(separator_4);
-		
-		txtTelfonoMvil = new JTextField();
-		txtTelfonoMvil.setForeground(Color.WHITE);
-		txtTelfonoMvil.setFont(new Font("Century Gothic", Font.PLAIN, 12));
-		txtTelfonoMvil.setDisabledTextColor(new Color(204, 204, 204));
-		txtTelfonoMvil.setColumns(10);
-		txtTelfonoMvil.setBorder(null);
-		txtTelfonoMvil.setBackground(new Color(32, 47, 90));
-		txtTelfonoMvil.setBounds(19, 256, 246, 26);
-		panel_1.add(txtTelfonoMvil);
-		
-		separator_5 = new JSeparator();
-		separator_5.setForeground(Color.WHITE);
-		separator_5.setBounds(19, 281, 246, 12);
-		panel_1.add(separator_5);
-		
-		lblAsociacin = new JLabel("ASOCIACIÓN");
-		lblAsociacin.setForeground(new Color(204, 204, 204));
-		lblAsociacin.setFont(new Font("Century Gothic", Font.BOLD, 14));
-		lblAsociacin.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
-		lblAsociacin.setBounds(19, 305, 134, 19);
-		panel_1.add(lblAsociacin);
-		
-		txtNombre_2 = new JTextField();
-		txtNombre_2.setForeground(Color.WHITE);
-		txtNombre_2.setFont(new Font("Century Gothic", Font.PLAIN, 12));
-		txtNombre_2.setDisabledTextColor(new Color(204, 204, 204));
-		txtNombre_2.setColumns(10);
-		txtNombre_2.setBorder(null);
-		txtNombre_2.setBackground(new Color(32, 47, 90));
-		txtNombre_2.setBounds(19, 323, 246, 26);
-		panel_1.add(txtNombre_2);
-		
-		separator_6 = new JSeparator();
-		separator_6.setForeground(Color.WHITE);
-		separator_6.setBounds(19, 348, 246, 12);
-		panel_1.add(separator_6);
-		
-		txtDireccinSede = new JTextField();
-		txtDireccinSede.setForeground(Color.WHITE);
-		txtDireccinSede.setFont(new Font("Century Gothic", Font.PLAIN, 12));
-		txtDireccinSede.setDisabledTextColor(new Color(204, 204, 204));
-		txtDireccinSede.setColumns(10);
-		txtDireccinSede.setBorder(null);
-		txtDireccinSede.setBackground(new Color(32, 47, 90));
-		txtDireccinSede.setBounds(19, 361, 246, 26);
-		panel_1.add(txtDireccinSede);
-		
-		separator_7 = new JSeparator();
-		separator_7.setForeground(Color.WHITE);
-		separator_7.setBounds(19, 386, 246, 12);
-		panel_1.add(separator_7);
-		
-		txtCif_1 = new JTextField();
-		txtCif_1.setForeground(Color.WHITE);
-		txtCif_1.setFont(new Font("Century Gothic", Font.PLAIN, 12));
-		txtCif_1.setDisabledTextColor(new Color(204, 204, 204));
-		txtCif_1.setColumns(10);
-		txtCif_1.setBorder(null);
-		txtCif_1.setBackground(new Color(32, 47, 90));
-		txtCif_1.setBounds(19, 399, 246, 26);
-		panel_1.add(txtCif_1);
-		
-		separator_8 = new JSeparator();
-		separator_8.setForeground(Color.WHITE);
-		separator_8.setBounds(19, 424, 246, 12);
-		panel_1.add(separator_8);
-		
-		txtFechaSolicitud = new JTextField();
-		txtFechaSolicitud.setForeground(Color.WHITE);
-		txtFechaSolicitud.setFont(new Font("Century Gothic", Font.PLAIN, 12));
-		txtFechaSolicitud.setDisabledTextColor(new Color(204, 204, 204));
-		txtFechaSolicitud.setColumns(10);
-		txtFechaSolicitud.setBorder(null);
-		txtFechaSolicitud.setBackground(new Color(32, 47, 90));
-		txtFechaSolicitud.setBounds(19, 438, 246, 26);
-		panel_1.add(txtFechaSolicitud);
-		
-		separator_9 = new JSeparator();
-		separator_9.setForeground(Color.WHITE);
-		separator_9.setBounds(19, 463, 246, 12);
-		panel_1.add(separator_9);
-		
-		btnConfirmar = new JButton("Confirmar solicitud");
-		btnConfirmar.setForeground(Color.GRAY);
-		btnConfirmar.setFont(new Font("Lucida Grande", Font.BOLD, 13));
-		btnConfirmar.setBounds(19, 487, 246, 39);
-		panel_1.add(btnConfirmar);
-		
-		lblAContinuacinSe = new JLabel("A continuación se muestran los detalles");
-		lblAContinuacinSe.setForeground(new Color(204, 204, 204));
-		lblAContinuacinSe.setFont(new Font("Segoe UI", Font.BOLD, 12));
-		lblAContinuacinSe.setBounds(19, 60, 246, 22);
-		panel_1.add(lblAContinuacinSe);
-		
-		lblDeLaNueva = new JLabel("de la nueva asociación:");
-		lblDeLaNueva.setForeground(new Color(204, 204, 204));
-		lblDeLaNueva.setFont(new Font("Segoe UI", Font.BOLD, 12));
-		lblDeLaNueva.setBounds(19, 82, 246, 22);
-		panel_1.add(lblDeLaNueva);
 	}
 	
 	public void actualizarTabla(){

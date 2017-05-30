@@ -6,10 +6,6 @@ import Vista.Asociaciones1;
 import Vista.AssocOptions;
 import Vista.DBConfig;
 import Vista.EspacioMunicipal1;
-import Vista.HistoricoActividades;
-import Vista.HistoricoAsociaciones;
-import Vista.HistoricoEspaciosM;
-import Vista.HistoricoSubvenciones;
 import Vista.Login;
 import Vista.MenuInicio;
 import Vista.Subvenciones1;
@@ -20,10 +16,6 @@ public class ControladorImpl implements Controlador{
 	private Asociaciones1 asociaciones;
 	private Actividad1 actividad;
 	private EspacioMunicipal1 espacio;
-	private HistoricoActividades historicoActividades;
-	private HistoricoAsociaciones historicoAsociaciones;
-	private HistoricoEspaciosM historicoEspacios;
-	private HistoricoSubvenciones historicoSubvenciones;
 	private Login login;
 	private MenuInicio menuInicio;
 	private Subvenciones1 subvenciones;
@@ -113,11 +105,6 @@ public class ControladorImpl implements Controlador{
 		modelo.testConexion(configuracion.getTxtUsuario().getText(), configuracion.getPwdContrasea().getText(), configuracion.getTxtBaseDeDatos().getText(), configuracion.getTxtHost().getText(), configuracion.getTxtPuerto().getText());
 	}
 	
-	
-	
-	
-	
-	
 	@Override
 	public void setVista(Vista vista) {
 		// TODO Auto-generated method stub
@@ -140,18 +127,7 @@ public class ControladorImpl implements Controlador{
 	public void setEspacioMunicipal(EspacioMunicipal1 espacio) {
 		this.espacio = espacio;
 	}
-	public void setHistoricoActividades(HistoricoActividades historicoActividades) {
-		this.historicoActividades = historicoActividades;
-	}
-	public void setHistoricoAsociaciones(HistoricoAsociaciones historicoAsociaciones) {
-		this.historicoAsociaciones = historicoAsociaciones;
-	}
-	public void setHistoricoEspacios(HistoricoEspaciosM historicoEspacios) {
-		this.historicoEspacios = historicoEspacios;
-	}
-	public void setHistoricoSubvenciones(HistoricoSubvenciones historicoSubvenciones) {
-		this.historicoSubvenciones = historicoSubvenciones;
-	}
+	
 	public void setLogin(Login login) {
 		this.login = login;
 	}
