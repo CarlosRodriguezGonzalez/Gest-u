@@ -38,22 +38,14 @@ public class Actividad1 extends JFrame implements Vista {
 
 	private JPanel contentPane;
 	
-	private JTable table_1;
+	private JTable table;
 
 	private JScrollPane scrollPane;
-	private JTextField txtNombre;
-	private JTextField txtNifcif;
-	private JTextField txtAltaDesde;
-	private JTextField txtAltaHasta;
-	private JTextField txtTipo;
+	private JTextField txtName;
+	private JTextField txtId;
+	private JTextField txtDateFrom;
+	private JTextField txtDateTo;
 
-	/**
-	 * ctt Launch the application.
-	 */
-
-	/**
-	 * Create the frame.
-	 */
 	public Actividad1() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 910, 572);
@@ -62,371 +54,366 @@ public class Actividad1 extends JFrame implements Vista {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 910, 550);
-		contentPane.add(panel);
-		panel.setLayout(null);
+		JPanel container = new JPanel();
+		container.setBounds(0, 0, 910, 550);
+		contentPane.add(container);
+		container.setLayout(null);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(0, 18, 50));
-		panel_1.setBounds(0, 0, 83, 550);
-		panel.add(panel_1);
-		panel_1.setLayout(null);
+		JPanel menu = new JPanel();
+		menu.setBackground(new Color(0, 18, 50));
+		menu.setBounds(0, 0, 83, 550);
+		container.add(menu);
+		menu.setLayout(null);
 		
-		JLabel label_1 = new JLabel("");
-		label_1.addMouseListener(new MouseAdapter() {
+		JLabel lblAssoc = new JLabel("");
+		lblAssoc.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				controlador.pasarAsociaciones();
 				dispose();
 			}
 		});
-		label_1.setBounds(18, 83, 45, 55);
-		label_1.setIcon(new ImageIcon("img/header-assoc.png"));
-		panel_1.add(label_1);
+		lblAssoc.setBounds(18, 83, 45, 55);
+		lblAssoc.setIcon(new ImageIcon("img/header-assoc.png"));
+		menu.add(lblAssoc);
 		
-		JLabel lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4.addMouseListener(new MouseAdapter() {
+		JLabel lblSubv = new JLabel("");
+		lblSubv.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				controlador.pasarSubvenciones();
 				dispose();
 			}
 		});
-		lblNewLabel_4.setIcon(new ImageIcon("img/Coins-40.png"));
-		lblNewLabel_4.setBounds(18, 160, 45, 40);
-		panel_1.add(lblNewLabel_4);
+		lblSubv.setIcon(new ImageIcon("img/Coins-40.png"));
+		lblSubv.setBounds(18, 160, 45, 40);
+		menu.add(lblSubv);
 		
-		JLabel lblNewLabel_5 = new JLabel("");
-		lblNewLabel_5.addMouseListener(new MouseAdapter() {
+		JLabel lblActiv = new JLabel("");
+		lblActiv.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				controlador.pasarActividad();
 				dispose();
 			}
 		});
-		lblNewLabel_5.setIcon(new ImageIcon("img/Activity Feed Filled-40.png"));
-		lblNewLabel_5.setBounds(18, 231, 61, 40);
-		panel_1.add(lblNewLabel_5);
+		lblActiv.setIcon(new ImageIcon("img/Activity Feed Filled-40.png"));
+		lblActiv.setBounds(18, 231, 61, 40);
+		menu.add(lblActiv);
 		
-		JLabel lblNewLabel_6 = new JLabel("");
-		lblNewLabel_6.addMouseListener(new MouseAdapter() {
+		JLabel lblEsp = new JLabel("");
+		lblEsp.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				controlador.pasarEspacioMunicipal();
 				dispose();
 			}
 		});
-		lblNewLabel_6.setIcon(new ImageIcon("img/Park Bench-40.png"));
-		lblNewLabel_6.setBounds(18, 301, 61, 40);
-		panel_1.add(lblNewLabel_6);
+		lblEsp.setIcon(new ImageIcon("img/Park Bench-40.png"));
+		lblEsp.setBounds(18, 301, 61, 40);
+		menu.add(lblEsp);
 		
-		JLabel label_4 = new JLabel("");
-		label_4.addMouseListener(new MouseAdapter() {
+		JLabel lblHome = new JLabel("");
+		lblHome.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				controlador.pasarMenuInicio();
 				dispose();
 			}
 		});
-		label_4.setIcon(new ImageIcon("img/Top Menu-40.png"));
-		label_4.setBounds(18, 16, 45, 55);
-		panel_1.add(label_4);
+		lblHome.setIcon(new ImageIcon("img/Top Menu-40.png"));
+		lblHome.setBounds(18, 16, 45, 55);
+		menu.add(lblHome);
 		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBorder(null);
-		panel_2.setForeground(new Color(192, 192, 192));
-		panel_2.setBackground(new Color(32, 47, 90));
-		panel_2.setBounds(81, 254, 829, 296);
-		panel.add(panel_2);
-		panel_2.setLayout(null);
+		JPanel tableContainer = new JPanel();
+		tableContainer.setBorder(null);
+		tableContainer.setForeground(new Color(192, 192, 192));
+		tableContainer.setBackground(new Color(32, 47, 90));
+		tableContainer.setBounds(81, 254, 829, 296);
+		container.add(tableContainer);
+		tableContainer.setLayout(null);
 		
 				scrollPane = new JScrollPane();
 				scrollPane.setBounds(22, 20, 771, 258);
-				panel_2.add(scrollPane);
+				tableContainer.add(scrollPane);
 		
-		JPanel panel_3 = new JPanel();
-		panel_3.setBackground(new Color(240, 240, 240));
-		panel_3.setBounds(81, 59, 829, 196);
-		panel.add(panel_3);
-		panel_3.setLayout(null);
+		JPanel filterContainer = new JPanel();
+		filterContainer.setBackground(new Color(240, 240, 240));
+		filterContainer.setBounds(81, 59, 829, 196);
+		container.add(filterContainer);
+		filterContainer.setLayout(null);
 		
-		JLabel lblTorri = new JLabel("Gest-U v0.2");
-		lblTorri.setBounds(627, 6, 181, 40);
-		lblTorri.setFont(new Font("Segoe UI", Font.PLAIN, 37));
-		panel_3.add(lblTorri);
+		JLabel lblLogo = new JLabel("Gest-U");
+		lblLogo.setBounds(700, 6, 108, 40);
+		lblLogo.setFont(new Font("Segoe UI", Font.PLAIN, 37));
+		filterContainer.add(lblLogo);
 		
-		JLabel lblSloganTorrismart = new JLabel("Experts on management");
-		lblSloganTorrismart.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-		lblSloganTorrismart.setBounds(633, 39, 175, 26);
-		panel_3.add(lblSloganTorrismart);
+		JLabel lblSlogan = new JLabel("Experts on management");
+		lblSlogan.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		lblSlogan.setBounds(665, 39, 143, 26);
+		filterContainer.add(lblSlogan);
 		
-		txtNombre = new JTextField();
-		txtNombre.setForeground(new Color(128,128,128));
-		txtNombre.addMouseListener(new MouseAdapter() {
+		txtName = new JTextField();
+		txtName.setForeground(new Color(128,128,128));
+		txtName.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				txtNombre.setText("");
+				txtName.setText("");
 			}
 		});
-		txtNombre.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		txtNombre.setText("Actividad");
-		txtNombre.setBackground(new Color(240, 240, 240));
-		txtNombre.setBorder(null);
-		txtNombre.setBounds(28, 103, 194, 16);
-		panel_3.add(txtNombre);
-		txtNombre.setColumns(10);
+		txtName.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtName.setText("Actividad");
+		txtName.setBackground(new Color(240, 240, 240));
+		txtName.setBorder(null);
+		txtName.setBounds(28, 103, 194, 16);
+		filterContainer.add(txtName);
+		txtName.setColumns(10);
 		
-		txtNifcif = new JTextField();
-		txtNifcif.setForeground(new Color(128,128,128));
-		txtNifcif.addMouseListener(new MouseAdapter() {
+		txtId = new JTextField();
+		txtId.setForeground(new Color(128,128,128));
+		txtId.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				txtNifcif.setText("");
+				txtId.setText("");
 			}
 		});
-		txtNifcif.setText("Identificador");
-		txtNifcif.setFont(new Font("Segoe UI", Font.BOLD, 12));
-		txtNifcif.setColumns(10);
-		txtNifcif.setBorder(null);
-		txtNifcif.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
-		txtNifcif.setBounds(28, 75, 194, 16);
-		panel_3.add(txtNifcif);
+		txtId.setText("Identificador");
+		txtId.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		txtId.setColumns(10);
+		txtId.setBorder(null);
+		txtId.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
+		txtId.setBounds(28, 75, 194, 16);
+		filterContainer.add(txtId);
 		
 		
 		
-		txtAltaDesde = new JTextField();
-		txtAltaDesde.setForeground(new Color(128,128,128));
-		txtAltaDesde.addMouseListener(new MouseAdapter() {
+		txtDateFrom = new JTextField();
+		txtDateFrom.setForeground(new Color(128,128,128));
+		txtDateFrom.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				txtAltaDesde.setText("");
+				txtDateFrom.setText("");
 			}
 		});
-		txtAltaDesde.setText("Alta desde");
-		txtAltaDesde.setFont(new Font("Segoe UI", Font.BOLD, 12));
-		txtAltaDesde.setColumns(10);
-		txtAltaDesde.setBorder(null);
-		txtAltaDesde.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
-		txtAltaDesde.setBounds(250, 75, 143, 16);
-		panel_3.add(txtAltaDesde);
+		txtDateFrom.setText("Alta desde");
+		txtDateFrom.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		txtDateFrom.setColumns(10);
+		txtDateFrom.setBorder(null);
+		txtDateFrom.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
+		txtDateFrom.setBounds(250, 75, 143, 16);
+		filterContainer.add(txtDateFrom);
 		
-		txtAltaHasta = new JTextField();
-		txtAltaHasta.setForeground(new Color(128,128,128));
-		txtAltaHasta.addMouseListener(new MouseAdapter() {
+		txtDateTo = new JTextField();
+		txtDateTo.setForeground(new Color(128,128,128));
+		txtDateTo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				txtAltaHasta.setText("");
+				txtDateTo.setText("");
 			}
 		});
-		txtAltaHasta.setText("Alta hasta");
-		txtAltaHasta.setFont(new Font("Segoe UI", Font.BOLD, 12));
-		txtAltaHasta.setColumns(10);
-		txtAltaHasta.setBorder(null);
-		txtAltaHasta.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
-		txtAltaHasta.setBounds(250, 104, 143, 16);
-		panel_3.add(txtAltaHasta);
+		txtDateTo.setText("Alta hasta");
+		txtDateTo.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		txtDateTo.setColumns(10);
+		txtDateTo.setBorder(null);
+		txtDateTo.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
+		txtDateTo.setBounds(250, 104, 143, 16);
+		filterContainer.add(txtDateTo);
 		
 
 
 		
-		JPanel panel_7 = new JPanel();
-		panel_7.setLayout(null);
-		panel_7.setBackground(new Color(189,195,199));
-		panel_7.setBounds(683, 89, 125, 40);
-		panel_3.add(panel_7);
+		JPanel btnPreimp = new JPanel();
+		btnPreimp.setLayout(null);
+		btnPreimp.setBackground(new Color(189,195,199));
+		btnPreimp.setBounds(683, 89, 125, 40);
+		filterContainer.add(btnPreimp);
 		
-		JLabel lblPreimpresos = new JLabel("PREIMPRESOS");
-		lblPreimpresos.setIcon(new ImageIcon("img/Paper-30.png"));
-		lblPreimpresos.setForeground(Color.WHITE);
-		lblPreimpresos.setFont(new Font("Century Gothic", Font.BOLD, 12));
-		lblPreimpresos.setBounds(6, 6, 122, 28);
-		panel_7.add(lblPreimpresos);
+		JLabel lblPreimp = new JLabel("PREIMPRESOS");
+		lblPreimp.setIcon(new ImageIcon("img/Paper-30.png"));
+		lblPreimp.setForeground(Color.WHITE);
+		lblPreimp.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		lblPreimp.setBounds(6, 6, 122, 28);
+		btnPreimp.add(lblPreimp);
 		
-		JPanel panel_6 = new JPanel();
-		panel_6.setLayout(null);
-		panel_6.setBackground(new Color(189, 195, 199));
-		panel_6.setBounds(546, 89, 125, 40);
-		panel_3.add(panel_6);
+		JPanel btnAdd = new JPanel();
+		btnAdd.setLayout(null);
+		btnAdd.setBackground(new Color(189, 195, 199));
+		btnAdd.setBounds(546, 89, 125, 40);
+		filterContainer.add(btnAdd);
 		
-		JLabel lblConfiguracin = new JLabel("AÑADIR");
-		lblConfiguracin.addMouseListener(new MouseAdapter() {
+		JLabel lblAdd = new JLabel("AÑADIR");
+		lblAdd.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				//TODO
 				dispose();
 			}
 		});
-		lblConfiguracin.setIcon(new ImageIcon("img/Add Property-30.png"));
-		lblConfiguracin.setForeground(Color.WHITE);
-		lblConfiguracin.setFont(new Font("Century Gothic", Font.BOLD, 12));
-		lblConfiguracin.setBounds(17, 0, 88, 40);
-		panel_6.add(lblConfiguracin);
+		lblAdd.setIcon(new ImageIcon("img/Add Property-30.png"));
+		lblAdd.setForeground(Color.WHITE);
+		lblAdd.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		lblAdd.setBounds(17, 0, 88, 40);
+		btnAdd.add(lblAdd);
 		
 		
-		JPanel panel_8 = new JPanel();
-		panel_8.setLayout(null);
-		panel_8.setBackground(new Color(189, 195, 199));
-		panel_8.setBounds(28, 139, 150, 40);
-		panel_3.add(panel_8);
+		JPanel btnFilter = new JPanel();
+		btnFilter.setLayout(null);
+		btnFilter.setBackground(new Color(189, 195, 199));
+		btnFilter.setBounds(28, 139, 150, 40);
+		filterContainer.add(btnFilter);
 		
-		JLabel label_2 = new JLabel("    CONSULTAR");
-		label_2.setIcon(new ImageIcon("img/Search Property-30.png"));
-		label_2.setForeground(Color.WHITE);
-		label_2.setFont(new Font("Century Gothic", Font.BOLD, 12));
-		label_2.setBounds(13, 0, 131, 40);
-		panel_8.add(label_2);
+		JLabel lblFilter = new JLabel("    CONSULTAR");
+		lblFilter.setIcon(new ImageIcon("img/Search Property-30.png"));
+		lblFilter.setForeground(Color.WHITE);
+		lblFilter.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		lblFilter.setBounds(13, 0, 131, 40);
+		btnFilter.add(lblFilter);
 		
-		JDateChooser dateChooser = new JDateChooser();
-		dateChooser.setBounds(405, 75, 28, 26);
-		panel_3.add(dateChooser);
+		JDateChooser DateCFrom = new JDateChooser();
+		DateCFrom.setBounds(405, 75, 28, 26);
+		filterContainer.add(DateCFrom);
 		
-		JDateChooser dateChooser_1 = new JDateChooser();
-		dateChooser_1.setBounds(405, 103, 28, 26);
-		panel_3.add(dateChooser_1);
+		JDateChooser DateCTo = new JDateChooser();
+		DateCTo.setBounds(405, 103, 28, 26);
+		filterContainer.add(DateCTo);
 		
-		JSeparator separator_5 = new JSeparator();
-		separator_5.setOrientation(SwingConstants.VERTICAL);
-		separator_5.setBounds(513, 27, 21, 150);
-		panel_3.add(separator_5);
+		JSeparator sepfilter_1 = new JSeparator();
+		sepfilter_1.setOrientation(SwingConstants.VERTICAL);
+		sepfilter_1.setBounds(513, 27, 21, 150);
+		filterContainer.add(sepfilter_1);
 		
-		JSeparator separator_6 = new JSeparator();
-		separator_6.setForeground(new Color(128,128,128));
-		separator_6.setBounds(28, 90, 194, 16);
-		panel_3.add(separator_6);
+		JSeparator sepfilter_2 = new JSeparator();
+		sepfilter_2.setForeground(new Color(128,128,128));
+		sepfilter_2.setBounds(28, 90, 194, 16);
+		filterContainer.add(sepfilter_2);
 		
-		JSeparator separator_2 = new JSeparator();
-		separator_2.setForeground(Color.GRAY);
-		separator_2.setBounds(250, 89, 143, 16);
-		panel_3.add(separator_2);
+		JSeparator sepfilter_3 = new JSeparator();
+		sepfilter_3.setForeground(Color.GRAY);
+		sepfilter_3.setBounds(250, 89, 143, 16);
+		filterContainer.add(sepfilter_3);
 		
-		JSeparator separator_3 = new JSeparator();
-		separator_3.setForeground(Color.GRAY);
-		separator_3.setBounds(28, 117, 197, 16);
-		panel_3.add(separator_3);
+		JSeparator sepfilter_4 = new JSeparator();
+		sepfilter_4.setForeground(Color.GRAY);
+		sepfilter_4.setBounds(28, 117, 197, 16);
+		filterContainer.add(sepfilter_4);
 		
-		JSeparator separator_1 = new JSeparator();
-		separator_1.setForeground(Color.GRAY);
-		separator_1.setBounds(250, 117, 143, 16);
-		panel_3.add(separator_1);
+		JSeparator sepfilter_5 = new JSeparator();
+		sepfilter_5.setForeground(Color.GRAY);
+		sepfilter_5.setBounds(250, 117, 143, 16);
+		filterContainer.add(sepfilter_5);
 		
-		JPanel panel_5 = new JPanel();
-		panel_5.setLayout(null);
-		panel_5.setBackground(new Color(189, 195, 199));
-		panel_5.setBounds(546, 141, 125, 40);
-		panel_3.add(panel_5);
+		JPanel btnDel = new JPanel();
+		btnDel.setLayout(null);
+		btnDel.setBackground(new Color(189, 195, 199));
+		btnDel.setBounds(546, 141, 125, 40);
+		filterContainer.add(btnDel);
 		
-		JLabel lblBajaAsociacin = new JLabel("BORRAR");
-		lblBajaAsociacin.setIcon(new ImageIcon("img/Delete Property-30 (1).png"));
-		lblBajaAsociacin.setForeground(Color.WHITE);
-		lblBajaAsociacin.setFont(new Font("Century Gothic", Font.BOLD, 12));
-		lblBajaAsociacin.setBounds(16, 0, 87, 40);
-		panel_5.add(lblBajaAsociacin);
+		JLabel lblDel = new JLabel("BORRAR");
+		lblDel.setIcon(new ImageIcon("img/Delete Property-30 (1).png"));
+		lblDel.setForeground(Color.WHITE);
+		lblDel.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		lblDel.setBounds(16, 0, 87, 40);
+		btnDel.add(lblDel);
 		
-		JPanel panel_9 = new JPanel();
-		panel_9.setLayout(null);
-		panel_9.setBackground(new Color(189, 195, 199));
-		panel_9.setBounds(683, 141, 125, 40);
-		panel_3.add(panel_9);
+		JPanel btnHist = new JPanel();
+		btnHist.setLayout(null);
+		btnHist.setBackground(new Color(189, 195, 199));
+		btnHist.setBounds(683, 141, 125, 40);
+		filterContainer.add(btnHist);
 		
-		JLabel lblHistrico = new JLabel("HISTÓRICO");
-		lblHistrico.addMouseListener(new MouseAdapter() {
+		JLabel lblHist = new JLabel("HISTÓRICO");
+		lblHist.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				//TODO
 			}
 		});
-		lblHistrico.setIcon(new ImageIcon("img/News-30.png"));
-		lblHistrico.setForeground(Color.WHITE);
-		lblHistrico.setFont(new Font("Century Gothic", Font.BOLD, 12));
-		lblHistrico.setBounds(6, 0, 102, 40);
-		panel_9.add(lblHistrico);
+		lblHist.setIcon(new ImageIcon("img/News-30.png"));
+		lblHist.setForeground(Color.WHITE);
+		lblHist.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		lblHist.setBounds(6, 0, 102, 40);
+		btnHist.add(lblHist);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(54, 41, 168, 27);
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"-- Seleccione --", "Deporte", "Cultural", "Social", "Juvenil"}));
-		panel_3.add(comboBox);
+		JComboBox selectType = new JComboBox();
+		selectType.setBounds(54, 41, 168, 27);
+		selectType.setModel(new DefaultComboBoxModel(new String[] {"-- Seleccione --", "Deporte", "Cultural", "Social", "Juvenil"}));
+		filterContainer.add(selectType);
 		
-		txtTipo = new JTextField();
-		txtTipo.setEditable(false);
-		txtTipo.setText("Tipo");
-		txtTipo.setForeground(Color.GRAY);
-		txtTipo.setFont(new Font("Segoe UI", Font.BOLD, 12));
-		txtTipo.setColumns(10);
-		txtTipo.setBorder(null);
-		txtTipo.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
-		txtTipo.setBounds(28, 39, 64, 26);
-		panel_3.add(txtTipo);
+		JLabel lblFilterTitle = new JLabel("Filtros de búsqueda");
+		lblFilterTitle.setForeground(new Color(105, 105, 105));
+		lblFilterTitle.setFont(new Font("Segoe UI", Font.BOLD, 15));
+		lblFilterTitle.setBounds(28, 6, 121, 32);
+		filterContainer.add(lblFilterTitle);
 		
-		JLabel label_3 = new JLabel("Filtros de búsqueda");
-		label_3.setForeground(new Color(105, 105, 105));
-		label_3.setFont(new Font("Segoe UI", Font.BOLD, 15));
-		label_3.setBounds(28, 6, 121, 32);
-		panel_3.add(label_3);
+		JSpinner spinnerDest = new JSpinner();
+		spinnerDest.setBounds(382, 40, 51, 26);
+		filterContainer.add(spinnerDest);
 		
-		JSpinner spinner = new JSpinner();
-		spinner.setBounds(382, 40, 51, 26);
-		panel_3.add(spinner);
+		JLabel lblDest = new JLabel("Nº destinatarios");
+		lblDest.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		lblDest.setBounds(250, 45, 130, 16);
+		lblDest.setForeground(new Color(128,  128,  128));
+		filterContainer.add(lblDest);
 		
-		JLabel lblN = new JLabel("Nº destinatarios");
-		lblN.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		lblN.setBounds(250, 45, 130, 16);
-		lblN.setForeground(new Color(128,  128,  128));
-		panel_3.add(lblN);
+		JLabel lblType = new JLabel("Tipo:");
+		lblType.setForeground(new Color(105, 105, 105));
+		lblType.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		lblType.setBounds(28, 45, 33, 16);
+		filterContainer.add(lblType);
 		
-		JPanel panel_4 = new JPanel();
-		panel_4.setBackground(Color.WHITE);
-		panel_4.setBounds(81, 0, 829, 59);
-		panel.add(panel_4);
-		panel_4.setLayout(null);
+		JPanel headerContainer = new JPanel();
+		headerContainer.setBackground(Color.WHITE);
+		headerContainer.setBounds(81, 0, 829, 59);
+		container.add(headerContainer);
+		headerContainer.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(16, 6, 40, 40);
-		lblNewLabel.setIcon(new ImageIcon("img/User Groups-35.png"));
-		panel_4.add(lblNewLabel);
+		JLabel lblSectionIMG = new JLabel("");
+		lblSectionIMG.setBounds(16, 6, 40, 40);
+		lblSectionIMG.setIcon(new ImageIcon("img/actividadheader.png"));
+		headerContainer.add(lblSectionIMG);
 		
-		JLabel lblBsqueda = new JLabel("Actividades");
-		lblBsqueda.setBounds(65, 6, 131, 36);
-		lblBsqueda.setForeground(new Color(128, 128, 128));
-		lblBsqueda.setFont(new Font("Segoe UI", Font.PLAIN, 20));
-		panel_4.add(lblBsqueda);
+		JLabel lblTitle = new JLabel("Actividades");
+		lblTitle.setBounds(65, 6, 131, 36);
+		lblTitle.setForeground(new Color(128, 128, 128));
+		lblTitle.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+		headerContainer.add(lblTitle);
 		
-		JSeparator separator = new JSeparator();
-		separator.setBounds(63, 34, 112, 12);
-		panel_4.add(separator);
+		JSeparator sep_header = new JSeparator();
+		sep_header.setBounds(63, 34, 112, 12);
+		headerContainer.add(sep_header);
 		
-		JLabel label = new JLabel("");
-		label.setBounds(633, 6, 40, 40);
-		label.setIcon(new ImageIcon("img/User-40 (2).png"));
-		panel_4.add(label);
+		JLabel lblUserIMG = new JLabel("");
+		lblUserIMG.setBounds(633, 6, 40, 40);
+		lblUserIMG.setIcon(new ImageIcon("img/User-40 (2).png"));
+		headerContainer.add(lblUserIMG);
 		
-		JLabel lblUsuario = new JLabel("Usuario");
-		lblUsuario.setBounds(675, 6, 76, 40);
-		lblUsuario.setForeground(new Color(128, 128, 128));
-		lblUsuario.setFont(new Font("Segoe UI", Font.PLAIN, 20));
-		panel_4.add(lblUsuario);
+		JLabel lblUser = new JLabel("Usuario");
+		lblUser.setBounds(675, 6, 76, 40);
+		lblUser.setForeground(new Color(128, 128, 128));
+		lblUser.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+		headerContainer.add(lblUser);
 		
-		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.addMouseListener(new MouseAdapter() {
+		JLabel lblLogOut = new JLabel("");
+		lblLogOut.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				controlador.pasarLogin();
 				dispose();
 			}
 		});
-		lblNewLabel_2.setBounds(781, 6, 40, 40);
-		lblNewLabel_2.setIcon(new ImageIcon("img/Exit-35.png"));
-		panel_4.add(lblNewLabel_2);
+		lblLogOut.setBounds(781, 6, 40, 40);
+		lblLogOut.setIcon(new ImageIcon("img/Exit-35.png"));
+		headerContainer.add(lblLogOut);
 
 		
-		table_1 = new JTable();
-		table_1.addMouseListener(new MouseAdapter() {
+		table = new JTable();
+		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if(e.getClickCount()>=2){
 					System.out.println("MIAU:3");
 					
-					int x=(int)(table_1.getModel().getValueAt(table_1.getSelectedRow(), 0));
+					int x=(int)(table.getModel().getValueAt(table.getSelectedRow(), 0));
 					ArrayList<Asociacion> a=modelo.getA();
 					Asociacion u=null;
 					for(int i=0;i<a.size();i++){
@@ -441,7 +428,7 @@ public class Actividad1 extends JFrame implements Vista {
 		});
 		
 		
-		scrollPane.setViewportView(table_1);
+		scrollPane.setViewportView(table);
 		// tabla
 //		table_1 = controlador.datos();
 		//scrollPane.setViewportView(table_1);
@@ -465,11 +452,11 @@ public class Actividad1 extends JFrame implements Vista {
 			model.addRow(new Object[] {a.get(i).getId(),a.get(i).getNombre(),a.get(i).getFecha(),a.get(i).getLugar(),a.get(i).getTipo(),a.get(i).getDescripcion()});
 		}
 
-		table_1.setModel(model);
-		table_1.setBackground(new Color(106, 116, 145));
-		table_1.setShowGrid(false);
+		table.setModel(model);
+		table.setBackground(new Color(106, 116, 145));
+		table.setShowGrid(false);
 		
-		scrollPane.setViewportView(table_1);
+		scrollPane.setViewportView(table);
 	}
 
 	@Override

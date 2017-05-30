@@ -43,24 +43,13 @@ public class DBConfig extends JFrame implements Vista{
 
 	private JPanel contentPane;
 	private JTextField txtChooseINI;
-	//
 	private JTextField txtHost;
-	private JTextField txtPuerto;
-	private JPasswordField pwdContrasea;
-	private JTextField txtBaseDeDatos;
-	private JTextField txtUsuario;
+	private JTextField txtPort;
+	private JPasswordField JPwd;
+	private JTextField txtDBName;
+	private JTextField txtUser;
 	private JTextField txtTestConexion;
-	private JTextField textField_5;
 	
-	
-	
-	/**
-	 * Launch the application.
-	 */
-
-	/**
-	 * Create the frame.
-	 */
 	public DBConfig() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 910, 572);
@@ -69,91 +58,91 @@ public class DBConfig extends JFrame implements Vista{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 910, 550);
-		contentPane.add(panel);
-		panel.setLayout(null);
+		JPanel container = new JPanel();
+		container.setBounds(0, 0, 910, 550);
+		contentPane.add(container);
+		container.setLayout(null);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(0, 18, 50));
-		panel_1.setBounds(0, 0, 83, 550);
-		panel.add(panel_1);
-		panel_1.setLayout(null);
+		JPanel menu = new JPanel();
+		menu.setBackground(new Color(0, 18, 50));
+		menu.setBounds(0, 0, 83, 550);
+		container.add(menu);
+		menu.setLayout(null);
 		
-		JLabel label_1 = new JLabel("");
-		label_1.addMouseListener(new MouseAdapter() {
+		JLabel lblAssoc = new JLabel("");
+		lblAssoc.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				controlador.pasarAsociaciones();
 				dispose();
 			}
 		});
-		label_1.setBounds(18, 83, 45, 55);
-		label_1.setIcon(new ImageIcon("img/header-assoc.png"));
-		panel_1.add(label_1);
+		lblAssoc.setBounds(18, 83, 45, 55);
+		lblAssoc.setIcon(new ImageIcon("img/header-assoc.png"));
+		menu.add(lblAssoc);
 		
-		JLabel lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4.addMouseListener(new MouseAdapter() {
+		JLabel lblSubv = new JLabel("");
+		lblSubv.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				controlador.pasarSubvenciones();
 				dispose();
 			}
 		});
-		lblNewLabel_4.setIcon(new ImageIcon("img/Coins-40.png"));
-		lblNewLabel_4.setBounds(18, 160, 45, 40);
-		panel_1.add(lblNewLabel_4);
+		lblSubv.setIcon(new ImageIcon("img/Coins-40.png"));
+		lblSubv.setBounds(18, 160, 45, 40);
+		menu.add(lblSubv);
 		
-		JLabel lblNewLabel_5 = new JLabel("");
-		lblNewLabel_5.addMouseListener(new MouseAdapter() {
+		JLabel lblActiv = new JLabel("");
+		lblActiv.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				controlador.pasarActividad();
 				dispose();
 			}
 		});
-		lblNewLabel_5.setIcon(new ImageIcon("img/Activity Feed Filled-40.png"));
-		lblNewLabel_5.setBounds(18, 231, 61, 40);
-		panel_1.add(lblNewLabel_5);
+		lblActiv.setIcon(new ImageIcon("img/Activity Feed Filled-40.png"));
+		lblActiv.setBounds(18, 231, 61, 40);
+		menu.add(lblActiv);
 		
-		JLabel lblNewLabel_6 = new JLabel("");
-		lblNewLabel_6.addMouseListener(new MouseAdapter() {
+		JLabel lblEsp = new JLabel("");
+		lblEsp.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				controlador.pasarEspacioMunicipal();
 				dispose();
 			}
 		});
-		lblNewLabel_6.setIcon(new ImageIcon("img/Park Bench-40.png"));
-		lblNewLabel_6.setBounds(18, 301, 61, 40);
-		panel_1.add(lblNewLabel_6);
+		lblEsp.setIcon(new ImageIcon("img/Park Bench-40.png"));
+		lblEsp.setBounds(18, 301, 61, 40);
+		menu.add(lblEsp);
 		
-		JLabel label_3 = new JLabel("");
-		label_3.addMouseListener(new MouseAdapter() {
+		JLabel lblHome = new JLabel("");
+		lblHome.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				controlador.pasarMenuInicio();
 				dispose();
 			}
 		});
-		label_3.setIcon(new ImageIcon("img/Top Menu-40.png"));
-		label_3.setBounds(18, 16, 45, 55);
-		panel_1.add(label_3);
+		lblHome.setIcon(new ImageIcon("img/Top Menu-40.png"));
+		lblHome.setBounds(18, 16, 45, 55);
+		menu.add(lblHome);
 		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBorder(null);
-		panel_2.setForeground(new Color(192, 192, 192));
-		panel_2.setBackground(Color.WHITE);
-		panel_2.setBounds(81, 254, 829, 296);
-		panel.add(panel_2);
-		panel_2.setLayout(null);
+		JPanel tableContainer = new JPanel();
+		tableContainer.setBorder(null);
+		tableContainer.setForeground(new Color(192, 192, 192));
+		tableContainer.setBackground(Color.WHITE);
+		tableContainer.setBounds(81, 254, 829, 296);
+		container.add(tableContainer);
+		tableContainer.setLayout(null);
 		
-		JPanel panel_10 = new JPanel();
-		panel_10.setBackground(Color.WHITE);
-		panel_10.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Detalles de conexi\u00F3n", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(128, 128,128)));
-		panel_10.setBounds(19, 19, 786, 271);
-		panel_2.add(panel_10);
-		panel_10.setLayout(null);
+		JPanel detailsContainer = new JPanel();
+		detailsContainer.setBackground(Color.WHITE);
+		detailsContainer.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Detalles de conexi\u00F3n", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(128, 128,128)));
+		detailsContainer.setBounds(19, 19, 786, 271);
+		tableContainer.add(detailsContainer);
+		detailsContainer.setLayout(null);
 		
 		txtHost = new JTextField();
 		
@@ -161,155 +150,149 @@ public class DBConfig extends JFrame implements Vista{
 		txtHost.setForeground(Color.GRAY);
 		txtHost.setText("Host / URL");
 		txtHost.setBounds(21, 107, 205, 29);
-		panel_10.add(txtHost);
+		detailsContainer.add(txtHost);
 		txtHost.setColumns(10);
 		txtHost.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
 		txtHost.setBackground(Color.WHITE);
 		txtHost.setBorder(BorderFactory.createCompoundBorder(txtHost.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setForeground(new Color(128,128,128));
-		comboBox_1.setBounds(284, 150, 237, 27);
-		panel_10.add(comboBox_1);
-		comboBox_1.setFont(new Font("Century Gothic", Font.PLAIN, 12));
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"MySQL", "MongoDB", "Oracle Database", "PostgreSQL"}));
+		JComboBox selectConn = new JComboBox();
+		selectConn.setForeground(new Color(128,128,128));
+		selectConn.setBounds(284, 150, 237, 27);
+		detailsContainer.add(selectConn);
+		selectConn.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		selectConn.setModel(new DefaultComboBoxModel(new String[] {"MySQL", "MongoDB", "Oracle Database", "PostgreSQL"}));
 		
-		JLabel lblTipo = new JLabel("Tipo");
-		lblTipo.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		lblTipo.setForeground(new Color(128,128,128));
-		lblTipo.setBounds(238, 154, 276, 16);
-		panel_10.add(lblTipo);
+		JLabel lblConn = new JLabel("Tipo");
+		lblConn.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		lblConn.setForeground(new Color(128,128,128));
+		lblConn.setBounds(238, 154, 34, 16);
+		detailsContainer.add(lblConn);
 		
-		txtPuerto = new JTextField();
+		txtPort = new JTextField();
 		
-		txtPuerto.setForeground(Color.GRAY);
-		txtPuerto.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		txtPuerto.setText("Puerto");
-		txtPuerto.setColumns(10);
-		txtPuerto.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
-		txtPuerto.setBorder(BorderFactory.createCompoundBorder(txtPuerto.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-		txtPuerto.setBackground(Color.WHITE);
-		txtPuerto.setBounds(21, 148, 205, 29);
-		panel_10.add(txtPuerto);
+		txtPort.setForeground(Color.GRAY);
+		txtPort.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtPort.setText("Puerto");
+		txtPort.setColumns(10);
+		txtPort.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
+		txtPort.setBorder(BorderFactory.createCompoundBorder(txtPort.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+		txtPort.setBackground(Color.WHITE);
+		txtPort.setBounds(21, 148, 205, 29);
+		detailsContainer.add(txtPort);
 		
-		pwdContrasea = new JPasswordField();
+		JPwd = new JPasswordField();
 		
-		pwdContrasea.setForeground(Color.GRAY);
-		pwdContrasea.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		pwdContrasea.setText("Contraseña");
-		pwdContrasea.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
-		pwdContrasea.setBorder(BorderFactory.createCompoundBorder(pwdContrasea.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-		pwdContrasea.setBounds(526, 149, 194, 26);
-		panel_10.add(pwdContrasea);
+		JPwd.setForeground(Color.GRAY);
+		JPwd.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		JPwd.setText("Contraseña");
+		JPwd.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
+		JPwd.setBorder(BorderFactory.createCompoundBorder(JPwd.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+		JPwd.setBounds(526, 149, 194, 26);
+		detailsContainer.add(JPwd);
 		
-		JButton btnNewButton = new JButton("Guardar cambios");
-		btnNewButton.setFont(new Font("Century Gothic", Font.BOLD, 12));
-		btnNewButton.setForeground(new Color(128,128,128));
-		btnNewButton.setBounds(16, 215, 140, 43);
-		panel_10.add(btnNewButton);
+		JButton btnSave = new JButton("Guardar cambios");
+		btnSave.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		btnSave.setForeground(new Color(128,128,128));
+		btnSave.setBounds(16, 215, 140, 43);
+		detailsContainer.add(btnSave);
 		
-		JButton btnProbarConexin = new JButton("Probar conexión");
-		btnProbarConexin.addActionListener(new ActionListener() {
+		JButton btnTest = new JButton("Probar conexión");
+		btnTest.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controlador.testConexion();
 			}
 		});
-		btnProbarConexin.setForeground(new Color(128,128,128));
-		btnProbarConexin.setFont(new Font("Century Gothic", Font.BOLD, 12));
-		btnProbarConexin.setBounds(580, 215, 140, 43);
-		panel_10.add(btnProbarConexin);
+		btnTest.setForeground(new Color(128,128,128));
+		btnTest.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		btnTest.setBounds(580, 215, 140, 43);
+		detailsContainer.add(btnTest);
 		
-		JButton btnCargarDatos = new JButton("Cargar Datos");
-		btnCargarDatos.setForeground(new Color(128,128,128));
-		btnCargarDatos.setFont(new Font("Century Gothic", Font.BOLD, 12));
-		btnCargarDatos.setBounds(168, 215, 132, 43);
-		panel_10.add(btnCargarDatos);
+		JButton btnLoad = new JButton("Cargar Datos");
+		btnLoad.setForeground(new Color(128,128,128));
+		btnLoad.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		btnLoad.setBounds(168, 215, 132, 43);
+		detailsContainer.add(btnLoad);
 		
-		JLabel label_2 = new JLabel("");
-		label_2.setIcon(new ImageIcon("img/Accept Database Filled-35.png"));
-		label_2.setBounds(733, 215, 40, 40);
-		panel_10.add(label_2);
+		JLabel lblTestIMG = new JLabel("");
+		lblTestIMG.setIcon(new ImageIcon("img/Accept Database Filled-35.png"));
+		lblTestIMG.setBounds(733, 215, 40, 40);
+		detailsContainer.add(lblTestIMG);
 		
-		txtBaseDeDatos = new JTextField();
+		txtDBName = new JTextField();
 		
-		txtBaseDeDatos.setForeground(Color.GRAY);
-		txtBaseDeDatos.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		txtBaseDeDatos.setText("Base de datos");
-		txtBaseDeDatos.setColumns(10);
-		txtBaseDeDatos.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
-		txtBaseDeDatos.setBorder(BorderFactory.createCompoundBorder(txtBaseDeDatos.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-		txtBaseDeDatos.setBackground(Color.WHITE);
-		txtBaseDeDatos.setBounds(238, 107, 276, 29);
-		panel_10.add(txtBaseDeDatos);
+		txtDBName.setForeground(Color.GRAY);
+		txtDBName.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtDBName.setText("Base de datos");
+		txtDBName.setColumns(10);
+		txtDBName.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
+		txtDBName.setBorder(BorderFactory.createCompoundBorder(txtDBName.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+		txtDBName.setBackground(Color.WHITE);
+		txtDBName.setBounds(238, 107, 276, 29);
+		detailsContainer.add(txtDBName);
 		
-		txtUsuario = new JTextField();
+		txtUser = new JTextField();
 		
-		txtUsuario.setForeground(Color.GRAY);
-		txtUsuario.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		txtUsuario.setText("Usuario");
-		txtUsuario.setColumns(10);
-		txtUsuario.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
-		txtUsuario.setBorder(BorderFactory.createCompoundBorder(txtUsuario.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-		txtUsuario.setBackground(Color.WHITE);
-		txtUsuario.setBounds(526, 107, 194, 29);
-		panel_10.add(txtUsuario);
+		txtUser.setForeground(Color.GRAY);
+		txtUser.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtUser.setText("Usuario");
+		txtUser.setColumns(10);
+		txtUser.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
+		txtUser.setBorder(BorderFactory.createCompoundBorder(txtUser.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+		txtUser.setBackground(Color.WHITE);
+		txtUser.setBounds(526, 107, 194, 29);
+		detailsContainer.add(txtUser);
 		
-		JLabel lblNewLabel_9 = new JLabel("En este apartado podrá configurar los parámetros de conexión a BBDD de forma avanzada, además de tener la opción de probar una");
-		lblNewLabel_9.setForeground(new Color(128,128,128));
-		lblNewLabel_9.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		lblNewLabel_9.setBounds(22, 34, 751, 16);
-		panel_10.add(lblNewLabel_9);
+		JLabel lblInfo = new JLabel("En este apartado podrá configurar los parámetros de conexión a BBDD de forma avanzada, además de tener la opción de probar una");
+		lblInfo.setForeground(new Color(128,128,128));
+		lblInfo.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		lblInfo.setBounds(22, 34, 751, 16);
+		detailsContainer.add(lblInfo);
 		
 		txtTestConexion = new JTextField();
 		txtTestConexion.setBorder(null);
 		txtTestConexion.setBounds(409, 222, 163, 26);
-		panel_10.add(txtTestConexion);
+		detailsContainer.add(txtTestConexion);
 		txtTestConexion.setColumns(10);
 		
-		JLabel lblNuevaConexinEn = new JLabel("nueva conexión en vivo con otros parámetros.");
-		lblNuevaConexinEn.setForeground(Color.GRAY);
-		lblNuevaConexinEn.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		lblNuevaConexinEn.setBounds(21, 57, 751, 16);
-		panel_10.add(lblNuevaConexinEn);
+		JLabel lblInfo2 = new JLabel("nueva conexión en vivo con otros parámetros.");
+		lblInfo2.setForeground(Color.GRAY);
+		lblInfo2.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		lblInfo2.setBounds(21, 57, 751, 16);
+		detailsContainer.add(lblInfo2);
 		
-		JPanel panel_3 = new JPanel();
-		panel_3.setBackground(new Color(240, 240, 240));
-		panel_3.setBounds(81, 59, 829, 196);
-		panel.add(panel_3);
-		panel_3.setLayout(null);
+		JPanel pathContainer = new JPanel();
+		pathContainer.setBackground(new Color(240, 240, 240));
+		pathContainer.setBounds(81, 59, 829, 196);
+		container.add(pathContainer);
+		pathContainer.setLayout(null);
 		
-		JLabel lblTorri = new JLabel("Gest-U v0.2");
-		lblTorri.setBounds(627, -12, 194, 73);
-		lblTorri.setFont(new Font("Segoe UI", Font.PLAIN, 37));
-		panel_3.add(lblTorri);
+		JLabel lblLogo = new JLabel("Gest-U");
+		lblLogo.setBounds(691, 6, 108, 37);
+		lblLogo.setFont(new Font("Segoe UI", Font.PLAIN, 37));
+		pathContainer.add(lblLogo);
 		
-		JLabel lblSloganTorrismart = new JLabel("Experts on management");
-		lblSloganTorrismart.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-		lblSloganTorrismart.setBounds(627, 28, 145, 50);
-		panel_3.add(lblSloganTorrismart);
+		JLabel lblSlogan = new JLabel("Experts on management");
+		lblSlogan.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		lblSlogan.setBounds(654, 41, 145, 20);
+		pathContainer.add(lblSlogan);
 		
-		JPanel panel_5 = new JPanel();
-		panel_5.setLayout(null);
-		panel_5.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Ruta archivo Config.INI", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(128, 128,128)));
-		panel_5.setBackground(new Color(240,240,240));
-		panel_5.setBounds(22, 73, 782, 107);
-		panel_3.add(panel_5);
+		JPanel PathDetails = new JPanel();
+		PathDetails.setLayout(null);
+		PathDetails.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Ruta archivo Config.INI", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(128, 128,128)));
+		PathDetails.setBackground(new Color(240,240,240));
+		PathDetails.setBounds(22, 73, 782, 107);
+		pathContainer.add(PathDetails);
 		
-		JLabel lblEnLaSiguiente = new JLabel("En la siguiente ruta relativa se encuentra su archivo principal de configuración:");
-		lblEnLaSiguiente.setForeground(Color.GRAY);
-		lblEnLaSiguiente.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		lblEnLaSiguiente.setBounds(22, 29, 717, 16);
-		panel_5.add(lblEnLaSiguiente);
-		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBorder(null);
-		textField_5.setBounds(409, 222, 163, 26);
-		panel_5.add(textField_5);
+		JLabel lblInfo3 = new JLabel("En la siguiente ruta relativa se encuentra su archivo principal de configuración:");
+		lblInfo3.setForeground(Color.GRAY);
+		lblInfo3.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		lblInfo3.setBounds(22, 29, 717, 16);
+		PathDetails.add(lblInfo3);
 		
 		txtChooseINI = new JTextField();
 		txtChooseINI.setBounds(22, 57, 699, 29);
-		panel_5.add(txtChooseINI);
+		PathDetails.add(txtChooseINI);
 		
 		
 		txtChooseINI.setForeground(Color.GRAY);
@@ -320,49 +303,49 @@ public class DBConfig extends JFrame implements Vista{
 		txtChooseINI.setBorder(BorderFactory.createCompoundBorder(txtChooseINI.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
 		txtChooseINI.setColumns(10);
 		
-		JPanel panel_4 = new JPanel();
-		panel_4.setBackground(Color.WHITE);
-		panel_4.setBounds(81, 0, 829, 59);
-		panel.add(panel_4);
-		panel_4.setLayout(null);
+		JPanel headerContainer = new JPanel();
+		headerContainer.setBackground(Color.WHITE);
+		headerContainer.setBounds(81, 0, 829, 59);
+		container.add(headerContainer);
+		headerContainer.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(16, 6, 40, 40);
-		lblNewLabel.setIcon(new ImageIcon("img/Database Filled-35.png"));
-		panel_4.add(lblNewLabel);
+		JLabel lblSectionIMG = new JLabel("");
+		lblSectionIMG.setBounds(16, 6, 40, 40);
+		lblSectionIMG.setIcon(new ImageIcon("img/Database Filled-35.png"));
+		headerContainer.add(lblSectionIMG);
 		
-		JLabel lblBsqueda = new JLabel("Configuración Base de datos");
-		lblBsqueda.setBounds(58, 10, 250, 36);
-		lblBsqueda.setForeground(new Color(128, 128, 128));
-		lblBsqueda.setFont(new Font("Segoe UI", Font.PLAIN, 20));
-		panel_4.add(lblBsqueda);
+		JLabel lblTitle = new JLabel("Configuración Base de datos");
+		lblTitle.setBounds(58, 10, 250, 36);
+		lblTitle.setForeground(new Color(128, 128, 128));
+		lblTitle.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+		headerContainer.add(lblTitle);
 		
-		JSeparator separator = new JSeparator();
-		separator.setBounds(55, 41, 241, 12);
-		panel_4.add(separator);
+		JSeparator sep_header = new JSeparator();
+		sep_header.setBounds(55, 41, 241, 12);
+		headerContainer.add(sep_header);
 		
-		JLabel label = new JLabel("");
-		label.setBounds(633, 6, 40, 40);
-		label.setIcon(new ImageIcon("img/User-40 (2).png"));
-		panel_4.add(label);
+		JLabel lblUserIMG = new JLabel("");
+		lblUserIMG.setBounds(633, 6, 40, 40);
+		lblUserIMG.setIcon(new ImageIcon("img/User-40 (2).png"));
+		headerContainer.add(lblUserIMG);
 		
-		JLabel lblUsuario = new JLabel("Usuario");
-		lblUsuario.setBounds(675, 6, 76, 40);
-		lblUsuario.setForeground(new Color(128, 128, 128));
-		lblUsuario.setFont(new Font("Segoe UI", Font.PLAIN, 20));
-		panel_4.add(lblUsuario);
+		JLabel lblUser = new JLabel("Usuario");
+		lblUser.setBounds(675, 6, 76, 40);
+		lblUser.setForeground(new Color(128, 128, 128));
+		lblUser.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+		headerContainer.add(lblUser);
 		
-		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.addMouseListener(new MouseAdapter() {
+		JLabel lblLogOut = new JLabel("");
+		lblLogOut.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				controlador.pasarLogin();
 				dispose();
 			}
 		});
-		lblNewLabel_2.setBounds(781, 6, 40, 40);
-		lblNewLabel_2.setIcon(new ImageIcon("img/Exit-35.png"));
-		panel_4.add(lblNewLabel_2);
+		lblLogOut.setBounds(781, 6, 40, 40);
+		lblLogOut.setIcon(new ImageIcon("img/Exit-35.png"));
+		headerContainer.add(lblLogOut);
 		
 		
         
@@ -370,10 +353,10 @@ public class DBConfig extends JFrame implements Vista{
 	
 	public void actualizarConfiguracion(){
 		txtHost.setText(modelo.getHost());
-		txtUsuario.setText(modelo.getUser());
-		txtBaseDeDatos.setText(modelo.getDb());
-		txtPuerto.setText(modelo.getPuerto());
-		pwdContrasea.setText(modelo.getPwd());
+		txtUser.setText(modelo.getUser());
+		txtDBName.setText(modelo.getDb());
+		txtPort.setText(modelo.getPuerto());
+		JPwd.setText(modelo.getPwd());
 		txtChooseINI.setText(modelo.getRuta());
 	}
 	public void actualizarTest(){
@@ -401,18 +384,18 @@ public class DBConfig extends JFrame implements Vista{
 	}
 
 	public JTextField getTxtPuerto() {
-		return txtPuerto;
+		return txtPort;
 	}
 
 	public JPasswordField getPwdContrasea() {
-		return pwdContrasea;
+		return JPwd;
 	}
 
 	public JTextField getTxtBaseDeDatos() {
-		return txtBaseDeDatos;
+		return txtDBName;
 	}
 
 	public JTextField getTxtUsuario() {
-		return txtUsuario;
+		return txtUser;
 	}
 }

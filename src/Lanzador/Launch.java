@@ -1,4 +1,10 @@
 package Lanzador;
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.awt.GraphicsEnvironment;
+import java.io.File;
+import java.io.IOException;
+
 import Controlador.ControladorImpl;
 import Modelo.ModeloImpl;
 import Vista.Login;
@@ -9,6 +15,7 @@ public class Launch {
 	
 	
 	public static void main(String[] args) {
+		
 		Conexion conexion = new Conexion();
 		AsociacionBBDD.setConexion(conexion.getConexion());
 		ModeloImpl modelo=new ModeloImpl();

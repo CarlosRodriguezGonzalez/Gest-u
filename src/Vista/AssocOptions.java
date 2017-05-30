@@ -42,47 +42,40 @@ public class AssocOptions extends JFrame implements Vista{
 	
 	private JPanel contentPane;
 	private JFrame frame;
-	private JTextField txtNombre;
-	private JTextField txtApellidos;
-	private JTextField txtDniniepasaporte;
-	private JTextField txtCorreoElectrnico;
-	private JTextField txtDireccin;
-	private JTextField txtnombre;
-	private JTextField txtSede;
-	private JTextField txtFax_1;
+	private JTextField txtName;
+	private JTextField txtSurname;
+	private JTextField txtDni;
 	private JTextField txtEmail;
-	private JTextField txtMunicipio;
-	private JTextField txtCdigoPostal;
-	private JTextField txtTelfono;
-	private JTextField txtTelfonoMovil;
-	private JTextField txtCif;
-	private JTextField txtmunicipio;
-	private JTextField txtcdigoPostal;
-	private JTextField textField_5;
-	private JTextField txttelfonoMovil;
+	private JTextField txtAddress;
+	private JTextField txtName2;
+	private JTextField txtAddress2;
 	private JTextField txtFax;
-	private JLabel lblLosCamposMarcados;
-	private JComboBox comboBox;
-	private JScrollPane scrollPane;
-	private JPanel panel_3;
-	private JScrollPane scrollPane_1;
-	private JPanel panel_4;
-	private JScrollPane scrollPane_2;
-	private JLabel lblAsociacion;
-	private JTable table;
-	private JTable table_1;
-	private JTable table_2;
-	private JPanel panel_5;
-	private JPanel panel_6;
-	private JPanel panel_7;
+	private JTextField txtEmail2;
+	private JTextField txtCity;
+	private JTextField txtCp;
+	private JTextField txtFijo;
+	private JTextField txtMobile;
+	private JTextField txtCif;
+	private JTextField txtCity2;
+	private JTextField txtCp2;
+	private JTextField txtFijo2;
+	private JTextField txtMobile2;
+	private JTextField txtDate;
+	private JLabel lblInfo;
+	private JComboBox selectType;
+	private JScrollPane subv_scroll;
+	private JPanel activ_panel;
+	private JScrollPane activ_scroll;
+	private JPanel esp_panel;
+	private JScrollPane esp_scroll;
+	private JLabel lblName;
+	private JTable subv_table;
+	private JTable activ_table;
+	private JTable esp_table;
+	private JPanel hist_panel2;
+	private JPanel doc_panel2;
+	private JPanel add_panel2;
 
-	/**
-	 * Launch the application.
-	 */
-
-	/**
-	 * Create the frame.
-	 */
 	public AssocOptions() {
 		setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 910, 572);
@@ -91,229 +84,136 @@ public class AssocOptions extends JFrame implements Vista{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(240, 240, 240));
-		panel.setBounds(0, 0, 637, 550);
-		contentPane.add(panel);
-		panel.setLayout(null);
+		JPanel panel_left = new JPanel();
+		panel_left.setBackground(new Color(240, 240, 240));
+		panel_left.setBounds(0, 0, 637, 550);
+		contentPane.add(panel_left);
+		panel_left.setLayout(null);
 		
-		JLabel lbl_documentacion = new JLabel("Añadir");
-		JLabel lbl_modify = new JLabel("Modificar");
-		JLabel lbl_data = new JLabel("Histórico");
-		lbl_modify.setForeground(java.awt.Color.lightGray);
-		lbl_documentacion.setForeground(java.awt.Color.lightGray);
+		JLabel lblAdd = new JLabel("Añadir");
+		JLabel lblDoc = new JLabel("Documentación");
+		JLabel lblHist = new JLabel("Histórico");
+		lblDoc.setForeground(java.awt.Color.lightGray);
+		lblAdd.setForeground(java.awt.Color.lightGray);
 		
-		JLayeredPane layeredPane = new JLayeredPane();
-		layeredPane.setBounds(0, 58, 637, 492);
-		panel.add(layeredPane);
-		layeredPane.setLayout(new CardLayout(0, 0));
+		JLayeredPane MultPanel = new JLayeredPane();
+		MultPanel.setBounds(0, 58, 637, 492);
+		panel_left.add(MultPanel);
+		MultPanel.setLayout(new CardLayout(0, 0));
 		
-		JPanel edit_panel1 = new JPanel();
-		edit_panel1.setBackground(new Color(255, 255, 255));
-		layeredPane.add(edit_panel1, "name_23340656493830");
-		edit_panel1.setLayout(null);
+		JPanel hist_panel = new JPanel();
+		hist_panel.setBackground(new Color(255, 255, 255));
+		MultPanel.add(hist_panel, "name_23340656493830");
+		hist_panel.setLayout(null);
 		
-		JPanel panel_2 = new JPanel();
-		panel_2.setLayout(null);
-		panel_2.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Subvenciones asociadas", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(128, 128,128)));
-		panel_2.setBackground(Color.WHITE);
-		panel_2.setBounds(17, 17, 602, 152);
-		edit_panel1.add(panel_2);
+		JPanel subv_panel = new JPanel();
+		subv_panel.setLayout(null);
+		subv_panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Subvenciones asociadas", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(128, 128,128)));
+		subv_panel.setBackground(Color.WHITE);
+		subv_panel.setBounds(17, 17, 602, 152);
+		hist_panel.add(subv_panel);
 		
-		scrollPane = new JScrollPane();
-		scrollPane.setBounds(17, 25, 566, 104);
-		panel_2.add(scrollPane);
+		subv_scroll = new JScrollPane();
+		subv_scroll.setBounds(17, 25, 566, 104);
+		subv_panel.add(subv_scroll);
 		
-		table = new JTable();
-		scrollPane.setViewportView(table);
+		subv_table = new JTable();
+		subv_scroll.setViewportView(subv_table);
 		
-		panel_3 = new JPanel();
-		panel_3.setLayout(null);
-		panel_3.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Actividades asociadas", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(128, 128,128)));
-		panel_3.setBackground(Color.WHITE);
-		panel_3.setBounds(17, 181, 602, 152);
-		edit_panel1.add(panel_3);
+		activ_panel = new JPanel();
+		activ_panel.setLayout(null);
+		activ_panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Actividades asociadas", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(128, 128,128)));
+		activ_panel.setBackground(Color.WHITE);
+		activ_panel.setBounds(17, 181, 602, 152);
+		hist_panel.add(activ_panel);
 		
-		scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(17, 25, 566, 104);
-		panel_3.add(scrollPane_1);
+		activ_scroll = new JScrollPane();
+		activ_scroll.setBounds(17, 25, 566, 104);
+		activ_panel.add(activ_scroll);
 		
-		table_1 = new JTable();
-		scrollPane_1.setViewportView(table_1);
+		activ_table = new JTable();
+		activ_scroll.setViewportView(activ_table);
 		
-		panel_4 = new JPanel();
-		panel_4.setLayout(null);
-		panel_4.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Espacios asociados", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(128, 128,128)));
-		panel_4.setBackground(Color.WHITE);
-		panel_4.setBounds(17, 334, 602, 152);
-		edit_panel1.add(panel_4);
+		esp_panel = new JPanel();
+		esp_panel.setLayout(null);
+		esp_panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Espacios asociados", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(128, 128,128)));
+		esp_panel.setBackground(Color.WHITE);
+		esp_panel.setBounds(17, 334, 602, 152);
+		hist_panel.add(esp_panel);
 		
-		scrollPane_2 = new JScrollPane();
-		scrollPane_2.setBounds(17, 25, 566, 104);
-		panel_4.add(scrollPane_2);
+		esp_scroll = new JScrollPane();
+		esp_scroll.setBounds(17, 25, 566, 104);
+		esp_panel.add(esp_scroll);
 		
-		table_2 = new JTable();
-		scrollPane_2.setViewportView(table_2);
+		esp_table = new JTable();
+		esp_scroll.setViewportView(esp_table);
 		
 		
 		
-		JPanel edit_panel2 = new JPanel();
-		edit_panel2.setBackground(new Color(100, 149, 237));
-		layeredPane.add(edit_panel2, "name_23357301890851");
+		JPanel doc_panel = new JPanel();
+		doc_panel.setBackground(new Color(100, 149, 237));
+		MultPanel.add(doc_panel, "name_23357301890851");
 		
-		JPanel edit_panel3 = new JPanel();
-		edit_panel3.setBackground(Color.WHITE);
-		layeredPane.add(edit_panel3, "name_23382852103736");
-		edit_panel3.setLayout(null);
-		txtNombre = new JTextField();
-		txtNombre.addMouseListener(new MouseAdapter() {
+		JPanel add_panel = new JPanel();
+		add_panel.setBackground(Color.WHITE);
+		MultPanel.add(add_panel, "name_23382852103736");
+		add_panel.setLayout(null);
+		txtName = new JTextField();
+		txtName.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				txtNombre.setText("");
+				txtName.setText("");
 			}
 		});
-		txtNombre.setForeground(UIManager.getColor("FormattedTextField.inactiveForeground"));
-		txtNombre.setDisabledTextColor(new Color(255, 255, 255));
-		txtNombre.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		txtNombre.setText("  *Nombre");
-		txtNombre.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
-		txtNombre.setBounds(20, 62, 182, 33);
-		edit_panel3.add(txtNombre);
-		txtNombre.setColumns(10);
-		txtNombre.setBorder(BorderFactory.createCompoundBorder(txtNombre.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+		txtName.setForeground(UIManager.getColor("FormattedTextField.inactiveForeground"));
+		txtName.setDisabledTextColor(new Color(255, 255, 255));
+		txtName.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtName.setText("  *Nombre");
+		txtName.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
+		txtName.setBounds(20, 62, 182, 33);
+		add_panel.add(txtName);
+		txtName.setColumns(10);
+		txtName.setBorder(BorderFactory.createCompoundBorder(txtName.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
 		
-		txtApellidos = new JTextField();
-		txtApellidos.addMouseListener(new MouseAdapter() {
+		txtSurname = new JTextField();
+		txtSurname.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				txtApellidos.setText("");
+				txtSurname.setText("");
 			}
 		});
-		txtApellidos.setForeground(UIManager.getColor("FormattedTextField.inactiveForeground"));
-		txtApellidos.setDisabledTextColor(new Color(255, 255, 255));
-		txtApellidos.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		txtApellidos.setText("  Apellidos");
-		txtApellidos.setColumns(10);
-		txtApellidos.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
-		txtApellidos.setBounds(224, 62, 237, 33);
-		edit_panel3.add(txtApellidos);
-		txtApellidos.setBorder(BorderFactory.createCompoundBorder(txtApellidos.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+		txtSurname.setForeground(UIManager.getColor("FormattedTextField.inactiveForeground"));
+		txtSurname.setDisabledTextColor(new Color(255, 255, 255));
+		txtSurname.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtSurname.setText("  Apellidos");
+		txtSurname.setColumns(10);
+		txtSurname.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
+		txtSurname.setBounds(224, 62, 237, 33);
+		add_panel.add(txtSurname);
+		txtSurname.setBorder(BorderFactory.createCompoundBorder(txtSurname.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
 		
-		txtDniniepasaporte = new JTextField();
-		txtDniniepasaporte.addMouseListener(new MouseAdapter() {
+		txtDni = new JTextField();
+		txtDni.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				txtDniniepasaporte.setText("");
+				txtDni.setText("");
 			}
 		});
-		txtDniniepasaporte.setForeground(UIManager.getColor("FormattedTextField.inactiveForeground"));
-		txtDniniepasaporte.setDisabledTextColor(new Color(255, 255, 255));
-		txtDniniepasaporte.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		txtDniniepasaporte.setText("  *DNI/NIE/Pasaporte");
-		txtDniniepasaporte.setColumns(10);
-		txtDniniepasaporte.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
-		txtDniniepasaporte.setBounds(483, 62, 130, 33);
-		edit_panel3.add(txtDniniepasaporte);
-		txtDniniepasaporte.setBorder(BorderFactory.createCompoundBorder(txtDniniepasaporte.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+		txtDni.setForeground(UIManager.getColor("FormattedTextField.inactiveForeground"));
+		txtDni.setDisabledTextColor(new Color(255, 255, 255));
+		txtDni.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtDni.setText("  *DNI/NIE/Pasaporte");
+		txtDni.setColumns(10);
+		txtDni.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
+		txtDni.setBounds(483, 62, 130, 33);
+		add_panel.add(txtDni);
+		txtDni.setBorder(BorderFactory.createCompoundBorder(txtDni.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
 		
-		JLabel lblDatosDelRepresentante = new JLabel("Datos representante");
-		lblDatosDelRepresentante.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-		lblDatosDelRepresentante.setForeground(new Color(128, 128, 128));
-		lblDatosDelRepresentante.setBounds(20, 20, 170, 30);
-		edit_panel3.add(lblDatosDelRepresentante);
-		
-		txtCorreoElectrnico = new JTextField();
-		txtCorreoElectrnico.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				txtCorreoElectrnico.setText("");
-			}
-		});
-		txtCorreoElectrnico.setText("  *E-Mail");
-		txtCorreoElectrnico.setForeground(Color.GRAY);
-		txtCorreoElectrnico.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		txtCorreoElectrnico.setDisabledTextColor(Color.WHITE);
-		txtCorreoElectrnico.setColumns(10);
-		txtCorreoElectrnico.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
-		txtCorreoElectrnico.setBounds(20, 108, 274, 33);
-		edit_panel3.add(txtCorreoElectrnico);
-		txtCorreoElectrnico.setBorder(BorderFactory.createCompoundBorder(txtCorreoElectrnico.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-		
-		txtDireccin = new JTextField();
-		txtDireccin.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				txtDireccin.setText("");
-			}
-		});
-		txtDireccin.setText("  Dirección");
-		txtDireccin.setForeground(Color.GRAY);
-		txtDireccin.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		txtDireccin.setDisabledTextColor(Color.WHITE);
-		txtDireccin.setColumns(10);
-		txtDireccin.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
-		txtDireccin.setBounds(318, 107, 295, 33);
-		edit_panel3.add(txtDireccin);
-		txtDireccin.setBorder(BorderFactory.createCompoundBorder(txtDireccin.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-		
-		JSeparator separator_2 = new JSeparator();
-		separator_2.setForeground(UIManager.getColor("ComboBox.background"));
-		separator_2.setBounds(6, 198, 637, 12);
-		edit_panel3.add(separator_2);
-		
-		JLabel lblDatosAsociacin = new JLabel("Datos Asociación");
-		lblDatosAsociacin.setForeground(Color.GRAY);
-		lblDatosAsociacin.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-		lblDatosAsociacin.setBounds(20, 203, 170, 30);
-		edit_panel3.add(lblDatosAsociacin);
-		
-		txtnombre = new JTextField();
-		txtnombre.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				txtnombre.setText("");
-			}
-		});
-		txtnombre.setText("  *Nombre");
-		txtnombre.setForeground(Color.GRAY);
-		txtnombre.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		txtnombre.setDisabledTextColor(Color.WHITE);
-		txtnombre.setColumns(10);
-		txtnombre.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
-		txtnombre.setBounds(20, 240, 182, 33);
-		edit_panel3.add(txtnombre);
-		
-		txtSede = new JTextField();
-		txtSede.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				txtSede.setText("");
-			}
-		});
-		txtSede.setText("  *Dirección de la sede");
-		txtSede.setForeground(Color.GRAY);
-		txtSede.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		txtSede.setDisabledTextColor(Color.WHITE);
-		txtSede.setColumns(10);
-		txtSede.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
-		txtSede.setBounds(224, 240, 237, 33);
-		edit_panel3.add(txtSede);
-		
-		txtFax_1 = new JTextField();
-		txtFax_1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				txtFax_1.setText("");
-			}
-		});
-		txtFax_1.setText("  Fax");
-		txtFax_1.setForeground(Color.GRAY);
-		txtFax_1.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		txtFax_1.setDisabledTextColor(Color.WHITE);
-		txtFax_1.setColumns(10);
-		txtFax_1.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
-		txtFax_1.setBounds(393, 337, 68, 33);
-		edit_panel3.add(txtFax_1);
+		JLabel lblRepTitle = new JLabel("Datos representante");
+		lblRepTitle.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		lblRepTitle.setForeground(new Color(128, 128, 128));
+		lblRepTitle.setBounds(20, 20, 170, 30);
+		add_panel.add(lblRepTitle);
 		
 		txtEmail = new JTextField();
 		txtEmail.addMouseListener(new MouseAdapter() {
@@ -322,78 +222,171 @@ public class AssocOptions extends JFrame implements Vista{
 				txtEmail.setText("");
 			}
 		});
-		txtEmail.setText("  *E-mail");
+		txtEmail.setText("  *E-Mail");
 		txtEmail.setForeground(Color.GRAY);
 		txtEmail.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		txtEmail.setDisabledTextColor(Color.WHITE);
 		txtEmail.setColumns(10);
 		txtEmail.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
-		txtEmail.setBounds(339, 288, 274, 33);
-		edit_panel3.add(txtEmail);
+		txtEmail.setBounds(20, 108, 274, 33);
+		add_panel.add(txtEmail);
+		txtEmail.setBorder(BorderFactory.createCompoundBorder(txtEmail.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
 		
-		txtMunicipio = new JTextField();
-		txtMunicipio.addMouseListener(new MouseAdapter() {
+		txtAddress = new JTextField();
+		txtAddress.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				txtMunicipio.setText("");
+				txtAddress.setText("");
 			}
 		});
-		txtMunicipio.setText("   *Municipio");
-		txtMunicipio.setForeground(Color.GRAY);
-		txtMunicipio.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		txtMunicipio.setDisabledTextColor(Color.WHITE);
-		txtMunicipio.setColumns(10);
-		txtMunicipio.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
-		txtMunicipio.setBounds(20, 153, 156, 33);
-		edit_panel3.add(txtMunicipio);
+		txtAddress.setText("  Dirección");
+		txtAddress.setForeground(Color.GRAY);
+		txtAddress.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtAddress.setDisabledTextColor(Color.WHITE);
+		txtAddress.setColumns(10);
+		txtAddress.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
+		txtAddress.setBounds(318, 107, 295, 33);
+		add_panel.add(txtAddress);
+		txtAddress.setBorder(BorderFactory.createCompoundBorder(txtAddress.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
 		
-		txtCdigoPostal = new JTextField();
-		txtCdigoPostal.addMouseListener(new MouseAdapter() {
+		JSeparator separator_2 = new JSeparator();
+		separator_2.setForeground(UIManager.getColor("ComboBox.background"));
+		separator_2.setBounds(6, 198, 637, 12);
+		add_panel.add(separator_2);
+		
+		JLabel lblDatosAsociacin = new JLabel("Datos Asociación");
+		lblDatosAsociacin.setForeground(Color.GRAY);
+		lblDatosAsociacin.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		lblDatosAsociacin.setBounds(20, 203, 170, 30);
+		add_panel.add(lblDatosAsociacin);
+		
+		txtName2 = new JTextField();
+		txtName2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				txtCdigoPostal.setText("");
+				txtName2.setText("");
 			}
 		});
-		txtCdigoPostal.setText("  *Código Postal");
-		txtCdigoPostal.setForeground(Color.GRAY);
-		txtCdigoPostal.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		txtCdigoPostal.setDisabledTextColor(Color.WHITE);
-		txtCdigoPostal.setColumns(10);
-		txtCdigoPostal.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
-		txtCdigoPostal.setBounds(195, 153, 99, 33);
-		edit_panel3.add(txtCdigoPostal);
+		txtName2.setText("  *Nombre");
+		txtName2.setForeground(Color.GRAY);
+		txtName2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtName2.setDisabledTextColor(Color.WHITE);
+		txtName2.setColumns(10);
+		txtName2.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
+		txtName2.setBounds(20, 240, 182, 33);
+		add_panel.add(txtName2);
 		
-		txtTelfono = new JTextField();
-		txtTelfono.addMouseListener(new MouseAdapter() {
+		txtAddress2 = new JTextField();
+		txtAddress2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				txtTelfono.setText("");
+				txtAddress2.setText("");
 			}
 		});
-		txtTelfono.setText("  Teléfono fijo");
-		txtTelfono.setForeground(Color.GRAY);
-		txtTelfono.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		txtTelfono.setDisabledTextColor(Color.WHITE);
-		txtTelfono.setColumns(10);
-		txtTelfono.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
-		txtTelfono.setBounds(321, 153, 126, 33);
-		edit_panel3.add(txtTelfono);
+		txtAddress2.setText("  *Dirección de la sede");
+		txtAddress2.setForeground(Color.GRAY);
+		txtAddress2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtAddress2.setDisabledTextColor(Color.WHITE);
+		txtAddress2.setColumns(10);
+		txtAddress2.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
+		txtAddress2.setBounds(224, 240, 237, 33);
+		add_panel.add(txtAddress2);
 		
-		txtTelfonoMovil = new JTextField();
-		txtTelfonoMovil.addMouseListener(new MouseAdapter() {
+		txtFax = new JTextField();
+		txtFax.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				txtTelfonoMovil.setText("");
+				txtFax.setText("");
 			}
 		});
-		txtTelfonoMovil.setText("  *Teléfono movil");
-		txtTelfonoMovil.setForeground(Color.GRAY);
-		txtTelfonoMovil.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		txtTelfonoMovil.setDisabledTextColor(Color.WHITE);
-		txtTelfonoMovil.setColumns(10);
-		txtTelfonoMovil.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
-		txtTelfonoMovil.setBounds(473, 152, 140, 34);
-		edit_panel3.add(txtTelfonoMovil);
+		txtFax.setText("  Fax");
+		txtFax.setForeground(Color.GRAY);
+		txtFax.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtFax.setDisabledTextColor(Color.WHITE);
+		txtFax.setColumns(10);
+		txtFax.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
+		txtFax.setBounds(393, 337, 68, 33);
+		add_panel.add(txtFax);
+		
+		txtEmail2 = new JTextField();
+		txtEmail2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtEmail2.setText("");
+			}
+		});
+		txtEmail2.setText("  *E-mail");
+		txtEmail2.setForeground(Color.GRAY);
+		txtEmail2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtEmail2.setDisabledTextColor(Color.WHITE);
+		txtEmail2.setColumns(10);
+		txtEmail2.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
+		txtEmail2.setBounds(339, 288, 274, 33);
+		add_panel.add(txtEmail2);
+		
+		txtCity = new JTextField();
+		txtCity.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtCity.setText("");
+			}
+		});
+		txtCity.setText("   *Municipio");
+		txtCity.setForeground(Color.GRAY);
+		txtCity.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtCity.setDisabledTextColor(Color.WHITE);
+		txtCity.setColumns(10);
+		txtCity.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
+		txtCity.setBounds(20, 153, 156, 33);
+		add_panel.add(txtCity);
+		
+		txtCp = new JTextField();
+		txtCp.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtCp.setText("");
+			}
+		});
+		txtCp.setText("  *Código Postal");
+		txtCp.setForeground(Color.GRAY);
+		txtCp.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtCp.setDisabledTextColor(Color.WHITE);
+		txtCp.setColumns(10);
+		txtCp.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
+		txtCp.setBounds(195, 153, 99, 33);
+		add_panel.add(txtCp);
+		
+		txtFijo = new JTextField();
+		txtFijo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtFijo.setText("");
+			}
+		});
+		txtFijo.setText("  Teléfono fijo");
+		txtFijo.setForeground(Color.GRAY);
+		txtFijo.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtFijo.setDisabledTextColor(Color.WHITE);
+		txtFijo.setColumns(10);
+		txtFijo.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
+		txtFijo.setBounds(321, 153, 126, 33);
+		add_panel.add(txtFijo);
+		
+		txtMobile = new JTextField();
+		txtMobile.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtMobile.setText("");
+			}
+		});
+		txtMobile.setText("  *Teléfono movil");
+		txtMobile.setForeground(Color.GRAY);
+		txtMobile.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtMobile.setDisabledTextColor(Color.WHITE);
+		txtMobile.setColumns(10);
+		txtMobile.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
+		txtMobile.setBounds(473, 152, 140, 34);
+		add_panel.add(txtMobile);
 		
 		txtCif = new JTextField();
 		txtCif.addMouseListener(new MouseAdapter() {
@@ -409,220 +402,220 @@ public class AssocOptions extends JFrame implements Vista{
 		txtCif.setColumns(10);
 		txtCif.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
 		txtCif.setBounds(483, 240, 130, 33);
-		edit_panel3.add(txtCif);
+		add_panel.add(txtCif);
 		
-		txtmunicipio = new JTextField();
-		txtmunicipio.addMouseListener(new MouseAdapter() {
+		txtCity2 = new JTextField();
+		txtCity2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				txtmunicipio.setText("");
+				txtCity2.setText("");
 			}
 		});
-		txtmunicipio.setText("   *Municipio");
-		txtmunicipio.setForeground(Color.GRAY);
-		txtmunicipio.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		txtmunicipio.setDisabledTextColor(Color.WHITE);
-		txtmunicipio.setColumns(10);
-		txtmunicipio.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
-		txtmunicipio.setBounds(20, 337, 156, 33);
-		edit_panel3.add(txtmunicipio);
+		txtCity2.setText("   *Municipio");
+		txtCity2.setForeground(Color.GRAY);
+		txtCity2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtCity2.setDisabledTextColor(Color.WHITE);
+		txtCity2.setColumns(10);
+		txtCity2.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
+		txtCity2.setBounds(20, 337, 156, 33);
+		add_panel.add(txtCity2);
 		
-		txtcdigoPostal = new JTextField();
-		txtcdigoPostal.addMouseListener(new MouseAdapter() {
+		txtCp2 = new JTextField();
+		txtCp2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				txtcdigoPostal.setText("");
+				txtCp2.setText("");
 			}
 		});
-		txtcdigoPostal.setText("  *CP");
-		txtcdigoPostal.setForeground(Color.GRAY);
-		txtcdigoPostal.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		txtcdigoPostal.setDisabledTextColor(Color.WHITE);
-		txtcdigoPostal.setColumns(10);
-		txtcdigoPostal.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
-		txtcdigoPostal.setBounds(188, 337, 59, 33);
-		edit_panel3.add(txtcdigoPostal);
+		txtCp2.setText("  *CP");
+		txtCp2.setForeground(Color.GRAY);
+		txtCp2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtCp2.setDisabledTextColor(Color.WHITE);
+		txtCp2.setColumns(10);
+		txtCp2.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
+		txtCp2.setBounds(188, 337, 59, 33);
+		add_panel.add(txtCp2);
 		
-		textField_5 = new JTextField();
-		textField_5.addMouseListener(new MouseAdapter() {
+		txtFijo2 = new JTextField();
+		txtFijo2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				textField_5.setText("");
+				txtFijo2.setText("");
 			}
 		});
-		textField_5.setText("  Teléfono fijo");
-		textField_5.setForeground(Color.GRAY);
-		textField_5.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		textField_5.setDisabledTextColor(Color.WHITE);
-		textField_5.setColumns(10);
-		textField_5.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
-		textField_5.setBounds(259, 337, 126, 33);
-		edit_panel3.add(textField_5);
+		txtFijo2.setText("  Teléfono fijo");
+		txtFijo2.setForeground(Color.GRAY);
+		txtFijo2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtFijo2.setDisabledTextColor(Color.WHITE);
+		txtFijo2.setColumns(10);
+		txtFijo2.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
+		txtFijo2.setBounds(259, 337, 126, 33);
+		add_panel.add(txtFijo2);
 		
-		txttelfonoMovil = new JTextField();
-		txttelfonoMovil.addMouseListener(new MouseAdapter() {
+		txtMobile2 = new JTextField();
+		txtMobile2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				txttelfonoMovil.setText("");
+				txtMobile2.setText("");
 			}
 		});
-		txttelfonoMovil.setText("  *Teléfono movil");
-		txttelfonoMovil.setForeground(Color.GRAY);
-		txttelfonoMovil.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		txttelfonoMovil.setDisabledTextColor(Color.WHITE);
-		txttelfonoMovil.setColumns(10);
-		txttelfonoMovil.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
-		txttelfonoMovil.setBounds(473, 336, 140, 34);
-		edit_panel3.add(txttelfonoMovil);
+		txtMobile2.setText("  *Teléfono movil");
+		txtMobile2.setForeground(Color.GRAY);
+		txtMobile2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtMobile2.setDisabledTextColor(Color.WHITE);
+		txtMobile2.setColumns(10);
+		txtMobile2.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
+		txtMobile2.setBounds(473, 336, 140, 34);
+		add_panel.add(txtMobile2);
 		
 		JDateChooser dateChooser = new JDateChooser();
 		dateChooser.setBounds(295, 288, 33, 33);
-		edit_panel3.add(dateChooser);
+		add_panel.add(dateChooser);
 		
-		txtFax = new JTextField();
-		txtFax.addMouseListener(new MouseAdapter() {
+		txtDate = new JTextField();
+		txtDate.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				txtFax.setText("");
+				txtDate.setText("");
 			}
 		});
-		txtFax.setText("  *Fecha solicitud");
-		txtFax.setForeground(Color.GRAY);
-		txtFax.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		txtFax.setDisabledTextColor(Color.WHITE);
-		txtFax.setColumns(10);
-		txtFax.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
-		txtFax.setBounds(164, 288, 130, 33);
-		edit_panel3.add(txtFax);
+		txtDate.setText("  *Fecha solicitud");
+		txtDate.setForeground(Color.GRAY);
+		txtDate.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtDate.setDisabledTextColor(Color.WHITE);
+		txtDate.setColumns(10);
+		txtDate.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
+		txtDate.setBounds(164, 288, 130, 33);
+		add_panel.add(txtDate);
 		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("El cliente aporta la documentación necesaria para el registro de la nueva asociación");
-		chckbxNewCheckBox.setForeground(new Color(128, 128, 128));
-		chckbxNewCheckBox.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		chckbxNewCheckBox.setBounds(22, 390, 443, 23);
-		edit_panel3.add(chckbxNewCheckBox);
+		JCheckBox chckbxAgree = new JCheckBox("El cliente aporta la documentación necesaria para el registro de la nueva asociación");
+		chckbxAgree.setForeground(new Color(128, 128, 128));
+		chckbxAgree.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		chckbxAgree.setBounds(22, 390, 443, 23);
+		add_panel.add(chckbxAgree);
 		
-		JButton btnRegistrar = new JButton("Registrar");
-		btnRegistrar.setFont(new Font("Lucida Grande", Font.BOLD, 13));
-		btnRegistrar.setForeground(new Color(128, 128, 128));
-		btnRegistrar.setBounds(20, 425, 140, 39);
-		edit_panel3.add(btnRegistrar);
+		JButton btnRegister = new JButton("Registrar");
+		btnRegister.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		btnRegister.setForeground(new Color(128, 128, 128));
+		btnRegister.setBounds(20, 425, 140, 39);
+		add_panel.add(btnRegister);
 		
-		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setForeground(new Color(128, 128, 128));
-		btnCancelar.setFont(new Font("Century Gothic", Font.BOLD, 13));
-		btnCancelar.setBounds(172, 425, 140, 39);
-		edit_panel3.add(btnCancelar);
+		JButton btnCancel = new JButton("Cancelar");
+		btnCancel.setForeground(new Color(128, 128, 128));
+		btnCancel.setFont(new Font("Century Gothic", Font.BOLD, 13));
+		btnCancel.setBounds(172, 425, 140, 39);
+		add_panel.add(btnCancel);
 		
-		lblLosCamposMarcados = new JLabel("Los campos marcados con * son obligatorios");
-		lblLosCamposMarcados.setForeground(new Color(128, 128, 128));
-		lblLosCamposMarcados.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		lblLosCamposMarcados.setBounds(387, 26, 226, 16);
-		edit_panel3.add(lblLosCamposMarcados);
+		lblInfo = new JLabel("Los campos marcados con * son obligatorios");
+		lblInfo.setForeground(new Color(128, 128, 128));
+		lblInfo.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		lblInfo.setBounds(387, 26, 226, 16);
+		add_panel.add(lblInfo);
 		
-		comboBox = new JComboBox();
-		comboBox.setForeground(Color.GRAY);
-		comboBox.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		comboBox.setBorder(null);
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"*Tipo", "Deporte", "Cultural", "Social", "Juvenil"}));
-		comboBox.setBounds(20, 288, 140, 33);
-		edit_panel3.add(comboBox);
+		selectType = new JComboBox();
+		selectType.setForeground(Color.GRAY);
+		selectType.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		selectType.setBorder(null);
+		selectType.setModel(new DefaultComboBoxModel(new String[] {"*Tipo", "Deporte", "Cultural", "Social", "Juvenil"}));
+		selectType.setBounds(20, 288, 140, 33);
+		add_panel.add(selectType);
 		
-		lbl_data.addMouseListener(new MouseAdapter() {
+		lblHist.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				lbl_data.setForeground(java.awt.Color.black);
-				lbl_modify.setForeground(java.awt.Color.lightGray);
-				lbl_documentacion.setForeground(java.awt.Color.lightGray);
-				edit_panel1.setVisible(true);
-				edit_panel2.setVisible(false);
-				edit_panel3.setVisible(false);
-				panel_5.setVisible(true);
-				panel_6.setVisible(false);
-				panel_7.setVisible(false);
+				lblHist.setForeground(java.awt.Color.black);
+				lblDoc.setForeground(java.awt.Color.lightGray);
+				lblAdd.setForeground(java.awt.Color.lightGray);
+				hist_panel.setVisible(true);
+				doc_panel.setVisible(false);
+				add_panel.setVisible(false);
+				hist_panel2.setVisible(true);
+				doc_panel2.setVisible(false);
+				add_panel2.setVisible(false);
 			}
 		});
-		lbl_data.setBounds(69, 27, 61, 22);
-		lbl_data.setFont(new Font("Segoe UI", Font.BOLD, 16));
-		panel.add(lbl_data);
+		lblHist.setBounds(69, 27, 61, 22);
+		lblHist.setFont(new Font("Segoe UI", Font.BOLD, 16));
+		panel_left.add(lblHist);
 		
-		lbl_modify.addMouseListener(new MouseAdapter() {
+		lblDoc.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				lbl_modify.setForeground(java.awt.Color.black);
-				lbl_documentacion.setForeground(java.awt.Color.lightGray);
-				lbl_data.setForeground(java.awt.Color.lightGray);
-				edit_panel1.setVisible(false);
-				edit_panel2.setVisible(true);
-				edit_panel3.setVisible(false);
+				lblDoc.setForeground(java.awt.Color.black);
+				lblAdd.setForeground(java.awt.Color.lightGray);
+				lblHist.setForeground(java.awt.Color.lightGray);
+				hist_panel.setVisible(false);
+				doc_panel.setVisible(true);
+				add_panel.setVisible(false);
 			}
 		});
 		
-		lbl_modify.setBounds(179, 30, 85, 16);
-		lbl_modify.setFont(new Font("Segoe UI", Font.BOLD, 16));
-		panel.add(lbl_modify);
+		lblDoc.setBounds(179, 30, 112, 16);
+		lblDoc.setFont(new Font("Segoe UI", Font.BOLD, 16));
+		panel_left.add(lblDoc);
 		
 		
-		lbl_documentacion.addMouseListener(new MouseAdapter() {
+		lblAdd.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				lbl_documentacion.setForeground(java.awt.Color.black);
-				lbl_data.setForeground(java.awt.Color.lightGray);
-				lbl_modify.setForeground(java.awt.Color.lightGray);
-				edit_panel1.setVisible(false);
-				edit_panel2.setVisible(false);
-				edit_panel3.setVisible(true);
-				panel_5.setVisible(false);
-				panel_6.setVisible(false);
-				panel_7.setVisible(true);
+				lblAdd.setForeground(java.awt.Color.black);
+				lblHist.setForeground(java.awt.Color.lightGray);
+				lblDoc.setForeground(java.awt.Color.lightGray);
+				hist_panel.setVisible(false);
+				doc_panel.setVisible(false);
+				add_panel.setVisible(true);
+				hist_panel2.setVisible(false);
+				doc_panel2.setVisible(false);
+				add_panel2.setVisible(true);
 			}
 		});
-		lbl_documentacion.setBounds(310, 30, 73, 16);
-		lbl_documentacion.setFont(new Font("Segoe UI", Font.BOLD, 16));
-		panel.add(lbl_documentacion);
+		lblAdd.setBounds(336, 30, 52, 16);
+		lblAdd.setFont(new Font("Segoe UI", Font.BOLD, 16));
+		panel_left.add(lblAdd);
 		
-		JSeparator separator = new JSeparator();
-		separator.setBounds(0, 53, 637, 12);
-		panel.add(separator);
-		separator.setForeground(new Color(128, 128, 128));
+		JSeparator sep_header = new JSeparator();
+		sep_header.setBounds(0, 53, 637, 12);
+		panel_left.add(sep_header);
+		sep_header.setForeground(new Color(128, 128, 128));
 		
-		lblAsociacion = new JLabel("Asociacion #001");
-		lblAsociacion.setFont(new Font("Century Gothic", Font.BOLD, 16));
-		lblAsociacion.setBounds(478, 24, 137, 22);
-		panel.add(lblAsociacion);
+		lblName = new JLabel("Asociacion #001");
+		lblName.setFont(new Font("Century Gothic", Font.BOLD, 16));
+		lblName.setBounds(478, 24, 137, 22);
+		panel_left.add(lblName);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(637, 0, 273, 550);
-		contentPane.add(panel_1);
-		panel_1.setLayout(null);
+		JPanel panel_right = new JPanel();
+		panel_right.setBounds(637, 0, 273, 550);
+		contentPane.add(panel_right);
+		panel_right.setLayout(null);
 		
-		JLayeredPane layeredPane_1 = new JLayeredPane();
-		layeredPane_1.setBounds(0, 0, 273, 550);
-		panel_1.add(layeredPane_1);
-		layeredPane_1.setLayout(new CardLayout(0, 0));
+		JLayeredPane MultPanel2 = new JLayeredPane();
+		MultPanel2.setBounds(0, 0, 273, 550);
+		panel_right.add(MultPanel2);
+		MultPanel2.setLayout(new CardLayout(0, 0));
 		
-		panel_5 = new JPanel();
-		panel_5.setBackground(new Color(32,47,90));
-		layeredPane_1.add(panel_5, "name_40223813435417");
-		panel_5.setLayout(null);
+		hist_panel2 = new JPanel();
+		hist_panel2.setBackground(new Color(32,47,90));
+		MultPanel2.add(hist_panel2, "name_40223813435417");
+		hist_panel2.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Detalles completos");
-		lblNewLabel.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		lblNewLabel.setBounds(17, 28, 111, 16);
-		panel_5.add(lblNewLabel);
+		JLabel lblDetails = new JLabel("Detalles completos");
+		lblDetails.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		lblDetails.setBounds(17, 28, 111, 16);
+		hist_panel2.add(lblDetails);
 		
-		panel_6 = new JPanel();
-		panel_6.setBackground(Color.PINK);
-		layeredPane_1.add(panel_6, "name_40282482298038");
+		doc_panel2 = new JPanel();
+		doc_panel2.setBackground(Color.PINK);
+		MultPanel2.add(doc_panel2, "name_40282482298038");
 		
-		panel_7 = new JPanel();
-		panel_7.setBackground(Color.MAGENTA);
-		layeredPane_1.add(panel_7, "name_40289285423663");
+		add_panel2 = new JPanel();
+		add_panel2.setBackground(Color.MAGENTA);
+		MultPanel2.add(add_panel2, "name_40289285423663");
 		
 		
 		
-		edit_panel1.setVisible(true);
-		edit_panel2.setVisible(false);
-		edit_panel3.setVisible(false);
+		hist_panel.setVisible(true);
+		doc_panel.setVisible(false);
+		add_panel.setVisible(false);
 	}
 	
 	public void actualizarTabla(){
@@ -642,9 +635,9 @@ public class AssocOptions extends JFrame implements Vista{
 			model.addRow(new Object[] {a.get(i).getId(),a.get(i).getFecha(),a.get(i).getImporte()});
 		}
 
-		table.setModel(model);
+		subv_table.setModel(model);
 		
-		scrollPane.setViewportView(table);
+		subv_scroll.setViewportView(subv_table);
 	}
 	
 	public void actualizarTablaActividades(){
@@ -667,9 +660,9 @@ public class AssocOptions extends JFrame implements Vista{
 			model.addRow(new Object[] {a.get(i).getId(),a.get(i).getFecha(),a.get(i).getTipo(),a.get(i).getNombre(),a.get(i).getLugar(),a.get(i).getDescripcion()});
 		}
 
-		table_1.setModel(model);
+		activ_table.setModel(model);
 		
-		scrollPane_1.setViewportView(table_1);
+		activ_scroll.setViewportView(activ_table);
 	}
 	public void actualizarTablaEspacios(){
 		ArrayList<Espacio> a=modelo.getD();
@@ -690,9 +683,9 @@ public class AssocOptions extends JFrame implements Vista{
 			model.addRow(new Object[] {a.get(i).getSede(),a.get(i).getDireccion(),a.get(i).getCaracteristicas(),a.get(i).getFechasolicitud(),a.get(i).getFechaconcesion()});
 		}
 
-		table_2.setModel(model);
+		esp_table.setModel(model);
 		
-		scrollPane_2.setViewportView(table_2);
+		esp_scroll.setViewportView(esp_table);
 	}
 	
 	@Override
