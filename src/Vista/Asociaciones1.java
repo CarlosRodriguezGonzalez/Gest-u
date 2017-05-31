@@ -466,7 +466,10 @@ public class Asociaciones1 extends JFrame implements Vista {
 		scrolltable.setViewportView(table);
 	}
 	public int getRowSelectedID(){
-		return (int)(table.getModel().getValueAt(table.getSelectedRow(), 0));
+		int x=table.getSelectedRow();
+		if(x!=-1){
+		return (int)(table.getModel().getValueAt(x, 0));}
+		return -1;
 	}
 
 	@Override
