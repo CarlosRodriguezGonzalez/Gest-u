@@ -155,11 +155,11 @@ public class MenuInicio extends JFrame implements Vista {
 			}
 		});
 		//txtName.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		txtName.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
+		txtName.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,12));
 		txtName.setText("Asociación");
 		txtName.setBackground(new Color(240, 240, 240));
 		txtName.setBorder(null);
-		txtName.setBounds(28, 103, 56, 16);
+		txtName.setBounds(28, 103, 84, 16);
 		filterContainer.add(txtName);
 		txtName.setColumns(10);
 		
@@ -177,7 +177,7 @@ public class MenuInicio extends JFrame implements Vista {
 		txtId.setColumns(10);
 		txtId.setBorder(null);
 		txtId.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
-		txtId.setBounds(28, 75, 64, 16);
+		txtId.setBounds(28, 75, 84, 16);
 		filterContainer.add(txtId);
 		
 		
@@ -230,7 +230,7 @@ public class MenuInicio extends JFrame implements Vista {
 		lblPreimp.setForeground(Color.WHITE);
 		//lblPreimp.setFont(new Font("Century Gothic", Font.BOLD, 12));
 		lblPreimp.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,12));
-		lblPreimp.setBounds(6, 6, 135, 28);
+		lblPreimp.setBounds(6, 6, 147, 28);
 		btnPreimp.add(lblPreimp);
 		
 		JPanel btnHist = new JPanel();
@@ -244,7 +244,7 @@ public class MenuInicio extends JFrame implements Vista {
 		lblHist.setForeground(Color.WHITE);
 		//lblHist.setFont(new Font("Century Gothic", Font.BOLD, 12));
 		lblHist.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,12));
-		lblHist.setBounds(12, 0, 101, 40);
+		lblHist.setBounds(6, 0, 115, 40);
 		btnHist.add(lblHist);
 		
 		JPanel btnConf = new JPanel();
@@ -265,7 +265,7 @@ public class MenuInicio extends JFrame implements Vista {
 		lblConf.setForeground(Color.WHITE);
 		//lblConf.setFont(new Font("Century Gothic", Font.BOLD, 12));
 		lblConf.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,12));
-		lblConf.setBounds(12, 0, 114, 40);
+		lblConf.setBounds(6, 0, 147, 40);
 		btnConf.add(lblConf);
 		
 		
@@ -275,12 +275,12 @@ public class MenuInicio extends JFrame implements Vista {
 		btnFilter.setBounds(28, 139, 150, 40);
 		filterContainer.add(btnFilter);
 		
-		JLabel lblFilter = new JLabel("    CONSULTAR");
+		JLabel lblFilter = new JLabel("CONSULTAR");
 		lblFilter.setIcon(new ImageIcon("img/Search Property-30.png"));
 		lblFilter.setForeground(Color.WHITE);
 		//lblFilter.setFont(new Font("Century Gothic", Font.BOLD, 12));
 		lblFilter.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,12));
-		lblFilter.setBounds(13, 0, 131, 40);
+		lblFilter.setBounds(6, 0, 138, 40);
 		btnFilter.add(lblFilter);
 		
 		JDateChooser DateCFrom = new JDateChooser();
@@ -295,7 +295,7 @@ public class MenuInicio extends JFrame implements Vista {
 		lblFilterTitle.setForeground(new Color(105,105,105));
 		//lblFilterTitle.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		lblFilterTitle.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,15));
-		lblFilterTitle.setBounds(28, 18, 121, 32);
+		lblFilterTitle.setBounds(28, 18, 150, 32);
 		filterContainer.add(lblFilterTitle);
 		
 		JSeparator sepfilter_1 = new JSeparator();
