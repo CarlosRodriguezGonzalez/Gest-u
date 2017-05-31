@@ -16,6 +16,7 @@ import Vista.DBConfig;
 import Vista.EspacioMunicipal1;
 import Vista.Login;
 import Vista.MenuInicio;
+import Vista.SubvOptions;
 import Vista.Subvenciones1;
 import Vista.Vista;
 
@@ -29,6 +30,7 @@ public class ControladorImpl implements Controlador {
 	private Subvenciones1 subvenciones;
 	private DBConfig configuracion;
 	private AssocOptions asociacionesExtra;
+	private SubvOptions subvencionesExtra;
 
 	private Font font;
 	private Font font2;
@@ -134,10 +136,24 @@ public class ControladorImpl implements Controlador {
 		asociacionesExtra.setControlador(this);
 		modelo.setasociacionesExtra(asociacionesExtra);
 		this.setasociacionesExtra(asociacionesExtra);
-		modelo.cargarVistaAsociacionesExtra(asociaciones.getRowSelectedID());
-		modelo.cargarActividadesAsociacionesExtra(asociaciones.getRowSelectedID());
-		modelo.cargarEspaciosAsociacionesExtra(asociaciones.getRowSelectedID());
+		int x = asociaciones.getRowSelectedID();
+		if(x!=-1){
+		modelo.cargarVistaAsociacionesExtra(x);
+		modelo.cargarActividadesAsociacionesExtra(x);
+		modelo.cargarEspaciosAsociacionesExtra(x);
+		}
 		asociacionesExtra.setVisible(true);
+	}
+	
+	public void pasarSubOptions(){
+		subvencionesExtra = new SubvOptions(this);
+		subvencionesExtra.setModelo(modelo);
+		subvencionesExtra.setControlador(this);
+		this.setSubvencionesExtra(subvencionesExtra);
+		modelo.setSubvencionesExtra(subvencionesExtra);
+		
+		subvencionesExtra.setVisible(true);
+		
 	}
 	public void testConexion(){
 		modelo.testConexion(configuracion.getTxtUsuario().getText(), configuracion.getPwdContrasea().getText(), configuracion.getTxtBaseDeDatos().getText(), configuracion.getTxtHost().getText(), configuracion.getTxtPuerto().getText());
@@ -181,11 +197,15 @@ public class ControladorImpl implements Controlador {
 	public void setasociacionesExtra(AssocOptions asociacionesExtra){
 		this.asociacionesExtra=asociacionesExtra;
 	}
+	public void setSubvencionesExtra(SubvOptions subvencionesExtra){
+		this.subvencionesExtra=subvencionesExtra;
+	}
 	public Font getSegoeui(){
 		return font;
 	}
 	public Font getCentury(){
 		return font2;
 	}
+	
 	
 }

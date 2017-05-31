@@ -16,6 +16,7 @@ import Vista.DBConfig;
 import Vista.EspacioMunicipal1;
 import Vista.Login;
 import Vista.MenuInicio;
+import Vista.SubvOptions;
 import Vista.Subvenciones1;
 import Vista.Vista;
 import baseDeDatos.AsociacionBBDD;
@@ -31,6 +32,7 @@ public class ModeloImpl implements Modelo {
 	private EspacioMunicipal1 espacio;
 	private DBConfig configuracion;
 	private AssocOptions asociacionesExtra;
+	private SubvOptions subvencionesExtra;
 	
 	private ArrayList<Asociacion> a;
 	private ArrayList<Subvencion> b;
@@ -43,6 +45,7 @@ public class ModeloImpl implements Modelo {
 	private String puerto;
 	private String ruta;
 	private boolean test;
+	
 	
 	public boolean comprobarLogin(String user,String password){
 		
@@ -189,6 +192,9 @@ public class ModeloImpl implements Modelo {
 	
 	public void setConfiguracion(DBConfig configuracion){
 		this.configuracion=configuracion;
+	}
+	public void setSubvencionesExtra(SubvOptions subvencionesExtra){
+		this.subvencionesExtra=subvencionesExtra;
 	}
 
 	public ArrayList<Asociacion> getA() {
