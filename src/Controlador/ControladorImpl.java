@@ -116,7 +116,7 @@ public class ControladorImpl implements Controlador{
 	}
 	
 	public void pasarAssocOptions(){
-		asociacionesExtra=new AssocOptions();
+		asociacionesExtra=new AssocOptions(this);
 		asociacionesExtra.setModelo(modelo);
 		asociacionesExtra.setControlador(this);
 		modelo.setasociacionesExtra(asociacionesExtra);

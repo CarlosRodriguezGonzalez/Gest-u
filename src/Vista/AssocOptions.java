@@ -76,7 +76,8 @@ public class AssocOptions extends JFrame implements Vista{
 	private JPanel doc_panel2;
 	private JPanel add_panel2;
 
-	public AssocOptions() {
+	public AssocOptions(ControladorImpl con) {
+		this.controlador=con;
 		setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 910, 572);
 		contentPane = new JPanel();
@@ -167,7 +168,8 @@ public class AssocOptions extends JFrame implements Vista{
 		});
 		txtName.setForeground(UIManager.getColor("FormattedTextField.inactiveForeground"));
 		txtName.setDisabledTextColor(new Color(255, 255, 255));
-		txtName.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		//txtName.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtName.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtName.setText("  *Nombre");
 		txtName.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
 		txtName.setBounds(20, 62, 182, 33);
@@ -184,7 +186,8 @@ public class AssocOptions extends JFrame implements Vista{
 		});
 		txtSurname.setForeground(UIManager.getColor("FormattedTextField.inactiveForeground"));
 		txtSurname.setDisabledTextColor(new Color(255, 255, 255));
-		txtSurname.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		//txtSurname.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtSurname.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtSurname.setText("  Apellidos");
 		txtSurname.setColumns(10);
 		txtSurname.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
@@ -201,7 +204,8 @@ public class AssocOptions extends JFrame implements Vista{
 		});
 		txtDni.setForeground(UIManager.getColor("FormattedTextField.inactiveForeground"));
 		txtDni.setDisabledTextColor(new Color(255, 255, 255));
-		txtDni.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		//txtDni.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtDni.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtDni.setText("  *DNI/NIE/Pasaporte");
 		txtDni.setColumns(10);
 		txtDni.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
@@ -210,7 +214,8 @@ public class AssocOptions extends JFrame implements Vista{
 		txtDni.setBorder(BorderFactory.createCompoundBorder(txtDni.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
 		
 		JLabel lblRepTitle = new JLabel("Datos representante");
-		lblRepTitle.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		//lblRepTitle.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		lblRepTitle.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,18));
 		lblRepTitle.setForeground(new Color(128, 128, 128));
 		lblRepTitle.setBounds(20, 20, 170, 30);
 		add_panel.add(lblRepTitle);
@@ -224,7 +229,8 @@ public class AssocOptions extends JFrame implements Vista{
 		});
 		txtEmail.setText("  *E-Mail");
 		txtEmail.setForeground(Color.GRAY);
-		txtEmail.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		//txtEmail.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtEmail.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtEmail.setDisabledTextColor(Color.WHITE);
 		txtEmail.setColumns(10);
 		txtEmail.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
@@ -241,7 +247,8 @@ public class AssocOptions extends JFrame implements Vista{
 		});
 		txtAddress.setText("  Dirección");
 		txtAddress.setForeground(Color.GRAY);
-		txtAddress.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		//txtAddress.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtAddress.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtAddress.setDisabledTextColor(Color.WHITE);
 		txtAddress.setColumns(10);
 		txtAddress.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
@@ -256,7 +263,8 @@ public class AssocOptions extends JFrame implements Vista{
 		
 		JLabel lblDatosAsociacin = new JLabel("Datos Asociación");
 		lblDatosAsociacin.setForeground(Color.GRAY);
-		lblDatosAsociacin.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		//lblDatosAsociacin.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		lblDatosAsociacin.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,18));
 		lblDatosAsociacin.setBounds(20, 203, 170, 30);
 		add_panel.add(lblDatosAsociacin);
 		
@@ -269,7 +277,8 @@ public class AssocOptions extends JFrame implements Vista{
 		});
 		txtName2.setText("  *Nombre");
 		txtName2.setForeground(Color.GRAY);
-		txtName2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		//txtName2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtName2.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtName2.setDisabledTextColor(Color.WHITE);
 		txtName2.setColumns(10);
 		txtName2.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
@@ -285,7 +294,8 @@ public class AssocOptions extends JFrame implements Vista{
 		});
 		txtAddress2.setText("  *Dirección de la sede");
 		txtAddress2.setForeground(Color.GRAY);
-		txtAddress2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		//txtAddress2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtAddress2.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtAddress2.setDisabledTextColor(Color.WHITE);
 		txtAddress2.setColumns(10);
 		txtAddress2.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
@@ -301,7 +311,8 @@ public class AssocOptions extends JFrame implements Vista{
 		});
 		txtFax.setText("  Fax");
 		txtFax.setForeground(Color.GRAY);
-		txtFax.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		//txtFax.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtFax.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtFax.setDisabledTextColor(Color.WHITE);
 		txtFax.setColumns(10);
 		txtFax.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
@@ -317,7 +328,8 @@ public class AssocOptions extends JFrame implements Vista{
 		});
 		txtEmail2.setText("  *E-mail");
 		txtEmail2.setForeground(Color.GRAY);
-		txtEmail2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		//txtEmail2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtEmail2.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtEmail2.setDisabledTextColor(Color.WHITE);
 		txtEmail2.setColumns(10);
 		txtEmail2.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
@@ -333,7 +345,8 @@ public class AssocOptions extends JFrame implements Vista{
 		});
 		txtCity.setText("   *Municipio");
 		txtCity.setForeground(Color.GRAY);
-		txtCity.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		//txtCity.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtCity.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtCity.setDisabledTextColor(Color.WHITE);
 		txtCity.setColumns(10);
 		txtCity.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
@@ -349,7 +362,8 @@ public class AssocOptions extends JFrame implements Vista{
 		});
 		txtCp.setText("  *Código Postal");
 		txtCp.setForeground(Color.GRAY);
-		txtCp.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		//txtCp.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtCp.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtCp.setDisabledTextColor(Color.WHITE);
 		txtCp.setColumns(10);
 		txtCp.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
@@ -365,7 +379,8 @@ public class AssocOptions extends JFrame implements Vista{
 		});
 		txtFijo.setText("  Teléfono fijo");
 		txtFijo.setForeground(Color.GRAY);
-		txtFijo.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		//txtFijo.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtFijo.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtFijo.setDisabledTextColor(Color.WHITE);
 		txtFijo.setColumns(10);
 		txtFijo.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
@@ -381,7 +396,8 @@ public class AssocOptions extends JFrame implements Vista{
 		});
 		txtMobile.setText("  *Teléfono movil");
 		txtMobile.setForeground(Color.GRAY);
-		txtMobile.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		//txtMobile.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtMobile.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtMobile.setDisabledTextColor(Color.WHITE);
 		txtMobile.setColumns(10);
 		txtMobile.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
@@ -397,7 +413,8 @@ public class AssocOptions extends JFrame implements Vista{
 		});
 		txtCif.setText("  *CIF");
 		txtCif.setForeground(Color.GRAY);
-		txtCif.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		//txtCif.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtCif.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtCif.setDisabledTextColor(Color.WHITE);
 		txtCif.setColumns(10);
 		txtCif.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
@@ -413,7 +430,8 @@ public class AssocOptions extends JFrame implements Vista{
 		});
 		txtCity2.setText("   *Municipio");
 		txtCity2.setForeground(Color.GRAY);
-		txtCity2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		//txtCity2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtCity2.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtCity2.setDisabledTextColor(Color.WHITE);
 		txtCity2.setColumns(10);
 		txtCity2.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
@@ -429,7 +447,8 @@ public class AssocOptions extends JFrame implements Vista{
 		});
 		txtCp2.setText("  *CP");
 		txtCp2.setForeground(Color.GRAY);
-		txtCp2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		//txtCp2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtCp2.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtCp2.setDisabledTextColor(Color.WHITE);
 		txtCp2.setColumns(10);
 		txtCp2.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
@@ -445,7 +464,8 @@ public class AssocOptions extends JFrame implements Vista{
 		});
 		txtFijo2.setText("  Teléfono fijo");
 		txtFijo2.setForeground(Color.GRAY);
-		txtFijo2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		//txtFijo2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtFijo2.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtFijo2.setDisabledTextColor(Color.WHITE);
 		txtFijo2.setColumns(10);
 		txtFijo2.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
@@ -461,7 +481,8 @@ public class AssocOptions extends JFrame implements Vista{
 		});
 		txtMobile2.setText("  *Teléfono movil");
 		txtMobile2.setForeground(Color.GRAY);
-		txtMobile2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		//txtMobile2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtMobile2.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtMobile2.setDisabledTextColor(Color.WHITE);
 		txtMobile2.setColumns(10);
 		txtMobile2.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
@@ -481,7 +502,8 @@ public class AssocOptions extends JFrame implements Vista{
 		});
 		txtDate.setText("  *Fecha solicitud");
 		txtDate.setForeground(Color.GRAY);
-		txtDate.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		//txtDate.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtDate.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtDate.setDisabledTextColor(Color.WHITE);
 		txtDate.setColumns(10);
 		txtDate.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
@@ -490,31 +512,36 @@ public class AssocOptions extends JFrame implements Vista{
 		
 		JCheckBox chckbxAgree = new JCheckBox("El cliente aporta la documentación necesaria para el registro de la nueva asociación");
 		chckbxAgree.setForeground(new Color(128, 128, 128));
-		chckbxAgree.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		//chckbxAgree.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		chckbxAgree.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		chckbxAgree.setBounds(22, 390, 443, 23);
 		add_panel.add(chckbxAgree);
 		
 		JButton btnRegister = new JButton("Registrar");
-		btnRegister.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		//btnRegister.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		btnRegister.setFont(controlador.getCentury().deriveFont(Font.BOLD,13));
 		btnRegister.setForeground(new Color(128, 128, 128));
 		btnRegister.setBounds(20, 425, 140, 39);
 		add_panel.add(btnRegister);
 		
 		JButton btnCancel = new JButton("Cancelar");
 		btnCancel.setForeground(new Color(128, 128, 128));
-		btnCancel.setFont(new Font("Century Gothic", Font.BOLD, 13));
+		//btnCancel.setFont(new Font("Century Gothic", Font.BOLD, 13));
+		btnCancel.setFont(controlador.getCentury().deriveFont(Font.BOLD,13));
 		btnCancel.setBounds(172, 425, 140, 39);
 		add_panel.add(btnCancel);
 		
 		lblInfo = new JLabel("Los campos marcados con * son obligatorios");
 		lblInfo.setForeground(new Color(128, 128, 128));
-		lblInfo.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		//lblInfo.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		lblInfo.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		lblInfo.setBounds(387, 26, 226, 16);
 		add_panel.add(lblInfo);
 		
 		selectType = new JComboBox();
 		selectType.setForeground(Color.GRAY);
-		selectType.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		//selectType.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		selectType.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		selectType.setBorder(null);
 		selectType.setModel(new DefaultComboBoxModel(new String[] {"*Tipo", "Deporte", "Cultural", "Social", "Juvenil"}));
 		selectType.setBounds(20, 288, 140, 33);
@@ -536,6 +563,7 @@ public class AssocOptions extends JFrame implements Vista{
 		});
 		lblHist.setBounds(69, 27, 61, 22);
 		lblHist.setFont(new Font("Segoe UI", Font.BOLD, 16));
+		lblHist.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,16));
 		panel_left.add(lblHist);
 		
 		lblDoc.addMouseListener(new MouseAdapter() {
@@ -551,7 +579,8 @@ public class AssocOptions extends JFrame implements Vista{
 		});
 		
 		lblDoc.setBounds(179, 30, 112, 16);
-		lblDoc.setFont(new Font("Segoe UI", Font.BOLD, 16));
+		//lblDoc.setFont(new Font("Segoe UI", Font.BOLD, 16));
+		lblDoc.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,16));
 		panel_left.add(lblDoc);
 		
 		
@@ -570,7 +599,8 @@ public class AssocOptions extends JFrame implements Vista{
 			}
 		});
 		lblAdd.setBounds(336, 30, 52, 16);
-		lblAdd.setFont(new Font("Segoe UI", Font.BOLD, 16));
+		//lblAdd.setFont(new Font("Segoe UI", Font.BOLD, 16));
+		lblAdd.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,16));
 		panel_left.add(lblAdd);
 		
 		JSeparator sep_header = new JSeparator();
@@ -579,7 +609,8 @@ public class AssocOptions extends JFrame implements Vista{
 		sep_header.setForeground(new Color(128, 128, 128));
 		
 		lblName = new JLabel("Asociacion #001");
-		lblName.setFont(new Font("Century Gothic", Font.BOLD, 16));
+		//lblName.setFont(new Font("Century Gothic", Font.BOLD, 16));
+		lblName.setFont(controlador.getCentury().deriveFont(Font.BOLD,16));
 		lblName.setBounds(478, 24, 137, 22);
 		panel_left.add(lblName);
 		
@@ -599,7 +630,8 @@ public class AssocOptions extends JFrame implements Vista{
 		hist_panel2.setLayout(null);
 		
 		JLabel lblDetails = new JLabel("Detalles completos");
-		lblDetails.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		//lblDetails.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		lblDetails.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,13));
 		lblDetails.setBounds(17, 28, 111, 16);
 		hist_panel2.add(lblDetails);
 		
