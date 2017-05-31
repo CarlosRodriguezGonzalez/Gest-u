@@ -136,11 +136,13 @@ public class MenuInicio extends JFrame implements Vista {
 		
 		JLabel lblLogo = new JLabel("Gest-U");
 		lblLogo.setBounds(695, 6, 113, 40);
-		lblLogo.setFont(new Font("Segoe UI", Font.PLAIN, 37));
+		//lblLogo.setFont(new Font("Segoe UI", Font.PLAIN, 37));
+		lblLogo.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,37));
 		filterContainer.add(lblLogo);
 		
 		JLabel lblSlogan = new JLabel("Experts on management");
-		lblSlogan.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		//lblSlogan.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		lblSlogan.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,14));
 		lblSlogan.setBounds(658, 39, 150, 26);
 		filterContainer.add(lblSlogan);
 		
@@ -152,7 +154,8 @@ public class MenuInicio extends JFrame implements Vista {
 				txtName.setText("");
 			}
 		});
-		txtName.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		//txtName.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtName.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtName.setText("Asociación");
 		txtName.setBackground(new Color(240, 240, 240));
 		txtName.setBorder(null);
@@ -169,7 +172,8 @@ public class MenuInicio extends JFrame implements Vista {
 			}
 		});
 		txtId.setText("Identificador");
-		txtId.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		//txtId.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		txtId.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,12));
 		txtId.setColumns(10);
 		txtId.setBorder(null);
 		txtId.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
@@ -187,7 +191,8 @@ public class MenuInicio extends JFrame implements Vista {
 			}
 		});
 		txtDateFrom.setText("Alta desde");
-		txtDateFrom.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		//txtDateFrom.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		txtDateFrom.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,12));
 		txtDateFrom.setColumns(10);
 		txtDateFrom.setBorder(null);
 		txtDateFrom.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
@@ -203,7 +208,8 @@ public class MenuInicio extends JFrame implements Vista {
 			}
 		});
 		txtDateTo.setText("Alta hasta");
-		txtDateTo.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		//txtDateTo.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		txtDateTo.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,12));
 		txtDateTo.setColumns(10);
 		txtDateTo.setBorder(null);
 		txtDateTo.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
@@ -222,7 +228,8 @@ public class MenuInicio extends JFrame implements Vista {
 		JLabel lblPreimp = new JLabel("PREIMPRESOS");
 		lblPreimp.setIcon(new ImageIcon("img/Paper-30.png"));
 		lblPreimp.setForeground(Color.WHITE);
-		lblPreimp.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		//lblPreimp.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		lblPreimp.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,12));
 		lblPreimp.setBounds(6, 6, 135, 28);
 		btnPreimp.add(lblPreimp);
 		
@@ -235,7 +242,8 @@ public class MenuInicio extends JFrame implements Vista {
 		JLabel lblHist = new JLabel("HISTÓRICO");
 		lblHist.setIcon(new ImageIcon("img/News-30.png"));
 		lblHist.setForeground(Color.WHITE);
-		lblHist.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		//lblHist.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		lblHist.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,12));
 		lblHist.setBounds(12, 0, 101, 40);
 		btnHist.add(lblHist);
 		
@@ -255,7 +263,8 @@ public class MenuInicio extends JFrame implements Vista {
 		});
 		lblConf.setIcon(new ImageIcon("img/Database-30.png"));
 		lblConf.setForeground(Color.WHITE);
-		lblConf.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		//lblConf.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		lblConf.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,12));
 		lblConf.setBounds(12, 0, 114, 40);
 		btnConf.add(lblConf);
 		
@@ -269,7 +278,8 @@ public class MenuInicio extends JFrame implements Vista {
 		JLabel lblFilter = new JLabel("    CONSULTAR");
 		lblFilter.setIcon(new ImageIcon("img/Search Property-30.png"));
 		lblFilter.setForeground(Color.WHITE);
-		lblFilter.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		//lblFilter.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		lblFilter.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,12));
 		lblFilter.setBounds(13, 0, 131, 40);
 		btnFilter.add(lblFilter);
 		
@@ -283,7 +293,8 @@ public class MenuInicio extends JFrame implements Vista {
 		
 		JLabel lblFilterTitle = new JLabel("Filtros de búsqueda");
 		lblFilterTitle.setForeground(new Color(105,105,105));
-		lblFilterTitle.setFont(new Font("Segoe UI", Font.BOLD, 15));
+		//lblFilterTitle.setFont(new Font("Segoe UI", Font.BOLD, 15));
+		lblFilterTitle.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,15));
 		lblFilterTitle.setBounds(28, 18, 121, 32);
 		filterContainer.add(lblFilterTitle);
 		
@@ -326,7 +337,8 @@ public class MenuInicio extends JFrame implements Vista {
 		JLabel lblTitle = new JLabel("Menú Principal");
 		lblTitle.setBounds(61, 6, 131, 36);
 		lblTitle.setForeground(new Color(128, 128, 128));
-		lblTitle.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+		//lblTitle.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+		lblTitle.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,20));
 		headerContainer.add(lblTitle);
 		
 		JSeparator sep_header = new JSeparator();
@@ -341,7 +353,8 @@ public class MenuInicio extends JFrame implements Vista {
 		JLabel lblUser = new JLabel("Usuario");
 		lblUser.setBounds(675, 6, 76, 40);
 		lblUser.setForeground(new Color(128, 128, 128));
-		lblUser.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+		//lblUser.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+		lblUser.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,20));
 		headerContainer.add(lblUser);
 		
 		JLabel lblLogOut = new JLabel("");
@@ -365,7 +378,8 @@ public class MenuInicio extends JFrame implements Vista {
 		
 		scrolltable = new JScrollPane();
 		scrolltable.setBorder(null);
-		scrolltable.setFont(new Font("Century Gothic", Font.PLAIN, 13));
+		//scrolltable.setFont(new Font("Century Gothic", Font.PLAIN, 13));
+		scrolltable.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,13));
 		scrolltable.setBounds(16, 21, 795, 243);
 		tableContainer.add(scrolltable);
 		
