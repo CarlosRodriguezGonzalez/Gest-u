@@ -335,7 +335,7 @@ public class MenuInicio extends JFrame implements Vista {
 		headerContainer.add(lblSectionIMG);
 		
 		JLabel lblTitle = new JLabel("Menú Principal");
-		lblTitle.setBounds(61, 6, 131, 36);
+		lblTitle.setBounds(61, 6, 194, 36);
 		lblTitle.setForeground(new Color(128, 128, 128));
 		//lblTitle.setFont(new Font("Segoe UI", Font.PLAIN, 20));
 		lblTitle.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,20));

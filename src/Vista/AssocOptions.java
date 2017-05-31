@@ -68,7 +68,6 @@ public class AssocOptions extends JFrame implements Vista{
 	private JScrollPane activ_scroll;
 	private JPanel esp_panel;
 	private JScrollPane esp_scroll;
-	private JLabel lblName;
 	private JTable subv_table;
 	private JTable activ_table;
 	private JTable esp_table;
@@ -360,7 +359,7 @@ public class AssocOptions extends JFrame implements Vista{
 				txtCp.setText("");
 			}
 		});
-		txtCp.setText("  *Código Postal");
+		txtCp.setText("  *CP");
 		txtCp.setForeground(Color.GRAY);
 		//txtCp.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		txtCp.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
@@ -514,7 +513,7 @@ public class AssocOptions extends JFrame implements Vista{
 		chckbxAgree.setForeground(new Color(128, 128, 128));
 		//chckbxAgree.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		chckbxAgree.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
-		chckbxAgree.setBounds(22, 390, 443, 23);
+		chckbxAgree.setBounds(22, 390, 557, 23);
 		add_panel.add(chckbxAgree);
 		
 		JButton btnRegister = new JButton("Registrar");
@@ -535,7 +534,7 @@ public class AssocOptions extends JFrame implements Vista{
 		lblInfo.setForeground(new Color(128, 128, 128));
 		//lblInfo.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		lblInfo.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
-		lblInfo.setBounds(387, 26, 226, 16);
+		lblInfo.setBounds(330, 27, 284, 16);
 		add_panel.add(lblInfo);
 		
 		selectType = new JComboBox();
@@ -561,9 +560,9 @@ public class AssocOptions extends JFrame implements Vista{
 				add_panel2.setVisible(false);
 			}
 		});
-		lblHist.setBounds(69, 27, 61, 22);
-		lblHist.setFont(new Font("Segoe UI", Font.BOLD, 16));
-		lblHist.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,16));
+		lblHist.setBounds(69, 27, 81, 22);
+		lblHist.setFont(new Font("Dialog", Font.BOLD, 14));
+		lblHist.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,14));
 		panel_left.add(lblHist);
 		
 		lblDoc.addMouseListener(new MouseAdapter() {
@@ -575,12 +574,15 @@ public class AssocOptions extends JFrame implements Vista{
 				hist_panel.setVisible(false);
 				doc_panel.setVisible(true);
 				add_panel.setVisible(false);
+				hist_panel2.setVisible(false);
+				doc_panel2.setVisible(true);
+				add_panel2.setVisible(false);
 			}
 		});
 		
 		lblDoc.setBounds(179, 30, 112, 16);
 		//lblDoc.setFont(new Font("Segoe UI", Font.BOLD, 16));
-		lblDoc.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,16));
+		lblDoc.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,14));
 		panel_left.add(lblDoc);
 		
 		
@@ -600,19 +602,13 @@ public class AssocOptions extends JFrame implements Vista{
 		});
 		lblAdd.setBounds(336, 30, 52, 16);
 		//lblAdd.setFont(new Font("Segoe UI", Font.BOLD, 16));
-		lblAdd.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,16));
+		lblAdd.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,14));
 		panel_left.add(lblAdd);
 		
 		JSeparator sep_header = new JSeparator();
 		sep_header.setBounds(0, 53, 637, 12);
 		panel_left.add(sep_header);
 		sep_header.setForeground(new Color(128, 128, 128));
-		
-		lblName = new JLabel("Asociacion #001");
-		//lblName.setFont(new Font("Century Gothic", Font.BOLD, 16));
-		lblName.setFont(controlador.getCentury().deriveFont(Font.BOLD,16));
-		lblName.setBounds(478, 24, 137, 22);
-		panel_left.add(lblName);
 		
 		JPanel panel_right = new JPanel();
 		panel_right.setBounds(637, 0, 273, 550);

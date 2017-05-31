@@ -139,13 +139,13 @@ public class Subvenciones1 extends JFrame implements Vista {
 		filterContainer.setLayout(null);
 		
 		JLabel lblLogo = new JLabel("Gest-U");
-		lblLogo.setBounds(700, 6, 108, 40);
-		lblLogo.setFont(new Font("Segoe UI", Font.PLAIN, 37));
+		lblLogo.setBounds(700, 6, 123, 40);
+		lblLogo.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,37));
 		filterContainer.add(lblLogo);
 		
 		JLabel lblSlogan = new JLabel("Experts on management");
-		lblSlogan.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-		lblSlogan.setBounds(665, 40, 143, 26);
+		lblSlogan.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,14));
+		lblSlogan.setBounds(665, 40, 158, 26);
 		filterContainer.add(lblSlogan);
 		
 		txtId = new JTextField();
@@ -156,11 +156,11 @@ public class Subvenciones1 extends JFrame implements Vista {
 				txtId.setText("");
 			}
 		});
-		txtId.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtId.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtId.setText("Identificador");
 		txtId.setBackground(new Color(240, 240, 240));
 		txtId.setBorder(null);
-		txtId.setBounds(226, 61, 64, 16);
+		txtId.setBounds(209, 61, 81, 16);
 		filterContainer.add(txtId);
 		txtId.setColumns(10);
 		
@@ -173,7 +173,7 @@ public class Subvenciones1 extends JFrame implements Vista {
 				txtMoney.setText("");
 			}
 		});
-		txtMoney.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		txtMoney.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtMoney.setColumns(10);
 		txtMoney.setBorder(null);
 		txtMoney.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
@@ -191,11 +191,11 @@ public class Subvenciones1 extends JFrame implements Vista {
 			}
 		});
 		txtDateFrom.setText("Fecha solicitud");
-		txtDateFrom.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		txtDateFrom.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtDateFrom.setColumns(10);
 		txtDateFrom.setBorder(null);
 		txtDateFrom.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
-		txtDateFrom.setBounds(226, 85, 76, 16);
+		txtDateFrom.setBounds(209, 85, 93, 16);
 		filterContainer.add(txtDateFrom);
 		
 
@@ -255,17 +255,17 @@ public class Subvenciones1 extends JFrame implements Vista {
 		
 		JSeparator sepfilter_2 = new JSeparator();
 		sepfilter_2.setForeground(new Color(128,128,128));
-		sepfilter_2.setBounds(28, 99, 93, 16);
+		sepfilter_2.setBounds(28, 99, 158, 16);
 		filterContainer.add(sepfilter_2);
 		
 		JSeparator sepfilter_3 = new JSeparator();
 		sepfilter_3.setForeground(Color.GRAY);
-		sepfilter_3.setBounds(226, 99, 76, 16);
+		sepfilter_3.setBounds(209, 99, 93, 16);
 		filterContainer.add(sepfilter_3);
 		
 		JSeparator sepfilter_4 = new JSeparator();
 		sepfilter_4.setForeground(Color.GRAY);
-		sepfilter_4.setBounds(226, 75, 76, 16);
+		sepfilter_4.setBounds(209, 75, 93, 16);
 		filterContainer.add(sepfilter_4);
 		
 		JPanel btnDel = new JPanel();
@@ -302,19 +302,19 @@ public class Subvenciones1 extends JFrame implements Vista {
 		
 		JLabel lblFilterTitle = new JLabel("Filtros de búsqueda");
 		lblFilterTitle.setForeground(new Color(105, 105, 105));
-		lblFilterTitle.setFont(new Font("Segoe UI", Font.BOLD, 15));
-		lblFilterTitle.setBounds(28, 18, 121, 32);
+		lblFilterTitle.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,15));
+		lblFilterTitle.setBounds(28, 18, 150, 32);
 		filterContainer.add(lblFilterTitle);
 		
 		JSeparator sepfilter_5 = new JSeparator();
 		sepfilter_5.setForeground(Color.GRAY);
-		sepfilter_5.setBounds(28, 75, 186, 16);
+		sepfilter_5.setBounds(28, 75, 158, 16);
 		filterContainer.add(sepfilter_5);
 		
 		txtName = new JTextField();
 		txtName.setText("Nombre");
 		txtName.setForeground(Color.GRAY);
-		txtName.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		txtName.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtName.setColumns(10);
 		txtName.setBorder(null);
 		txtName.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
@@ -337,13 +337,13 @@ public class Subvenciones1 extends JFrame implements Vista {
 		headerContainer.add(lblSectionIMG);
 		
 		JLabel lblTitle = new JLabel("Subvenciones");
-		lblTitle.setBounds(65, 6, 146, 36);
+		lblTitle.setBounds(65, 6, 156, 36);
 		lblTitle.setForeground(new Color(128, 128, 128));
-		lblTitle.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+		lblTitle.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,20));
 		headerContainer.add(lblTitle);
 		
 		JSeparator sep_header = new JSeparator();
-		sep_header.setBounds(63, 34, 131, 12);
+		sep_header.setBounds(63, 34, 123, 12);
 		headerContainer.add(sep_header);
 		
 		JLabel lblUserIMG = new JLabel("");
@@ -354,7 +354,7 @@ public class Subvenciones1 extends JFrame implements Vista {
 		JLabel lblUser = new JLabel("Usuario");
 		lblUser.setBounds(675, 6, 76, 40);
 		lblUser.setForeground(new Color(128, 128, 128));
-		lblUser.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+		lblUser.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,20));
 		headerContainer.add(lblUser);
 		
 		JLabel lblLogOut = new JLabel("");

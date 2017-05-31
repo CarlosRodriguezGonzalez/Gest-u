@@ -63,7 +63,7 @@ public class ControladorImpl implements Controlador{
 		login.setVisible(true);
 	}
 	public void pasarAsociaciones(){
-		asociaciones=new Asociaciones1();
+		asociaciones=new Asociaciones1(this);
 		asociaciones.setControlador(this);
 		asociaciones.setModelo(modelo);
 		modelo.setAsociaciones(asociaciones);
