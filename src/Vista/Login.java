@@ -87,9 +87,10 @@ public class Login extends JFrame implements Vista {
 		
 		JLabel lblPwd = new JLabel("CLAVE DE ACCESO");
 		lblPwd.setForeground(new Color(204, 204, 204));
-		lblPwd.setFont(new Font("Century Gothic", Font.BOLD, 14));
+		//lblPwd.setFont(new Font("Century Gothic", Font.BOLD, 14));
+		lblPwd.setFont(controlador.getCentury().deriveFont(Font.BOLD, 14));
 		lblPwd.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
-		lblPwd.setBounds(540, 302, 134, 19);
+		lblPwd.setBounds(540, 302, 148, 19);
 		getContentPane().add(lblPwd);
 		
 		JSeparator sep1_right = new JSeparator();
@@ -109,7 +110,8 @@ public class Login extends JFrame implements Vista {
 				JPwd.setText("");
 			}
 		});
-		JPwd.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		//JPwd.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		JPwd.setFont(controlador.getCentury().deriveFont(Font.PLAIN, 12));
 		JPwd.setText("JPasswordField");
 		JPwd.setBorder(null);
 		JPwd.setToolTipText("");
@@ -125,7 +127,8 @@ public class Login extends JFrame implements Vista {
 				txtEmail.setText("");
 			}
 		});
-		txtEmail.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		//txtEmail.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		txtEmail.setFont(controlador.getCentury().deriveFont(Font.PLAIN, 12));
 		txtEmail.setText("Escribe tu correo");
 		txtEmail.setBorder(null);
 		txtEmail.setBackground(new Color(0,18,50));
@@ -156,14 +159,16 @@ public class Login extends JFrame implements Vista {
 				dispose();
 			}
 		});
-		lblSubmit.setBounds(25, 6, 108, 31);
+		lblSubmit.setBounds(22, 6, 111, 31);
 		btnSubmit.add(lblSubmit);
 		lblSubmit.setForeground(new Color(204, 204, 204));
-		lblSubmit.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		//lblSubmit.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		lblSubmit.setFont(controlador.getCentury().deriveFont(Font.BOLD, 12));
 		
 		JLabel lblForgotPwd = new JLabel("No puedo acceder");
 		lblForgotPwd.setForeground(new Color(204, 204, 204));
-		lblForgotPwd.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		//lblForgotPwd.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		lblForgotPwd.setFont(controlador.getCentury().deriveFont(Font.PLAIN, 12));
 		lblForgotPwd.setBounds(691, 383, 131, 16);
 		getContentPane().add(lblForgotPwd);
 		
@@ -185,7 +190,8 @@ public class Login extends JFrame implements Vista {
 		
 		JLabel lblSlogan = new JLabel("Experts on management");
 		lblSlogan.setForeground(Color.WHITE);
-		lblSlogan.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		//lblSlogan.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		lblSlogan.setFont(controlador.getCentury().deriveFont(Font.PLAIN, 12));
 		lblSlogan.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
 		lblSlogan.setBounds(112, 79, 154, 46);
 		panel.add(lblSlogan);
@@ -195,7 +201,8 @@ public class Login extends JFrame implements Vista {
 		contentPane.add(lblUserIMG);
 		lblUserIMG.setIcon(new ImageIcon("img/login.png"));
 		lblUserIMG.setForeground(new Color(204, 204, 204));
-		lblUserIMG.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+		//lblUserIMG.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+		lblUserIMG.setFont(controlador.getCentury().deriveFont(Font.PLAIN, 14));
 		lblUserIMG.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
 	}
 	@Override
