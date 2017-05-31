@@ -82,7 +82,7 @@ public class Login extends JFrame implements Vista {
 		lblEmail.setForeground(new Color(204, 204, 204));
 		lblEmail.setFont(controlador.getCentury().deriveFont(Font.BOLD,14));
 		lblEmail.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
-		lblEmail.setBounds(540, 231, 117, 19);
+		lblEmail.setBounds(540, 231, 131, 19);
 		getContentPane().add(lblEmail);
 		
 		JLabel lblPwd = new JLabel("CLAVE DE ACCESO");
@@ -156,7 +156,7 @@ public class Login extends JFrame implements Vista {
 				dispose();
 			}
 		});
-		lblSubmit.setBounds(25, 6, 86, 31);
+		lblSubmit.setBounds(25, 6, 108, 31);
 		btnSubmit.add(lblSubmit);
 		lblSubmit.setForeground(new Color(204, 204, 204));
 		lblSubmit.setFont(new Font("Century Gothic", Font.BOLD, 12));
