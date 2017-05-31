@@ -34,6 +34,7 @@ import Controlador.Controlador;
 import Controlador.ControladorImpl;
 import Modelo.Modelo;
 import Modelo.ModeloImpl;
+import javax.swing.ImageIcon;
 
 public class AssocOptions extends JFrame implements Vista{
 
@@ -74,6 +75,25 @@ public class AssocOptions extends JFrame implements Vista{
 	private JPanel hist_panel2;
 	private JPanel doc_panel2;
 	private JPanel add_panel2;
+	private JTextField txtEjemplo;
+	private JLabel lblDireccinSede;
+	private JTextField txtCDeLa;
+	private JLabel lblCif;
+	private JTextField txtBf;
+	private JLabel lblFechaSolicitud;
+	private JTextField textField_2;
+	private JLabel lblEmail;
+	private JTextField txtTiroalplatogmailcom;
+	private JLabel lblMunicipio;
+	private JTextField txtMadrid;
+	private JLabel lblCdigoPostal;
+	private JTextField textField_5;
+	private JLabel lblTelfonoFijo;
+	private JTextField textField_6;
+	private JLabel lblTitle;
+	private JLabel btnSearchRep;
+	private JTextField lblSearchRep;
+	private JSeparator sep_add_panel2;
 
 	public AssocOptions(ControladorImpl con) {
 		this.controlador=con;
@@ -625,19 +645,175 @@ public class AssocOptions extends JFrame implements Vista{
 		MultPanel2.add(hist_panel2, "name_40223813435417");
 		hist_panel2.setLayout(null);
 		
-		JLabel lblDetails = new JLabel("Detalles completos");
+		JLabel lblDetails = new JLabel(" Detalles de la Asociación");
+		lblDetails.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
+		lblDetails.setForeground(Color.WHITE);
 		//lblDetails.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		lblDetails.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,13));
-		lblDetails.setBounds(17, 28, 111, 16);
+		lblDetails.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,15));
+		lblDetails.setBounds(17, 18, 205, 36);
 		hist_panel2.add(lblDetails);
+		
+		JLabel lblNombre = new JLabel("Nombre:");
+		lblNombre.setForeground(Color.WHITE);
+		lblNombre.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,13));
+		lblNombre.setBounds(17, 76, 205, 16);
+		hist_panel2.add(lblNombre);
+		
+		txtEjemplo = new JTextField();
+		txtEjemplo.setForeground(Color.WHITE);
+		txtEjemplo.setText("Tiro al plato");
+		txtEjemplo.setBorder(null);
+		txtEjemplo.setEditable(false);
+		txtEjemplo.setBackground(new Color(32,47,90));
+		txtEjemplo.setBounds(17, 92, 205, 30);
+		hist_panel2.add(txtEjemplo);
+		txtEjemplo.setColumns(10);
+		
+		lblDireccinSede = new JLabel("Dirección Sede:");
+		lblDireccinSede.setForeground(Color.WHITE);
+		lblDireccinSede.setFont(null);
+		lblDireccinSede.setBounds(17, 126, 205, 16);
+		hist_panel2.add(lblDireccinSede);
+		
+		txtCDeLa = new JTextField();
+		txtCDeLa.setText("C/ De la piruleta");
+		txtCDeLa.setForeground(Color.WHITE);
+		txtCDeLa.setEditable(false);
+		txtCDeLa.setColumns(10);
+		txtCDeLa.setBorder(null);
+		txtCDeLa.setBackground(new Color(32, 47, 90));
+		txtCDeLa.setBounds(17, 142, 205, 30);
+		hist_panel2.add(txtCDeLa);
+		
+		lblCif = new JLabel("CIF:");
+		lblCif.setForeground(Color.WHITE);
+		lblCif.setFont(null);
+		lblCif.setBounds(17, 175, 205, 16);
+		hist_panel2.add(lblCif);
+		
+		txtBf = new JTextField();
+		txtBf.setText("B87354F");
+		txtBf.setForeground(Color.WHITE);
+		txtBf.setEditable(false);
+		txtBf.setColumns(10);
+		txtBf.setBorder(null);
+		txtBf.setBackground(new Color(32, 47, 90));
+		txtBf.setBounds(17, 191, 205, 30);
+		hist_panel2.add(txtBf);
+		
+		lblFechaSolicitud = new JLabel("Fecha solicitud:");
+		lblFechaSolicitud.setForeground(Color.WHITE);
+		lblFechaSolicitud.setFont(null);
+		lblFechaSolicitud.setBounds(17, 228, 205, 16);
+		hist_panel2.add(lblFechaSolicitud);
+		
+		textField_2 = new JTextField();
+		textField_2.setText("22/04/2017");
+		textField_2.setForeground(Color.WHITE);
+		textField_2.setEditable(false);
+		textField_2.setColumns(10);
+		textField_2.setBorder(null);
+		textField_2.setBackground(new Color(32, 47, 90));
+		textField_2.setBounds(17, 244, 205, 30);
+		hist_panel2.add(textField_2);
+		
+		lblEmail = new JLabel("Email:");
+		lblEmail.setForeground(Color.WHITE);
+		lblEmail.setFont(null);
+		lblEmail.setBounds(17, 283, 205, 16);
+		hist_panel2.add(lblEmail);
+		
+		txtTiroalplatogmailcom = new JTextField();
+		txtTiroalplatogmailcom.setText("tiroalplato@gmail.com");
+		txtTiroalplatogmailcom.setForeground(Color.WHITE);
+		txtTiroalplatogmailcom.setEditable(false);
+		txtTiroalplatogmailcom.setColumns(10);
+		txtTiroalplatogmailcom.setBorder(null);
+		txtTiroalplatogmailcom.setBackground(new Color(32, 47, 90));
+		txtTiroalplatogmailcom.setBounds(17, 299, 205, 30);
+		hist_panel2.add(txtTiroalplatogmailcom);
+		
+		lblMunicipio = new JLabel("Municipio:");
+		lblMunicipio.setForeground(Color.WHITE);
+		lblMunicipio.setFont(null);
+		lblMunicipio.setBounds(17, 340, 205, 16);
+		hist_panel2.add(lblMunicipio);
+		
+		txtMadrid = new JTextField();
+		txtMadrid.setText("Madrid");
+		txtMadrid.setForeground(Color.WHITE);
+		txtMadrid.setEditable(false);
+		txtMadrid.setColumns(10);
+		txtMadrid.setBorder(null);
+		txtMadrid.setBackground(new Color(32, 47, 90));
+		txtMadrid.setBounds(17, 356, 205, 30);
+		hist_panel2.add(txtMadrid);
+		
+		lblCdigoPostal = new JLabel("Código Postal:");
+		lblCdigoPostal.setForeground(Color.WHITE);
+		lblCdigoPostal.setFont(null);
+		lblCdigoPostal.setBounds(17, 398, 205, 16);
+		hist_panel2.add(lblCdigoPostal);
+		
+		textField_5 = new JTextField();
+		textField_5.setText("28022");
+		textField_5.setForeground(Color.WHITE);
+		textField_5.setEditable(false);
+		textField_5.setColumns(10);
+		textField_5.setBorder(null);
+		textField_5.setBackground(new Color(32, 47, 90));
+		textField_5.setBounds(17, 414, 205, 30);
+		hist_panel2.add(textField_5);
+		
+		lblTelfonoFijo = new JLabel("Teléfono fijo:");
+		lblTelfonoFijo.setForeground(Color.WHITE);
+		lblTelfonoFijo.setFont(null);
+		lblTelfonoFijo.setBounds(17, 456, 205, 16);
+		hist_panel2.add(lblTelfonoFijo);
+		
+		textField_6 = new JTextField();
+		textField_6.setText("918432123");
+		textField_6.setForeground(Color.WHITE);
+		textField_6.setEditable(false);
+		textField_6.setColumns(10);
+		textField_6.setBorder(null);
+		textField_6.setBackground(new Color(32, 47, 90));
+		textField_6.setBounds(17, 472, 205, 30);
+		hist_panel2.add(textField_6);
 		
 		doc_panel2 = new JPanel();
 		doc_panel2.setBackground(Color.PINK);
 		MultPanel2.add(doc_panel2, "name_40282482298038");
 		
 		add_panel2 = new JPanel();
-		add_panel2.setBackground(Color.MAGENTA);
+		add_panel2.setBackground(new Color(32,47,90));
 		MultPanel2.add(add_panel2, "name_40289285423663");
+		add_panel2.setLayout(null);
+		
+		lblTitle = new JLabel(" Buscar Representante");
+		lblTitle.setForeground(Color.WHITE);
+		lblTitle.setFont(null);
+		lblTitle.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
+		lblTitle.setBounds(17, 16, 151, 36);
+		add_panel2.add(lblTitle);
+		
+		btnSearchRep = new JLabel("");
+		btnSearchRep.setIcon(new ImageIcon("/Users/sergio/git/FaisanPI/img/search.png"));
+		btnSearchRep.setBounds(17, 64, 40, 40);
+		add_panel2.add(btnSearchRep);
+		
+		lblSearchRep = new JTextField();
+		lblSearchRep.setForeground(Color.WHITE);
+		lblSearchRep.setText("B33474D");
+		lblSearchRep.setBorder(null);
+		lblSearchRep.setBackground(new Color(32,47,90));
+		lblSearchRep.setBounds(55, 70, 113, 23);
+		add_panel2.add(lblSearchRep);
+		lblSearchRep.setColumns(10);
+		
+		sep_add_panel2 = new JSeparator();
+		sep_add_panel2.setBounds(55, 92, 113, 12);
+		add_panel2.add(sep_add_panel2);
 		
 		
 		
