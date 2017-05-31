@@ -154,13 +154,13 @@ public class EspacioMunicipal1 extends JFrame implements Vista {
 		filterContainer.setLayout(null);
 		
 		JLabel lblLogo = new JLabel("Gest-U");
-		lblLogo.setBounds(700, 6, 108, 40);
-		lblLogo.setFont(new Font("Segoe UI", Font.PLAIN, 37));
+		lblLogo.setBounds(700, 6, 123, 40);
+		lblLogo.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,37));
 		filterContainer.add(lblLogo);
 		
 		JLabel lblSlogan = new JLabel("Experts on management");
-		lblSlogan.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-		lblSlogan.setBounds(665, 38, 143, 26);
+		lblSlogan.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,14));
+		lblSlogan.setBounds(665, 38, 158, 26);
 		filterContainer.add(lblSlogan);
 		
 		txtFeatures = new JTextField();
@@ -171,11 +171,11 @@ public class EspacioMunicipal1 extends JFrame implements Vista {
 				txtFeatures.setText("");
 			}
 		});
-		txtFeatures.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtFeatures.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtFeatures.setText("Características");
 		txtFeatures.setBackground(new Color(240, 240, 240));
 		txtFeatures.setBorder(null);
-		txtFeatures.setBounds(28, 103, 80, 16);
+		txtFeatures.setBounds(28, 103, 108, 16);
 		filterContainer.add(txtFeatures);
 		txtFeatures.setColumns(10);
 		
@@ -188,7 +188,7 @@ public class EspacioMunicipal1 extends JFrame implements Vista {
 			}
 		});
 		txtAddress.setText("Dirección");
-		txtAddress.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		txtAddress.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtAddress.setColumns(10);
 		txtAddress.setBorder(null);
 		txtAddress.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
@@ -206,7 +206,7 @@ public class EspacioMunicipal1 extends JFrame implements Vista {
 			}
 		});
 		txtDateFrom.setText("Fecha solicitud");
-		txtDateFrom.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		txtDateFrom.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtDateFrom.setColumns(10);
 		txtDateFrom.setBorder(null);
 		txtDateFrom.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
@@ -222,7 +222,7 @@ public class EspacioMunicipal1 extends JFrame implements Vista {
 			}
 		});
 		txtDateTo.setText("Fecha concesión");
-		txtDateTo.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		txtDateTo.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtDateTo.setColumns(10);
 		txtDateTo.setBorder(null);
 		txtDateTo.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
@@ -241,7 +241,7 @@ public class EspacioMunicipal1 extends JFrame implements Vista {
 		JLabel lblPreimp = new JLabel("PREIMPRESOS");
 		lblPreimp.setIcon(new ImageIcon("img/Paper-30.png"));
 		lblPreimp.setForeground(Color.WHITE);
-		lblPreimp.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		lblPreimp.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		lblPreimp.setBounds(6, 6, 122, 28);
 		btnPreimp.add(lblPreimp);
 		
@@ -261,7 +261,7 @@ public class EspacioMunicipal1 extends JFrame implements Vista {
 		});
 		lblAdd.setIcon(new ImageIcon("img/Add Property-30.png"));
 		lblAdd.setForeground(Color.WHITE);
-		lblAdd.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		lblAdd.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		lblAdd.setBounds(17, 0, 88, 40);
 		btnAdd.add(lblAdd);
 		
@@ -275,7 +275,7 @@ public class EspacioMunicipal1 extends JFrame implements Vista {
 		JLabel lblFilter = new JLabel("    CONSULTAR");
 		lblFilter.setIcon(new ImageIcon("img/Search Property-30.png"));
 		lblFilter.setForeground(Color.WHITE);
-		lblFilter.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		lblFilter.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		lblFilter.setBounds(13, 0, 131, 40);
 		btnFilter.add(lblFilter);
 		
@@ -321,7 +321,7 @@ public class EspacioMunicipal1 extends JFrame implements Vista {
 		JLabel lblDel = new JLabel("BORRAR");
 		lblDel.setIcon(new ImageIcon("img/Delete Property-30 (1).png"));
 		lblDel.setForeground(Color.WHITE);
-		lblDel.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		lblDel.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		lblDel.setBounds(16, 0, 87, 40);
 		btnDel.add(lblDel);
 		
@@ -340,14 +340,14 @@ public class EspacioMunicipal1 extends JFrame implements Vista {
 		});
 		lblHist.setIcon(new ImageIcon("img/News-30.png"));
 		lblHist.setForeground(Color.WHITE);
-		lblHist.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		lblHist.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		lblHist.setBounds(6, 0, 102, 40);
 		btnHist.add(lblHist);
 		
 		JLabel lblFilterTitle = new JLabel("Filtros de búsqueda");
 		lblFilterTitle.setForeground(new Color(105, 105, 105));
-		lblFilterTitle.setFont(new Font("Segoe UI", Font.BOLD, 15));
-		lblFilterTitle.setBounds(28, 6, 121, 32);
+		lblFilterTitle.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,15));
+		lblFilterTitle.setBounds(28, 18, 175, 32);
 		filterContainer.add(lblFilterTitle);
 		
 		JPanel headerContainer = new JPanel();
@@ -362,9 +362,9 @@ public class EspacioMunicipal1 extends JFrame implements Vista {
 		headerContainer.add(lblSectionIMG);
 		
 		JLabel lblTitle = new JLabel("Espacios Municipales");
-		lblTitle.setBounds(65, 6, 182, 36);
+		lblTitle.setBounds(65, 6, 201, 36);
 		lblTitle.setForeground(new Color(128, 128, 128));
-		lblTitle.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+		lblTitle.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,20));
 		headerContainer.add(lblTitle);
 		
 		JSeparator sep_header = new JSeparator();
@@ -379,7 +379,7 @@ public class EspacioMunicipal1 extends JFrame implements Vista {
 		JLabel lblUser = new JLabel("Usuario");
 		lblUser.setBounds(675, 6, 76, 40);
 		lblUser.setForeground(new Color(128, 128, 128));
-		lblUser.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+		lblUser.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,20));
 		headerContainer.add(lblUser);
 		
 		JLabel lblLogOut = new JLabel("");

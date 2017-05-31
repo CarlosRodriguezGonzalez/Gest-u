@@ -83,9 +83,8 @@ public class ControladorImpl implements Controlador {
 		modelo.bajarDatosAsoci();
 		asociaciones.setVisible(true);
 	}
-
-	public void pasarActividad() {
-		actividad = new Actividad1();
+	public void pasarActividad(){
+		actividad=new Actividad1(this);
 		actividad.setModelo(modelo);
 		actividad.setControlador(this);
 		modelo.setActividad(actividad);
@@ -101,38 +100,36 @@ public class ControladorImpl implements Controlador {
 		espacio.setModelo(modelo);
 		modelo.setEspacioMunicipal(espacio);
 		this.setEspacioMunicipal(espacio);
-
+		
 		modelo.actualizarEspacioTabla();
-
+		
 		espacio.setVisible(true);
 	}
-
-	public void pasarSubvenciones() {
-		subvenciones = new Subvenciones1();
+	public void pasarSubvenciones(){
+		subvenciones=new Subvenciones1();
 		subvenciones.setModelo(modelo);
 		subvenciones.setControlador(this);
 		modelo.setSubvenciones(subvenciones);
 		this.setSubvenciones(subvenciones);
-
+		
 		modelo.actualizarSubvencionTabla();
-
+		
 		subvenciones.setVisible(true);
 	}
-
-	public void pasarConfiguracion() {
-		configuracion = new DBConfig();
+	public void pasarConfiguracion(){
+		configuracion=new DBConfig();
 		configuracion.setModelo(modelo);
 		configuracion.setControlador(this);
 		modelo.setConfiguracion(configuracion);
 		this.setConfiguracion(configuracion);
-
+		
 		modelo.actualizarVistaConfiguracion();
-
+		
 		configuracion.setVisible(true);
 	}
-
-	public void pasarAssocOptions() {
-		asociacionesExtra = new AssocOptions(this);
+	
+	public void pasarAssocOptions(){
+		asociacionesExtra=new AssocOptions(this);
 		asociacionesExtra.setModelo(modelo);
 		asociacionesExtra.setControlador(this);
 		modelo.setasociacionesExtra(asociacionesExtra);
@@ -142,67 +139,53 @@ public class ControladorImpl implements Controlador {
 		modelo.cargarEspaciosAsociacionesExtra(asociaciones.getRowSelectedID());
 		asociacionesExtra.setVisible(true);
 	}
-
-	public void testConexion() {
-		modelo.testConexion(configuracion.getTxtUsuario().getText(), configuracion.getPwdContrasea().getText(),
-				configuracion.getTxtBaseDeDatos().getText(), configuracion.getTxtHost().getText(),
-				configuracion.getTxtPuerto().getText());
+	public void testConexion(){
+		modelo.testConexion(configuracion.getTxtUsuario().getText(), configuracion.getPwdContrasea().getText(), configuracion.getTxtBaseDeDatos().getText(), configuracion.getTxtHost().getText(), configuracion.getTxtPuerto().getText());
 	}
-
+	
 	@Override
 	public void setVista(Vista vista) {
 		// TODO Auto-generated method stub
-
+		
 	}
-
 	@Override
 	public void setModelo(Modelo modelo) {
 		// TODO Auto-generated method stub
-
+		
 	}
-
 	public void setMod(ModeloImpl modelo) {
 		this.modelo = modelo;
 	}
-
 	public void setAsociaciones(Asociaciones1 asociaciones) {
 		this.asociaciones = asociaciones;
 	}
-
 	public void setActividad(Actividad1 actividad) {
 		this.actividad = actividad;
 	}
-
 	public void setEspacioMunicipal(EspacioMunicipal1 espacio) {
 		this.espacio = espacio;
 	}
-
+	
 	public void setLogin(Login login) {
 		this.login = login;
 	}
-
 	public void setMenuInicio(MenuInicio menuInicio) {
 		this.menuInicio = menuInicio;
 	}
-
 	public void setSubvenciones(Subvenciones1 subvenciones) {
 		this.subvenciones = subvenciones;
 	}
-
-	public void setConfiguracion(DBConfig configuracion) {
-		this.configuracion = configuracion;
+	public void setConfiguracion(DBConfig configuracion){
+		this.configuracion=configuracion;
 	}
-
-	public void setasociacionesExtra(AssocOptions asociacionesExtra) {
-		this.asociacionesExtra = asociacionesExtra;
+	public void setasociacionesExtra(AssocOptions asociacionesExtra){
+		this.asociacionesExtra=asociacionesExtra;
 	}
-
-	public Font getSegoeui() {
+	public Font getSegoeui(){
 		return font;
 	}
-
-	public Font getCentury() {
+	public Font getCentury(){
 		return font2;
 	}
-
+	
 }

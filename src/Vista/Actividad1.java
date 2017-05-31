@@ -46,7 +46,8 @@ public class Actividad1 extends JFrame implements Vista {
 	private JTextField txtDateFrom;
 	private JTextField txtDateTo;
 
-	public Actividad1() {
+	public Actividad1(ControladorImpl con) {
+		controlador=con;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 910, 572);
 		contentPane = new JPanel();
@@ -144,13 +145,13 @@ public class Actividad1 extends JFrame implements Vista {
 		filterContainer.setLayout(null);
 		
 		JLabel lblLogo = new JLabel("Gest-U");
-		lblLogo.setBounds(700, 6, 108, 40);
-		lblLogo.setFont(new Font("Segoe UI", Font.PLAIN, 37));
+		lblLogo.setBounds(700, 6, 123, 40);
+		lblLogo.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,37));
 		filterContainer.add(lblLogo);
 		
 		JLabel lblSlogan = new JLabel("Experts on management");
-		lblSlogan.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-		lblSlogan.setBounds(665, 39, 143, 26);
+		lblSlogan.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,14));
+		lblSlogan.setBounds(665, 39, 158, 26);
 		filterContainer.add(lblSlogan);
 		
 		txtName = new JTextField();
@@ -161,7 +162,7 @@ public class Actividad1 extends JFrame implements Vista {
 				txtName.setText("");
 			}
 		});
-		txtName.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtName.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtName.setText("Actividad");
 		txtName.setBackground(new Color(240, 240, 240));
 		txtName.setBorder(null);
@@ -178,7 +179,7 @@ public class Actividad1 extends JFrame implements Vista {
 			}
 		});
 		txtId.setText("Identificador");
-		txtId.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		txtId.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtId.setColumns(10);
 		txtId.setBorder(null);
 		txtId.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
@@ -196,7 +197,7 @@ public class Actividad1 extends JFrame implements Vista {
 			}
 		});
 		txtDateFrom.setText("Alta desde");
-		txtDateFrom.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		txtDateFrom.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtDateFrom.setColumns(10);
 		txtDateFrom.setBorder(null);
 		txtDateFrom.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
@@ -212,7 +213,7 @@ public class Actividad1 extends JFrame implements Vista {
 			}
 		});
 		txtDateTo.setText("Alta hasta");
-		txtDateTo.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		txtDateTo.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtDateTo.setColumns(10);
 		txtDateTo.setBorder(null);
 		txtDateTo.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
@@ -231,7 +232,7 @@ public class Actividad1 extends JFrame implements Vista {
 		JLabel lblPreimp = new JLabel("PREIMPRESOS");
 		lblPreimp.setIcon(new ImageIcon("img/Paper-30.png"));
 		lblPreimp.setForeground(Color.WHITE);
-		lblPreimp.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		lblPreimp.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		lblPreimp.setBounds(6, 6, 122, 28);
 		btnPreimp.add(lblPreimp);
 		
@@ -251,7 +252,7 @@ public class Actividad1 extends JFrame implements Vista {
 		});
 		lblAdd.setIcon(new ImageIcon("img/Add Property-30.png"));
 		lblAdd.setForeground(Color.WHITE);
-		lblAdd.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		lblAdd.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		lblAdd.setBounds(17, 0, 88, 40);
 		btnAdd.add(lblAdd);
 		
@@ -265,7 +266,7 @@ public class Actividad1 extends JFrame implements Vista {
 		JLabel lblFilter = new JLabel("    CONSULTAR");
 		lblFilter.setIcon(new ImageIcon("img/Search Property-30.png"));
 		lblFilter.setForeground(Color.WHITE);
-		lblFilter.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		lblFilter.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,12));
 		lblFilter.setBounds(13, 0, 131, 40);
 		btnFilter.add(lblFilter);
 		
@@ -311,7 +312,7 @@ public class Actividad1 extends JFrame implements Vista {
 		JLabel lblDel = new JLabel("BORRAR");
 		lblDel.setIcon(new ImageIcon("img/Delete Property-30 (1).png"));
 		lblDel.setForeground(Color.WHITE);
-		lblDel.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		lblDel.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		lblDel.setBounds(16, 0, 87, 40);
 		btnDel.add(lblDel);
 		
@@ -330,7 +331,7 @@ public class Actividad1 extends JFrame implements Vista {
 		});
 		lblHist.setIcon(new ImageIcon("img/News-30.png"));
 		lblHist.setForeground(Color.WHITE);
-		lblHist.setFont(new Font("Century Gothic", Font.BOLD, 12));
+		lblHist.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		lblHist.setBounds(6, 0, 102, 40);
 		btnHist.add(lblHist);
 		
@@ -341,8 +342,8 @@ public class Actividad1 extends JFrame implements Vista {
 		
 		JLabel lblFilterTitle = new JLabel("Filtros de búsqueda");
 		lblFilterTitle.setForeground(new Color(105, 105, 105));
-		lblFilterTitle.setFont(new Font("Segoe UI", Font.BOLD, 15));
-		lblFilterTitle.setBounds(28, 6, 121, 32);
+		lblFilterTitle.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,15));
+		lblFilterTitle.setBounds(28, 6, 150, 32);
 		filterContainer.add(lblFilterTitle);
 		
 		JSpinner spinnerDest = new JSpinner();
@@ -350,14 +351,14 @@ public class Actividad1 extends JFrame implements Vista {
 		filterContainer.add(spinnerDest);
 		
 		JLabel lblDest = new JLabel("Nº destinatarios");
-		lblDest.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		lblDest.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		lblDest.setBounds(250, 45, 130, 16);
 		lblDest.setForeground(new Color(128,  128,  128));
 		filterContainer.add(lblDest);
 		
 		JLabel lblType = new JLabel("Tipo:");
 		lblType.setForeground(new Color(105, 105, 105));
-		lblType.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		lblType.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		lblType.setBounds(28, 45, 33, 16);
 		filterContainer.add(lblType);
 		
@@ -375,7 +376,7 @@ public class Actividad1 extends JFrame implements Vista {
 		JLabel lblTitle = new JLabel("Actividades");
 		lblTitle.setBounds(65, 6, 131, 36);
 		lblTitle.setForeground(new Color(128, 128, 128));
-		lblTitle.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+		lblTitle.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,20));
 		headerContainer.add(lblTitle);
 		
 		JSeparator sep_header = new JSeparator();
@@ -390,7 +391,7 @@ public class Actividad1 extends JFrame implements Vista {
 		JLabel lblUser = new JLabel("Usuario");
 		lblUser.setBounds(675, 6, 76, 40);
 		lblUser.setForeground(new Color(128, 128, 128));
-		lblUser.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+		lblUser.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,20));
 		headerContainer.add(lblUser);
 		
 		JLabel lblLogOut = new JLabel("");
