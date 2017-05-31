@@ -1,4 +1,11 @@
 package Controlador;
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.awt.GraphicsEnvironment;
+import java.io.IOException;
+import java.io.InputStream;
+
+import Lanzador.Launch;
 import Modelo.Modelo;
 import Modelo.ModeloImpl;
 import Vista.Actividad1;
@@ -21,6 +28,24 @@ public class ControladorImpl implements Controlador{
 	private Subvenciones1 subvenciones;
 	private DBConfig configuracion;
 	private AssocOptions asociacionesExtra;
+	
+	private Font font;
+	private Font font2;
+	
+	public ControladorImpl(){
+		InputStream is = Launch.class.getResourceAsStream("/fonts/segoeui.ttf");
+		InputStream are = Launch.class.getResourceAsStream("/fonts/Century Gothic.ttf");
+		try {
+			font = Font.createFont(Font.TRUETYPE_FONT, is);
+			font2 = Font.createFont(Font.TRUETYPE_FONT, are);
+		} catch (FontFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	public void pasarMenuInicio(){
 		menuInicio=new MenuInicio();
@@ -142,6 +167,12 @@ public class ControladorImpl implements Controlador{
 	}
 	public void setasociacionesExtra(AssocOptions asociacionesExtra){
 		this.asociacionesExtra=asociacionesExtra;
+	}
+	public Font getSegoeui(){
+		return font;
+	}
+	public Font getCentury(){
+		return font2;
 	}
 	
 }

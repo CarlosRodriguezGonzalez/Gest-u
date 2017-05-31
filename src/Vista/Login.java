@@ -66,21 +66,21 @@ public class Login extends JFrame implements Vista {
 		
 		JLabel lblLogo = new JLabel("Gest-U");
 		lblLogo.setForeground(Color.WHITE);
-		lblLogo.setFont(new Font("Century Gothic", Font.PLAIN, 40));
+		lblLogo.setFont(controlador.getCentury().deriveFont(Font.PLAIN,40));
 		lblLogo.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
 		lblLogo.setBounds(124, 39, 167, 46);
 		panel.add(lblLogo);
 		
 		JLabel lblTitle = new JLabel("Identificate");
 		lblTitle.setForeground(new Color(204, 204, 204));
-		lblTitle.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+		lblTitle.setFont(controlador.getCentury().deriveFont(Font.PLAIN,14));
 		lblTitle.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
 		lblTitle.setBounds(626, 190, 84, 19);
 		getContentPane().add(lblTitle);
 		
 		JLabel lblEmail = new JLabel("USUARIO/E-MAIL");
 		lblEmail.setForeground(new Color(204, 204, 204));
-		lblEmail.setFont(new Font("Century Gothic", Font.BOLD, 14));
+		lblEmail.setFont(controlador.getCentury().deriveFont(Font.BOLD,14));
 		lblEmail.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
 		lblEmail.setBounds(540, 231, 117, 19);
 		getContentPane().add(lblEmail);

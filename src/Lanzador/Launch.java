@@ -16,18 +16,7 @@ public class Launch {
 	
 	
 	public static void main(String[] args) {
-		InputStream is = Launch.class.getResourceAsStream("/fonts/segoeui.ttf");
-		InputStream are = Launch.class.getResourceAsStream("/fonts/Century Gothic.ttf");
-		try {
-			Font font = Font.createFont(Font.TRUETYPE_FONT, is);
-			Font font2 = Font.createFont(Font.TRUETYPE_FONT, are);
-		} catch (FontFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 		Conexion conexion = new Conexion();
 		AsociacionBBDD.setConexion(conexion.getConexion());
 		ModeloImpl modelo=new ModeloImpl();
