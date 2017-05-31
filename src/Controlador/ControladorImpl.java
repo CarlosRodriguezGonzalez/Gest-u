@@ -72,7 +72,7 @@ public class ControladorImpl implements Controlador{
 		asociaciones.setVisible(true);
 	}
 	public void pasarActividad(){
-		actividad=new Actividad1();
+		actividad=new Actividad1(this);
 		actividad.setModelo(modelo);
 		actividad.setControlador(this);
 		modelo.setActividad(actividad);
