@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 19-05-2017 a las 09:58:26
+-- Tiempo de generación: 31-05-2017 a las 17:02:13
 -- Versión del servidor: 10.1.19-MariaDB
 -- Versión de PHP: 7.0.13
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `faisanPI`
+-- Base de datos: `FaisanPI`
 --
 
 -- --------------------------------------------------------
@@ -271,6 +271,24 @@ CREATE TABLE `tipo` (
   `tipo` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `user` varchar(255) NOT NULL,
+  `pass` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`user`, `pass`) VALUES
+('patata', '35bc8cec895861697a0243c1304c7789');
+
 --
 -- Índices para tablas volcadas
 --
@@ -347,6 +365,12 @@ ALTER TABLE `subvencion`
 --
 ALTER TABLE `tipo`
   ADD PRIMARY KEY (`id_tipo`);
+
+--
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`user`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
