@@ -1,4 +1,5 @@
 package Controlador;
+
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
@@ -18,8 +19,8 @@ import Vista.MenuInicio;
 import Vista.Subvenciones1;
 import Vista.Vista;
 
-public class ControladorImpl implements Controlador{
-	private ModeloImpl modelo=new ModeloImpl();
+public class ControladorImpl implements Controlador {
+	private ModeloImpl modelo = new ModeloImpl();
 	private Asociaciones1 asociaciones;
 	private Actividad1 actividad;
 	private EspacioMunicipal1 espacio;
@@ -28,11 +29,11 @@ public class ControladorImpl implements Controlador{
 	private Subvenciones1 subvenciones;
 	private DBConfig configuracion;
 	private AssocOptions asociacionesExtra;
-	
+
 	private Font font;
 	private Font font2;
-	
-	public ControladorImpl(){
+
+	public ControladorImpl() {
 		InputStream is = Launch.class.getResourceAsStream("/fonts/segoeui.ttf");
 		InputStream are = Launch.class.getResourceAsStream("/fonts/Century Gothic.ttf");
 		try {
@@ -46,9 +47,18 @@ public class ControladorImpl implements Controlador{
 			e.printStackTrace();
 		}
 	}
-	
-	public void pasarMenuInicio(){
-		menuInicio=new MenuInicio();
+
+	public boolean comprobarLogin() {
+		if (modelo.comprobarLogin(login.getTxtEmail(), login.getJPwd())) {
+			pasarMenuInicio();
+			return true;
+		} else
+			return false;
+
+	}
+
+	public void pasarMenuInicio() {
+		menuInicio = new MenuInicio();
 		menuInicio.setControlador(this);
 		menuInicio.setModelo(modelo);
 		modelo.setMenuInicio(menuInicio);
@@ -56,14 +66,16 @@ public class ControladorImpl implements Controlador{
 		modelo.ActualizarTablaMenuPrincipal();
 		menuInicio.setVisible(true);
 	}
-	public void pasarLogin(){
-		login=new Login();
+
+	public void pasarLogin() {
+		login = new Login();
 		login.setModelo(modelo);
 		login.setControlador(this);
 		login.setVisible(true);
 	}
-	public void pasarAsociaciones(){
-		asociaciones=new Asociaciones1(this);
+
+	public void pasarAsociaciones() {
+		asociaciones = new Asociaciones1(this);
 		asociaciones.setControlador(this);
 		asociaciones.setModelo(modelo);
 		modelo.setAsociaciones(asociaciones);
@@ -78,11 +90,12 @@ public class ControladorImpl implements Controlador{
 		modelo.setActividad(actividad);
 		this.setActividad(actividad);
 		modelo.actualizarActividadTabla();
-		
+
 		actividad.setVisible(true);
 	}
-	public void pasarEspacioMunicipal(){
-		espacio=new EspacioMunicipal1();
+
+	public void pasarEspacioMunicipal() {
+		espacio = new EspacioMunicipal1();
 		espacio.setControlador(this);
 		espacio.setModelo(modelo);
 		modelo.setEspacioMunicipal(espacio);

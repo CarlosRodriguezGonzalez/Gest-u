@@ -43,6 +43,14 @@ public class ModeloImpl implements Modelo {
 	private String puerto;
 	private String ruta;
 	private boolean test;
+	
+	public boolean comprobarLogin(String user,String password){
+		
+		if(as.comprobarLogin(user, password))
+			return true;
+		else
+			return false;
+	}
 
 	public void bajarDatosAsoci(){
 		a=new ArrayList<>();
