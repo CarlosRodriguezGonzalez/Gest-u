@@ -35,7 +35,7 @@ import Controlador.ControladorImpl;
 import Modelo.Modelo;
 import Modelo.ModeloImpl;
 
-public class SubvOptions extends JFrame implements Vista{
+public class EspOptions extends JFrame implements Vista{
 
 	private ControladorImpl controlador;
 	private ModeloImpl modelo;
@@ -66,7 +66,7 @@ public class SubvOptions extends JFrame implements Vista{
 	private JPanel doc_panel2;
 	private JPanel add_panel2;
 
-	public SubvOptions(ControladorImpl con) {
+	public EspOptions(ControladorImpl con) {
 		this.controlador=con;
 		setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 910, 572);
@@ -158,7 +158,7 @@ public class SubvOptions extends JFrame implements Vista{
 		add_panel.add(txtDni);
 		txtDni.setBorder(BorderFactory.createCompoundBorder(txtDni.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
 		
-		JLabel lblRepTitle = new JLabel("Subvenciones");
+		JLabel lblRepTitle = new JLabel("Espacios Municipales");
 		//lblRepTitle.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		lblRepTitle.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,18));
 		lblRepTitle.setForeground(new Color(128, 128, 128));
@@ -563,4 +563,5 @@ public class SubvOptions extends JFrame implements Vista{
 		this.modelo = (ModeloImpl) modelo;
 	}
 }
+
 

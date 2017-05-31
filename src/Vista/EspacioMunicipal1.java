@@ -255,8 +255,7 @@ public class EspacioMunicipal1 extends JFrame implements Vista {
 		lblAdd.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				//TODO
-				dispose();
+				controlador.pasarEspOptions();
 			}
 		});
 		lblAdd.setIcon(new ImageIcon("img/Add Property-30.png"));

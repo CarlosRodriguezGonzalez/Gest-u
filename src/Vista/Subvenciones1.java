@@ -224,8 +224,7 @@ public class Subvenciones1 extends JFrame implements Vista {
 		lblAdd.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				//TODO
-				dispose();
+				controlador.pasarSubOptions();
 			}
 		});
 		lblAdd.setIcon(new ImageIcon("img/Add Property-30.png"));

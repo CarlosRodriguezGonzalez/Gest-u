@@ -9,10 +9,12 @@ import java.io.InputStream;
 import Lanzador.Launch;
 import Modelo.Modelo;
 import Modelo.ModeloImpl;
+import Vista.ActivOptions;
 import Vista.Actividad1;
 import Vista.Asociaciones1;
 import Vista.AssocOptions;
 import Vista.DBConfig;
+import Vista.EspOptions;
 import Vista.EspacioMunicipal1;
 import Vista.Login;
 import Vista.MenuInicio;
@@ -31,6 +33,8 @@ public class ControladorImpl implements Controlador {
 	private DBConfig configuracion;
 	private AssocOptions asociacionesExtra;
 	private SubvOptions subvencionesExtra;
+	private ActivOptions actividadesExtra;
+	private EspOptions espaciosExtra;
 
 	private Font font;
 	private Font font2;
@@ -155,6 +159,29 @@ public class ControladorImpl implements Controlador {
 		subvencionesExtra.setVisible(true);
 		
 	}
+	
+	public void pasarActivOptions(){
+		actividadesExtra = new ActivOptions(this);
+		actividadesExtra.setModelo(modelo);
+		actividadesExtra.setControlador(this);
+		this.setActividadesExtra(actividadesExtra);
+		modelo.setActividadesExtra(actividadesExtra);
+		
+		actividadesExtra.setVisible(true);
+		
+	}
+	
+	public void pasarEspOptions(){
+		espaciosExtra = new EspOptions(this);
+		espaciosExtra.setModelo(modelo);
+		espaciosExtra.setControlador(this);
+		this.setEspaciosExtra(espaciosExtra);
+		modelo.setEspaciosExtra(espaciosExtra);
+		
+		espaciosExtra.setVisible(true);
+		
+	}
+	
 	public void testConexion(){
 		modelo.testConexion(configuracion.getTxtUsuario().getText(), configuracion.getPwdContrasea().getText(), configuracion.getTxtBaseDeDatos().getText(), configuracion.getTxtHost().getText(), configuracion.getTxtPuerto().getText());
 	}
@@ -199,6 +226,12 @@ public class ControladorImpl implements Controlador {
 	}
 	public void setSubvencionesExtra(SubvOptions subvencionesExtra){
 		this.subvencionesExtra=subvencionesExtra;
+	}
+	public void setActividadesExtra(ActivOptions actividadesExtra){
+		this.actividadesExtra=actividadesExtra;
+	}
+	public void setEspaciosExtra(EspOptions espaciosExtra){
+		this.espaciosExtra=espaciosExtra;
 	}
 	public Font getSegoeui(){
 		return font;

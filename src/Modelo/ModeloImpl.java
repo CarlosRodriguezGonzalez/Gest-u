@@ -9,10 +9,12 @@ import ClasesTabla.Actividad;
 import ClasesTabla.Asociacion;
 import ClasesTabla.Espacio;
 import ClasesTabla.Subvencion;
+import Vista.ActivOptions;
 import Vista.Actividad1;
 import Vista.Asociaciones1;
 import Vista.AssocOptions;
 import Vista.DBConfig;
+import Vista.EspOptions;
 import Vista.EspacioMunicipal1;
 import Vista.Login;
 import Vista.MenuInicio;
@@ -33,6 +35,8 @@ public class ModeloImpl implements Modelo {
 	private DBConfig configuracion;
 	private AssocOptions asociacionesExtra;
 	private SubvOptions subvencionesExtra;
+	private ActivOptions actividadesExtra;
+	private EspOptions espaciosExtra;
 	
 	private ArrayList<Asociacion> a;
 	private ArrayList<Subvencion> b;
@@ -196,6 +200,12 @@ public class ModeloImpl implements Modelo {
 	public void setSubvencionesExtra(SubvOptions subvencionesExtra){
 		this.subvencionesExtra=subvencionesExtra;
 	}
+	public void setActividadesExtra(ActivOptions actividadesExtra){
+		this.actividadesExtra=actividadesExtra;
+	}
+	public void setEspaciosExtra(EspOptions espaciosExtra){
+		this.espaciosExtra=espaciosExtra;
+	}
 
 	public ArrayList<Asociacion> getA() {
 		return a;
@@ -238,4 +248,5 @@ public class ModeloImpl implements Modelo {
 	public void setasociacionesExtra(AssocOptions asociacionesExtra){
 		this.asociacionesExtra=asociacionesExtra;
 	}
+	
 }

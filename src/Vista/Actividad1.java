@@ -246,8 +246,7 @@ public class Actividad1 extends JFrame implements Vista {
 		lblAdd.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				//TODO
-				dispose();
+				controlador.pasarActivOptions();
 			}
 		});
 		lblAdd.setIcon(new ImageIcon("img/Add Property-30.png"));
