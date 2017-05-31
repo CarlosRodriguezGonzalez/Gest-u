@@ -117,7 +117,7 @@ public class ControladorImpl implements Controlador {
 		subvenciones.setVisible(true);
 	}
 	public void pasarConfiguracion(){
-		configuracion=new DBConfig();
+		configuracion=new DBConfig(this);
 		configuracion.setModelo(modelo);
 		configuracion.setControlador(this);
 		modelo.setConfiguracion(configuracion);

@@ -368,7 +368,7 @@ public class EspacioMunicipal1 extends JFrame implements Vista {
 		headerContainer.add(lblTitle);
 		
 		JSeparator sep_header = new JSeparator();
-		sep_header.setBounds(63, 34, 184, 12);
+		sep_header.setBounds(63, 34, 187, 12);
 		headerContainer.add(sep_header);
 		
 		JLabel lblUserIMG = new JLabel("");

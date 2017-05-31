@@ -50,7 +50,8 @@ public class DBConfig extends JFrame implements Vista{
 	private JTextField txtUser;
 	private JTextField txtTestConexion;
 	
-	public DBConfig() {
+	public DBConfig(ControladorImpl con) {
+		controlador=con;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 910, 572);
 		contentPane = new JPanel();
@@ -146,7 +147,7 @@ public class DBConfig extends JFrame implements Vista{
 		
 		txtHost = new JTextField();
 		
-		txtHost.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtHost.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtHost.setForeground(Color.GRAY);
 		txtHost.setText("Host / URL");
 		txtHost.setBounds(21, 107, 205, 29);
@@ -164,7 +165,7 @@ public class DBConfig extends JFrame implements Vista{
 		selectConn.setModel(new DefaultComboBoxModel(new String[] {"MySQL", "MongoDB", "Oracle Database", "PostgreSQL"}));
 		
 		JLabel lblConn = new JLabel("Tipo");
-		lblConn.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		lblConn.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,13));
 		lblConn.setForeground(new Color(128,128,128));
 		lblConn.setBounds(238, 154, 34, 16);
 		detailsContainer.add(lblConn);
@@ -172,7 +173,7 @@ public class DBConfig extends JFrame implements Vista{
 		txtPort = new JTextField();
 		
 		txtPort.setForeground(Color.GRAY);
-		txtPort.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtPort.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtPort.setText("Puerto");
 		txtPort.setColumns(10);
 		txtPort.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
@@ -184,7 +185,7 @@ public class DBConfig extends JFrame implements Vista{
 		JPwd = new JPasswordField();
 		
 		JPwd.setForeground(Color.GRAY);
-		JPwd.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		JPwd.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		JPwd.setText("Contraseña");
 		JPwd.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
 		JPwd.setBorder(BorderFactory.createCompoundBorder(JPwd.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
@@ -222,7 +223,7 @@ public class DBConfig extends JFrame implements Vista{
 		txtDBName = new JTextField();
 		
 		txtDBName.setForeground(Color.GRAY);
-		txtDBName.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtDBName.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtDBName.setText("Base de datos");
 		txtDBName.setColumns(10);
 		txtDBName.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
@@ -234,7 +235,7 @@ public class DBConfig extends JFrame implements Vista{
 		txtUser = new JTextField();
 		
 		txtUser.setForeground(Color.GRAY);
-		txtUser.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtUser.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtUser.setText("Usuario");
 		txtUser.setColumns(10);
 		txtUser.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
@@ -243,10 +244,10 @@ public class DBConfig extends JFrame implements Vista{
 		txtUser.setBounds(526, 107, 194, 29);
 		detailsContainer.add(txtUser);
 		
-		JLabel lblInfo = new JLabel("En este apartado podrá configurar los parámetros de conexión a BBDD de forma avanzada, además de tener la opción de probar una");
+		JLabel lblInfo = new JLabel("En este apartado podrá configurar los parámetros de conexión a BBDD de forma avanzada, además de tener la opción de");
 		lblInfo.setForeground(new Color(128,128,128));
-		lblInfo.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		lblInfo.setBounds(22, 34, 751, 16);
+		lblInfo.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,13));
+		lblInfo.setBounds(22, 39, 790, 16);
 		detailsContainer.add(lblInfo);
 		
 		txtTestConexion = new JTextField();
@@ -255,10 +256,10 @@ public class DBConfig extends JFrame implements Vista{
 		detailsContainer.add(txtTestConexion);
 		txtTestConexion.setColumns(10);
 		
-		JLabel lblInfo2 = new JLabel("nueva conexión en vivo con otros parámetros.");
+		JLabel lblInfo2 = new JLabel("probar una nueva conexión en vivo con otros parámetros.");
 		lblInfo2.setForeground(Color.GRAY);
-		lblInfo2.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		lblInfo2.setBounds(21, 57, 751, 16);
+		lblInfo2.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,13));
+		lblInfo2.setBounds(22, 57, 751, 16);
 		detailsContainer.add(lblInfo2);
 		
 		JPanel pathContainer = new JPanel();
@@ -268,13 +269,13 @@ public class DBConfig extends JFrame implements Vista{
 		pathContainer.setLayout(null);
 		
 		JLabel lblLogo = new JLabel("Gest-U");
-		lblLogo.setBounds(691, 6, 108, 37);
-		lblLogo.setFont(new Font("Segoe UI", Font.PLAIN, 37));
+		lblLogo.setBounds(691, 6, 132, 37);
+		lblLogo.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,37));
 		pathContainer.add(lblLogo);
 		
 		JLabel lblSlogan = new JLabel("Experts on management");
-		lblSlogan.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-		lblSlogan.setBounds(654, 41, 145, 20);
+		lblSlogan.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,14));
+		lblSlogan.setBounds(654, 41, 169, 20);
 		pathContainer.add(lblSlogan);
 		
 		JPanel PathDetails = new JPanel();
@@ -286,7 +287,7 @@ public class DBConfig extends JFrame implements Vista{
 		
 		JLabel lblInfo3 = new JLabel("En la siguiente ruta relativa se encuentra su archivo principal de configuración:");
 		lblInfo3.setForeground(Color.GRAY);
-		lblInfo3.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		lblInfo3.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,14));
 		lblInfo3.setBounds(22, 29, 717, 16);
 		PathDetails.add(lblInfo3);
 		
@@ -296,7 +297,7 @@ public class DBConfig extends JFrame implements Vista{
 		
 		
 		txtChooseINI.setForeground(Color.GRAY);
-		txtChooseINI.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtChooseINI.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtChooseINI.setText("Ruta archivo de configuración");
 		txtChooseINI.setBackground(Color.WHITE);
 		txtChooseINI.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
@@ -317,7 +318,7 @@ public class DBConfig extends JFrame implements Vista{
 		JLabel lblTitle = new JLabel("Configuración Base de datos");
 		lblTitle.setBounds(58, 10, 250, 36);
 		lblTitle.setForeground(new Color(128, 128, 128));
-		lblTitle.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+		lblTitle.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,20));
 		headerContainer.add(lblTitle);
 		
 		JSeparator sep_header = new JSeparator();
@@ -332,7 +333,7 @@ public class DBConfig extends JFrame implements Vista{
 		JLabel lblUser = new JLabel("Usuario");
 		lblUser.setBounds(675, 6, 76, 40);
 		lblUser.setForeground(new Color(128, 128, 128));
-		lblUser.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+		lblUser.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,20));
 		headerContainer.add(lblUser);
 		
 		JLabel lblLogOut = new JLabel("");
