@@ -15,6 +15,24 @@ import ClasesTabla.Subvencion;
 public class AsociacionBBDD {
 	private static Connection conexion;
 	
+	public boolean comprobarLogin(String user,String password){
+		
+		try{
+			PreparedStatement ps= conexion.prepareStatement("select pass from usuario where user=?");
+			ps.setString(1, user);
+			ResultSet rs=ps.executeQuery();
+			if(rs.next()){
+				if(rs.getString("pass").equals(MD5(password))){
+					return true;
+				};
+			}
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		return false;
+		
+	}
 	
 	public ArrayList<Asociacion> getAsociaciones(){
 		ArrayList<Asociacion> asoc=new ArrayList<Asociacion>();
@@ -126,6 +144,20 @@ public class AsociacionBBDD {
 		return sub;
 	}
 
+	public String MD5(String md5) {
+		   try {
+		        java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
+		        byte[] array = md.digest(md5.getBytes());
+		        StringBuffer sb = new StringBuffer();
+		        for (int i = 0; i < array.length; ++i) {
+		          sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100).substring(1,3));
+		       }
+		        return sb.toString();
+		    } catch (java.security.NoSuchAlgorithmException e) {
+		    }
+		    return null;
+		}
+	
 	public static Connection getConexion() {
 		return conexion;
 	}
