@@ -662,6 +662,12 @@ public class AssocOptions extends JFrame implements Vista{
 		panel_right.add(MultPanel2);
 		MultPanel2.setLayout(new CardLayout(0, 0));
 		
+		hist_panel2 = new JPanel();
+		hist_panel2.setBounds(0, 0, 273, 550);
+		MultPanel2.add(hist_panel2);
+		hist_panel2.setBackground(new Color(32,47,90));
+		hist_panel2.setLayout(null);
+		
 		doc_panel2 = new JPanel();
 		doc_panel2.setBackground(Color.PINK);
 		MultPanel2.add(doc_panel2, "name_40282482298038");
@@ -702,11 +708,7 @@ public class AssocOptions extends JFrame implements Vista{
 		sep_add_panel2.setBounds(55, 92, 113, 12);
 		add_panel2.add(sep_add_panel2);
 		
-		hist_panel2 = new JPanel();
-		hist_panel2.setBounds(0, 0, 273, 550);
-		add_panel2.add(hist_panel2);
-		hist_panel2.setBackground(new Color(32,47,90));
-		hist_panel2.setLayout(null);
+		
 		
 		JLabel lblDetails = new JLabel(" Detalles de la Asociación");
 		lblDetails.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));

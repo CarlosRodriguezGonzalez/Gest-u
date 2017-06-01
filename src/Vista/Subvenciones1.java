@@ -302,7 +302,7 @@ public class Subvenciones1 extends JFrame implements Vista {
 		JLabel lblFilterTitle = new JLabel("Filtros de búsqueda");
 		lblFilterTitle.setForeground(new Color(105, 105, 105));
 		lblFilterTitle.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,15));
-		lblFilterTitle.setBounds(28, 18, 150, 32);
+		lblFilterTitle.setBounds(28, 18, 193, 32);
 		filterContainer.add(lblFilterTitle);
 		
 		JSeparator sepfilter_5 = new JSeparator();

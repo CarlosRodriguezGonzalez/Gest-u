@@ -247,8 +247,7 @@ public class AsociacionBBDD {
 			psAs.setInt(16, rep);
 
 			psAs.executeUpdate();
-			// Coger id usuario
-
+			System.err.println("asd");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
