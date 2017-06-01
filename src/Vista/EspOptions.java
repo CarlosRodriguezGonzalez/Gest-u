@@ -129,6 +129,7 @@ public class EspOptions extends JFrame implements Vista{
 		btnRegister.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controlador.insertarEspacios();
+				dispose();
 			}
 		});
 		//btnRegister.setFont(new Font("Lucida Grande", Font.BOLD, 13));
@@ -138,6 +139,11 @@ public class EspOptions extends JFrame implements Vista{
 		add_panel.add(btnRegister);
 		
 		JButton btnCancel = new JButton("Cancelar");
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		btnCancel.setForeground(new Color(128, 128, 128));
 		//btnCancel.setFont(new Font("Century Gothic", Font.BOLD, 13));
 		btnCancel.setFont(controlador.getCentury().deriveFont(Font.BOLD,13));
