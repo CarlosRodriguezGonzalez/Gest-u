@@ -311,38 +311,6 @@ public class EspacioMunicipal1 extends JFrame implements Vista {
 		sepfilter_5.setBounds(250, 117, 100, 16);
 		filterContainer.add(sepfilter_5);
 		
-		JPanel btnDel = new JPanel();
-		btnDel.setLayout(null);
-		btnDel.setBackground(new Color(189, 195, 199));
-		btnDel.setBounds(546, 141, 125, 40);
-		filterContainer.add(btnDel);
-		
-		JLabel lblDel = new JLabel("BORRAR");
-		lblDel.setIcon(new ImageIcon("img/Delete Property-30 (1).png"));
-		lblDel.setForeground(Color.WHITE);
-		lblDel.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
-		lblDel.setBounds(16, 0, 87, 40);
-		btnDel.add(lblDel);
-		
-		JPanel btnHist = new JPanel();
-		btnHist.setLayout(null);
-		btnHist.setBackground(new Color(189, 195, 199));
-		btnHist.setBounds(683, 141, 125, 40);
-		filterContainer.add(btnHist);
-		
-		JLabel lblHist = new JLabel("HISTÓRICO");
-		lblHist.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				//TODO
-			}
-		});
-		lblHist.setIcon(new ImageIcon("img/News-30.png"));
-		lblHist.setForeground(Color.WHITE);
-		lblHist.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
-		lblHist.setBounds(6, 0, 102, 40);
-		btnHist.add(lblHist);
-		
 		JLabel lblFilterTitle = new JLabel("Filtros de búsqueda");
 		lblFilterTitle.setForeground(new Color(105, 105, 105));
 		lblFilterTitle.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,15));

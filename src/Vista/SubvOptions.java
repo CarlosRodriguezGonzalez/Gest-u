@@ -49,6 +49,7 @@ public class SubvOptions extends JFrame implements Vista{
 	private JTextField txtMoney;
 	private JLabel lblInfo;
 	private JTextField txtcif;
+	private JTextField txtprueba;
 
 	public SubvOptions(ControladorImpl con) {
 		this.controlador=con;
@@ -138,20 +139,21 @@ public class SubvOptions extends JFrame implements Vista{
 		chckbxAgree.setForeground(new Color(128, 128, 128));
 		//chckbxAgree.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		chckbxAgree.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
-		chckbxAgree.setBounds(22, 390, 592, 23);
+		chckbxAgree.setBounds(23, 382, 592, 23);
 		add_panel.add(chckbxAgree);
 		
 		JButton btnRegister = new JButton("Registrar");
 		btnRegister.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controlador.insertarSubvencion();
-				dispose();
+				txtprueba.setForeground(new Color(42, 239, 35));
+				txtprueba.setText("La subvención para la asociación con CIF:"+ getTxtcif() + "ha sido registrada satisfactoriamente.");
 			}
 		});
 		//btnRegister.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 		btnRegister.setFont(controlador.getCentury().deriveFont(Font.BOLD,13));
 		btnRegister.setForeground(new Color(128, 128, 128));
-		btnRegister.setBounds(20, 425, 140, 39);
+		btnRegister.setBounds(21, 417, 140, 39);
 		add_panel.add(btnRegister);
 		
 		JButton btnCancel = new JButton("Cancelar");
@@ -163,7 +165,7 @@ public class SubvOptions extends JFrame implements Vista{
 		btnCancel.setForeground(new Color(128, 128, 128));
 		//btnCancel.setFont(new Font("Century Gothic", Font.BOLD, 13));
 		btnCancel.setFont(controlador.getCentury().deriveFont(Font.BOLD,13));
-		btnCancel.setBounds(172, 425, 140, 39);
+		btnCancel.setBounds(173, 417, 140, 39);
 		add_panel.add(btnCancel);
 		
 		lblInfo = new JLabel("Los campos marcados con * son obligatorios");
@@ -204,6 +206,15 @@ public class SubvOptions extends JFrame implements Vista{
 		lblNewLabel_1.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		lblNewLabel_1.setBounds(20, 218, 563, 16);
 		add_panel.add(lblNewLabel_1);
+		
+		txtprueba = new JTextField();
+		txtprueba.setBorder(null);
+		txtprueba.setBounds(20, 456, 595, 30);
+		txtprueba.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,13));
+		add_panel.add(txtprueba);
+		txtprueba.setColumns(10);
+		
+		
 		
 		lblAdd.setBounds(78, 30, 52, 16);
 		//lblAdd.setFont(new Font("Segoe UI", Font.BOLD, 16));

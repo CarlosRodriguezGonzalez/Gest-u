@@ -36,6 +36,8 @@ public class Login extends JFrame implements Vista {
 	private JPanel contentPane;
 	private JPasswordField JPwd;
 	private JTextField txtEmail;
+	private JTextField txtLoginFail;
+	private JTextField txtLoginFail2;
 
 	public Login() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -156,8 +158,14 @@ public class Login extends JFrame implements Vista {
 		lblSubmit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if (controlador.comprobarLogin())
+				if (controlador.comprobarLogin()){
 					dispose();
+				} else {
+					txtLoginFail.setForeground(new Color(239, 35, 35));
+					txtLoginFail.setText("El usuario y/o la contraseña introducida es incorrecta.");
+					txtLoginFail2.setForeground(new Color(239, 35, 35));
+					txtLoginFail2.setText("Vuelta a intentarlo o pongase en contacto con el Administrador.");
+				}
 			}
 		});
 		lblSubmit.setBounds(22, 6, 111, 31);
@@ -205,6 +213,22 @@ public class Login extends JFrame implements Vista {
 		// lblUserIMG.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 		lblUserIMG.setFont(controlador.getCentury().deriveFont(Font.PLAIN, 14));
 		lblUserIMG.setBackground(UIManager.getColor("TabbedPane.selectedTabTitlePressedColor"));
+		
+		txtLoginFail = new JTextField();
+		txtLoginFail.setBorder(null);
+		txtLoginFail.setBackground(new Color(0,18,50));
+		txtLoginFail.setFont(controlador.getCentury().deriveFont(Font.PLAIN, 12));
+		txtLoginFail.setBounds(508, 423, 441, 33);
+		contentPane.add(txtLoginFail);
+		txtLoginFail.setColumns(10);
+		
+		txtLoginFail2 = new JTextField();
+		txtLoginFail2.setBounds(508, 450, 441, 33);
+		txtLoginFail2.setBorder(null);
+		txtLoginFail2.setBackground(new Color(0,18,50));
+		txtLoginFail2.setFont(controlador.getCentury().deriveFont(Font.PLAIN, 12));
+		contentPane.add(txtLoginFail2);
+		txtLoginFail2.setColumns(10);
 	}
 
 	@Override

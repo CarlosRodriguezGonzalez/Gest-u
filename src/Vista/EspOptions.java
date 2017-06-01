@@ -51,6 +51,7 @@ public class EspOptions extends JFrame implements Vista{
 	private JTextField txtfechaDeSolicitud;
 	private JTextField txtfechaDeConcesin;
 	private JTextField textField;
+	private JTextField txtprueba;
 
 	public EspOptions(ControladorImpl con) {
 		this.controlador=con;
@@ -129,7 +130,8 @@ public class EspOptions extends JFrame implements Vista{
 		btnRegister.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controlador.insertarEspacios();
-				dispose();
+				txtprueba.setForeground(new Color(42, 239, 35));
+				txtprueba.setText("El espacio municipal para la asociación con CIF: "+ getTextField() + " ha sido registrado.");
 			}
 		});
 		//btnRegister.setFont(new Font("Lucida Grande", Font.BOLD, 13));
@@ -158,6 +160,12 @@ public class EspOptions extends JFrame implements Vista{
 		add_panel.add(lblInfo);
 		
 		textArea = new JTextArea();
+		textArea.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				textArea.setText("");
+			}
+		});
 		textArea.setText("Características");
 		textArea.setForeground(Color.GRAY);
 		textArea.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
@@ -166,10 +174,17 @@ public class EspOptions extends JFrame implements Vista{
 		add_panel.add(textArea);
 		
 		JDateChooser dateChooser = new JDateChooser();
-		dateChooser.setBounds(377, 62, 30, 33);
+		dateChooser.setBounds(376, 62, 31, 33);
 		add_panel.add(dateChooser);
 		
+		
 		txtfechaDeSolicitud = new JTextField();
+		txtfechaDeSolicitud.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtfechaDeSolicitud.setText("");
+			}
+		});
 		txtfechaDeSolicitud.setText("  *Fecha de solicitud");
 		txtfechaDeSolicitud.setForeground(Color.GRAY);
 		txtfechaDeSolicitud.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
@@ -184,6 +199,12 @@ public class EspOptions extends JFrame implements Vista{
 		add_panel.add(dateChooser_1);
 		
 		txtfechaDeConcesin = new JTextField();
+		txtfechaDeConcesin.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtfechaDeConcesin.setText("");
+			}
+		});
 		txtfechaDeConcesin.setText("  *Fecha de concesión");
 		txtfechaDeConcesin.setForeground(Color.GRAY);
 		txtfechaDeConcesin.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
@@ -200,6 +221,12 @@ public class EspOptions extends JFrame implements Vista{
 		add_panel.add(label);
 		
 		textField = new JTextField();
+		textField.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				textField.setText("");
+			}
+		});
 		textField.setText("  *Introduzca CIF");
 		textField.setForeground(Color.GRAY);
 		textField.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
@@ -209,11 +236,18 @@ public class EspOptions extends JFrame implements Vista{
 		textField.setBounds(20, 255, 117, 41);
 		add_panel.add(textField);
 		
-		JLabel label_1 = new JLabel("*Para dar de alta el nuevo espacio municipal es obligatorio que esté vinculada a una asociación");
-		label_1.setForeground(Color.GRAY);
-		label_1.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
-		label_1.setBounds(20, 322, 611, 16);
-		add_panel.add(label_1);
+		JLabel lblparaDarDe = new JLabel("*Para dar de alta el nuevo espacio municipal es obligatorio que esté vinculado a una asociación");
+		lblparaDarDe.setForeground(Color.GRAY);
+		lblparaDarDe.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
+		lblparaDarDe.setBounds(20, 322, 611, 16);
+		add_panel.add(lblparaDarDe);
+		
+		txtprueba = new JTextField();
+		txtprueba.setBorder(null);
+		txtprueba.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,13));
+		txtprueba.setBounds(20, 466, 594, 26);
+		add_panel.add(txtprueba);
+		txtprueba.setColumns(10);
 		
 		
 		
@@ -237,6 +271,10 @@ public class EspOptions extends JFrame implements Vista{
 		add_panel.setVisible(false);
 	}
 	
+	public void setTxtfechaDeSolicitud(String txtfechaDeSolicitud) {
+		this.txtfechaDeSolicitud.setText(txtfechaDeSolicitud);
+	}
+
 	@Override
 	public void setControlador(Controlador controlador) {
 		this.controlador = (ControladorImpl) controlador;
