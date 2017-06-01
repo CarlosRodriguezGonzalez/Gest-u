@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 01-06-2017 a las 16:52:41
+-- Tiempo de generación: 01-06-2017 a las 19:57:41
 -- Versión del servidor: 10.1.19-MariaDB
 -- Versión de PHP: 7.0.13
 
@@ -210,7 +210,23 @@ INSERT INTO `sede` (`id_sede`, `direccion`, `caracteristicas`, `fecha_solicitud`
 (3, 'C/ Perez', 'Local', '12-8-2013', '5-9-2013'),
 (4, 'C/ Alvarez', 'Local', '4-7-2014', '26-10-2014'),
 (5, 'C/ Pepon', 'Parcela', '3-2-2016', '2-5-2015'),
-(6, 'C/ Alfredo', 'Chalet', '3-4-2016', '22-5-2016');
+(6, 'C/ Alfredo', 'Chalet', '3-4-2016', '22-5-2016'),
+(7, 'asdf', 'asdf', 'asdf', 'asdf'),
+(8, 'asdf', 'Característicasasdf', 'asdf', 'asdf'),
+(9, 'asdf', 'Característicasasdf', 'asdf', 'asdf'),
+(10, 'asdf', 'Características', '  *Fecha de solicitud', '  *Fecha de concesión'),
+(11, 'asdf', 'Características', '  *Fecha de solicitud', '  *Fecha de concesión'),
+(12, '  *Dirección', 'Características', '  *Fecha de solicitud', '  *Fecha de concesión'),
+(13, '  *Dirección', 'Características', '  *Fecha de solicitud', '  *Fecha de concesión'),
+(14, '  *Dirección', 'Características', '  *Fecha de solicitud', '  *Fecha de concesión'),
+(15, '  *Dirección', 'Características', '  *Fecha de solicitud', '  *Fecha de concesión'),
+(16, '  *Dirección', 'Características', '  *Fecha de solicitud', '  *Fecha de concesión'),
+(17, '  *Dirección', 'Características', '  *Fecha de solicitud', '  *Fecha de concesión'),
+(18, '  *Dirección', 'Características', '  *Fecha de solicitud', '  *Fecha de concesión'),
+(19, '  *Dirección', 'Características', '  *Fecha de solicitud', '  *Fecha de concesión'),
+(20, '  *Dirección', 'Características', '  *Fecha de solicitud', '  *Fecha de concesión'),
+(21, '  *Dirección', 'Características', '  *Fecha de solicitud', '  *Fecha de concesión'),
+(22, '  *Dirección', 'Características', '  *Fecha de solicitud', '  *Fecha de concesión');
 
 -- --------------------------------------------------------
 
@@ -234,7 +250,9 @@ INSERT INTO `sede_asociacion` (`id_asociacion`, `id_sede`) VALUES
 (1, 5),
 (2, 1),
 (2, 3),
-(2, 4);
+(2, 4),
+(3, 2),
+(5, 22);
 
 -- --------------------------------------------------------
 
@@ -262,7 +280,14 @@ INSERT INTO `subvencion` (`id_solicitud`, `fecha_solicitud`, `importe`, `id_asoc
 (6, '7-6-2017', 200, 5),
 (7, '23-8-2017', 500, 6),
 (8, '22-9-2017', 3000, 8),
-(9, '6-8-2017', 800, 9);
+(9, '6-8-2017', 800, 9),
+(10, 'qr', 13, 1),
+(11, 'qr', 13, 6),
+(12, 'adf', 1234, 1),
+(13, 'asdf', 1, 1),
+(14, 'adsf', 2, 2),
+(15, 'asdf', 1234, 5),
+(17, 'hola sergio!', 123, 11);
 
 -- --------------------------------------------------------
 
@@ -401,12 +426,12 @@ ALTER TABLE `representante`
 -- AUTO_INCREMENT de la tabla `sede`
 --
 ALTER TABLE `sede`
-  MODIFY `id_sede` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_sede` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT de la tabla `subvencion`
 --
 ALTER TABLE `subvencion`
-  MODIFY `id_solicitud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_solicitud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- Restricciones para tablas volcadas
 --
@@ -456,7 +481,7 @@ ALTER TABLE `sede_asociacion`
 -- Filtros para la tabla `subvencion`
 --
 ALTER TABLE `subvencion`
-  ADD CONSTRAINT `subvencion_ibfk_1` FOREIGN KEY (`id_solicitud`) REFERENCES `asociacion` (`id_asociacion`);
+  ADD CONSTRAINT `subvencion_ibfk_1` FOREIGN KEY (`id_asociacion`) REFERENCES `asociacion` (`id_asociacion`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
