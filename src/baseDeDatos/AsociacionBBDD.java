@@ -257,33 +257,76 @@ public class AsociacionBBDD {
 	// VALUES ('adsf', '2', '2');
 	public void insertarSubvencion(Subvencion s, String cif) {
 		PreparedStatement psIns;
-		int id=0;
+		int id = 0;
 		try {
 			PreparedStatement ps = conexion.prepareStatement("SELECT * from asociacion WHERE cif=?");
 			ps.setString(1, cif);
 			ResultSet rs = ps.executeQuery();
-			
+
 			if (rs.next()) {
 				System.out.println(id);
-				id=rs.getInt(1);
+				id = rs.getInt(1);
 				System.out.println(id);
 				psIns = conexion.prepareStatement(
 						"INSERT INTO `subvencion` (`fecha_solicitud`, `importe`, `id_asociacion`) VALUES (?, ?, ?);");
 				psIns.setString(1, s.getFecha());
 				psIns.setInt(2, s.getImporte());
 				psIns.setInt(3, id);
-				
+
 				psIns.executeUpdate();
 				
+
 				System.out.println("hola!");
 			}
 
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
+	}
+
+	public void insertarEspacios(Espacio e, String cif) {
+		int idAs = 0;
+		PreparedStatement psIns;
+		try {
+System.out.println("asdf");
+			PreparedStatement ps = conexion.prepareStatement("SELECT * from asociacion WHERE cif=?");
+			ps.setString(1, cif);
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+				System.out.println(idAs);
+				idAs = rs.getInt(1);
+				System.out.println(idAs);
+				// INSERT INTO `sede` (`direccion`, `caracteristicas`,
+				// `fecha_solicitud`, `fecha_concesion`) VALUES (?,?, ?, ?);
+				psIns = conexion.prepareStatement(
+						"INSERT INTO `sede` (`direccion`, `caracteristicas`, `fecha_solicitud`, `fecha_concesion`) VALUES (?,?, ?, ?);", Statement.RETURN_GENERATED_KEYS);
+				psIns.setString(1, e.getDireccion());
+				psIns.setString(2, e.getCaracteristicas());
+				psIns.setString(3, e.getFechasolicitud());
+				psIns.setString(4, e.getFechaconcesion());
+				psIns.executeUpdate();
+					System.out.println("asdfasa");
+					ResultSet rsIns = psIns.getGeneratedKeys();
+					if (rsIns.next()) {
+						int idEs = rsIns.getInt(1);
+						PreparedStatement psEs = conexion.prepareStatement(
+								"INSERT INTO `sede_asociacion` (`id_asociacion`, `id_sede`) VALUES (?,?);");
+						psEs.setInt(1, idAs);
+						psEs.setInt(2, idEs);
+						psEs.executeUpdate();
+
+					}
+				
+				System.out.println("hola!");
+			}
+
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 
 	//
