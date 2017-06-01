@@ -8,6 +8,7 @@ import java.io.InputStream;
 
 import ClasesTabla.Asociacion;
 import ClasesTabla.Representante;
+import ClasesTabla.Subvencion;
 import Lanzador.Launch;
 import Modelo.Modelo;
 import Modelo.ModeloImpl;
@@ -194,6 +195,12 @@ public class ControladorImpl implements Controlador {
 		Asociacion a = new Asociacion(0, asociacionesExtra.getTxtName2().getText(), asociacionesExtra.getTxtCif().getText(), Integer.parseInt(asociacionesExtra.getTxtCp2().getText()), asociacionesExtra.getTxtAddress2().getText(), asociacionesExtra.getTxtCity2().getText(), Integer.parseInt(asociacionesExtra.getTxtFijo2().getText()), Integer.parseInt(asociacionesExtra.getTxtMobile2().getText()), Integer.parseInt(asociacionesExtra.getTxtFax().getText()), asociacionesExtra.getTxtEmail2().getText(), 1, "", false, false, false, false, false);
 		Representante r = new Representante(0, asociacionesExtra.getName(), asociacionesExtra.getTxtDni().getText(), asociacionesExtra.getTxtAddress().getText(), asociacionesExtra.getTxtCity().getText(), Integer.parseInt(asociacionesExtra.getTxtCp().getText()), Integer.parseInt(asociacionesExtra.getTxtFijo().getText()), Integer.parseInt(asociacionesExtra.getTxtMobile().getText()), 0, asociacionesExtra.getTxtEmail().getText());
 		modelo.insertarAssoc(a, r);
+	}
+	public void insertarSubvencion() {
+		String cif = subvencionesExtra.getTxtcif();
+		Subvencion sub = new Subvencion(0, subvencionesExtra.getTxtDateFrom(), Integer.parseInt(subvencionesExtra.getTxtMoney()));
+		
+		modelo.insertarSubvencion(sub, cif);
 	}
 
 	

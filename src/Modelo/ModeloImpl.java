@@ -175,6 +175,10 @@ public class ModeloImpl implements Modelo {
 	public void insertarAssoc(Asociacion a,Representante r) {
 		as.insertarAssoc(a, r);
 	}
+	public void insertarSubvencion(Subvencion s, String cif) {
+		as.insertarSubvencion(s, cif);
+	}
+	
 
 	public Representante getR() {
 		return r;
