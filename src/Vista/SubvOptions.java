@@ -46,8 +46,6 @@ public class SubvOptions extends JFrame implements Vista{
 	private JTextField txtDateFrom;
 	private JTextField txtMoney;
 	private JLabel lblInfo;
-	private JPanel doc_panel2;
-	private JPanel add_panel2;
 	private JTextField txtcif;
 
 	public SubvOptions(ControladorImpl con) {
@@ -66,8 +64,6 @@ public class SubvOptions extends JFrame implements Vista{
 		panel_left.setLayout(null);
 		
 		JLabel lblAdd = new JLabel("Añadir");
-		JLabel lblDoc = new JLabel("Documentación");
-		lblDoc.setForeground(java.awt.Color.lightGray);
 		lblAdd.setForeground(Color.BLACK);
 		
 		JLayeredPane MultPanel = new JLayeredPane();
@@ -174,11 +170,6 @@ public class SubvOptions extends JFrame implements Vista{
 		lblBuscarActividad.setBounds(20, 119, 170, 30);
 		add_panel.add(lblBuscarActividad);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("img/search3.png"));
-		lblNewLabel.setBounds(20, 153, 41, 39);
-		add_panel.add(lblNewLabel);
-		
 		txtcif = new JTextField();
 		txtcif.addMouseListener(new MouseAdapter() {
 			@Override
@@ -192,7 +183,7 @@ public class SubvOptions extends JFrame implements Vista{
 		txtcif.setDisabledTextColor(Color.WHITE);
 		txtcif.setColumns(10);
 		txtcif.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
-		txtcif.setBounds(65, 153, 140, 41);
+		txtcif.setBounds(20, 151, 115, 41);
 		add_panel.add(txtcif);
 		
 		JLabel lblNewLabel_1 = new JLabel("*Para dar de alta la nueva subvención es obligatorio que esté vinculada a una asociación");
@@ -201,35 +192,6 @@ public class SubvOptions extends JFrame implements Vista{
 		lblNewLabel_1.setBounds(20, 218, 563, 16);
 		add_panel.add(lblNewLabel_1);
 		
-		lblDoc.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				lblDoc.setForeground(java.awt.Color.black);
-				lblAdd.setForeground(java.awt.Color.lightGray);
-				doc_panel.setVisible(true);
-				add_panel.setVisible(false);
-				doc_panel2.setVisible(true);
-				add_panel2.setVisible(false);
-			}
-		});
-		
-		lblDoc.setBounds(179, 30, 112, 16);
-		//lblDoc.setFont(new Font("Segoe UI", Font.BOLD, 16));
-		lblDoc.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,14));
-		panel_left.add(lblDoc);
-		
-		
-		lblAdd.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				lblAdd.setForeground(java.awt.Color.black);
-				lblDoc.setForeground(java.awt.Color.lightGray);
-				doc_panel.setVisible(false);
-				add_panel.setVisible(true);
-				doc_panel2.setVisible(false);
-				add_panel2.setVisible(true);
-			}
-		});
 		lblAdd.setBounds(78, 30, 52, 16);
 		//lblAdd.setFont(new Font("Segoe UI", Font.BOLD, 16));
 		lblAdd.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,14));
@@ -241,22 +203,10 @@ public class SubvOptions extends JFrame implements Vista{
 		sep_header.setForeground(new Color(128, 128, 128));
 		
 		JPanel panel_right = new JPanel();
+		panel_right.setBackground(new Color(32,47,90));
 		panel_right.setBounds(637, 0, 273, 550);
 		contentPane.add(panel_right);
 		panel_right.setLayout(null);
-		
-		JLayeredPane MultPanel2 = new JLayeredPane();
-		MultPanel2.setBounds(0, 0, 273, 550);
-		panel_right.add(MultPanel2);
-		MultPanel2.setLayout(new CardLayout(0, 0));
-		
-		add_panel2 = new JPanel();
-		add_panel2.setBackground(new Color(32,47,90));
-		MultPanel2.add(add_panel2, "name_40289285423663");
-		
-		doc_panel2 = new JPanel();
-		doc_panel2.setBackground(Color.PINK);
-		MultPanel2.add(doc_panel2, "name_40282482298038");
 		
 		doc_panel.setVisible(false);
 		add_panel.setVisible(false);
