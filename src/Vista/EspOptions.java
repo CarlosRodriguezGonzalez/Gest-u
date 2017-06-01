@@ -35,6 +35,8 @@ import Controlador.ControladorImpl;
 import Modelo.Modelo;
 import Modelo.ModeloImpl;
 import javax.swing.JTextArea;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class EspOptions extends JFrame implements Vista{
 
@@ -124,6 +126,11 @@ public class EspOptions extends JFrame implements Vista{
 		add_panel.add(chckbxAgree);
 		
 		JButton btnRegister = new JButton("Registrar");
+		btnRegister.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlador.insertarEspacios();
+			}
+		});
 		//btnRegister.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 		btnRegister.setFont(controlador.getCentury().deriveFont(Font.BOLD,13));
 		btnRegister.setForeground(new Color(128, 128, 128));
@@ -232,6 +239,26 @@ public class EspOptions extends JFrame implements Vista{
 	@Override
 	public void setModelo(Modelo modelo) {
 		this.modelo = (ModeloImpl) modelo;
+	}
+
+	public String getTxtName() {
+		return txtName.getText();
+	}
+
+	public String getTextArea() {
+		return textArea.getText();
+	}
+
+	public String getTxtfechaDeSolicitud() {
+		return txtfechaDeSolicitud.getText();
+	}
+
+	public String getTxtfechaDeConcesin() {
+		return txtfechaDeConcesin.getText();
+	}
+
+	public String getTextField() {
+		return textField.getText();
 	}
 }
 

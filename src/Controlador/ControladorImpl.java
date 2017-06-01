@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import ClasesTabla.Asociacion;
+import ClasesTabla.Espacio;
 import ClasesTabla.Representante;
 import ClasesTabla.Subvencion;
 import Lanzador.Launch;
@@ -201,6 +202,11 @@ public class ControladorImpl implements Controlador {
 		Subvencion sub = new Subvencion(0, subvencionesExtra.getTxtDateFrom(), Integer.parseInt(subvencionesExtra.getTxtMoney()));
 		
 		modelo.insertarSubvencion(sub, cif);
+	}
+	public void insertarEspacios(){
+		Espacio e = new Espacio(0, espaciosExtra.getTxtName(), espaciosExtra.getTextArea(), espaciosExtra.getTxtfechaDeSolicitud(), espaciosExtra.getTxtfechaDeConcesin());
+		String cif=espaciosExtra.getTextField();
+		modelo.insertarEspacios(e, cif);
 	}
 
 	

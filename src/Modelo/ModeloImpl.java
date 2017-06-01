@@ -178,6 +178,9 @@ public class ModeloImpl implements Modelo {
 	public void insertarSubvencion(Subvencion s, String cif) {
 		as.insertarSubvencion(s, cif);
 	}
+	public void insertarEspacios(Espacio e, String cif) {
+		as.insertarEspacios(e, cif);
+	}
 	
 
 	public Representante getR() {
