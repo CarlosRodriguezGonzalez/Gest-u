@@ -107,7 +107,7 @@ public class AsociacionBBDD {
 
 		try {
 			PreparedStatement ps = conexion.prepareStatement(
-					"select subvencion.id_solicitud,subvencion.fecha_solicitud,subvencion.importe from subvencion inner JOIN asociacion_actividad_organiza on asociacion_actividad_organiza.id_actividad=subvencion.id_actividad INNER JOIN asociacion on asociacion.id_asociacion=asociacion_actividad_organiza.id_asociacion WHERE asociacion.id_asociacion=?");
+					"select subvencion.id_solicitud,subvencion.fecha_solicitud,subvencion.importe from subvencion INNER JOIN asociacion on asociacion.id_asociacion=subvencion.id_asociacion WHERE asociacion.id_asociacion=?");
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
