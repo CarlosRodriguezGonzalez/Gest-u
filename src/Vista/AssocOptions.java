@@ -696,8 +696,14 @@ public class AssocOptions extends JFrame implements Vista{
 		add_panel2.add(btnSearchRep);
 		
 		lblSearchRep = new JTextField();
+		lblSearchRep.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				lblSearchRep.setText("");
+			}
+		});
 		lblSearchRep.setForeground(Color.WHITE);
-		lblSearchRep.setText("B33474D");
+		lblSearchRep.setText("Introduzca CIF");
 		lblSearchRep.setBorder(null);
 		lblSearchRep.setBackground(new Color(32,47,90));
 		lblSearchRep.setBounds(55, 70, 113, 23);

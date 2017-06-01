@@ -161,14 +161,14 @@ public class SubvOptions extends JFrame implements Vista{
 		lblInfo.setForeground(new Color(128, 128, 128));
 		//lblInfo.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		lblInfo.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
-		lblInfo.setBounds(347, 27, 284, 16);
+		lblInfo.setBounds(365, 27, 284, 16);
 		add_panel.add(lblInfo);
 		
 		JDateChooser dateChooser = new JDateChooser();
 		dateChooser.setBounds(231, 62, 28, 33);
 		add_panel.add(dateChooser);
 		
-		JLabel lblBuscarActividad = new JLabel("Buscar Actividad");
+		JLabel lblBuscarActividad = new JLabel("Buscar Asociación");
 		lblBuscarActividad.setForeground(Color.GRAY);
 		lblBuscarActividad.setFont(null);
 		lblBuscarActividad.setBounds(20, 119, 170, 30);
@@ -180,14 +180,26 @@ public class SubvOptions extends JFrame implements Vista{
 		add_panel.add(lblNewLabel);
 		
 		txtcif = new JTextField();
-		txtcif.setText("*CIF");
+		txtcif.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtcif.setText("");
+			}
+		});
+		txtcif.setText("  *Introduzca CIF");
 		txtcif.setForeground(Color.GRAY);
-		txtcif.setFont(null);
+		txtcif.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
 		txtcif.setDisabledTextColor(Color.WHITE);
 		txtcif.setColumns(10);
 		txtcif.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
 		txtcif.setBounds(65, 153, 140, 41);
 		add_panel.add(txtcif);
+		
+		JLabel lblNewLabel_1 = new JLabel("*Para dar de alta la nueva subvención es obligatorio que esté vinculada a una asociación");
+		lblNewLabel_1.setForeground(Color.GRAY);
+		lblNewLabel_1.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
+		lblNewLabel_1.setBounds(20, 218, 563, 16);
+		add_panel.add(lblNewLabel_1);
 		
 		lblDoc.addMouseListener(new MouseAdapter() {
 			@Override
