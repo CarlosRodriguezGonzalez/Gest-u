@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import ClasesTabla.Actividad;
 import ClasesTabla.Asociacion;
 import ClasesTabla.Espacio;
+import ClasesTabla.Representante;
 import ClasesTabla.Subvencion;
 import Vista.ActivOptions;
 import Vista.Actividad1;
@@ -37,7 +38,7 @@ public class ModeloImpl implements Modelo {
 	private SubvOptions subvencionesExtra;
 	private ActivOptions actividadesExtra;
 	private EspOptions espaciosExtra;
-	
+
 	private ArrayList<Asociacion> a;
 	private ArrayList<Subvencion> b;
 	private ArrayList<Actividad> c;
@@ -49,87 +50,89 @@ public class ModeloImpl implements Modelo {
 	private String puerto;
 	private String ruta;
 	private boolean test;
-	
-	
-	public boolean comprobarLogin(String user,String password){
-		
-		if(as.comprobarLogin(user, password))
+	private Representante r;
+
+	public boolean comprobarLogin(String user, String password) {
+
+		if (as.comprobarLogin(user, password))
 			return true;
 		else
 			return false;
 	}
 
-	public void bajarDatosAsoci(){
-		a=new ArrayList<>();
-		try{
-		a = as.getAsociaciones();
-		}catch (Exception e) {
+	public void bajarDatosAsoci() {
+		a = new ArrayList<>();
+		try {
+			a = as.getAsociaciones();
+		} catch (Exception e) {
 			// TODO: handle exception
 		}
 		asociaciones.actualizarTabla();
 	}
-	
-	public void ActualizarTablaMenuPrincipal(){
-		a=new ArrayList<>();
-		try{
-		a = as.getAsociaciones();
-		}catch (Exception e) {
+
+	public void ActualizarTablaMenuPrincipal() {
+		a = new ArrayList<>();
+		try {
+			a = as.getAsociaciones();
+		} catch (Exception e) {
 			// TODO: handle exception
 		}
 		menuInicio.actualizarTabla();
 	}
-	public void actualizarSubvencionTabla(){
-		b=new ArrayList<>();
-		try{
-		b = as.getSubvenciones();
-		}catch (Exception e) {
+
+	public void actualizarSubvencionTabla() {
+		b = new ArrayList<>();
+		try {
+			b = as.getSubvenciones();
+		} catch (Exception e) {
 			// TODO: handle exception
 		}
 		subvenciones.actualizarTabla();
 	}
-	public void actualizarActividadTabla(){
-		c=new ArrayList<>();
-		try{
-		c = as.getActividades();
-		}catch (Exception e) {
+
+	public void actualizarActividadTabla() {
+		c = new ArrayList<>();
+		try {
+			c = as.getActividades();
+		} catch (Exception e) {
 			// TODO: handle exception
 		}
 		actividad.actualizarTabla();
 	}
-	
-	public void actualizarEspacioTabla(){
-		d=new ArrayList<>();
-		try{
-		d = as.getEspacios();
-		}catch (Exception e) {
+
+	public void actualizarEspacioTabla() {
+		d = new ArrayList<>();
+		try {
+			d = as.getEspacios();
+		} catch (Exception e) {
 			// TODO: handle exception
 		}
 		espacio.actualizarTabla();
 	}
-	
-	
-	public void cargarConfiguracion(String user,String pwd,String db,String host,String puerto,String ruta){
-		this.user=user;
-		this.pwd=pwd;
-		this.db=db;
-		this.host=host;
-		this.puerto=puerto;
-		this.ruta=ruta;
+
+	public void cargarConfiguracion(String user, String pwd, String db, String host, String puerto, String ruta) {
+		this.user = user;
+		this.pwd = pwd;
+		this.db = db;
+		this.host = host;
+		this.puerto = puerto;
+		this.ruta = ruta;
 	}
-	
-	public void actualizarVistaConfiguracion(){
+
+	public void actualizarVistaConfiguracion() {
 		configuracion.actualizarConfiguracion();
 	}
-	
-	public void testConexion(String user,String pwd,String db,String host,String puerto){
-		test=false;
-		try{
-			Connection cone= DriverManager.getConnection("jdbc:mysql://"+host+":"+puerto+"/"+db, user,pwd);
-			test=true;
-		}catch(SQLException e){
+
+	public void testConexion(String user, String pwd, String db, String host, String puerto) {
+		test = false;
+		try {
+			Connection cone = DriverManager.getConnection("jdbc:mysql://" + host + ":" + puerto + "/" + db, user, pwd);
+			test = true;
+		} catch (SQLException e) {
 		}
 		configuracion.actualizarTest();
 	}
+
 	public void cargarVistaAsociacionesExtra(int x) {
 		b = new ArrayList<>();
 		try {
@@ -139,26 +142,43 @@ public class ModeloImpl implements Modelo {
 		}
 		asociacionesExtra.actualizarTabla();
 	}
-	
-	public void cargarActividadesAsociacionesExtra(int x){
-		c=new ArrayList<>();
-		try{
-			c=as.getActividadesPorId(x);
-		}catch (Exception e) {
+
+	public void cargarActividadesAsociacionesExtra(int x) {
+		c = new ArrayList<>();
+		try {
+			c = as.getActividadesPorId(x);
+		} catch (Exception e) {
 			// TODO: handle exception
 		}
 		asociacionesExtra.actualizarTablaActividades();
 	}
-	public void cargarEspaciosAsociacionesExtra(int x){
-		d=new ArrayList<>();
-		try{
-			d=as.getEspacioPorId(x);
-		}catch (Exception e) {
+
+	public void cargarEspaciosAsociacionesExtra(int x) {
+		d = new ArrayList<>();
+		try {
+			d = as.getEspacioPorId(x);
+		} catch (Exception e) {
 			// TODO: handle exception
 		}
 		asociacionesExtra.actualizarTablaEspacios();
 	}
-	
+
+	public void buscarRepresentante(String dni) {
+		r = null;
+		try {
+			r = as.getRepresentantePorDni(dni);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		asociacionesExtra.actualizarRepresentante();
+	}
+	public void insertarAssoc(Asociacion a,Representante r) {
+		as.insertarAssoc(a, r);
+	}
+
+	public Representante getR() {
+		return r;
+	}
 
 	@Override
 	public void setVista(Vista vista) {
@@ -193,29 +213,35 @@ public class ModeloImpl implements Modelo {
 	public void setSubvenciones(Subvenciones1 subvenciones) {
 		this.subvenciones = subvenciones;
 	}
-	
-	public void setConfiguracion(DBConfig configuracion){
-		this.configuracion=configuracion;
+
+	public void setConfiguracion(DBConfig configuracion) {
+		this.configuracion = configuracion;
 	}
-	public void setSubvencionesExtra(SubvOptions subvencionesExtra){
-		this.subvencionesExtra=subvencionesExtra;
+
+	public void setSubvencionesExtra(SubvOptions subvencionesExtra) {
+		this.subvencionesExtra = subvencionesExtra;
 	}
-	public void setActividadesExtra(ActivOptions actividadesExtra){
-		this.actividadesExtra=actividadesExtra;
+
+	public void setActividadesExtra(ActivOptions actividadesExtra) {
+		this.actividadesExtra = actividadesExtra;
 	}
-	public void setEspaciosExtra(EspOptions espaciosExtra){
-		this.espaciosExtra=espaciosExtra;
+
+	public void setEspaciosExtra(EspOptions espaciosExtra) {
+		this.espaciosExtra = espaciosExtra;
 	}
 
 	public ArrayList<Asociacion> getA() {
 		return a;
 	}
+
 	public ArrayList<Subvencion> getB() {
 		return b;
 	}
+
 	public ArrayList<Actividad> getC() {
 		return c;
 	}
+
 	public ArrayList<Espacio> getD() {
 		return d;
 	}
@@ -239,14 +265,17 @@ public class ModeloImpl implements Modelo {
 	public String getPuerto() {
 		return puerto;
 	}
-	public String getRuta(){
+
+	public String getRuta() {
 		return ruta;
 	}
-	public boolean getTest(){
+
+	public boolean getTest() {
 		return test;
 	}
-	public void setasociacionesExtra(AssocOptions asociacionesExtra){
-		this.asociacionesExtra=asociacionesExtra;
+
+	public void setasociacionesExtra(AssocOptions asociacionesExtra) {
+		this.asociacionesExtra = asociacionesExtra;
 	}
-	
+
 }

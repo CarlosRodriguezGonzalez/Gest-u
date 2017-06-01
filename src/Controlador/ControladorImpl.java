@@ -6,6 +6,8 @@ import java.awt.GraphicsEnvironment;
 import java.io.IOException;
 import java.io.InputStream;
 
+import ClasesTabla.Asociacion;
+import ClasesTabla.Representante;
 import Lanzador.Launch;
 import Modelo.Modelo;
 import Modelo.ModeloImpl;
@@ -142,9 +144,13 @@ public class ControladorImpl implements Controlador {
 		this.setasociacionesExtra(asociacionesExtra);
 		int x = asociaciones.getRowSelectedID();
 		if(x!=-1){
+			asociacionesExtra.cargarHist();
 		modelo.cargarVistaAsociacionesExtra(x);
 		modelo.cargarActividadesAsociacionesExtra(x);
 		modelo.cargarEspaciosAsociacionesExtra(x);
+		}else{
+			asociacionesExtra.cargarAdd();
+			
 		}
 		asociacionesExtra.setVisible(true);
 	}
@@ -181,6 +187,15 @@ public class ControladorImpl implements Controlador {
 		espaciosExtra.setVisible(true);
 		
 	}
+	public void buscarRepresentante(){
+		modelo.buscarRepresentante(asociacionesExtra.getLblSearchRep());
+	}
+	public void insertarAssoc() {
+		Asociacion a = new Asociacion(0, asociacionesExtra.getTxtName2().getText(), asociacionesExtra.getTxtCif().getText(), Integer.parseInt(asociacionesExtra.getTxtCp2().getText()), asociacionesExtra.getTxtAddress2().getText(), asociacionesExtra.getTxtCity2().getText(), Integer.parseInt(asociacionesExtra.getTxtFijo2().getText()), Integer.parseInt(asociacionesExtra.getTxtMobile2().getText()), Integer.parseInt(asociacionesExtra.getTxtFax().getText()), asociacionesExtra.getTxtEmail2().getText(), 1, "", false, false, false, false, false);
+		Representante r = new Representante(0, asociacionesExtra.getName(), asociacionesExtra.getTxtDni().getText(), asociacionesExtra.getTxtAddress().getText(), asociacionesExtra.getTxtCity().getText(), Integer.parseInt(asociacionesExtra.getTxtCp().getText()), Integer.parseInt(asociacionesExtra.getTxtFijo().getText()), Integer.parseInt(asociacionesExtra.getTxtMobile().getText()), 0, asociacionesExtra.getTxtEmail().getText());
+		modelo.insertarAssoc(a, r);
+	}
+
 	
 	public void testConexion(){
 		modelo.testConexion(configuracion.getTxtUsuario().getText(), configuracion.getPwdContrasea().getText(), configuracion.getTxtBaseDeDatos().getText(), configuracion.getTxtHost().getText(), configuracion.getTxtPuerto().getText());

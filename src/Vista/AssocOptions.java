@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -29,12 +30,14 @@ import com.toedter.calendar.JDateChooser;
 
 import ClasesTabla.Actividad;
 import ClasesTabla.Espacio;
+import ClasesTabla.Representante;
 import ClasesTabla.Subvencion;
 import Controlador.Controlador;
 import Controlador.ControladorImpl;
 import Modelo.Modelo;
 import Modelo.ModeloImpl;
-import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class AssocOptions extends JFrame implements Vista{
 
@@ -92,8 +95,14 @@ public class AssocOptions extends JFrame implements Vista{
 	private JTextField textField_6;
 	private JLabel lblTitle;
 	private JLabel btnSearchRep;
-	private JTextField lblSearchRep;
 	private JSeparator sep_add_panel2;
+	private JPanel hist_panel;
+	private JPanel doc_panel;
+	private JPanel add_panel;
+	private JLabel lblHist;
+	private JLabel lblDoc;
+	private JLabel lblAdd;
+	private JTextField lblSearchRep;
 
 	public AssocOptions(ControladorImpl con) {
 		this.controlador=con;
@@ -110,18 +119,19 @@ public class AssocOptions extends JFrame implements Vista{
 		contentPane.add(panel_left);
 		panel_left.setLayout(null);
 		
-		JLabel lblAdd = new JLabel("Añadir");
-		JLabel lblDoc = new JLabel("Documentación");
-		JLabel lblHist = new JLabel("Histórico");
+		lblAdd = new JLabel("Añadir");
+		lblDoc = new JLabel("Documentación");
+		lblHist = new JLabel("Histórico");
 		lblDoc.setForeground(java.awt.Color.lightGray);
 		lblAdd.setForeground(java.awt.Color.lightGray);
 		
 		JLayeredPane MultPanel = new JLayeredPane();
+		
 		MultPanel.setBounds(0, 58, 637, 492);
 		panel_left.add(MultPanel);
 		MultPanel.setLayout(new CardLayout(0, 0));
 		
-		JPanel hist_panel = new JPanel();
+		hist_panel = new JPanel();
 		hist_panel.setBackground(new Color(255, 255, 255));
 		MultPanel.add(hist_panel, "name_23340656493830");
 		hist_panel.setLayout(null);
@@ -170,11 +180,13 @@ public class AssocOptions extends JFrame implements Vista{
 		
 		
 		
-		JPanel doc_panel = new JPanel();
+		doc_panel = new JPanel();
 		doc_panel.setBackground(new Color(100, 149, 237));
 		MultPanel.add(doc_panel, "name_23357301890851");
+		doc_panel.setVisible(false);
 		
-		JPanel add_panel = new JPanel();
+		add_panel = new JPanel();
+		
 		add_panel.setBackground(Color.WHITE);
 		MultPanel.add(add_panel, "name_23382852103736");
 		add_panel.setLayout(null);
@@ -537,6 +549,16 @@ public class AssocOptions extends JFrame implements Vista{
 		add_panel.add(chckbxAgree);
 		
 		JButton btnRegister = new JButton("Registrar");
+		btnRegister.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnRegister.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				controlador.insertarAssoc();
+			}
+		});
 		//btnRegister.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 		btnRegister.setFont(controlador.getCentury().deriveFont(Font.BOLD,13));
 		btnRegister.setForeground(new Color(128, 128, 128));
@@ -640,9 +662,50 @@ public class AssocOptions extends JFrame implements Vista{
 		panel_right.add(MultPanel2);
 		MultPanel2.setLayout(new CardLayout(0, 0));
 		
+		doc_panel2 = new JPanel();
+		doc_panel2.setBackground(Color.PINK);
+		MultPanel2.add(doc_panel2, "name_40282482298038");
+		
+		add_panel2 = new JPanel();
+		add_panel2.setBackground(new Color(32,47,90));
+		MultPanel2.add(add_panel2, "name_40289285423663");
+		add_panel2.setLayout(null);
+		
+		lblTitle = new JLabel(" Buscar Representante");
+		lblTitle.setForeground(Color.WHITE);
+		lblTitle.setFont(null);
+		lblTitle.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
+		lblTitle.setBounds(17, 16, 151, 36);
+		add_panel2.add(lblTitle);
+		
+		btnSearchRep = new JLabel("");
+		btnSearchRep.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			controlador.buscarRepresentante();	
+			}
+		});
+		btnSearchRep.setIcon(new ImageIcon("img/search.png"));
+		btnSearchRep.setBounds(17, 64, 40, 40);
+		add_panel2.add(btnSearchRep);
+		
+		lblSearchRep = new JTextField();
+		lblSearchRep.setForeground(Color.WHITE);
+		lblSearchRep.setText("B33474D");
+		lblSearchRep.setBorder(null);
+		lblSearchRep.setBackground(new Color(32,47,90));
+		lblSearchRep.setBounds(55, 70, 113, 23);
+		add_panel2.add(lblSearchRep);
+		lblSearchRep.setColumns(10);
+		
+		sep_add_panel2 = new JSeparator();
+		sep_add_panel2.setBounds(55, 92, 113, 12);
+		add_panel2.add(sep_add_panel2);
+		
 		hist_panel2 = new JPanel();
+		hist_panel2.setBounds(0, 0, 273, 550);
+		add_panel2.add(hist_panel2);
 		hist_panel2.setBackground(new Color(32,47,90));
-		MultPanel2.add(hist_panel2, "name_40223813435417");
 		hist_panel2.setLayout(null);
 		
 		JLabel lblDetails = new JLabel(" Detalles de la Asociación");
@@ -781,44 +844,9 @@ public class AssocOptions extends JFrame implements Vista{
 		textField_6.setBounds(17, 472, 205, 30);
 		hist_panel2.add(textField_6);
 		
-		doc_panel2 = new JPanel();
-		doc_panel2.setBackground(Color.PINK);
-		MultPanel2.add(doc_panel2, "name_40282482298038");
-		
-		add_panel2 = new JPanel();
-		add_panel2.setBackground(new Color(32,47,90));
-		MultPanel2.add(add_panel2, "name_40289285423663");
-		add_panel2.setLayout(null);
-		
-		lblTitle = new JLabel(" Buscar Representante");
-		lblTitle.setForeground(Color.WHITE);
-		lblTitle.setFont(null);
-		lblTitle.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
-		lblTitle.setBounds(17, 16, 151, 36);
-		add_panel2.add(lblTitle);
-		
-		btnSearchRep = new JLabel("");
-		btnSearchRep.setIcon(new ImageIcon("/Users/sergio/git/FaisanPI/img/search.png"));
-		btnSearchRep.setBounds(17, 64, 40, 40);
-		add_panel2.add(btnSearchRep);
-		
-		lblSearchRep = new JTextField();
-		lblSearchRep.setForeground(Color.WHITE);
-		lblSearchRep.setText("B33474D");
-		lblSearchRep.setBorder(null);
-		lblSearchRep.setBackground(new Color(32,47,90));
-		lblSearchRep.setBounds(55, 70, 113, 23);
-		add_panel2.add(lblSearchRep);
-		lblSearchRep.setColumns(10);
-		
-		sep_add_panel2 = new JSeparator();
-		sep_add_panel2.setBounds(55, 92, 113, 12);
-		add_panel2.add(sep_add_panel2);
-		
 		
 		
 		hist_panel.setVisible(true);
-		doc_panel.setVisible(false);
 		add_panel.setVisible(false);
 	}
 	
@@ -892,6 +920,46 @@ public class AssocOptions extends JFrame implements Vista{
 		esp_scroll.setViewportView(esp_table);
 	}
 	
+	public void cargarHist(){
+		lblHist.setForeground(java.awt.Color.black);
+		lblDoc.setForeground(java.awt.Color.lightGray);
+		lblAdd.setForeground(java.awt.Color.lightGray);
+		hist_panel.setVisible(true);
+		doc_panel.setVisible(false);
+		add_panel.setVisible(false);
+		hist_panel2.setVisible(true);
+		doc_panel2.setVisible(false);
+		add_panel2.setVisible(false);
+	}
+	public void cargarAdd(){
+		lblAdd.setForeground(java.awt.Color.black);
+		lblHist.setForeground(java.awt.Color.lightGray);
+		lblDoc.setForeground(java.awt.Color.lightGray);
+		hist_panel.setVisible(false);
+		doc_panel.setVisible(false);
+		add_panel.setVisible(true);
+		hist_panel2.setVisible(false);
+		doc_panel2.setVisible(false);
+		add_panel2.setVisible(true);
+	}
+	
+	public void actualizarRepresentante(){
+		Representante r=modelo.getR();
+		if(r!=null){
+		txtName.setText(r.getNombre());
+		txtSurname.setText(r.getNombre());
+		txtDni.setText(r.getNIF_NIE());
+		txtEmail.setText(r.getEmail());
+		txtAddress.setText(r.getDireccion());
+		txtCity.setText(r.getMunicipio());
+		txtCp.setText(""+r.getCodigoPostal());
+		txtFijo.setText(""+r.getTlfn_fijo());
+		txtMobile.setText(""+r.getTlfn_movil());
+		}}
+
+
+	
+	
 	@Override
 	public void setControlador(Controlador controlador) {
 		this.controlador = (ControladorImpl) controlador;
@@ -900,5 +968,129 @@ public class AssocOptions extends JFrame implements Vista{
 	@Override
 	public void setModelo(Modelo modelo) {
 		this.modelo = (ModeloImpl) modelo;
+	}
+	
+	public String getLblSearchRep(){
+		return lblSearchRep.getText();
+	}
+
+	public JPanel getHist_panel2() {
+		return hist_panel2;
+	}
+
+	public JPanel getDoc_panel2() {
+		return doc_panel2;
+	}
+
+	public JPanel getAdd_panel2() {
+		return add_panel2;
+	}
+
+	public JPanel getHist_panel() {
+		return hist_panel;
+	}
+
+	public JPanel getDoc_panel() {
+		return doc_panel;
+	}
+
+	public JPanel getAdd_panel() {
+		return add_panel;
+	}
+
+	public JTextField getTxtName() {
+		return txtName;
+	}
+
+	public JTextField getTxtSurname() {
+		return txtSurname;
+	}
+
+	public JTextField getTxtDni() {
+		return txtDni;
+	}
+
+	public JTextField getTxtEmail() {
+		return txtEmail;
+	}
+
+	public JTextField getTxtAddress() {
+		return txtAddress;
+	}
+
+	public JTextField getTxtName2() {
+		return txtName2;
+	}
+
+	public JTextField getTxtAddress2() {
+		return txtAddress2;
+	}
+
+	public JTextField getTxtFax() {
+		return txtFax;
+	}
+
+	public JTextField getTxtEmail2() {
+		return txtEmail2;
+	}
+
+	public JTextField getTxtCity() {
+		return txtCity;
+	}
+
+	public JTextField getTxtCp() {
+		return txtCp;
+	}
+
+	public JTextField getTxtFijo() {
+		return txtFijo;
+	}
+
+	public JTextField getTxtMobile() {
+		return txtMobile;
+	}
+
+	public JTextField getTxtCif() {
+		return txtCif;
+	}
+
+	public JTextField getTxtCity2() {
+		return txtCity2;
+	}
+
+	public JTextField getTxtCp2() {
+		return txtCp2;
+	}
+
+	public JTextField getTxtFijo2() {
+		return txtFijo2;
+	}
+
+	public JTextField getTxtMobile2() {
+		return txtMobile2;
+	}
+
+	public JTextField getTxtDate() {
+		return txtDate;
+	}
+
+	public JTextField getTxtEjemplo() {
+		return txtEjemplo;
+	}
+
+	public JTextField getTxtCDeLa() {
+		return txtCDeLa;
+	}
+
+	public JTextField getTxtBf() {
+		return txtBf;
+	}
+
+	public JTextField getTxtTiroalplatogmailcom() {
+		return txtTiroalplatogmailcom;
+	}
+
+	public JTextField getTxtMadrid() {
+		return txtMadrid;
 	}
 }
