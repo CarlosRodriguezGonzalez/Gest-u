@@ -34,6 +34,7 @@ import Controlador.Controlador;
 import Controlador.ControladorImpl;
 import Modelo.Modelo;
 import Modelo.ModeloImpl;
+import javax.swing.ImageIcon;
 
 public class SubvOptions extends JFrame implements Vista{
 
@@ -47,7 +48,7 @@ public class SubvOptions extends JFrame implements Vista{
 	private JLabel lblInfo;
 	private JPanel doc_panel2;
 	private JPanel add_panel2;
-	private JTextField txtAssocActiv;
+	private JTextField txtcif;
 
 	public SubvOptions(ControladorImpl con) {
 		this.controlador=con;
@@ -167,21 +168,26 @@ public class SubvOptions extends JFrame implements Vista{
 		dateChooser.setBounds(231, 62, 28, 33);
 		add_panel.add(dateChooser);
 		
-		txtAssocActiv = new JTextField();
-		txtAssocActiv.setText("  Actividad asociada");
-		txtAssocActiv.setForeground(Color.GRAY);
-		txtAssocActiv.setFont(controlador.getSegoeui().deriveFont(Font.PLAIN,12));
-		txtAssocActiv.setDisabledTextColor(Color.WHITE);
-		txtAssocActiv.setColumns(10);
-		txtAssocActiv.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
-		txtAssocActiv.setBounds(430, 62, 170, 33);
-		add_panel.add(txtAssocActiv);
-		
 		JLabel lblBuscarActividad = new JLabel("Buscar Actividad");
 		lblBuscarActividad.setForeground(Color.GRAY);
 		lblBuscarActividad.setFont(null);
 		lblBuscarActividad.setBounds(20, 119, 170, 30);
 		add_panel.add(lblBuscarActividad);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("img/search3.png"));
+		lblNewLabel.setBounds(20, 153, 41, 39);
+		add_panel.add(lblNewLabel);
+		
+		txtcif = new JTextField();
+		txtcif.setText("*CIF");
+		txtcif.setForeground(Color.GRAY);
+		txtcif.setFont(null);
+		txtcif.setDisabledTextColor(Color.WHITE);
+		txtcif.setColumns(10);
+		txtcif.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
+		txtcif.setBounds(65, 153, 140, 41);
+		add_panel.add(txtcif);
 		
 		lblDoc.addMouseListener(new MouseAdapter() {
 			@Override
