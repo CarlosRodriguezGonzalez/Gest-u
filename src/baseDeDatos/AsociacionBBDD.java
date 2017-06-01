@@ -60,7 +60,7 @@ public class AsociacionBBDD {
 			ResultSet rs = st.executeQuery("Select * from subvencion");
 			while (rs.next()) {
 				Subvencion p = new Subvencion(rs.getInt("id_solicitud"), rs.getString("fecha_solicitud"),
-						rs.getInt("importe"), null);
+						rs.getInt("importe"));
 				sub.add(p);
 			}
 		} catch (SQLException e) {
@@ -112,7 +112,7 @@ public class AsociacionBBDD {
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				Subvencion p = new Subvencion(rs.getInt("id_solicitud"), rs.getString("fecha_solicitud"),
-						rs.getInt("importe"), null);
+						rs.getInt("importe"));
 				sub.add(p);
 			}
 
@@ -212,11 +212,10 @@ public class AsociacionBBDD {
 				psIns.setInt(8, r.getFax());
 				psIns.setString(9, r.getEmail());
 
-
 				if (psIns.executeUpdate() == 1) {
 					ResultSet rsIns = ps.getGeneratedKeys();
 					if (rs.next()) {
-						rep=rsIns.getInt(1);
+						rep = rsIns.getInt(1);
 					}
 				}
 
@@ -249,6 +248,39 @@ public class AsociacionBBDD {
 			psAs.executeUpdate();
 			System.err.println("asd");
 		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	// INSERT INTO `subvencion` (`fecha_solicitud`, `importe`, `id_asociacion`)
+	// VALUES ('adsf', '2', '2');
+	public void insertarSubvencion(Subvencion s, String cif) {
+		PreparedStatement psIns;
+		int id=0;
+		try {
+			PreparedStatement ps = conexion.prepareStatement("SELECT * from asociacion WHERE cif=?");
+			ps.setString(1, cif);
+			ResultSet rs = ps.executeQuery();
+			
+			if (rs.next()) {
+				System.out.println(id);
+				id=rs.getInt(1);
+				System.out.println(id);
+				psIns = conexion.prepareStatement(
+						"INSERT INTO `subvencion` (`fecha_solicitud`, `importe`, `id_asociacion`) VALUES (?, ?, ?);");
+				psIns.setString(1, s.getFecha());
+				psIns.setInt(2, s.getImporte());
+				psIns.setInt(3, id);
+				
+				psIns.executeUpdate();
+				
+				System.out.println("hola!");
+			}
+
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
