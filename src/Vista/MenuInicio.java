@@ -233,20 +233,6 @@ public class MenuInicio extends JFrame implements Vista {
 		lblPreimp.setBounds(6, 6, 147, 28);
 		btnPreimp.add(lblPreimp);
 		
-		JPanel btnHist = new JPanel();
-		btnHist.setLayout(null);
-		btnHist.setBackground(new Color(189,195,199));
-		btnHist.setBounds(465, 141, 159, 40);
-		filterContainer.add(btnHist);
-		
-		JLabel lblHist = new JLabel("HISTÓRICO");
-		lblHist.setIcon(new ImageIcon("img/News-30.png"));
-		lblHist.setForeground(Color.WHITE);
-		//lblHist.setFont(new Font("Century Gothic", Font.BOLD, 12));
-		lblHist.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,12));
-		lblHist.setBounds(6, 0, 115, 40);
-		btnHist.add(lblHist);
-		
 		JPanel btnConf = new JPanel();
 		btnConf.setLayout(null);
 		btnConf.setBackground(new Color(189, 195, 199));

@@ -103,6 +103,7 @@ public class AssocOptions extends JFrame implements Vista{
 	private JLabel lblDoc;
 	private JLabel lblAdd;
 	private JTextField lblSearchRep;
+	private JTextField txtprueba;
 
 	public AssocOptions(ControladorImpl con) {
 		this.controlador=con;
@@ -557,7 +558,8 @@ public class AssocOptions extends JFrame implements Vista{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				controlador.insertarAssoc();
-				dispose();
+				txtprueba.setForeground(new Color(42, 239, 35));
+				txtprueba.setText("La asociación ha sido registrada satisfactoriamente.");
 			}
 		});
 		//btnRegister.setFont(new Font("Lucida Grande", Font.BOLD, 13));
@@ -567,11 +569,6 @@ public class AssocOptions extends JFrame implements Vista{
 		add_panel.add(btnRegister);
 		
 		JButton btnCancel = new JButton("Cancelar");
-		btnCancel.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-			}
-		});
 		btnCancel.setForeground(new Color(128, 128, 128));
 		//btnCancel.setFont(new Font("Century Gothic", Font.BOLD, 13));
 		btnCancel.setFont(controlador.getCentury().deriveFont(Font.BOLD,13));
@@ -593,6 +590,13 @@ public class AssocOptions extends JFrame implements Vista{
 		selectType.setModel(new DefaultComboBoxModel(new String[] {"*Tipo", "Deporte", "Cultural", "Social", "Juvenil"}));
 		selectType.setBounds(20, 288, 140, 33);
 		add_panel.add(selectType);
+		
+		txtprueba = new JTextField();
+		txtprueba.setBorder(null);
+		txtprueba.setFont(controlador.getSegoeui().deriveFont(Font.BOLD,13));
+		txtprueba.setBounds(20, 466, 593, 26);
+		add_panel.add(txtprueba);
+		txtprueba.setColumns(10);
 		
 		lblHist.addMouseListener(new MouseAdapter() {
 			@Override
