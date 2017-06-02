@@ -201,7 +201,7 @@ public class AsociacionBBDD {
 			} else {
 				// 9 ?
 				PreparedStatement psIns = conexion.prepareStatement(
-						"INSERT INTO `representante` (`nombre`, `NIF_NIE`, `direccion`, `municipio`, `codigo_postal`, `tfn_fijo`, `tfn_movil`, `fax`, `email`) VALUES (?,?,?, ?, ?,?, ?,?,?);");
+						"INSERT INTO `representante` (`nombre`, `NIF_NIE`, `direccion`, `municipio`, `codigo_postal`, `tfn_fijo`, `tfn_movil`, `fax`, `email`) VALUES (?,?,?, ?, ?,?, ?,?,?);",Statement.RETURN_GENERATED_KEYS);
 				psIns.setString(1, r.getNombre());
 				psIns.setString(2, r.getNIF_NIE());
 				psIns.setString(3, r.getDireccion());
@@ -212,12 +212,10 @@ public class AsociacionBBDD {
 				psIns.setInt(8, r.getFax());
 				psIns.setString(9, r.getEmail());
 
-				if (psIns.executeUpdate() == 1) {
 					ResultSet rsIns = ps.getGeneratedKeys();
-					if (rs.next()) {
+					rsIns.next();
 						rep = rsIns.getInt(1);
-					}
-				}
+				
 
 				// INSERT INTO `representante` (`nombre`, `NIF_NIE`,
 				// `direccion`, `municipio`, `codigo_postal`, `tfn_fijo`,
@@ -268,7 +266,7 @@ public class AsociacionBBDD {
 				id = rs.getInt(1);
 				System.out.println(id);
 				psIns = conexion.prepareStatement(
-						"INSERT INTO `subvencion` (`fecha_solicitud`, `importe`, `id_asociacion`) VALUES (?, ?, ?);");
+						"INSERT INTO `subvencion` (`fecha_solicitud`, `importe`, `id_asociacion`) VALUES (?, ?, ?);",Statement.RETURN_GENERATED_KEYS);
 				psIns.setString(1, s.getFecha());
 				psIns.setInt(2, s.getImporte());
 				psIns.setInt(3, id);
